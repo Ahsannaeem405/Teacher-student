@@ -10,11 +10,13 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">  
         {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script> --}}
          <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-   
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 
         <style>
             body{
                 font-family: Circular-Loom;
+    
             }
             .loginbtn{
                 background: #797C5B;
@@ -37,7 +39,7 @@
         <header class="main-header active-header">
             <div class="row">
                 <div class="col-md-3 logo-col">
-                    <img src="{{url('/images/logo.svg')}}" alt="Image"/>
+                  <a href="{{url('/')}}">  <img src="{{url('/images/logo.svg')}}"  alt="Image"/></a>
                 </div>
                 <div class="col-md-6 menu-col">
                     <nav class="navbar navbar-expand-lg navbar-light">

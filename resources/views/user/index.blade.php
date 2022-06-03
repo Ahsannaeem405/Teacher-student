@@ -15,21 +15,139 @@
         background: #C9C97E;
         border: 1px solid #707070;
         margin-top:10px;
-font-weight:bolder;
-        width: 39% !important;font-size: 25px;color:black
+        font-weight:bolder;
+        width: 39% !important;
+        font-size: 25px;
+        color:black
     }
- .text-white{
-        color: white;font-size:50px;
+ .textbold{
+        color: white;
+        font-size:50px;
     }
+    .card-img-top{
+        width: 100%;
+        height: 180px;
+    }
+    .border{
+        /* border: 1px solid  rgb(165, 163, 163); */
+        margin-top: 20px;
+        /* border-radius: 5%; */
+    }
+    img{
+        border-radius: 5% 5% 0% 0%;
+    }
+    .card-title{
+        color: #C9C97E;
+        font-size: 15px;
+        font-weight: 500;
+        margin-left: 20px;
+    }
+    .greyColor{
+        color: rgb(165, 163, 163)
+    }
+    .card_section{
+        /* margin-top:20px;
+        margin-bottom:20px;
+        text-align: center;
+        border-radius: 20px; */
+        
+        
+    
+    }
+    .card-text{
+        font-size: 20px;
+        font-weight: 900;
+        margin-left: 20px;
+    }
+    .card-body{
+        background: white;
+    }
+   .cardbgcolor{
+    background: rgb(221, 218, 218);
+   }
+   .select-sec{
+       margin-top:10%;
+   }
 </style>
+        
 <div class="banner">
-<div class="banner_text text-center">
-    <h3 class="text-heading">Welcome To Virtually Teaching</h3>
-    <h2 class="text-white">The Future Of Online Teaching</h2>
-    <button class="btn freeBtn ">Start Free trail</button>
+            <div class="banner_text text-center">
+                <h3 class="text-heading">Welcome To Virtually Teaching</h3>
+                <h2 class="textbold">The Future Of Online Teaching</h2>
+                <button class="btn freeBtn ">Start Free trail</button>
+            </div>
+        </div>
+<section class="cardbgcolor">
+
+<div class="container ">
+    <div class="row">
+        <div class="col-md-4 col-lg">
+            <div class="card border">
+                <img class="card-img-top" src="{{url('images/black.png')}}" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">Virtual Teaching</h5>
+                  <p class="card-text">Let's Learn Python Fast.</p>
+                    <div class="row card_section">
+                        <div class="col-md-4 ml-2">
+                            <i class="fa-solid fa-message"></i>
+                        </div>
+                        <div class="col-md-4">
+                            
+                            <i class="fa-solid fa-user-group"></i> <span class="greyColor">14</span> 
+                        </div>
+                        <div class="col-md-4">
+                            <i class="fa-solid fa-clock"></i> <span class="greyColor">15 minute</span> 
+                        </div>
+                    </div>
+                    </div>
+              </div>
+        </div>
+            <div class="col-md-4 col-lg">
+                <div class="card border">
+                    <img class="card-img-top" src="{{url('images/black.png')}}" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title">Virtual Teaching</h5>
+                      <p class="card-text">Let's Learn Python Fast.</p>
+                        <div class="row card_section">
+                            <div class="col-md-4 ml-2">
+                                <i class="fa-solid fa-message"></i>
+                            </div>
+                            <div class="col-md-4">
+                                
+                                <i class="fa-solid fa-user-group"></i> <span class="greyColor">14</span> 
+                            </div>
+                            <div class="col-md-4">
+                                <i class="fa-solid fa-clock"></i> <span class="greyColor">15 minute</span> 
+                            </div>
+                        </div>
+                        </div>
+                  </div>
+        </div>
+            <div class="col-md-4 col-lg">
+                <div class="card border">
+                    <img class="card-img-top" src="{{url('images/black.png')}}" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title">Virtual Teaching</h5>
+                      <p class="card-text">Let's Learn Python Fast.</p>
+                        <div class="row card_section">
+                            <div class="col-md-4 ml-2">
+                                <i class="fa-solid fa-message"></i>
+                            </div>
+                            <div class="col-md-4">
+                                
+                                <i class="fa-solid fa-user-group"></i> <span class="greyColor">14</span> 
+                            </div>
+                            <div class="col-md-4">
+                                <i class="fa-solid fa-clock"></i> <span class="greyColor">15 minute</span> 
+                            </div>
+                        </div>
+                        </div>
+                  </div>
+        </div>
+    </div>
 </div>
 
-</div>
+</section>
 <div class="select-sec">
     <div class="container">
         <h2>SELECT THE PAYMENT OPTION AND CONTINUE</h2>
@@ -80,12 +198,7 @@ font-weight:bolder;
         </div>
     </div>
 </div>
-<<<<<<< HEAD
 <div class="next-project">
-=======
-
-<div class="next-project"> 
->>>>>>> cddc3829cd289ee99d539547b3ec232815b133dc
     <div class="two-img">
         <img src="{{url('/images/dot-shape-primary.svg')}}" alt="Image"/>
         <img src="{{url('/images/dot-shape-white.svg')}}" alt="Image"/>
