@@ -1,0 +1,11 @@
+.l_p{
+    padding-left: 9px;
+    }
+.plan_list{
+    display: flex;
+    /* justify-items: center; */
+    align-items: center;
+}
+.li_font{
+    font-size: 16px
+}
