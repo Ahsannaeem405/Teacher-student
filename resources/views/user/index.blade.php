@@ -13,19 +13,20 @@
     }
     .freeBtn{
         background: #C9C97E;
-        color:white;
         border: 1px solid #707070;
         margin-top:10px;
+font-weight:bolder;
+        width: 39% !important;font-size: 25px;color:black
     }
-    .text-white{
-        color: white;
+ .text-white{
+        color: white;font-size:50px;
     }
 </style>
 <div class="banner">
-<div class="banner_text">
-    <h3 class="text-white">Welcome To Virtually Teaching</h3>
+<div class="banner_text text-center">
+    <h3 class="text-heading">Welcome To Virtually Teaching</h3>
     <h2 class="text-white">The Future Of Online Teaching</h2>
-    <button class="btn freeBtn btn-block ">Start Free Trail</button>
+    <button class="btn freeBtn ">Start Free trail</button>
 </div>
 
 </div>
@@ -69,8 +70,8 @@
                     <li><i class="fa fa-check-circle-o" aria-hidden="true"></i>&nbsp; Watch your video anytime at your leisure</li>
                     <li><i class="fa fa-check-circle-o" aria-hidden="true"></i>&nbsp; Get 50 videos per month for $10 a month</li>
                     <li><i class="fa fa-check-circle-o" aria-hidden="true"></i>&nbsp; Watch videos anytime at your leisure</li>
-                    <li><i class="fa fa-check-circle-o" aria-hidden="true"></i>&nbsp; Share your videos with you social media</li> 
-                </ul> 
+                    <li><i class="fa fa-check-circle-o" aria-hidden="true"></i>&nbsp; Share your videos with you social media</li>
+                </ul>
             </div>
         </div>
         <div class="back-to-sec">
@@ -79,7 +80,7 @@
         </div>
     </div>
 </div>
-<div class="next-project"> 
+<div class="next-project">
     <div class="two-img">
         <img src="{{url('/images/dot-shape-primary.svg')}}" alt="Image"/>
         <img src="{{url('/images/dot-shape-white.svg')}}" alt="Image"/>
