@@ -79,6 +79,7 @@
         </div>
     </div>
 </div>
+
 <div class="next-project"> 
     <div class="two-img">
         <img src="{{url('/images/dot-shape-primary.svg')}}" alt="Image"/>
