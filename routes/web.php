@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FrontController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/',[FrontController::class,'index']);
+Route::get('/price',[FrontController::class,'price']);
 Route::get('/header', function () {
     return view('header');
 });
