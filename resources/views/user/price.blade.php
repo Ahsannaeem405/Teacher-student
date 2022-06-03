@@ -27,7 +27,7 @@
 </div>
 <br>
 <div class="container pricing">
-
+  
     <div class="row">
         <div class="col-lg-3  col-md-6 col-sm-12">
             <div class="card border" >
@@ -106,10 +106,10 @@
     </div>
 </div>
 
-      <br>
-      <br>
+      <br>   
+      <br>   
 <!-- last blue section start -->
-        <div class="next-project ">
+        <div class="next-project "> 
             <div class="two-img">
                 <img src="{{url('/images/dot-shape-primary.svg')}}" alt="Image"/>
                 <img src="{{url('/images/dot-shape-white.svg')}}" alt="Image"/>

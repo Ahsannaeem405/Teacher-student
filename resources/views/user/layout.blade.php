@@ -3,7 +3,7 @@
 
 
 
-{{-- @yield('content') --}}
+@yield('content')
 
 
 @include('user.layout.footer')
