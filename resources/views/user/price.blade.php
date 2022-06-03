@@ -36,7 +36,7 @@
                     <div class="price">
                         <h2 class=""><i>Free</i></h2>
                     </div>
-                    <p class="card-text">Feature include:</p>
+                    <p class="card-text">Features include:</p>
                     <ul>
                         <li class="list-unstyled"><i class="fa fa-check-circle-o" aria-hidden="true"></i> <span></span> Upload <strong>one</strong>  video for free</li>
                         <li class="list-unstyled"><i class="fa fa-check-circle-o" aria-hidden="true"></i> <span></span> Upload your videos any time at your leisure</li>
@@ -128,4 +128,3 @@
             </div>
         </div>
 @endsection
-
