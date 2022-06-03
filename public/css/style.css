@@ -8,7 +8,7 @@
         width: 100%;
         z-index: 999999;
         transition: all 0.2s ease-in-out;
-        background-color:transparent; 
+        background-color:transparent;
 }
 .active-header {
     background: #2c3250;
@@ -131,7 +131,7 @@ ul.footer-link li {
     padding: 30px;
 }
 .col-md-5.order-sum-col h3,.col-md-5.order-sum-col span,h3 {
-    font-size: 21px !important;
+    font-size: 21px;
     font-family: system-ui;
     font-weight: 500;
     color: #2c3250;
@@ -524,7 +524,7 @@ form.search-form input[type="text"] {
 }
 .pricing{
     text-align: center;
-    
+
   }
   .pricing .card{
     padding: 10px 0px;
@@ -834,7 +834,7 @@ i.fa.fa-download {
     }
     .col-md-5.order-sum-col h3, .col-md-5.order-sum-col span, h3 {
         font-size: 16px !important;
-    }  
+    }
     .btn-sec button {
         padding: 10px 8px;
         font-size: 11px;
@@ -879,7 +879,7 @@ i.fa.fa-download {
         color: #fff;
         font-size: 45px;
     }
-    
+
 }
 @media (max-width:1350px) and (min-width:981px) {
     .row.col-middle {
@@ -893,7 +893,7 @@ i.fa.fa-download {
     .col-md-8.tab-content-col {
         padding: 70px 50px;
     }
-    
+
 }
 .navbar-inverse {
     background-color: unset;
@@ -994,7 +994,7 @@ select#cars {
         width: 222px;
         height: 53px;
     }
-    
+
 }
 .rating {
     padding: 16% 0px;
@@ -1061,6 +1061,9 @@ select#cars {
     background: #fff;
     color: #c8c97d;
 }
+.text-heading{
+    color: white;font-size:29px;
+}
 @media(max-width:767px){
     .rating i.fa.fa-star-o {
         font-size: 40px;
@@ -1070,5 +1073,3 @@ ul.btn-sec {
     display: block;
 }
 }
-    
-  
