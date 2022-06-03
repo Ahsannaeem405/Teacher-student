@@ -60,12 +60,5 @@
                 </div>
             </div>
         </header>  
-        @yield('content')
-    </body>
-        <!-- jQuery (necessary for Bootstrap's JavaScript plugins)   Order is important -->    
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>    
-        <!-- Include all compiled plugins (below), or include individual files as needed -->    
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script> 
-        <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-        <script src="{{asset('js/custom.js')}}"></script>
-</html
+    
+    
