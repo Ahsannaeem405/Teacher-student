@@ -80,7 +80,12 @@ font-weight:bolder;
         </div>
     </div>
 </div>
+<<<<<<< HEAD
 <div class="next-project">
+=======
+
+<div class="next-project"> 
+>>>>>>> cddc3829cd289ee99d539547b3ec232815b133dc
     <div class="two-img">
         <img src="{{url('/images/dot-shape-primary.svg')}}" alt="Image"/>
         <img src="{{url('/images/dot-shape-white.svg')}}" alt="Image"/>
