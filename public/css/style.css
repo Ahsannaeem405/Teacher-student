@@ -537,7 +537,7 @@ margin-bottom: 26px;
 text-align: left !important;
 margin-bottom: 30px;
    padding: 15px 10px;
-background: #fafafa;
+background: #e7e5e563;
 border-radius: 10px;
 }
 .pricing h2 {
@@ -583,8 +583,11 @@ color: #308214;
 font-size: 21px;
 }
 .card.middle-card {
-background: #fafafa;
-box-shadow: 0px 3px 9px rgb(0 0 0 / 15%);
+background: #e7e5e563;
+/* box-shadow: 0px 3px 9px rgb(0 0 0 / 15%); */
+border-left: 5px solid rgb(220, 217, 217);
+border-right: 5px solid rgb(220, 217, 217);
+border-top: 1px solid rgb(220, 217, 217);
 }
 
 /*section 2 to section 8*/

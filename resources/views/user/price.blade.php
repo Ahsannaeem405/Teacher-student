@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="{{ asset('css/style2.css') }}">
 <style>
     .border{
-        border: 2px solid grey;
+        border: 1px solid rgb(185, 196, 138);
     }
     .priceBtn{
         background-color: #308214;
@@ -12,24 +12,15 @@
     padding: 10px 45px;
     border: none;
     border-radius: 11px;
-    box-shadow: 0px 0px 35px rgb(0 0 0 / 20%);
+    box-shadow: 0px 0px 35px rgb(231, 232, 231);
     }
 
 </style>
 <div class="banner-two"></div>
 <div class="container" >
 
-    <div class="text-center">
-        <div class="row ">
-            <div class=" col-md-12">
-                <h2 class=" text-center">Plans</h2>
-            </div>
-        </div>
-        <div class="row">
-            <h3 class="mt-5" style="color:#000;">Choose the right payment option that best suits you</h3>
-        </div>
-    </div>
-    <br>
+
+    <br>    <br>    <br>
     <div class="container pricing">
 
         <div class="row">
@@ -114,23 +105,37 @@
           <br>
           <br>
     <!-- last blue section start -->
-            <div class="next-project ">
-                <div class="two-img">
-                    <img src="{{url('/images/dot-shape-primary.svg')}}" alt="Image"/>
-                    <img src="{{url('/images/dot-shape-white.svg')}}" alt="Image"/>
-                </div>
-                <div class="container">
-                    <h1>Have A Vision For Your</h1>
-                    <h1>Next Project? Let's Get Your</h1>
-                    <h1>14 Day Trial Started Now!</h1>
-                    <div class="btn-sec mt-5">
-                        <button>Learn More <img src="{{url('/images/arrow.png')}}" alt="Image"/></button>
-                        <button>Join With Us!</button>
-                    </div>
-                </div>
-                <div class="one-img">
-                    <img src="{{url('/images/dot-shape-white.svg')}}" alt="Image"/>
+
+</div>
+{{--  <<<<<<< HEAD
+@endsection
+=======  --}}
+<br>
+<div class="container pricing">
+
+
+</div>
+
+      <br>
+      <br>
+<!-- last blue section start -->
+        <div class="next-project ">
+            <div class="two-img">
+                <img src="{{url('/images/dot-shape-primary.svg')}}" alt="Image"/>
+                <img src="{{url('/images/dot-shape-white.svg')}}" alt="Image"/>
+            </div>
+            <div class="container">
+                <h1>Have A Vision For Your</h1>
+                <h1>Next Project? Let's Get Your</h1>
+                <h1>14 Day Trial Started Now!</h1>
+                <div class="btn-sec mt-5">
+                    <button>Learn More <img src="{{url('/images/arrow.png')}}" alt="Image"/></button>
+                    <button>Join With Us!</button>
                 </div>
             </div>
-</div>
+            <div class="one-img">
+                <img src="{{url('/images/dot-shape-white.svg')}}" alt="Image"/>
+            </div>
+        </div>
 @endsection
+{{--  >>>>>>> b98813ee12ab0e7bd0f555e2ad39bcfc429a6403  --}}

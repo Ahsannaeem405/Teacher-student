@@ -9,3 +9,35 @@
 .li_font{
     font-size: 16px
 }
+/* index css */
+.card_heading{
+    margin-top: 0;padding-top: 17px;margin-bottom: 3px;
+}
+.icon_prop{
+    margin-left: 19px;
+    font-size: 18px;color: rgb(54 48 48 / 65%);
+margin-bottom: 20px;
+}
+.box_b{
+box-shadow: 3px 3px 14px -2px rgb(0 0 0 / 30%);
+}
+.mt{
+margin-top: 15px;
+}
+.mb{
+    margin-bottom: 15px;
+    }
+.img_width{
+    width: 100%;margin-top: 20px;
+}
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+.t_para{
+background-color: blue;margin:12px;
+margin-bottom: 15px;
+}
+.star_color{
+color:yellow;
+}
