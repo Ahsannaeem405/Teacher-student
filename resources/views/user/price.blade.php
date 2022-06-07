@@ -4,6 +4,9 @@
 <style>
     .border{
         border: 1px solid rgb(185, 196, 138);
+
+
+
     }
     .priceBtn{
         background-color: #308214;
