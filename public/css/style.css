@@ -601,6 +601,7 @@ border-radius: 10px;
 }
 .section-3 img.card-img-top {
 border-radius: 9px;
+
 }
 select#cars {
 font-size: medium;
@@ -1077,5 +1078,4 @@ ul.btn-sec {
 display: block;
 }
 }
-
 
