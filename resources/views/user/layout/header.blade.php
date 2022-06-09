@@ -49,7 +49,7 @@
                         </button> --}}
                         <div class="" id="navbarNavDropdown">
                             <ul class="nav navbar-nav">
-                                <li><a class="" href="#">About Us</a></li>
+                                <li><a class="" href="{{ url('/about') }}">About Us</a></li>
                                 <li><a class="" href="#">Features</a></li>
                                 <li><a class="" href="{{url('price')}}">Pricing</a></li>
                                 <li><a class="" href="#">Blog</a></li>
@@ -58,7 +58,7 @@
                     </nav>
                 </div>
                 <div class="col-md-3 mt-3 man-img-col">
-                  <button class="btn loginbtn">Login</button>
+                  <a href="{{ url('/sign-in') }}" class="btn loginbtn">Login</a>
                   <button class="btn registerbtn">Sign Up</button>
                 </div>
             </div>

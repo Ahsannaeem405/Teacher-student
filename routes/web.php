@@ -65,3 +65,21 @@ Route::get('/home11', function () {
 Route::get('/rating', function () {
     return view('rating');
 });
+
+
+Route::get('/term', function () {
+    return view('term_condition');
+});
+
+Route::get('/policy', function () {
+    return view('policy');
+});
+
+Route::get('/about', function () {
+    return view('about');
+});
+
+
+Route::get('/sign-in', function () {
+    return view('sign_in');
+});

@@ -1,0 +1,33 @@
+.about_p{
+    font-size: 18px;
+}
+.img_ab{
+    width: 100%;margin-top: 13%;
+}
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+.main_desn{
+display: flex;
+justify-content: space-evenly;
+}
+.field_label{
+    font-size: 20px;margin-top: 12px;
+}
+.forg_m{
+    margin-top: 28px;
+}
+.sub_btn{
+    margin-top: 38px;
+    width: 66%;
+    font-size: 21px;
+    background: #c9c97e;color:white
+}
+.right_dot{
+    text-align: right;margin-top: 47%;
+    margin-right: -28%;
+}
+.trail_space{
+font-size: 33px;margin-bottom: 26%;
+}
