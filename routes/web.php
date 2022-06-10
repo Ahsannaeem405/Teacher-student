@@ -83,3 +83,7 @@ Route::get('/about', function () {
 Route::get('/sign-in', function () {
     return view('sign_in');
 });
+
+Route::get('/blog', function () {
+    return view('blog');
+});
