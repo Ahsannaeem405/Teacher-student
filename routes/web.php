@@ -87,3 +87,8 @@ Route::get('/sign-in', function () {
 Route::get('/blog', function () {
     return view('blog');
 });
+
+Route::get('/blog_detail', function () {
+    return view('blog_detail');
+});
+

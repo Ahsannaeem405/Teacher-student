@@ -85,85 +85,38 @@
         </div>
         <img class="header-dots-img" src="http://localhost/Teacher-student/public/images/dot-shape-primary.svg" alt="Image">
 
-        <section style="margin-top: 15px;" class="cardbgcolor">
-            <div class="container ">
-        <div style="row" >
-        <div class="col-sm-4">
-        <div class="pp">
-            <a href="#" class="b_heading_b" style="
-            font-size: 24px;"> < Back</a>
-        </div>
-        </div>
-        <div class="col-sm-5">
-        <div class="text-center">    <h1 class="text-heading blog_heading common_blog_color">Latest News & Articles</h1></div>
+<section style="margin-top: 15px;" class="cardbgcolor">
+    <div class="container text-center">
+<div style="display: inline-flex;">
 
+    <a href="#" class="b_heading_b" style="padding-right: 54px;
+    padding-top: 6%;
+    font-size: 26px;"> < Back</a>
 
-        </div>
-        <div class="col-sm-3 " style="position: relative;padding-top: 16px;">
+    <h1 class="text-heading blog_heading common_blog_color">Latest News & Articles</h1>
 
-            {{--  <div style="position: absolute;top: 41%;
-            left: 3%;">
-                <img class="" src="http://localhost/Teacher-student/public/images/dot-shape-primary.svg" alt="Image">
-            </div>  --}}
-
-            <div style="text-align: right;">
-            <i class="glyphicon glyphicon-arrow-up glyp" ></i><span class="b_side_he next_he box_b">Demo Text</span>
-        </div>
-
+</div>
     </div>
+    </section>
 
 
 
+
+
+    <section style="margin-top: 15px;" class="cardbgcolor">
+
+    <div style="row">
+        <div style="position:relative"">
+            <div style="position: absolute;
+            top: 494px;
+            left: 1%;">
+                <img  src="http://localhost/Teacher-student/public/images/dot-shape-primary.svg" alt="Image">
+            </div>
         </div>
 
-
-
-
-
-
-
-
-
-            </div>
-            </section>
-
-
-            <div style="width: 100%"">
-                <div style="position:relative">
-                    <div style="position: absolute;
-                    top: 882px;
-                    right: 0%;">
-                        <img class="img_side" src="http://localhost/Teacher-student/public/images/dot-shape-primary.svg" alt="Image">
-                    </div>
-                </div>
-            </div>
-
-
-    <section style="margin-top: 24px;" class="cardbgcolor">
         <div class="container">
-    <div class="row">
-
-
-
-
-
-            <div class="col-md-8 " >
-
-
-
-                <div style="position:relative">
-                    <div class="pos_l">
-                        <img class="img_side" src="http://localhost/Teacher-student/public/images/dot-shape-primary.svg" alt="Image">
-                    </div>
-                </div>
-
-
-
-
-
-
-<div class="box_b p_con " style="position: relative;">
-            <div class="demo_b">
+        <div class="col-md-7 box_b" style="position: relative;">
+<div class="demo_b">
 Demo
 </div>
 <img class="img_width" src="https://image.shutterstock.com/z/stock-photo-sexy-secretary-personal-assistant-typical-office-life-man-bearded-hipster-boss-sit-in-leather-1484628398.jpg"  alt="" srcset="">
@@ -171,28 +124,16 @@ Demo
 <h3 class="bLog_b_head common_blog_color">Easy Python Course.</h3>
 <h4 class="b_heading_b">Overview</h4>
 
-<h3 class="r_m_space">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis adipisci beatae aperiam temporibus <br> obcaecati magni, nesciunt repellendus architecto corporis numquam nemo porro iste! Officiis, esse dolorem voluptas a itaque cum.</h3>
-<div class=" r_m_space">
-  <h4>  <a href="{{ url('/blog_detail') }}" class="b_heading_b">Read more</a>   </h4>
-</div>
-</div>
+<h3 class="r_m_space">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis adipisci beatae aperiam temporibus <br> obcaecati magni, nesciunt repellendus architecto corporis numquam nemo porro iste! Officiis,
 
-<div class="box_b p_con" style="position: relative;">
-    <div class="demo_b">
-Demo
-</div>
-<img class="img_width" src="https://image.shutterstock.com/z/stock-photo-sexy-secretary-personal-assistant-typical-office-life-man-bearded-hipster-boss-sit-in-leather-1484628398.jpg"  alt="" srcset="">
+    <br>
 
-<h3 class="bLog_b_head common_blog_color">Easy Python Course.</h3>
-<h4 class="b_heading_b">Overview</h4>
+Lorem ipsum dolor sit amet, consectetur <br> adipisicing elit. Enim, ullam ex accusamus ea sunt recusandae nisi, animi aliquid, <br> at similique ipsam! Veniam at consequatur beatae ratione sint, <br> minus suscipit quo.
 
-<h3 class="r_m_space">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis adipisci beatae aperiam temporibus <br> obcaecati magni, nesciunt repellendus architecto corporis numquam nemo porro iste! Officiis, esse dolorem voluptas a itaque cum.</h3>
-<div class=" r_m_space">
-<h4>  <a href="{{ url('/blog_detail') }}" class="b_heading_b">Read more</a>   </h4>
-</div>
-</div>
-
-
+    esse dolorem voluptas a <br> itaque cum. Lorem ipsum dolor sit amet consectetur adipisicing elit. <br> Rerum praesentium eaque vitae labore. Aperiam quaerat veniam, aut, distinctio sit <br> nihil iste soluta mollitia libero, ullam nemo voluptatem laborum. Pariatur, tenetur. </h3>
+{{--  <div class=" r_m_space">
+  <h4>  <a href="#" class="b_heading_b">Read more</a>   </h4>
+</div>  --}}
 
 </div>
 
@@ -210,7 +151,7 @@ Demo
 
 
 
-<div class="col-md-4 mt_blog_side">
+<div class="col-md-4 col-md-offset-1" >
 
     <div class="col-sm-12" style="background-color:#f2f0f0">
 <h3 class="text-center common_blog_color" style="    font-size: 31px;">
@@ -314,38 +255,57 @@ jk fa jfkdsaj fdak Lorem ipsum dolor sit amet consectetur adipisicing
 
 
         </div>
-        </section>
+<div class="related_l_r_mr">
+<div class="row">
 
-<div class="pagi_mtMb">
-    <nav>
-        <ul class="pagination">
-        {{--  <li>
-        <a href="#" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-        </a>
-        </li>  --}}
-        <li class="active" style="display: none"><a href="#">1</a></li>
-        <li><a href="#" class="activate">1</a></li>
-        <li><a href="#" class="pagi_style">2</a></li>
-        <li><a href="#" class="pagi_style">3</a></li>
-        <li><a href="#" class="pagi_style">4</a></li>
-        <li class="active" style="display: none"><a href="#">1</a></li>
-        {{--  <li>
-        <a href="#" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-        </a>
-        </li>  --}}
-        </ul>
-        </nav>
+    <div style="position:relative"">
+        <div style="position: absolute;
+        top: 1%;
+        right: -7%;">
+            <img class="" src="http://localhost/Teacher-student/public/images/dot-shape-primary.svg" alt="Image">
+        </div>
+    </div>
+
+
+
+
+<div class="col-md-3">
+
+
+
+
+
+    <div class=" pt_b">
+        <div class="" style="    padding: 0;">
+            <img class="img_blog_side" src="https://image.shutterstock.com/z/stock-photo-sexy-secretary-personal-assistant-typical-office-life-man-bearded-hipster-boss-sit-in-leather-1484628398.jpg" class="img_blog_side" alt="" srcset="">
+            </div>
+            <div class="">
+    <h4 class="mt_r b_side_he">
+    title demo
+    </h4>
+    <p>
+    jk fa jfkdsaj fdak Lorem ipsum dolor sit amet consectetur adipisicing
+    </p>
+    <p class="b_heading_b">
+    12 Sep 2022
+    </p>
+            </div>
+    </div>
+
+
+
+
+
+
+
+
 </div>
-
-
-
-
-
-
-
-
+<div class="col-md-3">
+    <h4 class="b_heading_b" style="padding-top: 28%;">See More > </h4>
+</div>
+</div>
+</div>
+        <!-- last blue section start -->
         <div class="next-project ">
             <div class="two-img">
                 <img src="{{url('/images/dot-shape-primary.svg')}}" alt="Image"/>
@@ -364,6 +324,9 @@ jk fa jfkdsaj fdak Lorem ipsum dolor sit amet consectetur adipisicing
                 <img src="{{url('/images/dot-shape-white.svg')}}" alt="Image"/>
             </div>
         </div>
+        </section>
+
+
 
 
 @endsection

@@ -29,16 +29,28 @@ justify-content: space-evenly;
     margin-right: -28%;
 }
 .blog_heading{
-color:black !important;font-weight: 600;font-size: xxx-large;
+color: #151575 !important;font-weight: 600;font-size: 33px;
 }
 .img_width{
 width: 100%;    height: 300px;
 }
 .img_blog_side{
-    width: 100%;    height: 100px;
+    width: 100%;    height: 135px;
     }
+.main_head{
+    display: flex;/* align-content: space-between; */justify-content: space-around;
+}
+.glyp{
+    font-size: 21px;
+    background-color: #cdcd4f;
+    padding-left: 5px;
+    padding-right: 7px;
+    margin-right: 3%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
 .pt_b{
-margin-top: 23px;
+margin-top: 23px !important;margin: unset;margin-bottom: 23px !important;
 }
 .bLog_b_head{
     font-weight: 700;
@@ -47,9 +59,72 @@ margin-top: 23px;
     font-weight: bold;
     color: #cdcd4f;
 }
+.next_he{
+    font-size: 24px !important;
+}
+.common_blog_color{
+
+    color: #050576;
+}
+.b_side_he{
+    margin-top: 0; color: #050576;margin-bottom: 5px;font-size: 22px;padding: 3px;
+}
+.cont{
+margin:170px;
+}
 .r_m_space{
-    margin-top: 35px;line-height: 30px;
+    margin-top: 35px;line-height: 32px;font-weight: 400;
+}
+.activate{
+    background-color:white !important;color:#c9c97e !important;border:2px solid #c9c97e !important;
+}
+.pagi_style{
+    background-color:#c9c97e !important;color:white !important
+}
+.pagi_mtMb{
+    text-align: right;margin-right: 20%;margin-top: 3%;margin-bottom: 5%;
+}
+.p_con{
+    padding: 10px;    margin-top: 17px;
+}
+.mt_blog_side{
+    margin-top: 1.5%;padding-right: 0;
+}
+.pos_l{
+    position: absolute;
+    top: 535px;
+    left: -11%;
+}
+.img_side{
+width: 50px;
+}
+.mt_r{
+margin-top: 3%;
+}
+.related_l_r_mr{
+margin-left: 9%;margin-right: 9%;
+}
+.demo_b{
+    background-color: #c9c97e;
+    position: absolute;
+    right: 0.0%;
+    font-size: 19px;
+    color: white;
+    top: 48px;
+    padding-left: 30px;
+    padding-top: 2px;
+    height: 34px;
+    width: 156px;
+    border-radius: 20px 0px 0px 20px;border-right: 5px solid #9d9d6b;
 }
 .trail_space{
 font-size: 33px;margin-bottom: 26%;
+}
+.pp{
+    text-align:right;margin-top:20px;
+}
+@media (min-width: 321px) and (max-width: 765px) {
+    .pp{
+        text-align:left;margin-top:20px;
+    }
 }
