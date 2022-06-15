@@ -1,6 +1,6 @@
-@extends('user.layout')
+@extends('header2')
 @section('content')
-<link rel="stylesheet" href="{{ asset('css/style4.css') }}">
+
 <style>
     .banner{
         position: relative;
@@ -82,8 +82,56 @@
                 <button class="btn freeBtn ">Write a Blog</button><br>
                 <button class="btn freeBtn comb_btn">Post Content</button>
             </div>
-        </div>
-        <img class="header-dots-img" src="http://localhost/Teacher-student/public/images/dot-shape-primary.svg" alt="Image">
+</div>
+
+
+
+
+
+
+
+<img class="header-dots-img" src="http://localhost/Teacher-student/public/images/dot-shape-primary.svg" alt="Image">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         <section style="margin-top: 15px;" class="cardbgcolor">
             <div class="container ">
@@ -126,6 +174,7 @@
 
             </div>
             </section>
+
 
 
             <div style="width: 100%"">

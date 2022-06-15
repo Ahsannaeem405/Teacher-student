@@ -35,15 +35,18 @@ Route::get('/home', function () {
 Route::get('/home2', function () {
     return view('home2');
 });
-Route::get('/home3', function () {
+Route::get('/student-dashboard', function () {
     return view('home3');
+});
+Route::get('/dhome3', function () {
+    return view('dhome3');
 });
 Route::get('/home4', function () {
     return view('home4');
 });
-Route::get('/home5', function () {
+Route::get('/teacher/profile', function () {
     return view('home5');
-});
+})->name('test');
 Route::get('/home6', function () {
     return view('home6');
 });

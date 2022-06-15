@@ -1,10 +1,23 @@
 @include('header')
-
-
+<link rel="stylesheet" href="{{ asset('css/style2.css') }}">
+<style>
+    .border{
+        border: 1px solid rgb(185, 196, 138);
+    }
+    .priceBtn{
+        background-color: #308214 !important;
+    color: #fff !important;
+    font-size: 18px !important;
+    padding: 10px 45px !important;
+    border: none !important;
+    border-radius: 11px !important;
+    box-shadow: 0px 0px 35px rgb(231, 232, 231) !important;
+    }
+</style>
 <body>
     <div class="banner-two"></div>
            <div class="tab-sec"><div class="row">
-                <div class="col-md-4 tab-col"> 
+                <div class="col-md-4 tab-col">
                     <img src="{{url('/images/profile.png')}}" alt="Image" class="tab-img"/>
                     <h2>Kathy</h2>
                     <h3>(Teacher)</h3>
@@ -50,7 +63,7 @@
                                     <h1>DASHBORAD</h1>
                                 </div>
                                 <div class="col-md-6">
-                                    <form class="search-form" action="#">   
+                                    <form class="search-form" action="#">
                                         <button type="submit"><i class="fa fa-search"></i></button>
                                         <input type="text" placeholder="Python coding" name="search2">
                                     </form>
@@ -69,17 +82,18 @@
                                     <div class="row">
                                         <div class="col-lg-4 col-md-6 col-sm-12">
                                             <div class="card">
-                                                <div class="card-body">
+                                                <div class="card-body ">
                                                     <h4>Free</h4>
                                                     <div class="price">
                                                         <h2 class=""><i>Free</i></h2>
                                                     </div>
                                                     <p class="card-text">Features include:</p>
+
                                                     <ul>
-                                                        <li class="list-unstyled"><i class="fa fa-check-circle-o" aria-hidden="true"></i> <span></span> Upload <strong>one</strong>  video for free</li>
-                                                        <li class="list-unstyled"><i class="fa fa-check-circle-o" aria-hidden="true"></i> <span></span> Upload your videos any time at your leisure</li>
-                                                        <li class="list-unstyled"><i class="fa fa-check-circle-o" aria-hidden="true"></i> <span></span> Share your videos with your social media</li>
-                                                        <li class="list-unstyled"><i class="fa fa-check-circle-o" aria-hidden="true"></i> <span></span> Share your videos with your social media</li>
+                                                        <li class="list-unstyled plan_list"> <img src="{{ asset('images/tick.png') }}" width="24" height="24" alt="" srcset=""> <span class="l_p"></span> <span class="li_font">   Upload <strong>one</strong>  video for free</span></li>
+                                                        <li class="list-unstyled plan_list"> <img src="{{ asset('images/tick.png') }}" width="24" height="24" alt="" srcset=""> <span class="l_p"></span> <span class="li_font">  Upload your videos any time at your leisure </span></li>
+                                                        <li class="list-unstyled plan_list"> <img src="{{ asset('images/tick.png') }}" width="24" height="24" alt="" srcset=""> <span class="l_p"></span> <span class="li_font">    Share your videos with your social media</span></li>
+                                                            <li class="list-unstyled plan_list"> <img src="{{ asset('images/tick.png') }}" width="24" height="24" alt="" srcset=""> <span class="l_p"></span> <span class="li_font">    Share your videos with your social media</span></li>
                                                     </ul>
                                                     <button>Select Plan</button>
                                                 </div>
@@ -94,13 +108,13 @@
                                                     </div>
                                                     <p class="card-text">Features include:</p>
                                                     <ul>
-                                                        <li  class="list-unstyled"><i class="fa fa-check-circle-o" aria-hidden="true"></i> <span></span> Upload your video any time at your liesure</li>
-                                                        <li  class="list-unstyled"><i class="fa fa-check-circle-o" aria-hidden="true"></i> <span></span> Upload <strong>15</strong> videos per month for<strong>$50</strong> a month</li>
-                                                        <li  class="list-unstyled"><i class="fa fa-check-circle-o" aria-hidden="true"></i> <span></span class="list-unstyled"> Upload <strong>15</strong> videos per month for<strong>$50</strong> a month</li>
-                                                        <li class="list-unstyled"><i class="fa fa-check-circle-o" aria-hidden="true"></i> <span></span> Watch videos anytime at your leisure</li>
-                                                        <li class="list-unstyled"><i class="fa fa-check-circle-o" aria-hidden="true"></i> <span></span> Share your videos with your social media</li>
+                                                        <li class="list-unstyled plan_list"> <img src="{{ asset('images/tick.png') }}" width="24" height="24" alt="" srcset=""> <span class="l_p"></span> <span class="li_font">Upload your video any time at your liesure</span></li>
+                                                        <li class="list-unstyled plan_list"> <img src="{{ asset('images/tick.png') }}" width="24" height="24" alt="" srcset=""> <span class="l_p"></span> <span class="li_font"> Upload <strong>15</strong> videos per month for<strong>$50</strong> a month </span></li>
+                                                        <li class="list-unstyled plan_list"> <img src="{{ asset('images/tick.png') }}" width="24" height="24" alt="" srcset=""> <span class="l_p"></span> <span class="li_font"> Upload <strong>15</strong> videos per month for<strong>$50</strong> a month</span></li>
+                                                            <li class="list-unstyled plan_list"> <img src="{{ asset('images/tick.png') }}" width="24" height="24" alt="" srcset=""> <span class="l_p"></span> <span class="li_font"> Watch videos anytime at your leisure</span></li>
+                                                            <li class="list-unstyled plan_list"> <img src="{{ asset('images/tick.png') }}" width="24" height="24" alt="" srcset=""> <span class="l_p"></span> <span class="li_font"> Share your videos with your social media</span></li>
                                                     </ul>
-                                                    <button>Select Plan</button>
+                                                    <a class="btn priceBtn" href="{{url('subscribe_plan')}}?price=50">Select Plan</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -113,16 +127,16 @@
                                                     </div>
                                                     <p class="card-text">Features include:</p>
                                                     <ul>
-                                                        <li class="list-unstyled"><i class="fa fa-check-circle-o" aria-hidden="true"></i> <span></span>  Upload your video any time at your liesure</li>
-                                                        <li class="list-unstyled"><i class="fa fa-check-circle-o" aria-hidden="true"></i> <span></span>Upload <strong>40</strong> videos per month for<strong>$150</strong> a month</li>
-                                                        <li class="list-unstyled"><i class="fa fa-check-circle-o" aria-hidden="true"></i> <span></span>  Watch videos anytime at your leisure</li>
-                                                        <li class="list-unstyled"><i class="fa fa-check-circle-o" aria-hidden="true"></i> <span></span> Share your videos with your social media</li>
+                                                        <li class="list-unstyled plan_list"> <img src="{{ asset('images/tick.png') }}" width="24" height="24" alt="" srcset=""> <span class="l_p"></span> <span class="li_font">  Upload your video any time at your liesure</span></li>
+                                                        <li class="list-unstyled plan_list"> <img src="{{ asset('images/tick.png') }}" width="24" height="24" alt="" srcset=""> <span class="l_p"></span> <span class="li_font">Upload <strong>40</strong> videos per month for<strong>$150</strong> a month</span></li>
+                                                        <li class="list-unstyled plan_list"> <img src="{{ asset('images/tick.png') }}" width="24" height="24" alt="" srcset=""> <span class="l_p"></span> <span class="li_font">  Watch videos anytime at your leisure</span></li>
+                                                        <li class="list-unstyled plan_list"> <img src="{{ asset('images/tick.png') }}" width="24" height="24" alt="" srcset=""> <span class="l_p"></span> <span class="li_font"> Share your videos with your social media</span></li>
                                                     </ul>
-                                                    <button>Select Plan</button>
+                                                    <a class="btn priceBtn" href="{{url('subscribe_plan')}}?price=150">Select Plan</a>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-lg-4 col-md-6 col-sm-12">
+                                        {{--  <div class="col-lg-4 col-md-6 col-sm-12">
                                             <div class="card">
                                                 <div class="card-body">
                                                     <h4>Enterprise</h4>
@@ -139,7 +153,7 @@
                                                     <button>Select Plan</button>
                                                 </div>
                                             </div>
-                                         </div>
+                                         </div>  --}}
                                     </div>
                                 </div>
                             </div>
@@ -152,7 +166,7 @@
                 <div class="clearfix"></div>
             </div></div>
 <!-- last blue section start -->
-        <div class="next-project"> 
+        <div class="next-project">
             <div class="two-img">
                 <img src="{{url('/images/dot-shape-primary.svg')}}" alt="Image"/>
                 <img src="{{url('/images/dot-shape-white.svg')}}" alt="Image"/>
@@ -174,3 +188,4 @@
 
 
 @include('footer')
+

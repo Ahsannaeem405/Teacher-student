@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
          <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-         <link rel="stylesheet" href="{{ asset('css/style4.css') }}">
+
 
         <style>
             body{
@@ -51,4 +51,4 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
         <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
         <script src="{{asset('js/custom.js')}}"></script>
-</html>
+</html

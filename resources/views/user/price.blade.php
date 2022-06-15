@@ -6,7 +6,7 @@
         border: 1px solid rgb(185, 196, 138);
     }
     .priceBtn{
-        background-color: #308214;
+        background-color: #308214 ;
     color: #fff;
     font-size: 18px;
     padding: 10px 45px;

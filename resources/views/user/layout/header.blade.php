@@ -14,6 +14,11 @@
          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
+<link rel="stylesheet" href="{{ asset('css/style4.css') }}">
+
+
+         <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
         <style>
             body{
                 font-family: Circular-Loom;
@@ -37,7 +42,14 @@
         </style>
     </head>
     <body>
-        <header class="main-header active-header">
+
+
+        <button type="button" onclick="check_alarm()" class="btn btn-primary res_nav" id="show_nav">
+            <i class="fas fa-bars"></i>
+          </button>
+
+
+        <header class="main-header active-header active-header2">
             <div class="row">
                 <div class="col-md-3 logo-col">
                   <a href="{{url('/')}}">  <img src="{{url('/images/logo.svg')}}"  alt="Image"/></a>
@@ -63,4 +75,24 @@
                 </div>
             </div>
         </header>
+
+        {{--  <div class="res_nav">
+            <div>
+                          <a href="{{url('/')}}">  <img style="width: 70px;" src="{{url('/images/logo.svg')}}"  alt="Image"/></a>
+                        </div>
+            <div class="" style="text-align: right">
+
+            </div>
+                        </div>  --}}
+
+        <script>
+
+            function check_alarm(){
+                $(".main-header").toggle();
+}
+
+
+
+
+        </script>
 
