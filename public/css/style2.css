@@ -114,11 +114,14 @@ color:yellow;
     background-color: #C9C97E;
 
 }
-
+.t_mgn{
+    margin-top: -67px;
+}
 .under-line::after{
     display: block;
    content: '';
   width: 100%;
+
   height: 2px;
   background: #F0E68C;
 
@@ -193,8 +196,8 @@ color:yellow;
     margin-top: 4px;
 }
 .text-design{
-    font-size: 16px;
-    line-height: 20px;
+    font-size: 19px;
+    line-height: 27px;
 }
 .star-icon{
     background-color: #58527c;
@@ -225,4 +228,5 @@ color:yellow;
 .vistual-margin{
     margin-left: 5px;
     margin-right: 40px;
+    margin-bottom: 25px;
 }

@@ -17,25 +17,25 @@
             <div class="col-md-2">
                 <h4>Product</h4>
                 <ul class="footer-link">
-                    <li><i class="fa fa-angle-right"></i>&nbsp;  <a class="" href="#">About Us</a></li>
-                    <li><i class="fa fa-angle-right"></i>&nbsp;  <a class="" href="#">Features</a></li>
-                    <li><i class="fa fa-angle-right"></i>&nbsp;  <a class="" href="#">Pricing</a></li>
-                    <li><i class="fa fa-angle-right"></i>&nbsp;  <a class="" href="#">Blog</a></li>
+                    
+                    <li><i class="fa fa-angle-right"></i>&nbsp;  <a class="" href="{{ url('/features') }}">Features</a></li>
+                    <li><i class="fa fa-angle-right"></i>&nbsp;  <a class="" href="{{ url('/price') }}">Pricing</a></li>
+                    <li><i class="fa fa-angle-right"></i>&nbsp;  <a class="" href="{{ url('/sign-in') }}">Log in</a></li>
                 </ul> 
             </div>
             <div class="col-md-2">
                 <h4>Company</h4>
                 <ul class="footer-link">
-                    <li><i class="fa fa-angle-right"></i>&nbsp;  <a class="" href="#">About Us</a></li>
-                    <li><i class="fa fa-angle-right"></i>&nbsp;  <a class="" href="#">Blog</a></li>
+                    <li><i class="fa fa-angle-right"></i>&nbsp;  <a class="" href="{{ url('/about') }}">About Us</a></li>
+                    <li><i class="fa fa-angle-right"></i>&nbsp;  <a class="" href="{{ url('/blog') }}">Blog</a></li>
                 </ul> 
             </div>
             <div class="col-md-4 forth-col">
                 <h4>Help</h4>
                 <ul class="footer-link">
-                    <li><i class="fa fa-angle-right"></i>&nbsp;  <a class="" href="#">Contact Us</a></li>
-                    <li><i class="fa fa-angle-right"></i>&nbsp;  <a class="" href="#">Terms Of Service</a></li>
-                    <li><i class="fa fa-angle-right"></i>&nbsp;  <a class="" href="#">Privacy Policy</a></li>
+                    <li><i class="fa fa-angle-right"></i>&nbsp;  <a class="" href="{{ url('/contact-us') }}">Contact Us</a></li>
+                    <li><i class="fa fa-angle-right"></i>&nbsp;  <a class="" href="{{ url('/term') }}">Terms Of Service</a></li>
+                    <li><i class="fa fa-angle-right"></i>&nbsp;  <a class="" href="{{ url('/policy') }}">Privacy Policy</a></li>
                 </ul> 
             </div>
         </div>

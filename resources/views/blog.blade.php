@@ -1,4 +1,5 @@
-@extends('header2')
+@extends('user.layout')
+
 @section('content')
 
 <style>

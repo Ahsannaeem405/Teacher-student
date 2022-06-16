@@ -62,7 +62,7 @@
                         <div class="" id="navbarNavDropdown">
                             <ul class="nav navbar-nav">
                                 <li><a class="" href="{{ url('/about') }}">About Us</a></li>
-                                <li><a class="" href="#">Features</a></li>
+                                <li><a class="" href="{{ url('/features') }}">Features</a></li>
                                 <li><a class="" href="{{url('price')}}">Pricing</a></li>
                                 <li><a class="" href="{{ url('/blog') }}">Blog</a></li>
                             </ul>

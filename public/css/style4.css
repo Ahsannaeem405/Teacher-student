@@ -49,8 +49,86 @@ margin:0px !important;
 .main_head{
     display: flex;/* align-content: space-between; */justify-content: space-around;
 }
+.img_blog_side2{
+    height:234px !important;margin-top: 9rem;
+}
 .profile_col{
     padding-left: 22px !important;
+}
+.contact_cancel{
+    background: transparent !important;
+    color: #c7c87c !important;
+    border: 2px solid #c7c87c !important;
+    margin-left: 2% !important;
+}
+.next-project2{
+margin-top: 10rem;margin-bottom: 7rem;
+}
+.heading_contact{
+padding-bottom: 1%;color:white;
+}
+.kids_sec{
+    background: url(../images/back_2.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+height: 57rem;
+margin-bottom: 3%;
+}
+.inrSec{
+    background-color: white;padding-top: 1rem;position: relative;top: 9rem;z-index: 10;
+    }
+    .inrSec h1{
+font-size: 6rem;
+    }
+.v_pad_t{
+    padding-top: 30px !important;
+}
+.doble_img{
+    text-align: right;
+    margin-right: 15rem;
+    /* margin-top: -19px; */
+    position: relative;
+    top: -7rem;
+}
+    .inrSec p{
+    font-size: 2rem;
+}
+.bx{
+background-color: white;
+}
+.r_p_img{
+    text-align: right;
+    position: relative;
+    top: 16rem;
+    left: 7%;
+}
+.s_img2{
+    position: relative;
+    top: -25px;
+    /* left: 0px; */
+    margin-left: 15px;
+}
+.s_img{
+    position: relative;
+    top: -216px;
+    /* left: 0px; */
+    margin-left: 15px;
+}
+.btn_ad_style{
+    font-size: 20px;padding-left: 20px;padding-right: 20px;
+}
+.box_additional{
+margin-top: -50rem;
+}
+.cont_sub_f{
+width: 70% !important;padding-left: 3%;
+}
+.btn_uper{
+margin-top: -8%;
+}
+.con{
+padding: 10%;
 }
 .glyp{
     font-size: 21px;
@@ -164,8 +242,9 @@ font-size: 33px;margin-bottom: 26%;
 
 .res_nav{
 display:  block !important;
-position: absolute;
+position: fixed;
 top: 0%;
+
 right: 0;
 z-index: 50000000000;
 }

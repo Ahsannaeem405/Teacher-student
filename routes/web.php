@@ -20,6 +20,14 @@ Route::get('/price',[FrontController::class,'price']);
 
 Route::get('subscribe_plan', [StripePaymentController::class, 'stripe']);
 Route::post('stripe', [StripePaymentController::class, 'stripePost'])->name('stripe.post');
+//user main view
+Route::get('/contact-us', function () {
+    return view('contact');
+});
+
+Route::get('/features', function () {
+    return view('features');
+});
 
 Route::get('/header', function () {
     return view('header');
@@ -50,6 +58,7 @@ Route::get('/teacher/profile', function () {
 Route::get('/home6', function () {
     return view('home6');
 });
+
 Route::get('/home7', function () {
     return view('home7');
 });
