@@ -2,6 +2,9 @@
 @extends('user.layout')
 @section('content')
 <style>
+@body{
+background-color:white !important;
+}
     .banner{
         position: relative;
     }
@@ -18,16 +21,18 @@
         margin-top:10px;
         font-weight:bolder;
         width: 39% !important;
-        font-size: 25px;
-        color:black
+        color:black;
+        font-family: sans-serif;
+        font-size: 20px !important;
     }
  .textbold{
         color: white;
-        font-size:50px;
+        font-size: 42px;
+    font-family: Louis George Cafe Bold;
     }
     .card-img-top{
         width: 100%;
-        height: 180px;
+
     }
     .border{
         /* border: 1px solid  rgb(165, 163, 163); */
@@ -72,18 +77,33 @@
 </style>
 
 <div class="banner">
+
             <div class="banner_text text-center">
                 <h3 class="text-heading">Welcome To Virtually Teaching</h3>
                 <h2 class="textbold">The Future Of Online Teaching</h2>
                 <button class="btn freeBtn ">Start Free trail</button>
             </div>
+
         </div>
-        <img class="header-dots-img" src="http://localhost/Teacher-student/public/images/dot-shape-primary.svg" alt="Image">
+
+<div style="background-color: #FAFAFA;">
+<div class="row row_width">
+    <div class="col-xs-2 text-center"></div>
+<div class="col-xs-9 text-center">
+<h1 style="font-size: 84px;color:#f0f0f0;opacity:54%; font-family: sans-serif;font-weight: bold">
+LEARNING PLUGIN
+</h1>
+</div>
+<div class="col-xs-1" style="text-align: right;padding-right: 0;">
+    <img class="header-dots-img" style="opacity: 50%;" src="{{ asset('/images/dt1.png') }}" alt="Image">
+</div>
+</div>
+
         <section style="margin-top: 15px;" class="cardbgcolor">
 <div class="container box_b">
 
 <div class="row">
-<div class="col-md-2 dots-div-height">
+<div class="col-xs-2 dots-div-height">
     <div class="search-dots">
     <span class="dot first-dot-color"></span>
     <span class="dot second-dot-color"></span>
@@ -91,11 +111,11 @@
     </div>
 <!-- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmGtlD4H_m8lH4C6Kw26faGl1f9DD7-0iCeS_8EJEe_e91Pm9mqNDCj8QqhB9hezpmUdI&usqp=CAU" height="64" width="162" alt="" srcset=""> -->
 </div>
-<div class="col-md-9" >
+<div class="col-xs-9" >
     <div class="mt mb position">
     <i class="fa-solid fa-magnifying-glass serach-icon-design"></i>
         <input type="text" class="input-bg-color text-size" placeholder="Python...">
-       
+
       </div>
 </div>
 </div>
@@ -110,9 +130,9 @@
 
 <div class="container ">
     <div class="row card-margin">
-        <div class="col-md-4 col-lg">
+        <div class="col-md-4 col-lg p_cours_padding">
             <div class="card border box_b">
-                <img class="card-img-top card-img-radius" src="{{url('images/black.png')}}" alt="Card image cap">
+                <img class="card-img-top card-img-radius" src="{{asset('images/a22.png')}}" alt="Card image cap">
                 <div class="card-body">
                   <h5 class="card-title card_heading" >Virtual Teaching</h5>
                   <p class="card-text">Let's Learn Python Fast.</p>
@@ -131,9 +151,9 @@
                     </div>
               </div>
         </div>
-            <div class="col-md-4 col-lg">
+            <div class="col-md-4 col-lg p_cours_padding">
                 <div class="card border box_b">
-                    <img class="card-img-top card-img-radius" src="{{url('images/black.png')}}" alt="Card image cap">
+                    <img class="card-img-top card-img-radius" src="{{asset('images/a23.png')}}" alt="Card image cap">
                     <div class="card-body">
                       <h5 class="card-title card_heading" >Virtual Teaching</h5>
                       <p class="card-text">Let's Learn Python Fast.</p>
@@ -152,9 +172,9 @@
                         </div>
                   </div>
         </div>
-            <div class="col-md-4 col-lg">
+            <div class="col-md-4 col-lg p_cours_padding">
                 <div class="card border box_b">
-                    <img class="card-img-top card-img-radius" src="{{url('images/black.png')}}" alt="Card image cap">
+                    <img class="card-img-top card-img-radius" src="{{asset('images/a24.png')}}" alt="Card image cap">
                     <div class="card-body">
                       <h5 class="card-title card_heading" >Virtual Teaching</h5>
                       <p class="card-text">Let's Learn Python Fast.</p>
@@ -177,11 +197,11 @@
 </div>
 
 </section>
-
+</div>
 <div class="container">
 <div class="row">
 <div class="col-md-12">
-    <img src="https://olc-wordpress-assets.s3.amazonaws.com/uploads/2020/03/Online-teaching-class-header-1024x561.png" class="img_width" alt="" srcset="">
+    <img src="{{ asset('images/a25.png') }}" class="img_width" alt="" srcset="">
 </div>
 
 </div>
@@ -195,28 +215,31 @@
 <div class="container">
     <div class="row">
     <div class="col-md-12 text-center">
-<h1 class="under-line">
+<h1 class="under-line2">
 With Virtually Teaching You Can
+<div class="text-center">
+<img src="{{ asset('images/aa26.png') }}" style="width: 8%;" alt="" srcset="">
+</div>
 </h1>
 
     </div>
 
     <div class="col-sm-12 box_b vistual-margin">
-<div class='virtual-width'>
-    <div class='col-md-5'>
-        <h2 class="margin-virtual-card">Flexible and Convienient</h2>
-<p class="text-design margin-virtual-card">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing elit.
-     Error natus provident, expedita, molestiae adipisci vitae perspiciatis at ipsum, repellat earum assumenda ea. Nesciunt vero sapiente voluptates totam incidunt sit eligendi.
-</p>
-<a href="#" class="btn btn-bg-color learn-ml">Learn More</a>
-    </div>
-    <div class='col-md-7'>
-        <img src="https://thumbs.dreamstime.com/b/asian-student-boy-video-conference-e-learning-teacher-computer-living-room-home-online-education-internet-social-187311773.jpg" class="img_width-virtual" alt="" srcset="">
-    </div>
-   
-</div>
-    </div>
+        <div class='virtual-width'>
+
+
+            <div class='col-md-6'>
+                <h2 class="margin-virtual-card">Flexible and Convienient</h2>
+        <p class="text-design">
+            It’s easy to schedule sessions with our tutors. Our tutors will meet with you at the nearest library to your home. Absolutely no need for long journeys. For students at farther locations, we can easily schedule a live video session. With this, students can revise and study at their own pace, pausing, rewinding, testing and exploring until they fully understand the course.
+        </p>
+<div class="btn_cs">        <a href="#" class="btn btn-bg-color common_blog_color btn_ad_style learn-ml">Learn More</a></div>
+            </div>
+            <div class='col-md-6'>
+                <img src="{{ asset('images/aa27.png') }}" class="img_width-virtual" alt="" srcset="">
+            </div>
+        </div>
+            </div>
     <img class="card-side-dots-img" src="http://localhost/Teacher-student/public/images/dot-shape-primary.svg" alt="Image">
     </div>
 
@@ -226,10 +249,45 @@ With Virtually Teaching You Can
 
 
 
+    <div class="next-project4">
+
+        <div class="two-img">
+            <img src="{{url('/images/dot-shape-primary.svg')}}" alt="Image"/>
+            <img src="{{url('/images/dot-shape-white.svg')}}" alt="Image"/>
+        </div>
+        <div class="container text-center">
+<div class="row">
+<div class="col-xs-9 col-centered" style="margin-top: -105px;">
+            <h1 style="font-size: 47px;
+            color: white;">When you're determined to learn you will find a balance.</h1>
+<p style="font-size: 26px;
+color: white;
+font-family: sans-serif;">A great book by the author Nir Eyal called Hooked. This book is amazing. He talks
+    about building Habit Forming Products. Think about it: Habit Forming Products, hooked
+    on Instagram, Clubhouse, Gaming, and many others platforms. I just can't get enough
+    of it. Why is it that my subconscious is telling me that if I don’t get on it “I’m missing
+    something” part of that needing to be in the know!! This tactic of building a product that
+    users can’t get enough of is dangerous in a sense so make sure you build something
+    great with integrity. Make sure you build something that has a daily purpose!! User
+    experience is important because that's one of the first things users, or potential
+    customers talk about. People have a short attention span and they want to do things
+    fast without any hold up. So figure out a way to give the customer an easy way to
+    navigate through your app or website or sass product.</p>
+</div>
+</div>
+        </div>
+        <div class="one-img">
+            <img src="{{url('/images/dot-shape-white.svg')}}" alt="Image"/>
+        </div>
+    </div>
+
+
+
+
     <div class="container">
     <div class="row">
-    
-        
+
+
         <div class="col-md-12 text-center">
     <h1 class="under-line">
     Testimonial
@@ -238,24 +296,24 @@ With Virtually Teaching You Can
     </div>
 <div class="row testimonial-margin">
 <img class="testimonial-dots" src="http://localhost/Teacher-student/public/images/dot-shape-primary.svg" alt="Image">
-<div class="col-md-3 card-ml">
+<div class="col-md-4 card-ml">
 
 
     <div class="card border box_b">
     <i class="fa-solid fa-comment coment-design"></i>
     <div class="text-center" style="padding-top: 20px">
-    
+
     <img class="img-circle img-margin " height="110"  width="110" src="{{url('images/black.png')}}" alt="Card image cap">
-   
+
     <h3>tile img</h3>
 </div>
         <div class="card-body card-body-bg">
         <div class="star-icon">
 
-    <p class="t_para">Let's Learn Python kdfaj da dfjakd fds jda fdkal fd alkj afja 
+    <p class="t_para">Let's Learn Python kdfaj da dfjakd fds jda fdkal fd alkj afja
         sdfljad fljads fljads fjds flj Fast.
-
-
+Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque est eveniet, nostrum maiores, fuga ea hic ipsam consectetur placeat natus repellendus reiciendis eligendi recusandae. Est excepturi enim facilis illum voluptatem.
+lkk j k k k k k k k k k k  k k k   kk k kk k kkkkkkkk
     </p>
     <div class="star-margin">
     <i class="glyphicon glyphicon-star star_color"></i>
@@ -271,21 +329,21 @@ With Virtually Teaching You Can
       </div>
 
 </div>
-<div class="col-md-3">
+<div class="col-md-4">
 
 
     <div class="card border box_b">
     <i class="fa-solid fa-comment coment-design"></i>
     <div class="text-center" style="padding-top: 20px">
-    
+
     <img class="img-circle img-margin " height="110"  width="110" src="{{url('images/black.png')}}" alt="Card image cap">
-   
+
     <h3>tile img</h3>
 </div>
         <div class="card-body card-body-bg">
         <div class="star-icon">
 
-    <p class="t_para">Let's Learn Python kdfaj da dfjakd fds jda fdkal fd alkj afja sdfljad fljads fljads fjds flj Fast.
+    <p class="t_para">Let's Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur laudantium magni molestiae excepturi voluptatem deserunt at asperiores rerum ipsa cum dolorum autem possimus sit aspernatur nostrum commodi dolores, harum itaque. Learn Python kdfaj da dfjakd fds jda fdkal fd alkj afja sdfljad fljads fljads fjds flj Fast.
 
 
     </p>

@@ -32,7 +32,15 @@ justify-content: space-evenly;
 color: #151575 !important;font-weight: 600;font-size: 33px;
 }
 .img_width{
-width: 100%;    height: 300px;
+width: 100%;
+}
+.btn_cs{
+margin-left: 30px;margin-top: 30px;
+}
+.under-line2{
+    font-family: sans-serif;
+    color: #2c3250;
+    font-weight: bold;
 }
 .img_width2{
     width: 100% !important;
@@ -109,6 +117,9 @@ background-color: white;
     /* left: 0px; */
     margin-left: 15px;
 }
+.row_width{
+width: 100% !important;
+}
 .s_img{
     position: relative;
     top: -216px;
@@ -116,7 +127,7 @@ background-color: white;
     margin-left: 15px;
 }
 .btn_ad_style{
-    font-size: 20px;padding-left: 20px;padding-right: 20px;
+    font-size: 25px;padding-left: 20px;padding-right: 20px;
 }
 .box_additional{
 margin-top: -50rem;

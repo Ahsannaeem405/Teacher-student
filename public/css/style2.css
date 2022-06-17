@@ -30,7 +30,7 @@ margin-top: 15px;
     }
 .img_width{
     width: 100%;
-    margin-top: 15px;
+    margin-top: -66px;
     border-radius: 5px;
 }
 .img_width-virtual{
@@ -45,7 +45,7 @@ margin-top: 15px;
     margin: 0 auto;
 }
 .t_para{
-
+    font-size: 21px;
 margin: 10px;
 background-color: #58527c;
 color: white;
@@ -53,14 +53,14 @@ padding: 5px;
 
 }
 .star_color{
-color:yellow;
+color:yellow;font-size: 23px;
 }
 
 
 .header-dots-img{
     width: 50px;
 
-    margin-left: 95%;
+    /* margin-left: 95%; */
     margin-top: 15px;
 }
 .dots-div-height{
@@ -146,8 +146,9 @@ color:yellow;
 }
 .coment-design{
     margin-top: 20px;
-   margin-left: 190px;
-   font-size: 30px;
+    margin-left: 261px;
+    font-size: 52px;
+}
 }
 
 .img-margin{
@@ -163,7 +164,7 @@ color:yellow;
     margin-left: -60%;
 }
 .border{
-    height: 300px;
+height: auto;
     background-color: #FAF9F6;
     border-radius: 5px;
 }
@@ -180,8 +181,11 @@ color:yellow;
 }
 .text-size::placeholder{
     font-size: 20px;
-    color: black;
+    color: black;padding-left: 1rem;
 
+}
+.p_cours_padding{
+    padding: 3rem;
 }
 .serach-icon-design{
     margin-left: 97%;
@@ -196,8 +200,10 @@ color:yellow;
     margin-top: 4px;
 }
 .text-design{
-    font-size: 19px;
-    line-height: 27px;
+    padding: 10px;
+    margin: 10px;
+    font-size: 29px;
+    line-height: 39px;font-family: sans-serif;
 }
 .star-icon{
     background-color: #58527c;
@@ -217,6 +223,9 @@ color:yellow;
 .margin-virtual-card{
     padding: 10px;
     margin: 10px;
+    font-weight: bold;
+    font-size: 37px;
+    font-family: sans-serif;
 }
 .learn-ml{
     margin-left: 17px;

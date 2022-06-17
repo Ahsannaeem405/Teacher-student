@@ -20,14 +20,29 @@
          <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
         <style>
+            @font-face {
+                font-family: KaushanScript-Regular;
+                src: url('{{asset('fonts/KaushanScript-Regular.ttf')}}');
+            }
+
+
+            @font-face {
+                font-family: Louis George Cafe Bold;
+                src: url('{{asset('fonts/Louis George Cafe Bold.ttf')}}');
+
+            }
+                h3{
+    font-family:KaushanScript-Regular !important;
+}
+
             body{
                 font-family: Circular-Loom;
 
             }
             .loginbtn{
-                background: #797C5B;
+                background: #47472f;
                 color:white;
-                border: 1px solid #707070;
+                border: 1px solid #47472f;
                 margin-top:10px;
             }
             .registerbtn{
