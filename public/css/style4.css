@@ -14,6 +14,8 @@ justify-content: space-evenly;
 }
 .field_label{
     font-size: 20px;margin-top: 12px;
+}.glyphicon{
+font-size: 23px;
 }
 .forg_m{
     margin-top: 28px;
@@ -36,7 +38,7 @@ color: #151575 !important;font-weight: 600;font-size: 33px;
 width: 100%;
 }
 .btn_cs{
-margin-left: 30px;margin-top: 30px;
+ margin-top: 30px;
 }
 .under-line2{
     font-family: sans-serif;
@@ -128,7 +130,7 @@ width: 100% !important;
     margin-left: 15px;
 }
 .btn_ad_style{
-    font-size: 25px;padding-left: 20px;padding-right: 20px;
+    font-size: 20px;padding-left: 20px;padding-right: 20px;font-family: sans-serif;font-weight: bold;
 }
 .box_additional{
 margin-top: -50rem;

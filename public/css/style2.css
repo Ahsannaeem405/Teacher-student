@@ -45,7 +45,8 @@ margin-top: 15px;
     margin: 0 auto;
 }
 .t_para{
-    font-size: 21px;
+    font-size: 18px;
+    font-family: sans-serif;
 margin: 10px;
 background-color: #58527c;
 color: white;
@@ -203,7 +204,7 @@ height: auto;
 .text-design{
     padding: 10px;
     margin: 10px;
-    font-size: 29px;
+    font-size: 24px;
     line-height: 39px;font-family: sans-serif;
 }
 .star-icon{
@@ -224,6 +225,7 @@ height: auto;
 .margin-virtual-card{
     padding: 10px;
     margin: 10px;
+margin-top: 75px;
     font-weight: bold;
     font-size: 37px;
     font-family: sans-serif;
