@@ -7,27 +7,31 @@
     }
     .banner_text{
     position: absolute;
-    top: 67%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
     width: fit-content;
     }
     .freeBtn{
+
         background: #C9C97E;
         border: 1px solid #707070;
-        margin-top:10px;
+        margin-top:30px;
         font-weight:bolder;
-        width: 39% !important;
-        font-size: 25px;
-        color:black
+        width: 30% !important;
+        font-size: 21px;
+        color:black;
+        font-family:sans-serif;
     }
 .comb_btn{
-    background:#c9c97ea6 !important;margin-top: 41px;
+    background:#7a7a61b0 !important;margin-top: 41px;color:white !important;font-family:sans-serif;
 }
  .textbold{
+
         color: white;
-        font-size:50px;
+        font-size: 43px;
+        font-family: sans-serif;
     }
     .card-img-top{
         width: 100%;
@@ -74,8 +78,7 @@
        margin-top:10%;
    }
 </style>
-
-<div class="banner">
+<div class="banner53">
             <div class="banner_text text-center">
                 <h3 class="text-heading" style="font-weight: lighter">Write and share your content</h3>
                 <h2 class="textbold">Read and extend technical knowledge</h2>
@@ -83,8 +86,17 @@
                 <button class="btn freeBtn comb_btn">Post Content</button>
             </div>
         </div>
-        <img class="header-dots-img" src="http://localhost/Teacher-student/public/images/dot-shape-primary.svg" alt="Image">
-
+        <div class="row row_width">
+            <div class="col-xs-2 text-center"></div>
+        <div class="col-xs-9 text-center">
+        <h1 style="font-size: 84px;color:#f0f0f0;opacity:54%; font-family: sans-serif;font-weight: bold">
+        BLOG
+        </h1>
+        </div>
+        <div class="col-xs-1" style="text-align: right;padding-right: 0;">
+            <img class="header-dots-img" style="opacity: 50%;" src="{{ asset('/images/dt1.png') }}" alt="Image">
+        </div>
+        </div>
 <section style="margin-top: 15px;" class="cardbgcolor">
     <div class="container text-center">
 <div style="display: inline-flex;">

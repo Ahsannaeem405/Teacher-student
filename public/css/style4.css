@@ -32,7 +32,7 @@ font-size: 23px;
     margin-right: -28%;
 }
 .blog_heading{
-color: #151575 !important;font-weight: 600;font-size: 33px;
+color: #151575 !important;font-weight: 600;font-size: 33px;font-family: sans-serif;
 }
 .img_width{
 width: 100%;
@@ -138,6 +138,12 @@ margin-top: -50rem;
 .cont_sub_f{
 width: 70% !important;padding-left: 3%;
 }
+.centered {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 .btn_uper{
 margin-top: -8%;
 }
@@ -145,11 +151,11 @@ margin-top: -8%;
 padding: 10%;
 }
 .glyp{
-    font-size: 21px;
+    font-size: 12px;
     background-color: #cdcd4f;
-    padding-left: 5px;
+    padding-left: 7px;
     padding-right: 7px;
-    margin-right: 3%;
+    margin-right: 0;
     padding-top: 10px;
     padding-bottom: 10px;
 }
@@ -157,10 +163,10 @@ padding: 10%;
 margin-top: 23px !important;margin: unset;margin-bottom: 23px !important;
 }
 .bLog_b_head{
-    font-weight: 700;
+    font-weight: 700;font-family: sans-serif !important;
 }
 .b_heading_b{
-    font-weight: bold;
+    font-weight: bold;font-family: sans-serif;
     color: #cdcd4f;
 }
 .next_he{
@@ -171,13 +177,13 @@ margin-top: 23px !important;margin: unset;margin-bottom: 23px !important;
     color: #050576;
 }
 .b_side_he{
-    margin-top: 0; color: #050576;margin-bottom: 5px;font-size: 22px;padding: 3px;
+    margin-top: 0; color: #050576;margin-bottom: 5px;font-size: 22px;padding: 5.5px;font-family:sans-serif !important;
 }
 .cont{
 margin:170px;
 }
 .r_m_space{
-    margin-top: 35px;line-height: 32px;font-weight: 400;
+    margin-top: 35px;line-height: 32px;font-weight: 400;font-family: sans-serif !important;
 }
 .activate{
     background-color:white !important;color:#c9c97e !important;border:2px solid #c9c97e !important;
@@ -198,6 +204,9 @@ margin:170px;
     position: absolute;
     top: 535px;
     left: -11%;
+}
+.c_w{
+height: 313px;
 }
 .cart_b{
     font-size: 30px !important;
@@ -237,7 +246,7 @@ font-size: 33px;margin-bottom: 26%;
 }
 @media (min-width: 235px) and (max-width: 765px) {
     .pp{
-        text-align:left;margin-top:20px;
+        text-align:left;margin-top:25px;
     }
 }
 
