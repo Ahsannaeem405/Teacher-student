@@ -47,10 +47,12 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth', 'as' => 'admin.'], fu
 });
 
 
-Route::group(['prefix' => 'teacher', 'middleware' => 'auth', 'as' => 'teacher.'], function(){
+Route::group(['prefix' => 'teacher',  'as' => 'teacher.'], function(){
 
     Route::get('dashboard', [TeacherController::class, 'index'])->name('dashboard');
-
+    Route::get('/price', function () {
+        return view('teacher.price');
+    });
 });
 
 Route::group(['prefix' => 'student', 'middleware' => 'auth', 'as' => 'student.'], function(){
@@ -100,7 +102,7 @@ Route::get('/home4', function () {
 Route::get('/teacher/profile', function () {
     return view('home5');
 })->name('test');
-Route::get('/home6', function () {
+Route::get('/price', function () {
     return view('home6');
 });
 

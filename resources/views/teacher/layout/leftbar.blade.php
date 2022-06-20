@@ -21,9 +21,9 @@
         <li><a href="#chat" data-toggle="tab">History</a></li>
         <li><a href="#payment" data-toggle="tab">Notes</a></li>
         <li><a href="#chat-one" data-toggle="tab">Chat</a></li>
-        <li><a href="#menu" data-toggle="tab">Pricing Menu</a></li>
-        <li class="active"><a href="{{ url('/teacher/profile') }}" > My Profile</a></li>
-        <li><a href="www.google.com" data-toggle="tab">Write Block</a></li>
+        <li class="active"><a href="#menu" data-toggle="tab">Pricing Menu</a></li>
+        <li><a href="#profile" data-toggle="tab"> My Profile</a></li>
+        <li><a href="#block" data-toggle="tab">Write Block</a></li>
         <li><a href="#status" data-toggle="tab">My Status</a></li>
     </ul>
 </div>
