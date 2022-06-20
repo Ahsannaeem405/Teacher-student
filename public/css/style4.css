@@ -25,7 +25,8 @@ justify-content: space-evenly;
     background: #c9c97e;color:white
 }
 .right_dot{
-    text-align: right;margin-top: 47%;
+    text-align: right;
+    margin-top: 47%;
     margin-right: -28%;
 }
 .blog_heading{

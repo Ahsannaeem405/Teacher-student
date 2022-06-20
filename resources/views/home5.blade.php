@@ -75,5 +75,18 @@
         </div>
 </body>
 
+        <form action="#" class="profile-form">
+            <label for="fname">First name</label><br>
+            <input type="text" id="fname" name="fname" class="form-control border"
+                   style="font-size: 18px;"><br>
 
-@include('footer')
+
+            <label for="lname">Last name</label><br>
+            <input type="text" id="lname" name="lname" class="form-control border"
+                   style="font-size: 18px;"><br>
+            <label for="email">Email</label><br>
+            <input type="email" id="email" name="email" class="form-control border"
+                   style="font-size: 18px;"><br>
+
+            <label for="subject">Subject</label><br>
+            <select id="Subject" name="carlist" form="carform" class="form-control border"

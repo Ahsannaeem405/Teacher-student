@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>@yield('title') | {{env('APP_NAME')}}</title>
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
@@ -18,29 +18,64 @@
             }
         </style>
     </head>
+
     <body>
-        <header class="main-header active-header">
-            <div class="row">
-                <div class="col-md-3 logo-col">
-                    <img src="{{url('/images/logo.svg')}}" alt="Image"/>
+        @include('user.layout.nav')
+
+        <div class="banner-two"></div>
+
+        <div class="tab-sec">
+            <div class="row" style="padding-top: 65px; padding-left: 20px;">
+                <div class="col-md-4 tab-col">
+
+                    @include('user.layout.sidebar')
+
                 </div>
-                <div class="col-md-6 menu-col">
-                    <nav class="navbar navbar-expand-lg navbar-light">
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-lable="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                            <ul class="nav navbar-nav">
-                                <li><a class="" href="#">About Us</a></li>
-                                <li><a class="" href="#">Features</a></li>
-                                <li><a class="" href="#">Pricing</a></li>
-                                <li><a class="" href="#">Blog</a></li>
-                            </ul>
+
+
+                <div class="col-md-8 tab-content-col">
+
+                    <div class="tab-content">
+                        <div class="tab-pane" id="class"></div>
+                        <div class="tab-pane" id="course">Profile Tab.</div>
+                        <div class="tab-pane" id="meeting">Messages Tab.</div>
+                        <div class="tab-pane" id="teachers">Settings Tab.</div>
+                        <div class="tab-pane" id="history">history Tab.</div>
+                        <div class="tab-pane" id="notes">Notes Tab.</div>
+                        <div class="tab-pane" id="chat">Chat Tab.</div>
+                        <div class="tab-pane" id="payment">Payment Tab.</div>
+                        <div class="tab-pane" id="#chat-one">Payment Tab.</div>
+                        <div class="tab-pane" id="#menu">Payment Tab.</div>
+                        <div class="tab-pane active" id="#profile">
+                            <h1>DASHBORAD / <span class="span-class"> MY PROFILE</span></h1>
+
+                            <form action="#" class="profile-form">
+                                <label for="fname">First name</label><br>
+                                <input type="text" id="fname" name="fname"><br>
+
+                                <label for="lname">Last name</label><br>
+                                <input type="text" id="lname" name="lname"><br>
+
+                                <label for="email">Email</label><br>
+                                <input type="email" id="email" name="email"><br>
+
+                                <label for="subject">Subject</label><br>
+                                <select id="Subject" name="carlist" form="carform">
+                                    <option value="Subject">Subject</option>
+                                </select><br>
+
+                                <label for="pclu-textarea">Bio</label><br>
+                                <textarea name="pctextarea" id="pclu-textarea"></textarea>
+
+                                <input type="submit" value="Save">
+                            </form>
                         </div>
-                    </nav>
-                </div>
-                <div class="col-md-3 man-img-col">
-                    <img src="{{url('/images/607160c7d3be9.png')}}" alt="Image"/>
+                        <div class="tab-pane" id="#block">Payment Tab.</div>
+                        <div class="tab-pane" id="#status">Payment Tab.</div>
+                    </div>
+
+                    <div class="clearfix"></div>
+
                 </div>
             </div>
         </header>

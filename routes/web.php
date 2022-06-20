@@ -4,6 +4,14 @@ use App\Http\Controllers\FrontController;
 use App\Http\Controllers\StripePaymentController;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\{
+    UserController,
+    LogoutController,
+    AdminController,
+    TeacherController,
+    StudentController,
+};
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,6 +22,43 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/test', function (){
+   return view('home5');
+});
+
+Route::get('/login', function () {
+    return view('auth.login');
+});
+
+
+Route::get('/logout', [LogoutController::class, 'logout']);
+
+Route::get('register/here', function (){
+    return view('auth.register');
+});
+
+Route::group(['prefix' => 'admin', 'middleware' => 'auth', 'as' => 'admin.'], function(){
+
+    Route::get('dashboard', [AdminController::class, 'index'])->name('dashboard');
+    Route::get('users', [AdminController::class, 'getUsers'])->name('users');
+    Route::get('teachers', [AdminController::class, 'getTechers'])->name('teachers');
+
+});
+
+
+Route::group(['prefix' => 'teacher', 'middleware' => 'auth', 'as' => 'teacher.'], function(){
+
+    Route::get('dashboard', [TeacherController::class, 'index'])->name('dashboard');
+
+});
+
+Route::group(['prefix' => 'student', 'middleware' => 'auth', 'as' => 'student.'], function(){
+
+    Route::get('dashboard', [StudentController::class, 'index'])->name('dashboard');
+
+});
+
 
 Route::get('/',[FrontController::class,'index']);
 Route::get('/price',[FrontController::class,'price']);
@@ -91,15 +136,17 @@ Route::get('/about', function () {
     return view('about');
 });
 
-
-Route::get('/sign-in', function () {
-    return view('sign_in');
-});
-
 Route::get('/blog', function () {
     return view('blog');
 });
 
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/blog_detail', function () {
     return view('blog_detail');
 });

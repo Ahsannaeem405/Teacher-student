@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>{{ env('APP_NAME') }}</title>
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
@@ -85,8 +85,8 @@
                     </nav>
                 </div>
                 <div class="col-md-3 mt-3 man-img-col">
-                  <a href="{{ url('/sign-in') }}" class="btn loginbtn">Login</a>
-                  <button class="btn registerbtn">Sign Up</button>
+                  <a href="{{ url('/login') }}" class="btn loginbtn">Login</a>
+                  <a href="{{ url('register/here') }}" class="btn registerbtn">Sign Up</a>
                 </div>
             </div>
         </header>

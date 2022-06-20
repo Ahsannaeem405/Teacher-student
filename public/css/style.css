@@ -15,6 +15,7 @@ background: #2c3250;
 -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
 -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
 box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+
 }
 header.main-header img {
 width: 65px;
@@ -81,8 +82,9 @@ ul.footer-icon li i.fa {
 font-size: 25px;
 color: #b1b1b1;
 }
-.col-md-4.footer-first-col {
-padding-right: 60px;
+.footer-first {
+    padding-right: 60px;
+    padding-left: 40px;
 }
 ul.footer-link {
 list-style: none;
@@ -291,7 +293,7 @@ line-height: 32px;
 color: #308214 !important;
 }
 .banner-two {
-background: url(../images/back3.png);
+background: url(../images/teacher-header.png);
 min-height: 600px;
 background-position: center;
 background-repeat: no-repeat;
@@ -960,7 +962,7 @@ text-align: left;
 form.profile-form input, form.profile-form input#email, select#Subject {
 width: 100%;
 background: #f6f6f6;
-border: none;
+/*border: none;*/
 height: 40px;
 border-radius: 10px;
 margin-bottom: 11px;
@@ -1091,4 +1093,27 @@ ul.btn-sec {
 display: block;
 }
 }
+
+.input-field-reg{
+    width: 100%;
+    background: #f6f6f6;
+    border: none;
+    height: 40px;
+    border-radius: 10px;
+}
+.head-user-img{
+    border-radius: 50%;
+    border: 5px solid white;
+}
+
+/*.save-buttn{*/
+/*    margin: 5% 0px 0px;*/
+/*    width: 150px;*/
+/*    height: 70px;*/
+/*    color: #fff;*/
+/*    background-color: #c8c97d;*/
+/*    font-size: 22px;*/
+/*    border-radius: 8px;*/
+/*}*/
+
 

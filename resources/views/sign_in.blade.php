@@ -72,76 +72,68 @@
 </style>
 
 <div class="banner">
-            <div class="banner_text text-center">
+    <div class="banner_text text-center"></div>
+</div>
 
+<section style="margin-top: 15px;" class="cardbgcolor">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="" style="margin-top: 128%;margin-left: -28%;">
+                    <img src="{{url('/images/dot-shape-primary.svg')}}" alt="Image"/>
+                </div>
+             </div>
+
+            <div class="col-md-4">
+                <h1 class="text-center" style="margin-bottom: 76px; margin-top: 51px;">
+                    Log in </h1>
+
+                <form action="#" method="POST">
+                    <div class="form-group mb-4">
+                        <label for="email" class="field_label fw-bolder">E-mail:</label>
+                        <input type="email" class="form-control input-field-reg @error('email') is-invalid @enderror"
+                               name="email" value="{{ old('email') }}" required autocomplete="email" autofocus
+                               placeholder="Enter Email" id="email" >
+                        @error('email')
+                        <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                        @enderror
+                    </div>
+
+                    <div class="form-group mb-4">
+                        <label for="password" class="field_label fw-bolder">Password:</label>
+                        <input type="password" name="password" class="form-control input-field-reg
+                                        @error('password') is-invalid @enderror" value="{{ old('password') }}"
+                               required autocomplete="password" autofocus id="password"
+                               placeholder="Enter Password">
+                        @error('password')
+                        <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                        @enderror
+                    </div>
+
+                    <div class="text-center forg_m" >
+                        <a href="#" style="color:black;font-size: 27px;">Forget Password?</a><br>
+                        <button type="submit" class="btn btn-default sub_btn" >Sign in</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="col-md-4">
+                <div class="right_dot" >
+                    <img src="{{url('/images/dot-shape-primary.svg')}}" alt="Image"/>
+                </div>
             </div>
         </div>
-        <section style="margin-top: 15px;" class="cardbgcolor">
 
-            <div class="container">
-
-<div class="row">
-
-    <div class="col-md-4">
-        <div class="" style="margin-top: 128%;margin-left: -28%;">
-            <img src="{{url('/images/dot-shape-primary.svg')}}" alt="Image"/>
+        <div class="row trail_space" >
+            <div class="col-md-5 col-centered">
+                Sign Up for a free 7-day trail
+            </div>
         </div>
     </div>
-
-<div class="col-md-4">
-
-
-    <h1 class="text-center" style="margin-bottom: 76px;
-margin-top: 51px;">
-Log in
-</h1>
-
-
-
-
-
-<form>
-    <div class="form-group">
-      <label for="exampleInputEmail1" class="field_label">E-mail:</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" >
-    </div>
-    <div class="form-group">
-      <label for="exampleInputPassword1" class="field_label">Password:</label>
-      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-    </div>
-
-    <div class="text-center forg_m" >
-<a href="#" style="color:black;font-size: 27px;">Forget Password?</a><br>
-<button type="submit" class="btn btn-default sub_btn" >Sign in</button>
-</div>
-
-  </form>
-
-
-
-
-
-
-</div>
-
-<div class="col-md-4">
-    <div class="right_dot" >
-        <img src="{{url('/images/dot-shape-primary.svg')}}" alt="Image"/>
-    </div>
-</div>
-
-
-
-</div>
-<div class="row trail_space" >
-    <div class="col-md-5 col-centered">
-Sign Up for a free 7-day trail
-    </div>
-</div>
-
-
-
-</div>
 </section>
 
 
