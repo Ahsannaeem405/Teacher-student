@@ -79,7 +79,7 @@
    }
 </style>
 
-<div class="banner">
+<div class="banner56">
 
 </div>
 
