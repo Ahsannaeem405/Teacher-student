@@ -284,7 +284,7 @@ display: none;
 padding-left: 33px;
 }
 .padding_4_col2{
-    padding-left: 8rem !important;
+    padding-left: 7rem !important;
 }
 .pos_l{
 display: none;
@@ -301,7 +301,7 @@ font-size: 12px !important;
 }
 
 .padding_4_col{
-    padding-left: 8rem !important;
+    padding-left: 8rem ;
 }
 /* @media (min-width: 993px) and (max-width: 4000px) {
     .main-header{
