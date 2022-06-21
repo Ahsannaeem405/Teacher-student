@@ -59,7 +59,7 @@
     <body>
 
 
-        <button type="button" onclick="check_alarm()" class="btn btn-primary res_nav" id="show_nav">
+        <button type="button" onclick="check_alarm()" style="background-color: #2c3250;" class="btn btn-primary res_nav" id="show_nav">
             <i class="fas fa-bars"></i>
           </button>
 

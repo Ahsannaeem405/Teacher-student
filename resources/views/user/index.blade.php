@@ -88,13 +88,13 @@ background-color:white !important;
 
 <div style="background-color: #FAFAFA;">
 <div class="row row_width">
-    <div class="col-xs-2 text-center"></div>
-<div class="col-xs-9 text-center">
+    <div class="col-md-2 text-center"></div>
+<div class="col-md-9 text-center">
 <h1 style="font-size: 84px;color:#f0f0f0;opacity:54%; font-family: sans-serif;font-weight: bold">
 LEARNING PLUGIN
 </h1>
 </div>
-<div class="col-xs-1" style="text-align: right;padding-right: 0;">
+<div class="col-md-1" style="text-align: right;padding-right: 0;">
     <img class="header-dots-img" style="opacity: 50%;" src="{{ asset('/images/dt1.png') }}" alt="Image">
 </div>
 </div>

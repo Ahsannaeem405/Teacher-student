@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="{{ asset('css/style2.css') }}">
 <style>
     .border{
-        border: 1px solid rgb(185, 196, 138);
+        border: 1px solid rgb(185, 196, 138);margin-top:1rem;
     }
     .priceBtn{
         background-color: #308214 ;
@@ -33,7 +33,7 @@
 <div style="background-color: white;
 margin-top: -19rem;
 border-radius: 1%">
-<div class="container" >
+<div >
 
 
     <br>    <br>    <br>
@@ -60,7 +60,7 @@ border-radius: 1%">
                 </div>
             </div>
             <div class="col-lg-3  col-md-6 col-sm-12">
-                <div class="card middle-card">
+                <div class="card border middle-card">
                     <div class="card-body">
                         <h4>Basic</h4>
                         <div class="price">

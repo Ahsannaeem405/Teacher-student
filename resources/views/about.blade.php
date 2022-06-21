@@ -81,7 +81,7 @@
 <div class="container">
 
 <div class="row">
-<div class="col-md-12">
+<div class="col-md-12 m_q_left_space">
 <h1 style="font-family: sans-serif;">
 About Us
 </h1>
@@ -93,7 +93,7 @@ About Us
 </p>
 </div>
 
-<div class="col-md-12">
+<div class="col-md-12 m_q_left_space">
 <img src="{{ asset('images/36.png') }}"  class="img_ab" alt="" srcset="">
 </div>
 

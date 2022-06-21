@@ -278,7 +278,11 @@ background-color: none;
 display: none;
 }
 
-
+@media (min-width: 235px) and (max-width: 762px) {
+.m_q_left_space{
+padding-left: 33px;
+}
+}
 /* @media (min-width: 993px) and (max-width: 4000px) {
     .main-header{
         display: block;

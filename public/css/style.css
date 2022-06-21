@@ -130,7 +130,7 @@ background-size: cover;
     min-height: 600px;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: auto;
     }
 .banner54 {
     background: url(../images/35.jpg);
