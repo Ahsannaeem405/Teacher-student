@@ -88,13 +88,13 @@ background-color:white !important;
 
 <div style="background-color: #FAFAFA;">
 <div class="row row_width">
-    <div class="col-md-2 text-center"></div>
-<div class="col-md-9 text-center">
-<h1 style="font-size: 84px;color:#f0f0f0;opacity:54%; font-family: sans-serif;font-weight: bold">
+    <div class="col-lg-2 text-center"></div>
+<div class="col-lg-9 text-center">
+<h1 style="font-size: ;color:#f0f0f0;opacity:54%; font-family: sans-serif;font-weight: bold">
 LEARNING PLUGIN
 </h1>
 </div>
-<div class="col-md-1" style="text-align: right;padding-right: 0;">
+<div class="col-xs-1" style="text-align: right;padding-right: 0;">
     <img class="header-dots-img" style="opacity: 50%;" src="{{ asset('/images/dt1.png') }}" alt="Image">
 </div>
 </div>
@@ -129,14 +129,14 @@ LEARNING PLUGIN
         <section class="cardbgcolor">
 
 <div class="container ">
-    <div class="row card-margin">
-        <div class="col-md-4 col-lg p_cours_padding">
+    <div class="row card-margin m-0">
+        <div class="col-md-4 p_cours_padding">
             <div class="card border box_b">
                 <img class="card-img-top card-img-radius" src="{{asset('images/a22.png')}}" alt="Card image cap">
                 <div class="card-body">
                   <h5 class="card-title card_heading" >Virtual Teaching</h5>
                   <p class="card-text">Let's Learn Python Fast.</p>
-                    <div class="row card_section">
+                    <div class="row card_section m-0">
                     <div class="col-md-3 mar-top">
                                 <i class="fa-solid fa-message icon_prop message-ml"></i>
                             </div>
@@ -157,7 +157,7 @@ LEARNING PLUGIN
                     <div class="card-body">
                       <h5 class="card-title card_heading" >Virtual Teaching</h5>
                       <p class="card-text">Let's Learn Python Fast.</p>
-                        <div class="row card_section">
+                        <div class="row card_section m-0">
                             <div class="col-md-3 ">
                                 <i class="fa-solid fa-message icon_prop message-ml"></i>
                             </div>
@@ -178,7 +178,7 @@ LEARNING PLUGIN
                     <div class="card-body">
                       <h5 class="card-title card_heading" >Virtual Teaching</h5>
                       <p class="card-text">Let's Learn Python Fast.</p>
-                        <div class="row card_section">
+                        <div class="row card_section m-0">
                             <div class="col-md-3 col-sm-6">
                                 <i class="fa-solid fa-message icon_prop message-ml"></i>
                             </div>
@@ -198,8 +198,8 @@ LEARNING PLUGIN
 
 </section>
 </div>
-<div class="container">
-<div class="row">
+<div class="container ">
+<div class="row m-0">
 <div class="col-md-12">
     <img src="{{ asset('images/a25.png') }}" class="img_width" alt="" srcset="">
 </div>
@@ -213,7 +213,7 @@ LEARNING PLUGIN
 <img src="{{url('/images/dot-shape-primary.svg')}}" alt="Image"/>
 </div>
 <div class="container">
-    <div class="row">
+    <div class="row m-0">
     <div class="col-md-12 text-center">
 <h1 class="under-line2">
 With Virtually Teaching You Can
@@ -224,7 +224,7 @@ With Virtually Teaching You Can
 
     </div>
 
-    <div class="col-sm-12 box_b vistual-margin">
+    <div class="col-sm-12 box_b ">
         <div class='virtual-width'>
 
 
@@ -249,13 +249,13 @@ With Virtually Teaching You Can
 
 
 
-    <div class="next-project4">
+    <div class="next-project4 ">
 
         <div class="two-img">
             <img src="{{url('/images/dot-shape-primary.svg')}}" alt="Image"/>
             <img src="{{url('/images/dot-shape-white.svg')}}" alt="Image"/>
         </div>
-        <div class="container text-center">
+        <div class="container text-center ">
 <div class="row">
 <div class="col-xs-9 col-centered" style="margin-top: -105px;">
             <h1 style="    font-size: 38px;
@@ -287,7 +287,7 @@ font-family: sans-serif;">A great book by the author Nir Eyal called Hooked. Thi
 
 
     <div class="container">
-    <div class="row">
+    <div class="row ">
 
 
         <div class="col-md-12 text-center">
@@ -296,9 +296,13 @@ font-family: sans-serif;">A great book by the author Nir Eyal called Hooked. Thi
     </h1>
         </div>
     </div>
-<div class="row testimonial-margin">
-<img class="testimonial-dots" src="http://localhost/Teacher-student/public/images/dot-shape-primary.svg" alt="Image">
-<div class="col-md-4 card-ml">
+<div class="row testimonial-margin m-0">
+<img class="testimonial-dots" style="position: absolute" src="http://localhost/Teacher-student/public/images/dot-shape-primary.svg" alt="Image">
+<div class="w-100 text-center row m-0" style="justify-content:center">
+
+
+
+<div class="col-md-4 ">
 
 
     <div class="card border box_b">
@@ -362,11 +366,12 @@ lkk jas  jaf j ad fkj adfjasd fjk
 
 
             </div>
-      </div>
+        </div>
+
 
 </div>
 
-</div>
+
 </div>
 
 

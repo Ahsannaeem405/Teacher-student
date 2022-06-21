@@ -151,7 +151,13 @@ width: 70% !important;padding-left: 3%;
 .w-100{
 width: 100% !important;
 }
+.row{
+width: 100% !important;
 
+}
+.tmp{
+display: none;
+}
 .btn_uper{
 margin-top: -8%;
 }

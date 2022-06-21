@@ -201,7 +201,7 @@ BLOG
                     <div style="position: absolute;
                     top: 882px;
                     right: 0%;">
-                        <img class="img_side" src="http://localhost/Teacher-student/public/images/dot-shape-primary.svg" alt="Image">
+                        <img class="img_side" src="{{ asset('images/dot-shape-primary.svg') }}" alt="Image">
                     </div>
                 </div>
             </div>
@@ -217,11 +217,9 @@ BLOG
 
             <div class="col-md-8 " >
 
-
-
                 <div style="position:relative">
                     <div class="pos_l">
-                        <img class="img_side" src="http://localhost/Teacher-student/public/images/dot-shape-primary.svg" alt="Image">
+                        <img class="img_side" src="{{ asset('images/dot-shape-primary.svg') }}" alt="Image">
                     </div>
                 </div>
 

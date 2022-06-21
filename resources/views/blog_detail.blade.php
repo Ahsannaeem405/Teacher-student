@@ -95,7 +95,7 @@
 
 
 
-<div class="row row_width">
+<div class="row row_width m-0">
     <div class="col-xs-2 text-center"></div>
 <div class="col-xs-9 text-center">
 <h1 style="font-size: 84px;color:#f0f0f0;opacity:54%; font-family: sans-serif;font-weight: bold">
@@ -150,7 +150,7 @@ BLOG
 
         <section style="margin-top: 15px;" class="cardbgcolor">
             <div class="container row_width">
-        <div style="row row_width" >
+        <div style="row row_width m-0" >
         <div class="col-sm-4">
         <div class="pp">
             <a href="#" class="b_heading_b" style="
@@ -209,13 +209,13 @@ BLOG
 
     <section style="margin-top: 24px;" class="cardbgcolor">
         <div class="container row_width">
-    <div class="row row_width">
+    <div class="row row_width m-0">
 
 
 
 
 
-            <div class="col-md-8 padding_4_col2 padding_4_col" >
+            <div class="col-md-8 " >
 
 
 
@@ -273,7 +273,7 @@ Demo
 
 
 
-<div class="col-md-4 mt_blog_side padding_4_col2">
+<div class="col-md-4 ">
 
     <div class="col-sm-12" style="background-color:#f2f0f0">
 <h3 class="text-center common_blog_color" style="    font-size: 31px;font-family: sans-serif !important;">
