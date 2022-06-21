@@ -94,7 +94,7 @@
 
 
 <div class="container">
-<div class="row">
+<div class="row w-100 m-0">
 <div class="col-md-12 box_additional" style="margin-bottom: 5%">
 <div class="text-center">
 <h1 class="heading_contact">Contact Us</h1>
