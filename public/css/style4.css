@@ -239,6 +239,7 @@ margin-left: 9%;margin-right: 9%;
     width: 156px;
     border-radius: 20px 0px 0px 20px;border-right: 5px solid #9d9d6b;
 }
+
 .trail_space{
 font-size: 33px;margin-bottom: 26%;
 }
@@ -282,6 +283,25 @@ display: none;
 .m_q_left_space{
 padding-left: 33px;
 }
+.padding_4_col2{
+    padding-left: 8rem !important;
+}
+.pos_l{
+display: none;
+}
+.freeBtn{
+font-size: 12px !important;
+}
+.padding_4_col3{
+    margin-left: 8rem !important;
+}
+.c_w {
+    height: 175px !important;
+}
+}
+
+.padding_4_col{
+    padding-left: 8rem !important;
 }
 /* @media (min-width: 993px) and (max-width: 4000px) {
     .main-header{

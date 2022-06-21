@@ -144,7 +144,7 @@ LEARNING PLUGIN
 
                         <i class="fa-solid fa-download icon-size"></i></i> <span class="greyColor">14</span>
                         </div>
-                        <div class="col-md-5">
+                        <div class="col-md-6">
                             <i class="fa-solid fa-clock icon_prop"></i> <span class="greyColor">15 minute</span>
                         </div>
                     </div>
@@ -165,7 +165,7 @@ LEARNING PLUGIN
 
                                 <i class="fa-solid fa-user-group icon_prop" ></i> <span class="greyColor">14</span>
                             </div>
-                            <div class="col-md-5">
+                            <div class="col-md-6">
                                 <i class="fa-solid fa-clock icon_prop"></i> <span class="greyColor">15 minute</span>
                             </div>
                         </div>
@@ -179,14 +179,14 @@ LEARNING PLUGIN
                       <h5 class="card-title card_heading" >Virtual Teaching</h5>
                       <p class="card-text">Let's Learn Python Fast.</p>
                         <div class="row card_section">
-                            <div class="col-md-3 ">
+                            <div class="col-md-3 col-sm-6">
                                 <i class="fa-solid fa-message icon_prop message-ml"></i>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-3 col-sm-6">
 
                                 <i class="fa-solid fa-user-group icon_prop" ></i> <span class="greyColor">14</span>
                             </div>
-                            <div class="col-md-5">
+                            <div class="col-md-6 col-sm-12">
                                 <i class="fa-solid fa-clock icon_prop"></i> <span class="greyColor">15 minute</span>
                             </div>
                         </div>

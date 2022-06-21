@@ -78,10 +78,10 @@
             </div>
         </div>
         <section style="margin-top: 15px;" class="cardbgcolor">
-<div class="container">
+<div class="container row_width">
 
-<div class="row">
-<div class="col-md-12 m_q_left_space">
+<div class="row row_width">
+<div class="col-md-12 padding_4_col m_q_left_space">
 <h1 style="font-family: sans-serif;">
 About Us
 </h1>
@@ -93,7 +93,7 @@ About Us
 </p>
 </div>
 
-<div class="col-md-12 m_q_left_space">
+<div class="col-md-12 padding_4_col m_q_left_space">
 <img src="{{ asset('images/36.png') }}"  class="img_ab" alt="" srcset="">
 </div>
 

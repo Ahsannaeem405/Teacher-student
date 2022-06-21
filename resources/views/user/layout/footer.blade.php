@@ -1,7 +1,7 @@
 <div class="footer">
     <div class="container">
-        <div class="row">
-            <div class="col-md-4 footer-first-col">
+        <div class="row row_width">
+            <div class="col-md-4 padding_4_col2 footer-first-col">
                 <img src="{{url('/images/logo-main.svg')}}" alt="Image"/>
                 <p>Virtual teaching is a marketplace filled with qualified teachers that will provide excellent teaching resources. We are happy to work with you in your learning journey.</p>
                 <h4>Follow Us:</h4>
@@ -15,18 +15,18 @@
             <div class="col-md-2">
                 <h4>Product</h4>
                 <ul class="footer-link">
-                    
+
                     <li><i class="fa fa-angle-right"></i>&nbsp;  <a class="" href="{{ url('/features') }}">Features</a></li>
                     <li><i class="fa fa-angle-right"></i>&nbsp;  <a class="" href="{{ url('/price') }}">Pricing</a></li>
                     <li><i class="fa fa-angle-right"></i>&nbsp;  <a class="" href="{{ url('/sign-in') }}">Log in</a></li>
-                </ul> 
+                </ul>
             </div>
             <div class="col-md-2">
                 <h4>Company</h4>
                 <ul class="footer-link">
                     <li><i class="fa fa-angle-right"></i>&nbsp;  <a class="" href="{{ url('/about') }}">About Us</a></li>
                     <li><i class="fa fa-angle-right"></i>&nbsp;  <a class="" href="{{ url('/blog') }}">Blog</a></li>
-                </ul> 
+                </ul>
             </div>
             <div class="col-md-4 forth-col">
                 <h4>Help</h4>
@@ -34,7 +34,7 @@
                     <li><i class="fa fa-angle-right"></i>&nbsp;  <a class="" href="{{ url('/contact-us') }}">Contact Us</a></li>
                     <li><i class="fa fa-angle-right"></i>&nbsp;  <a class="" href="{{ url('/term') }}">Terms Of Service</a></li>
                     <li><i class="fa fa-angle-right"></i>&nbsp;  <a class="" href="{{ url('/policy') }}">Privacy Policy</a></li>
-                </ul> 
+                </ul>
             </div>
         </div>
     </div>

@@ -149,8 +149,8 @@ BLOG
 
 
         <section style="margin-top: 15px;" class="cardbgcolor">
-            <div class="container ">
-        <div style="row" >
+            <div class="container row_width">
+        <div style="row row_width" >
         <div class="col-sm-4">
         <div class="pp">
             <a href="#" class="b_heading_b" style="
@@ -208,14 +208,14 @@ BLOG
 
 
     <section style="margin-top: 24px;" class="cardbgcolor">
-        <div class="container">
-    <div class="row">
+        <div class="container row_width">
+    <div class="row row_width">
 
 
 
 
 
-            <div class="col-md-8 " >
+            <div class="col-md-8 padding_4_col2 padding_4_col" >
 
 
 
@@ -284,7 +284,7 @@ Demo
 
 
 
-<div class="col-md-4 mt_blog_side">
+<div class="col-md-4 mt_blog_side padding_4_col2">
 
     <div class="col-sm-12" style="background-color:#f2f0f0">
 <h3 class="text-center common_blog_color" style="    font-size: 31px;font-family: sans-serif !important;">
@@ -425,7 +425,7 @@ Recent articles
                 <img src="{{url('/images/dot-shape-primary.svg')}}" alt="Image"/>
                 <img src="{{url('/images/dot-shape-white.svg')}}" alt="Image"/>
             </div>
-            <div class="container">
+            <div class="container row_width">
                 <h1>Have A Vision For Your</h1>
                 <h1>Next Project? Let's Get Your</h1>
                 <h1>14 Day Trial Started Now!</h1>

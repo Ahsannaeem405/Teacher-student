@@ -39,7 +39,7 @@ border-radius: 1%">
     <br>    <br>    <br>
     <div class="container pricing">
 
-        <div class="row">
+        <div class="row row_width padding_4_col2 padding_4_col">
             <div class="col-lg-3  col-md-6 col-sm-12">
                 <div class="card border" >
                     <div class="card-body ">
