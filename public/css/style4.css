@@ -145,6 +145,9 @@ width: 70% !important;padding-left: 3%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
+  .m-0{
+    margin: 0 !important;
+    }
 .btn_uper{
 margin-top: -8%;
 }
@@ -286,6 +289,7 @@ padding-left: 33px;
 .padding_4_col2{
     padding-left: 7rem !important;
 }
+
 .pos_l{
 display: none;
 }
