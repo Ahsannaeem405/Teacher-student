@@ -1,5 +1,4 @@
-@extends('user.layout.auth-layouts')
-
+@extends('user.layout')
 @section('content')
 
     <div class="banner">
@@ -7,15 +6,15 @@
     </div>
 
     <div class="container py-5">
-        <div class="d-flex justify-content-center mb-3">
-            <h2>{{ __('Register') }}</h2>
-        </div>
+        
 
-        <div class="row justify-content-center">
-            <div class="col-lg-3 col-md-3 mx-auto">
+        <div class="row col-centered">
+            <div class="col-lg-4 col-md-4 col-md-offset-4 mx-auto">
                 <div class="card border-1 shadow">
                     {{--                <div class="card-header">{{ __('Register') }}</div>--}}
-
+                    <div class="d-flex justify-content-center mb-3">
+                        <h2>{{ __('Register') }}</h2>
+                    </div>
                     <div class="card-body d-flex flex-column align-items-center">
                         <form action="{{ route('register') }}" method="POST">
                             @csrf
