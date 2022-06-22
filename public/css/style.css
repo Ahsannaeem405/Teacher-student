@@ -35,7 +35,8 @@ border-radius: 50%;
 ul.navbar-nav li a {
 color: #fff;
 font-family: sans-serif;
-font-size: 18px;
+font-size: 16px;
+padding-right: 2px;
 }
 .H3_main_head{
     padding-top: 5%;padding-bottom: 1%;
@@ -125,6 +126,13 @@ background-size: cover;
     background-repeat: no-repeat;
     background-size: cover;
     }
+    .banner59 {
+        background: url(../images/41.png);
+        min-height: 600px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        }
 .banner55 {
     background: url(../images/37.jpg);
     min-height: 600px;
@@ -240,6 +248,13 @@ background-position: center;
 background-repeat: no-repeat;
 background-size: cover;
 }
+.next-project3 {
+    padding: 20px 50px;
+    background: url(../images/45.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    }
 .next-project4 {
     padding: 20px 50px;
     background: url(../images/29.png);

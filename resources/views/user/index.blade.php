@@ -20,11 +20,12 @@ background-color:white !important;
         border: 1px solid #707070;
         margin-top:10px;
         font-weight:bolder;
-        width: 39% !important;
+        width: 39% ;
         color:black;
         font-family: sans-serif;
-        font-size: 20px !important;
+        font-size: 20px;
     }
+
  .textbold{
         color: white;
         font-size: 42px;
@@ -81,7 +82,7 @@ background-color:white !important;
             <div class="banner_text text-center">
                 <h3 class="text-heading">Welcome To Virtually Teaching</h3>
                 <h2 class="textbold">The Future Of Online Teaching</h2>
-                <button class="btn freeBtn ">Start Free trail</button>
+                <button class="btn freeBtn freeBtn2">Start Free trail</button>
             </div>
 
         </div>
@@ -137,14 +138,14 @@ LEARNING PLUGIN
                   <h5 class="card-title card_heading" >Virtual Teaching</h5>
                   <p class="card-text">Let's Learn Python Fast.</p>
                     <div class="row card_section m-0">
-                    <div class="col-md-3 mar-top">
+                    <div class="col-lg-2 mar-top">
                                 <i class="fa-solid fa-message icon_prop message-ml"></i>
                             </div>
-                        <div class="col-md-3">
+                        <div class="col-lg-4">
 
-                        <i class="fa-solid fa-download icon-size"></i></i> <span class="greyColor">14</span>
+                        <i class="fa-solid fa-download icon-size  icon_prop"></i></i> <span class="greyColor">14</span>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-lg-6">
                             <i class="fa-solid fa-clock icon_prop"></i> <span class="greyColor">15 minute</span>
                         </div>
                     </div>
@@ -158,14 +159,14 @@ LEARNING PLUGIN
                       <h5 class="card-title card_heading" >Virtual Teaching</h5>
                       <p class="card-text">Let's Learn Python Fast.</p>
                         <div class="row card_section m-0">
-                            <div class="col-md-3 ">
+                            <div class="col-lg-2 ">
                                 <i class="fa-solid fa-message icon_prop message-ml"></i>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-lg-4">
 
                                 <i class="fa-solid fa-user-group icon_prop" ></i> <span class="greyColor">14</span>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-lg-6">
                                 <i class="fa-solid fa-clock icon_prop"></i> <span class="greyColor">15 minute</span>
                             </div>
                         </div>
@@ -179,14 +180,14 @@ LEARNING PLUGIN
                       <h5 class="card-title card_heading" >Virtual Teaching</h5>
                       <p class="card-text">Let's Learn Python Fast.</p>
                         <div class="row card_section m-0">
-                            <div class="col-md-3 col-sm-6">
+                            <div class="col-lg-2 ">
                                 <i class="fa-solid fa-message icon_prop message-ml"></i>
                             </div>
-                            <div class="col-md-3 col-sm-6">
+                            <div class="col-lg-4 ">
 
                                 <i class="fa-solid fa-user-group icon_prop" ></i> <span class="greyColor">14</span>
                             </div>
-                            <div class="col-md-6 col-sm-12">
+                            <div class="col-lg-6">
                                 <i class="fa-solid fa-clock icon_prop"></i> <span class="greyColor">15 minute</span>
                             </div>
                         </div>
@@ -298,11 +299,11 @@ font-family: sans-serif;">A great book by the author Nir Eyal called Hooked. Thi
     </div>
 <div class="row testimonial-margin m-0">
 <img class="testimonial-dots" style="position: absolute" src="http://localhost/Teacher-student/public/images/dot-shape-primary.svg" alt="Image">
-<div class="w-100 text-center row m-0" style="justify-content:center">
+<div class="w-100 text-center row m-0">
 
 
 
-<div class="col-md-4 ">
+<div class="col-md-4 col-md-offset-2">
 
 
     <div class="card border box_b">
@@ -374,7 +375,7 @@ lkk jas  jaf j ad fkj adfjasd fjk
 
 </div>
 
-
+</div></div>
 
 <div class="next-project">
     <div class="two-img">

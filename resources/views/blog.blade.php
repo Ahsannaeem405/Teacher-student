@@ -98,7 +98,7 @@
 <div class="row row_width">
     <div class="col-xs-2 text-center"></div>
 <div class="col-xs-9 text-center">
-<h1 style="font-size: 84px;color:#f0f0f0;opacity:54%; font-family: sans-serif;font-weight: bold">
+<h1 style="font-size: 100px;color:#f0f0f0;opacity:54%; font-family: sans-serif;font-weight: bold">
 BLOG
 </h1>
 </div>

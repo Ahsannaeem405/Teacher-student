@@ -2,6 +2,9 @@
     font-size: 22px;
     font-family: sans-serif;
 }
+.ml_t{
+margin-left: 2rem;margin-bottom: 3rem;
+}
 .img_ab{
     width: 100%;margin-top: 13%;
 }
@@ -80,11 +83,11 @@ margin-top: 10rem;margin-bottom: 7rem;
 padding-bottom: 1%;color:white;
 }
 .kids_sec{
-    background: url(../images/back_2.png);
+    background: url(../images/46.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-height: 57rem;
+height: 78rem;
 margin-bottom: 3%;
 }
 .inrSec{
@@ -96,10 +99,13 @@ font-size: 6rem;
 .v_pad_t{
     padding-top: 30px !important;
 }
+.c_cont{
+margin:6rem;
+}
 .doble_img{
     text-align: right;
     margin-right: 15rem;
-    /* margin-top: -19px; */
+    margin-top: -50px;
     position: relative;
     top: -7rem;
 }
@@ -131,6 +137,7 @@ width: 100% !important;
     margin-left: 15px;
 }
 .btn_ad_style{
+    margin-bottom: 2rem;
     font-size: 20px;padding-left: 20px;padding-right: 20px;font-family: sans-serif;font-weight: bold;
 }
 .box_additional{
@@ -191,7 +198,7 @@ margin-top: 23px !important;margin: unset;margin-bottom: 23px !important;
     color: #050576;
 }
 .b_side_he{
-    margin-top: 0; color: #050576;margin-bottom: 5px;font-size: 22px;padding: 5.5px;font-family:sans-serif !important;
+    margin-top: 0; color: #050576;margin-bottom: 5px;font-size: 22px;padding: 5.5px;font-family:sans-serif !important;font-weight: bold;
 }
 .cont{
 margin:170px;
@@ -303,14 +310,35 @@ padding-left: 33px;
 .pos_l{
 display: none;
 }
+.img_side{
+display: none;
+}
+.on_resp{
+font-size: 3rem !important;
+}
+.on_resp2{
+    font-size: 2rem !important;
+    }
+.freeBtn2{
+width: 50% !important;
+}
 .freeBtn{
-font-size: 12px !important;
+font-size: 11px !important;
+}
+.t_mgn{
+    margin-top: 0rem;
 }
 .padding_4_col3{
     margin-left: 8rem !important;
 }
 .c_w {
     height: 175px !important;
+}
+.resp_onLogin{
+display: none;
+}
+.log_pad{
+    padding: 4rem;
 }
 }
 
