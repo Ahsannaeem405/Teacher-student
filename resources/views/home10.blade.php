@@ -4,7 +4,7 @@
 <body>
     <div class="banner-two"></div>
            <div class="tab-sec"><div class="row">
-                <div class="col-md-4 tab-col"> 
+                <div class="col-md-4 tab-col">
                     <img src="{{url('/images/profile.png')}}" alt="Image" class="tab-img"/>
                     <h2>Kathy</h2>
                     <h3>(Teacher)</h3>
@@ -38,8 +38,9 @@
                         <div class="tab-pane" id="class"></div>
                         <div class="tab-pane" id="course">Profile Tab.</div>
                         <div class="tab-pane active" id="meeting">
-                        <h1>DASHBORAD / <span class="span-class"> COURSE DETAILS</span></h1>
-				            <div class="row mt-5 black-img-row">
+                            <h1>DASHBORAD / <span class="span-class"> COURSE DETAILS</span></h1>
+
+                            <div class="row mt-5 black-img-row">
                                 <div class="col-sm-4">
                                     <img src="{{url('/images/black.png')}}" alt="Image"/>
                                     <span class="img-text">Lenght: 3 hr 30 Min</span>
@@ -57,12 +58,12 @@
                             <div class="row mt-5">
                                 <div class="col-md-9 heading-1">
                                     <h2 class="bottom-line">Course Description</h2>
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-                                        when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
-                                        It has survived not only five centuries, but also the leap into electronic typesetting, 
-                                        remaining essentially unchanged. It was popularised in the 1960s with the release of 
-                                        Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing 
+                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                                        when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                                        It has survived not only five centuries, but also the leap into electronic typesetting,
+                                        remaining essentially unchanged. It was popularised in the 1960s with the release of
+                                        Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing
                                         software like Aldus PageMaker including versions of Lorem Ipsum.</p>
                                 </div>
                                 <div class="col-md-3"></div>
@@ -178,7 +179,7 @@
                 <div class="clearfix"></div>
             </div></div>
 <!-- last blue section start -->
-        <div class="next-project"> 
+        <div class="next-project">
             <div class="two-img">
                 <img src="{{url('/images/dot-shape-primary.svg')}}" alt="Image"/>
                 <img src="{{url('/images/dot-shape-white.svg')}}" alt="Image"/>

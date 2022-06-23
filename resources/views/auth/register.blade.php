@@ -93,7 +93,7 @@
                                         class="form-control input-field-reg @error('role') is-invalid @enderror"
                                         required autocomplete="role" autofocus>
                                     <option selected>Select Role</option>
-                                    <option value="1">Admin</option>
+{{--                                    <option value="1">Admin</option>--}}
                                     <option value="2">Teacher</option>
                                     <option value="3">Student</option>
                                 </select>

@@ -4,7 +4,7 @@
 <body>
     <div class="banner-two"></div>
            <div class="tab-sec"><div class="row">
-                <div class="col-md-4 tab-col"> 
+                <div class="col-md-4 tab-col">
                     <img src="{{url('/images/boy.png')}}" alt="Image" class="tab-img"/>
                     <h2>Josh</h2>
                     <h3>(Student)</h3>
@@ -26,17 +26,17 @@
                         <div class="tab-pane" id="meeting">Messages Tab.</div>
                         <div class="tab-pane active" id="teachers">
                         <div class="section-2 mt-5 mb-5">
-         <div class="container">
-            <div class="row">
-               <div class="col-md-10">
-                  <div class="section-2-heading">
-                     <h1>DASHBORAD /<span class="span-class">TEACHERS TIMELINE</span></h1>
-                  </div>
-               </div>
-               <div class="col-md-2"></div>
-            </div>
-         </div>
-    </div>
+                             <div class="container">
+                                <div class="row">
+                                   <div class="col-md-10">
+                                      <div class="section-2-heading">
+                                         <h1>DASHBORAD /<span class="span-class">TEACHERS TIMELINE</span></h1>
+                                      </div>
+                                   </div>
+                                   <div class="col-md-2"></div>
+                                </div>
+                             </div>
+                        </div>
       <!----section-4 card ------->
       <div class="section-4 mt-5 mb-5">
          <div class="container">
@@ -72,9 +72,9 @@
       <div class="section-3 mt-5 mb-5 ">
          <div class="container">
             <div class="row">
-               <div class="col-sm-4 col-md-4 col-lg-4"">
+               <div class="col-sm-4 col-md-4 col-lg-4">
                   <div class="card mt-5 " >
-                  <img src="{{url('/images/crd-one.png')}}" alt="Image"/>
+                    <img src="{{url('/images/crd-one.png')}}" alt="Image"/>
                      <div class="card-body">
                         <div class="row">
                            <div class="col-sm-6">
@@ -103,9 +103,9 @@
                      </div>
                   </div>
                </div>
-               <div class="col-sm-4 col-md-4 col-lg-4"">
+               <div class="col-sm-4 col-md-4 col-lg-4">
                   <div class="card mt-5" style="">
-                  <img src="{{url('/images/card-two.png')}}" alt="Image"/>
+                    <img src="{{url('/images/card-two.png')}}" alt="Image"/>
                      <div class="card-body ">
                         <div class="row">
                            <div class="col-sm-6">
@@ -135,7 +135,7 @@
                </div>
                <div class="col-sm-4 col-md-4 col-lg-4">
                   <div class="card mt-5" style="">
-                  <img src="{{url('/images/card-4.png')}}" alt="Image"/>
+                    <img src="{{url('/images/card-4.png')}}" alt="Image"/>
                      <div class="card-body">
                         <div class="row">
                            <div class="col-sm-6">
@@ -144,7 +144,7 @@
                            </div>
                            <div class="col-sm-6 text-right">
                               <i class="fa fa-star"></i>
-                              <span class="section3-span1">4.8</span>   
+                              <span class="section3-span1">4.8</span>
                               <span class="section3-span2">(22)</span>
                            </div>
                         </div>
@@ -167,7 +167,7 @@
             </div>
          </div>
       </div>
-                        </div>
+{{--                        </div>--}}
                         <div class="tab-pane" id="history">history Tab.</div>
                         <div class="tab-pane" id="notes">Notes Tab.</div>
                         <div class="tab-pane" id="chat">Chat Tab.</div>
@@ -177,7 +177,7 @@
                 <div class="clearfix"></div>
             </div></div>
 <!-- last blue section start -->
-        <div class="next-project"> 
+        <div class="next-project">
             <div class="two-img">
                 <img src="{{url('/images/dot-shape-primary.svg')}}" alt="Image"/>
                 <img src="{{url('/images/dot-shape-white.svg')}}" alt="Image"/>

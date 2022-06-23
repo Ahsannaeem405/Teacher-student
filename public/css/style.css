@@ -1,7 +1,7 @@
 /* header css */
 
 .main-header {
-    padding: 20px 0px;
+    padding: 0px 0px;
     position: fixed;
     top: 0;
     left: 0;
@@ -18,8 +18,8 @@ box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
 
 }
 header.main-header img {
-width: 65px;
-height: 65px;
+width: 46px;
+height: 46px;
 }
 .col-md-3.logo-col,.col-md-6.menu-col,.col-md-3.man-img-col {
 text-align: center;
@@ -35,7 +35,7 @@ border-radius: 50%;
 ul.navbar-nav li a {
 color: #fff;
 font-family: sans-serif;
-font-size: 18px;
+font-size: 14px;
 }
 .H3_main_head{
     padding-top: 5%;padding-bottom: 1%;
@@ -293,19 +293,20 @@ line-height: 32px;
 color: #308214 !important;
 }
 .banner-two {
-background: url(../images/teacher-header.png);
-min-height: 600px;
+background: url(../images/student-banner.png);
+min-height: 450px;
 background-position: center;
 background-repeat: no-repeat;
 background-size: cover;
 }
 .tab-sec .col-md-4.tab-col {
-padding: 120px 0px;
+padding: 50px 0px;
 background: #f2f2f2;
   text-align: center;
 }
 img.tab-img {
 border-radius: 50%;
+width: 85px;
 }
 .tab-sec h2 {
 margin: 20px 0px;
@@ -325,16 +326,16 @@ padding: 0px;
 }
 .tabs-left>li {
 float: none;
-margin: 25px 0px;
+margin: 5px 0px;
 background: #f2f2f2;
-padding: 20px 0px;
+padding: 10px 0px;
 }
 li.active {
 background: #c8c97d;
 }
 .nav-tabs>li>a {
 color: #000;
-font-size: 22px;
+font-size: 18px;
 }
 .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
 color: #fff;
@@ -548,23 +549,35 @@ margin-bottom: 26px;
 .pricing ul{
 text-align: left !important;
 margin-bottom: 30px;
-   padding: 15px 10px;
+padding: 15px 10px;
 background: #e7e5e563;
 border-radius: 10px;
 }
-.pricing h2 {
-background-color: black;
-color: #fff;
-width: 120px;
-height: 120px;
-display: block;
+/*.pricing h2 {*/
+/*background-color: black;*/
+/*color: #fff;*/
+/*width: 120px;*/
+/*height: 120px;*/
+/*display: block;*/
+/*}*/
+
+.pricing .free-plan{
+    background-color: #C9C97E;
+    color: white;
+    width: 120px;
+    height: 120px;
+    display: block;
+    /*border-color: #C9C97E;*/
+    border: 5px solid white;
+    box-shadow: #c5c5a5;
 }
+
 .pricing .price{
 display: flex;
 justify-content: center;
 margin-bottom: 31px;
-
 }
+
 .pricing .price h2{
 display: flex;
 justify-content: center;
@@ -572,7 +585,7 @@ align-items: center;
 box-shadow: 5px 5px 30px rgb(0 0 0 / 30%);
 border-radius: 50%;
 outline: 15px solid #fff;
-font-size: 16px;
+font-size: 24px;
 }
 .pricing p{
 font-size: 20px;
@@ -581,15 +594,26 @@ font-size: 20px;
 margin-bottom: 10px;
 font-size: 12px;
 }
+/*.pricing button {*/
+/*background-color: #308214;*/
+/*color: #fff;*/
+/*font-size: 18px;*/
+/*padding: 10px 45px;*/
+/*border: none;*/
+/*border-radius: 11px;*/
+/*box-shadow: 0px 0px 35px rgb(0 0 0 / 20%);*/
+/*}*/
+
 .pricing button {
-background-color: #308214;
-color: #fff;
-font-size: 18px;
-padding: 10px 45px;
-border: none;
-border-radius: 11px;
-box-shadow: 0px 0px 35px rgb(0 0 0 / 20%);
+    background-color: #C9C97E;
+    color: white;
+    font-size: 18px;
+    padding: 10px 45px;
+    border: none;
+    border-radius: 11px;
+    box-shadow: 0px 0px 35px rgb(0 0 0 / 20%);
 }
+
 .pricing i.fa.fa-check-circle-o {
 color: #308214;
 font-size: 21px;
@@ -687,6 +711,7 @@ font-weight: 800;
 }
 span.section3-span2 {
 font-size: medium;
+    color: #C9C9C9
 }
 .section-3.mt-5.mb-5 img {
 border-radius: 7px;

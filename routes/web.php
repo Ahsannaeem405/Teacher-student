@@ -24,7 +24,7 @@ use App\Http\Controllers\{
 */
 
 Route::get('/test', function (){
-   return view('home5');
+   return view('home2');
 });
 
 Route::get('/login', function () {
@@ -50,12 +50,24 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth', 'as' => 'admin.'], fu
 Route::group(['prefix' => 'teacher', 'middleware' => 'auth', 'as' => 'teacher.'], function(){
 
     Route::get('dashboard', [TeacherController::class, 'index'])->name('dashboard');
+    Route::get('/profile', [TeacherController::class, 'myProfile'])->name('my-profile');
+    Route::get('/course/create', [TeacherController::class, 'createCourse'])->name('create-course');
 
 });
 
 Route::group(['prefix' => 'student', 'middleware' => 'auth', 'as' => 'student.'], function(){
 
     Route::get('dashboard', [StudentController::class, 'index'])->name('dashboard');
+    Route::get('/my-profile', [StudentController::class, 'myProfile'])->name('my-profile');
+    Route::get('/history', [StudentController::class, 'history'])->name('history');
+    Route::get('/notes', [StudentController::class, 'notes'])->name('notes');
+    Route::get('/notes/create', [StudentController::class, 'createNotes'])->name('create-notes');
+    Route::get('/chat', [StudentController::class, 'chat'])->name('chat');
+    Route::get('/price/menu', [StudentController::class, 'priceMenu'])->name('price-menu');
+    Route::get('/teacher/timeline', [StudentController::class, 'teacherTimeline'])->name('teacher-timeline');
+    Route::get('/course/detail', [StudentController::class, 'courseDetail'])->name('course-detail');
+    Route::get('/course/cart', [StudentController::class, 'courseCart'])->name('add-to-cart');
+    Route::get('/payment/type', [StudentController::class, 'paymentType'])->name('payment-type');
 
 });
 
