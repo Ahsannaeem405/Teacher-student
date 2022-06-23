@@ -21,19 +21,19 @@
     </style>
 </head>
 
-<body style="width: 100%">
+<body class="" style="width: 100%">
     @include('student.layouts.nav')
 
     <div class="banner-two" style="width: 100%;"></div>
 
-    <div class="tab-sec">
-        <div class="row" style="padding-top: 0px; padding-left: 20px; margin-right: 0px;">
-            <div class="col-md-4 tab-col vh-100">
+    <div class=" tab-sec">
+        <div class=" row" style="padding-top: 0px; padding-left: 20px; margin-right: 0px;">
+            <div class=" col-md-4 tab-col vh-100">
 
                 @include('student.layouts.sidebar')
 
             </div>
-            <div class="col-md-8 tab-content-col">
+            <div class=" col-md-8 tab-content-col">
 
                 @yield('content')
 

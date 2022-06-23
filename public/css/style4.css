@@ -379,6 +379,9 @@ font-size: 11px !important;
 .resp_onLogin{
 display: none;
 }
+.header-dots-img{
+display: none;
+}
 .log_pad{
     padding: 4rem;
 }

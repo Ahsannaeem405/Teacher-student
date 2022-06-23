@@ -1,4 +1,8 @@
-<header class="main-header active-header" style="padding: 0px; margin: 0px;">
+<link rel="stylesheet" href="{{ asset('css/style4.css') }}">
+<button type="button" onclick="check_alarm()" style="background-color: #2c3250;" class="btn btn-primary res_nav" id="show_nav">
+    <i class="fas fa-bars"></i>
+  </button>
+<header class="main-header  active-header" style="padding: 0px; margin: 0px;">
     <div class="row " style="padding: 0px; margin: 0px;">
         <div class="col-md-3 logo-col" style="padding-top: 15px;">
             <a href="{{ route('student.dashboard') }}" style="text-decoration: none">
@@ -9,13 +13,7 @@
             <nav class="navbar navbar-default navbar-expand-lg navbar-light"
                  style="background-color: unset; border: 0px">
                 <div class="container-fluid">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar">
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                    </div>
+
                     <div class="container-fluid collapse navbar-collapse" id="myNavbar"
                          style="padding: 0px;">
                         <ul class="nav navbar-nav" style="padding-top: 5px; color: white">
@@ -45,3 +43,13 @@
         </div>
     </div>
 </header>
+<script>
+
+    function check_alarm(){
+        $(".main-header").toggle();
+}
+
+
+
+
+</script>

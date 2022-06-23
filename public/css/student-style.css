@@ -355,7 +355,9 @@ button.btn.dropdown-toggle.nav-img-btn {
     padding-bottom: 10px;
     color: white;
 }
-
+.dd{
+display: none;
+}
 .course-time-btn{
     background-color: black;
     border-radius: 10px 0px 0px 10px;
@@ -364,4 +366,10 @@ button.btn.dropdown-toggle.nav-img-btn {
     padding-top: 7px;
     padding-bottom: 5px;
     color: white;
+}
+
+@media (min-width: 235px) and (max-width: 766px) {
+.hist_list_mrgn_btm{
+margin-bottom: 5rem;text-align: center;
+}
 }
