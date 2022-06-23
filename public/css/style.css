@@ -75,6 +75,8 @@ list-style: none;
 display: flex;
 text-align: left;
 padding: 0px;
+font-size: 3rem;
+    color: gray;
 }
 ul.footer-icon li {
 padding-right: 20px;
@@ -119,6 +121,13 @@ background-position: center;
 background-repeat: no-repeat;
 background-size: cover;
 }
+.banner66 {
+    background: url(../images/54.png);
+    min-height: 600px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    }
 .banner56 {
     background: url(../images/38.png);
     min-height: 600px;
@@ -256,7 +265,9 @@ background-size: cover;
     background-size: cover;
     }
 .next-project4 {
-    padding: 20px 50px;
+    padding: 0px;
+    margin: 0px;
+    padding-top: 4rem;
     background: url(../images/29.png);
     background-position: center;
     background-repeat: no-repeat;

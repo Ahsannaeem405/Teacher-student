@@ -71,7 +71,7 @@
         }
     </style>
 
-    <div class="banner">
+    <div class="banner66">
         <div class="banner_text text-center"></div>
     </div>
 
@@ -85,7 +85,7 @@
                 </div>
 
                 <div class="col-md-4 log_pad">
-                    <h1 class="text-center" style="margin-bottom: 76px; margin-top: 51px;">
+                    <h1 class="text-center" style="margin-bottom: 76px; margin-top: 51px;font-family: sans-serif;">
                         Log in </h1>
 
                     <form action="{{ route('login') }}" method="POST">

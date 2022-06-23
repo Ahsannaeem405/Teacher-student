@@ -60,7 +60,7 @@ border-radius: 1%">
                 </div>
             </div>
             <div class="col-lg-3  col-md-6 col-sm-12">
-                <div class="card border middle-card">
+                <div class="card border middle-card2">
                     <div class="card-body">
                         <h4>Basic</h4>
                         <div class="price">

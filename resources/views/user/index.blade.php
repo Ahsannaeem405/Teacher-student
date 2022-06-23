@@ -241,7 +241,7 @@ With Virtually Teaching You Can
             </div>
         </div>
             </div>
-    <img class="card-side-dots-img" src="http://localhost/Teacher-student/public/images/dot-shape-primary.svg" alt="Image">
+    {{--  <img class="card-side-dots-img" src="http://localhost/Teacher-student/public/images/dot-shape-primary.svg" alt="Image">  --}}
     </div>
 
     </div>
@@ -259,7 +259,7 @@ With Virtually Teaching You Can
         <div class="container text-center ">
 <div class="row">
 <div class="col-xs-9 col-centered" style="margin-top: -105px;">
-            <h1 style="    font-size: 38px;
+            <h1 style="    font-size: 38px;padding-top: 2rem;
             color: white;
             font-weight: bold;
             font-family: sans-serif;">When you're determined to learn you will find a balance.</h1>
@@ -310,7 +310,7 @@ font-family: sans-serif;">A great book by the author Nir Eyal called Hooked. Thi
     <i class="fa-solid fa-comment coment-design"></i>
     <div class="text-center" style="padding-top: 20px">
 
-    <img class="img-circle img-margin " height="110"  width="110" src="{{url('images/black.png')}}" alt="Card image cap">
+    <img class="img-circle img-margin " height="110"  width="110" src="{{url('images/51.png')}}" alt="Card image cap">
 
     <h3>tile img</h3>
 </div>
@@ -345,7 +345,7 @@ lkk jas  jaf j ad fkj adfjasd fjk
     <i class="fa-solid fa-comment coment-design"></i>
     <div class="text-center" style="padding-top: 20px">
 
-    <img class="img-circle img-margin " height="110"  width="110" src="{{url('images/black.png')}}" alt="Card image cap">
+    <img class="img-circle img-margin " height="110"  width="110" src="{{url('images/52.png')}}" alt="Card image cap">
 
     <h3>tile img</h3>
 </div>
