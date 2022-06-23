@@ -62,7 +62,11 @@ Route::group(['prefix' => 'teacher',  'as' => 'teacher.'], function(){
     Route::get('dashboard', [TeacherController::class, 'index'])->name('dashboard');
     Route::get('/profile', [TeacherController::class, 'myProfile'])->name('my-profile');
     Route::get('/course/create', [TeacherController::class, 'createCourse'])->name('create-course');
-
+    Route::get('/courses', [TeacherController::class, 'myCourse'])->name('my-courses');
+    Route::get('/my-students', [TeacherController::class, 'myStudents'])->name('my-students');
+    Route::get('/pricing/menu', [TeacherController::class, 'priceMenu'])->name('price-menu');
+    Route::get('/payment/type', [TeacherController::class, 'paymentType'])->name('payment-type');
+    Route::post('/payment/submission', [TeacherController::class, 'paymentSubmission'])->name('payment-submission');
 });
 
 Route::group(['prefix' => 'student', 'middleware' => 'auth', 'as' => 'student.'], function(){

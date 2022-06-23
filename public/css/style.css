@@ -347,12 +347,13 @@ line-height: 32px;
 color: #308214 !important;
 }
 .banner-two {
-background: url(../images/31.jpg);
+background: url(../images/student-banner.png);
 min-height: 600px;
 background-position: center;
 background-repeat: no-repeat;
 background-size: cover;
 }
+
 .tab-sec .col-md-4.tab-col {
 padding: 50px 0px;
 background: #f2f2f2;

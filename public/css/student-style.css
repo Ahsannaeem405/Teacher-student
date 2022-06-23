@@ -365,3 +365,32 @@ button.btn.dropdown-toggle.nav-img-btn {
     padding-bottom: 5px;
     color: white;
 }
+
+.payment-home-btn{
+    padding: 15px 50px;
+    background-color: #C9C97E;
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+.account-upgrade{
+    padding: 15px 50px;
+    background-color: #318215;
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+    text-decoration: none;
+    border: none;
+    outline: none;
+}
+
+.banner-one {
+    background: url(../images/teacher-heaher1.png);
+    min-height: 600px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+

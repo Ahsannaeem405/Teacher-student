@@ -18,4 +18,24 @@ class TeacherController extends Controller
         return view('teacher.create-course');
     }
 
+    public function myCourse(){
+        return view('teacher.my-courses');
+    }
+
+    public function myStudents(){
+        return view('teacher.my-students');
+    }
+
+    public function priceMenu(){
+        return view('teacher.price-menu');
+    }
+
+    public function paymentType(){
+        return view('teacher.payment-type');
+    }
+
+    public function paymentSubmission(){
+
+        return view('teacher.payment-successful');
+    }
 }

@@ -34,13 +34,13 @@
             <a href="{{ route('teacher.create-course') }}" style="text-decoration: none">Create Class</a></li>
 
         <li class="">
-            <a href="#" style="text-decoration: none">My Courses</a></li>
+            <a href="{{ route('teacher.my-courses') }}" style="text-decoration: none">My Courses</a></li>
 
         <li class="">
             <a href="#" style="text-decoration: none">Create Course</a></li>
 
         <li class="">
-            <a href="#" style="text-decoration: none">My Students </a></li>
+            <a href="{{ route('teacher.my-students') }}" style="text-decoration: none">My Students </a></li>
 
         <li class="">
             <a href="#" style="text-decoration: none">Join Meeting</a></li>
@@ -55,7 +55,7 @@
             <a href="#" style="text-decoration: none">Chat</a></li>
 
         <li class="">
-            <a href="#" style="text-decoration: none">Pricing Menu</a></li>
+            <a href="{{ route('teacher.price-menu') }}" style="text-decoration: none">Pricing Menu</a></li>
 
         <li class="">
             <a href="#" style="text-decoration: none">My Profile</a></li>

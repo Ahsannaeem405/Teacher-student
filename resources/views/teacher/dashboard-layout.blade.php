@@ -24,7 +24,17 @@
 <body style="width: 100%">
     @include('teacher.layouts.nav')
 
-    <div class="banner-two" style="width: 100%;"></div>
+    @php
+        $plans = request()->route()->getName() == 'teacher.price-menu';
+        $payment_type = request()->route()->getName() == 'teacher.payment-type';
+        $payment_sub =  request()->route()->getName() == 'teacher.payment-submission';
+    @endphp
+
+    @if(request()->route()->getName() == $plans || request()->route()->getName() == $payment_type || request()->route()->getName() == $payment_sub)
+        <div class="banner-one" style="width: 100%;"></div>
+    @else
+        <div class="banner-two" style="width: 100%;"></div>
+    @endif
 
     <div class="tab-sec">
         <div class="row" style="padding-top: 0px; padding-left: 20px; margin-right: 0px;">
