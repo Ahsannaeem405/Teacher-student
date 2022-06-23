@@ -20,11 +20,12 @@ background-color:white !important;
         border: 1px solid #707070;
         margin-top:10px;
         font-weight:bolder;
-        width: 39% !important;
+        width: 39% ;
         color:black;
         font-family: sans-serif;
-        font-size: 20px !important;
+        font-size: 20px;
     }
+
  .textbold{
         color: white;
         font-size: 42px;
@@ -81,16 +82,16 @@ background-color:white !important;
             <div class="banner_text text-center">
                 <h3 class="text-heading">Welcome To Virtually Teaching</h3>
                 <h2 class="textbold">The Future Of Online Teaching</h2>
-                <button class="btn freeBtn ">Start Free trail</button>
+                <button class="btn freeBtn freeBtn2">Start Free trail</button>
             </div>
 
         </div>
 
 <div style="background-color: #FAFAFA;">
 <div class="row row_width">
-    <div class="col-xs-2 text-center"></div>
-<div class="col-xs-9 text-center">
-<h1 style="font-size: 84px;color:#f0f0f0;opacity:54%; font-family: sans-serif;font-weight: bold">
+    <div class="col-lg-2 text-center"></div>
+<div class="col-lg-9 text-center">
+<h1 style="font-size: ;color:#f0f0f0;opacity:54%; font-family: sans-serif;font-weight: bold">
 LEARNING PLUGIN
 </h1>
 </div>
@@ -129,22 +130,22 @@ LEARNING PLUGIN
         <section class="cardbgcolor">
 
 <div class="container ">
-    <div class="row card-margin">
-        <div class="col-md-4 col-lg p_cours_padding">
+    <div class="row card-margin m-0">
+        <div class="col-md-4 p_cours_padding">
             <div class="card border box_b">
                 <img class="card-img-top card-img-radius" src="{{asset('images/a22.png')}}" alt="Card image cap">
                 <div class="card-body">
                   <h5 class="card-title card_heading" >Virtual Teaching</h5>
                   <p class="card-text">Let's Learn Python Fast.</p>
-                    <div class="row card_section">
-                    <div class="col-md-3 mar-top">
+                    <div class="row card_section m-0">
+                    <div class="col-lg-2 mar-top">
                                 <i class="fa-solid fa-message icon_prop message-ml"></i>
                             </div>
-                        <div class="col-md-3">
+                        <div class="col-lg-4">
 
-                        <i class="fa-solid fa-download icon-size"></i></i> <span class="greyColor">14</span>
+                        <i class="fa-solid fa-download icon-size  icon_prop"></i></i> <span class="greyColor">14</span>
                         </div>
-                        <div class="col-md-5">
+                        <div class="col-lg-6">
                             <i class="fa-solid fa-clock icon_prop"></i> <span class="greyColor">15 minute</span>
                         </div>
                     </div>
@@ -157,15 +158,15 @@ LEARNING PLUGIN
                     <div class="card-body">
                       <h5 class="card-title card_heading" >Virtual Teaching</h5>
                       <p class="card-text">Let's Learn Python Fast.</p>
-                        <div class="row card_section">
-                            <div class="col-md-3 ">
+                        <div class="row card_section m-0">
+                            <div class="col-lg-2 ">
                                 <i class="fa-solid fa-message icon_prop message-ml"></i>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-lg-4">
 
                                 <i class="fa-solid fa-user-group icon_prop" ></i> <span class="greyColor">14</span>
                             </div>
-                            <div class="col-md-5">
+                            <div class="col-lg-6">
                                 <i class="fa-solid fa-clock icon_prop"></i> <span class="greyColor">15 minute</span>
                             </div>
                         </div>
@@ -178,15 +179,15 @@ LEARNING PLUGIN
                     <div class="card-body">
                       <h5 class="card-title card_heading" >Virtual Teaching</h5>
                       <p class="card-text">Let's Learn Python Fast.</p>
-                        <div class="row card_section">
-                            <div class="col-md-3 ">
+                        <div class="row card_section m-0">
+                            <div class="col-lg-2 ">
                                 <i class="fa-solid fa-message icon_prop message-ml"></i>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-lg-4 ">
 
                                 <i class="fa-solid fa-user-group icon_prop" ></i> <span class="greyColor">14</span>
                             </div>
-                            <div class="col-md-5">
+                            <div class="col-lg-6">
                                 <i class="fa-solid fa-clock icon_prop"></i> <span class="greyColor">15 minute</span>
                             </div>
                         </div>
@@ -198,8 +199,8 @@ LEARNING PLUGIN
 
 </section>
 </div>
-<div class="container">
-<div class="row">
+<div class="container ">
+<div class="row m-0">
 <div class="col-md-12">
     <img src="{{ asset('images/a25.png') }}" class="img_width" alt="" srcset="">
 </div>
@@ -213,18 +214,18 @@ LEARNING PLUGIN
 <img src="{{url('/images/dot-shape-primary.svg')}}" alt="Image"/>
 </div>
 <div class="container">
-    <div class="row">
+    <div class="row m-0">
     <div class="col-md-12 text-center">
 <h1 class="under-line2">
 With Virtually Teaching You Can
-<div class="text-center">
+<div class="text-center" style="margin-bottom: 53px;">
 <img src="{{ asset('images/aa26.png') }}" style="width: 8%;" alt="" srcset="">
 </div>
 </h1>
 
     </div>
 
-    <div class="col-sm-12 box_b vistual-margin">
+    <div class="col-sm-12 box_b ">
         <div class='virtual-width'>
 
 
@@ -240,7 +241,7 @@ With Virtually Teaching You Can
             </div>
         </div>
             </div>
-    <img class="card-side-dots-img" src="http://localhost/Teacher-student/public/images/dot-shape-primary.svg" alt="Image">
+    {{--  <img class="card-side-dots-img" src="http://localhost/Teacher-student/public/images/dot-shape-primary.svg" alt="Image">  --}}
     </div>
 
     </div>
@@ -249,18 +250,20 @@ With Virtually Teaching You Can
 
 
 
-    <div class="next-project4">
+    <div class="next-project4 ">
 
         <div class="two-img">
             <img src="{{url('/images/dot-shape-primary.svg')}}" alt="Image"/>
             <img src="{{url('/images/dot-shape-white.svg')}}" alt="Image"/>
         </div>
-        <div class="container text-center">
+        <div class="container text-center ">
 <div class="row">
 <div class="col-xs-9 col-centered" style="margin-top: -105px;">
-            <h1 style="font-size: 47px;
-            color: white;">When you're determined to learn you will find a balance.</h1>
-<p style="font-size: 26px;
+            <h1 style="    font-size: 38px;padding-top: 2rem;
+            color: white;
+            font-weight: bold;
+            font-family: sans-serif;">When you're determined to learn you will find a balance.</h1>
+<p style="font-size: 23px;
 color: white;
 font-family: sans-serif;">A great book by the author Nir Eyal called Hooked. This book is amazing. He talks
     about building Habit Forming Products. Think about it: Habit Forming Products, hooked
@@ -285,7 +288,7 @@ font-family: sans-serif;">A great book by the author Nir Eyal called Hooked. Thi
 
 
     <div class="container">
-    <div class="row">
+    <div class="row ">
 
 
         <div class="col-md-12 text-center">
@@ -294,34 +297,40 @@ font-family: sans-serif;">A great book by the author Nir Eyal called Hooked. Thi
     </h1>
         </div>
     </div>
-<div class="row testimonial-margin">
-<img class="testimonial-dots" src="http://localhost/Teacher-student/public/images/dot-shape-primary.svg" alt="Image">
-<div class="col-md-4 card-ml">
+<div class="row testimonial-margin m-0">
+<img class="testimonial-dots" style="position: absolute" src="http://localhost/Teacher-student/public/images/dot-shape-primary.svg" alt="Image">
+<div class="w-100 text-center row m-0">
+
+
+
+<div class="col-md-4 col-md-offset-2">
 
 
     <div class="card border box_b">
     <i class="fa-solid fa-comment coment-design"></i>
     <div class="text-center" style="padding-top: 20px">
 
-    <img class="img-circle img-margin " height="110"  width="110" src="{{url('images/black.png')}}" alt="Card image cap">
+    <img class="img-circle img-margin " height="110"  width="110" src="{{url('images/51.png')}}" alt="Card image cap">
 
     <h3>tile img</h3>
 </div>
-        <div class="card-body card-body-bg">
-        <div class="star-icon">
+        <div class="card-body card-body-bg" style="padding-bottom: 2px;">
+        <div class="star-icon " style="margin: 11px;">
 
     <p class="t_para">Let's Learn Python kdfaj da dfjakd fds jda fdkal fd alkj afja
         sdfljad fljads fljads fjds flj Fast.
 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque est eveniet, nostrum maiores, fuga ea hic ipsam consectetur placeat natus repellendus reiciendis eligendi recusandae. Est excepturi enim facilis illum voluptatem.
-lkk j k k k k k k k k k k  k k k   kk k kk k kkkkkkkk
-    </p>
-    <div class="star-margin">
+lkk jas  jaf j ad fkj adfjasd fjk
+<br>
+<div class="star-margin">
     <i class="glyphicon glyphicon-star star_color"></i>
 <i class="glyphicon glyphicon-star star_color"></i>
 <i class="glyphicon glyphicon-star star_color"></i>
 <i class="glyphicon glyphicon-star"></i>
 <i class="glyphicon glyphicon-star"></i>
 </div>
+</p>
+
 </div>
 
 
@@ -336,12 +345,12 @@ lkk j k k k k k k k k k k  k k k   kk k kk k kkkkkkkk
     <i class="fa-solid fa-comment coment-design"></i>
     <div class="text-center" style="padding-top: 20px">
 
-    <img class="img-circle img-margin " height="110"  width="110" src="{{url('images/black.png')}}" alt="Card image cap">
+    <img class="img-circle img-margin " height="110"  width="110" src="{{url('images/52.png')}}" alt="Card image cap">
 
     <h3>tile img</h3>
 </div>
-        <div class="card-body card-body-bg">
-        <div class="star-icon">
+        <div class="card-body card-body-bg" style="padding-bottom: 2px;">
+        <div class="star-icon" style="margin: 11px;">
 
     <p class="t_para">Let's Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur laudantium magni molestiae excepturi voluptatem deserunt at asperiores rerum ipsa cum dolorum autem possimus sit aspernatur nostrum commodi dolores, harum itaque. Learn Python kdfaj da dfjakd fds jda fdkal fd alkj afja sdfljad fljads fljads fjds flj Fast.
 
@@ -358,14 +367,15 @@ lkk j k k k k k k k k k k  k k k   kk k kk k kkkkkkkk
 
 
             </div>
-      </div>
+        </div>
+
 
 </div>
 
-</div>
+
 </div>
 
-
+</div></div>
 
 <div class="next-project">
     <div class="two-img">

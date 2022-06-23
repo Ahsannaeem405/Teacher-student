@@ -71,21 +71,21 @@
         }
     </style>
 
-    <div class="banner">
+    <div class="banner66">
         <div class="banner_text text-center"></div>
     </div>
 
     <section style="margin-top: 15px;" class="cardbgcolor">
         <div class="container">
-            <div class="row">
-                <div class="col-md-4">
+            <div class="row w-100">
+                <div class="col-md-4 resp_onLogin">
                     <div class="" style="margin-top: 128%;margin-left: -28%;">
-                        <img src="{{url('/images/dot-shape-primary.svg')}}" alt="Image"/>
+                        <img class="img_side" src="{{url('/images/dot-shape-primary.svg')}}" alt="Image"/>
                     </div>
                 </div>
 
-                <div class="col-md-4">
-                    <h1 class="text-center" style="margin-bottom: 76px; margin-top: 51px;">
+                <div class="col-md-4 log_pad">
+                    <h1 class="text-center" style="margin-bottom: 76px; margin-top: 51px;font-family: sans-serif;">
                         Log in </h1>
 
                     <form action="{{ route('login') }}" method="POST">
@@ -122,9 +122,9 @@
                     </form>
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-4 resp_onLogin">
                     <div class="right_dot" >
-                        <img src="{{url('/images/dot-shape-primary.svg')}}" alt="Image"/>
+                        <img class="img_side" src="{{url('/images/dot-shape-primary.svg')}}" alt="Image"/>
                     </div>
                 </div>
             </div>

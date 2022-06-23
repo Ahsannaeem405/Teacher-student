@@ -35,7 +35,8 @@ border-radius: 50%;
 ul.navbar-nav li a {
 color: #fff;
 font-family: sans-serif;
-font-size: 14px;
+font-size: 16px;
+padding-right: 2px;
 }
 .H3_main_head{
     padding-top: 5%;padding-bottom: 1%;
@@ -74,6 +75,8 @@ list-style: none;
 display: flex;
 text-align: left;
 padding: 0px;
+font-size: 3rem;
+    color: gray;
 }
 ul.footer-icon li {
 padding-right: 20px;
@@ -118,6 +121,48 @@ background-position: center;
 background-repeat: no-repeat;
 background-size: cover;
 }
+.banner66 {
+    background: url(../images/54.png);
+    min-height: 600px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    }
+.banner56 {
+    background: url(../images/38.png);
+    min-height: 600px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    }
+    .banner59 {
+        background: url(../images/41.png);
+        min-height: 600px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        }
+.banner55 {
+    background: url(../images/37.jpg);
+    min-height: 600px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto;
+    }
+.banner54 {
+    background: url(../images/35.jpg);
+    min-height: 300px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    }
+.banner53 {
+    background: url(../images/32.jpg);
+    min-height: 600px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    }
 .select-sec {
 margin: 50px 0px;
 }
@@ -212,8 +257,17 @@ background-position: center;
 background-repeat: no-repeat;
 background-size: cover;
 }
-.next-project4 {
+.next-project3 {
     padding: 20px 50px;
+    background: url(../images/45.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    }
+.next-project4 {
+    padding: 0px;
+    margin: 0px;
+    padding-top: 4rem;
     background: url(../images/29.png);
     background-position: center;
     background-repeat: no-repeat;
@@ -293,8 +347,8 @@ line-height: 32px;
 color: #308214 !important;
 }
 .banner-two {
-background: url(../images/student-banner.png);
-min-height: 450px;
+background: url(../images/31.jpg);
+min-height: 600px;
 background-position: center;
 background-repeat: no-repeat;
 background-size: cover;
@@ -619,13 +673,16 @@ color: #308214;
 font-size: 21px;
 }
 .card.middle-card {
-background: #e7e5e563;
+background: #c9c97e;
 /* box-shadow: 0px 3px 9px rgb(0 0 0 / 15%); */
-border-left: 5px solid rgb(220, 217, 217);
-border-right: 5px solid rgb(220, 217, 217);
-border-top: 1px solid rgb(220, 217, 217);
+border-left: 5px solid #c9c97e;
+border-right: 5px solid #c9c97e;
+border-top: 1px solid #c9c97e;
+color:white;
 }
-
+.middle-card strong{
+color: black;
+}
 /*section 2 to section 8*/
 h1.section4-heading
 {

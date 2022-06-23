@@ -8,7 +8,8 @@
     }
     .banner_text{
     position: absolute;
-    bottom: 0%;
+    top: 30%;
+    font-family: sans-serif;
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
@@ -72,18 +73,19 @@
    }
 </style>
 
-<div class="banner">
+<div class="banner54">
             <div class="banner_text text-center">
 
                 <h2 class="textbold" >Terms of Service</h2>
 
             </div>
-        </div>
-        <section style="margin-top: 15px;" class="cardbgcolor">
-<div class="container ">
+</div>
 
-<div class="row">
-<div class="col-md-12">
+<section style="margin-top: 15px;" class="cardbgcolor">
+<div class="container row_width">
+
+<div class="row row_width">
+<div class="col-md-12 padding_4_col padding_4_col2">
 <h1 class="trm_h">
 Terms
 </h1>

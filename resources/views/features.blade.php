@@ -3,7 +3,7 @@
 @section('content')
 
 <style>
-    .banner{
+    .banner2{
         position: relative;
     }
     .banner_text{
@@ -76,7 +76,7 @@
    }
 </style>
 
-<div class="banner">
+<div class="banner2 banner59">
             <div class="banner_text text-center">
                 <h3 class="text-heading" style="font-weight: lighter">Top Features</h3>
                 <h2 class="textbold">We unleach genius in your kids</h2>
@@ -99,11 +99,11 @@
 
 
 <div class="container mt-4">
-<div class="row" style="width: 100%">
+<div class="row m-0" style="width: 100%">
 <div class="col-md-4">
 
     <div class="" style="    padding: 0;">
-        <img class="img_blog_side img_blog_side2" src="https://image.shutterstock.com/z/stock-photo-sexy-secretary-personal-assistant-typical-office-life-man-bearded-hipster-boss-sit-in-leather-1484628398.jpg" class="img_blog_side" alt="" srcset="">
+        <img class="img_blog_side img_blog_side2" src="{{ asset('images/42.png') }}" class="img_blog_side" alt="" srcset="">
         </div>
 
 
@@ -128,7 +128,7 @@
 <div class="col-md-4">
 
     <div class="" style="    padding: 0;">
-        <img class="img_blog_side img_blog_side2" src="https://image.shutterstock.com/z/stock-photo-sexy-secretary-personal-assistant-typical-office-life-man-bearded-hipster-boss-sit-in-leather-1484628398.jpg" class="img_blog_side" alt="" srcset="">
+        <img class="img_blog_side img_blog_side2" src="{{ asset('images/43.png') }}" class="img_blog_side" alt="" srcset="">
         </div>
 
 
@@ -154,7 +154,7 @@
 <div class="col-md-4">
 
     <div class="" style="    padding: 0;">
-        <img class="img_blog_side img_blog_side2" src="https://image.shutterstock.com/z/stock-photo-sexy-secretary-personal-assistant-typical-office-life-man-bearded-hipster-boss-sit-in-leather-1484628398.jpg" class="img_blog_side" alt="" srcset="">
+        <img class="img_blog_side img_blog_side2" src="{{ asset('images/44.png') }}" class="img_blog_side" alt="" srcset="">
         </div>
 
 
@@ -184,12 +184,12 @@
 
 
 
-<div class="next-project next-project2">
+<div class="next-project3 next-project2">
     <div class="two-img">
         <img src="{{url('/images/dot-shape-primary.svg')}}" alt="Image"/>
         <img src="{{url('/images/dot-shape-white.svg')}}" alt="Image"/>
     </div>
-    <div class="container text-center">
+    <div class="container text-center" style="color: white;">
 
         <h1>You can learn a new skill</h1>
         <h1>anywhere!</h1>
@@ -206,27 +206,25 @@
 <br>
 
 
-<div class="container">
-    <div class="r_p_img">
-        <img class="img_side" src="http://localhost/Teacher-student/public/images/dot-shape-primary.svg" alt="Image">
-    </div>
-    
-    <div class="row">
-<div class="col-md-12">
+<div class="c_cont" style="margin-top: 10rem !important; ">
+
+
+    <div class="row m-0">
+<div class="col-md-12 m-0" style="padding: 0">
 <div class="kids_sec">
     <div class="row" style="margin-left: -16px;margin-top: -12rem;">
         <div class="col-md-6">
             <div class="inrSec">
-                <h1>
+                <h1 class="on_resp">
                 Friendly ways to totur your kids
                 </h1>
-                <p class="text-design">
+                <p class="text-design on_resp2">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores veniam odio mollitia quos debitis, qui expedita voluptate ea nesciunt accusantium modi adipisci doloribus! Inventore amet voluptatem, earum suscipit quam aliquid!
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam possimus doloremque facere, sed accusantium repellat cumque numquam vel voluptatibus? Est, consequatur quisquam odit natus commodi cupiditate officiis voluptatem unde itaque.
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                 </p>
                 </div>
         </div>
-        <div class="col-md-6"></div>
+
     </div>
 
 </div>
@@ -242,9 +240,9 @@
     <img class="img_side" src="http://localhost/Teacher-student/public/images/dot-shape-primary.svg" alt="Image">
 </div>
 <div class="container " >
-    <div class="row">
+    <div class="row m-0">
     <div class="col-md-12 text-center">
-<h1 class="under-line t_mgn">
+<h1 class="margin-virtual-card under-line t_mgn">
 With Virtually Teaching You Can
 </h1>
 
@@ -254,11 +252,11 @@ With Virtually Teaching You Can
 <div class='virtual-width'>
 
     <div class='col-md-6'>
-        <img src="https://thumbs.dreamstime.com/b/asian-student-boy-video-conference-e-learning-teacher-computer-living-room-home-online-education-internet-social-187311773.jpg" class="img_width-virtual" alt="" srcset="">
+        <img src="{{ asset('images/47.png') }}" class="img_width-virtual" alt="" srcset="">
     </div>
     <div class='col-md-6'>
-        <h2 class="margin-virtual-card">Flexible and Convienient</h2>
-<p class="text-design margin-virtual-card">
+        <h2 class="margin-virtual-card on_resp2">Flexible and Convienient</h2>
+<p class="text-design ml_t on_resp2">
     Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing elit.
      Error natus provident, expedita, molestiae adipisci vitae perspiciatis at ipsum, repellat earum assumenda ea. Nesciunt vero sapiente voluptates totam incidunt sit eligendi.
 </p>
@@ -278,26 +276,26 @@ With Virtually Teaching You Can
 
 
     <div class="container">
-        <div class="row">
+        <div class="row m-0">
         <div class="col-md-12 text-center">
 
 
         </div>
 
-        <div class="col-sm-12 box_b vistual-margin">
+        <div class="col-sm-12 box_b vistual-margin sec_cd">
     <div class='virtual-width'>
 
 
         <div class='col-md-6'>
-            <h2 class="margin-virtual-card">Flexible and Convienient</h2>
-    <p class="text-design margin-virtual-card">
+            <h2 class="margin-virtual-card on_resp2">Flexible and Convienient</h2>
+    <p class="text-design ml_t on_resp2">
         Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing elit.
          Error natus provident, expedita, molestiae adipisci vitae perspiciatis at ipsum, repellat earum assumenda ea. Nesciunt vero sapiente voluptates totam incidunt sit eligendi.
     </p>
     <a href="#" class="btn btn-bg-color common_blog_color btn_ad_style learn-ml">Learn More</a>
         </div>
         <div class='col-md-6'>
-            <img src="https://thumbs.dreamstime.com/b/asian-student-boy-video-conference-e-learning-teacher-computer-living-room-home-online-education-internet-social-187311773.jpg" class="img_width-virtual" alt="" srcset="">
+            <img src="{{ asset('images/48.png') }}" class="img_width-virtual" alt="" srcset="">
         </div>
     </div>
         </div>

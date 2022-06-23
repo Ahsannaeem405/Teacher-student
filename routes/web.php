@@ -37,6 +37,16 @@ Route::get('/logout', [LogoutController::class, 'logout']);
 Route::get('register/here', function (){
     return view('auth.register');
 });
+// user routes
+Route::get('/price', function () {
+    return view('user.price');
+});
+
+
+
+
+
+
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth', 'as' => 'admin.'], function(){
 
@@ -47,7 +57,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth', 'as' => 'admin.'], fu
 });
 
 
-Route::group(['prefix' => 'teacher', 'middleware' => 'auth', 'as' => 'teacher.'], function(){
+Route::group(['prefix' => 'teacher',  'as' => 'teacher.'], function(){
 
     Route::get('dashboard', [TeacherController::class, 'index'])->name('dashboard');
     Route::get('/profile', [TeacherController::class, 'myProfile'])->name('my-profile');
@@ -73,7 +83,7 @@ Route::group(['prefix' => 'student', 'middleware' => 'auth', 'as' => 'student.']
 
 
 Route::get('/',[FrontController::class,'index']);
-Route::get('/price',[FrontController::class,'price']);
+
 
 Route::get('subscribe_plan', [StripePaymentController::class, 'stripe']);
 Route::post('stripe', [StripePaymentController::class, 'stripePost'])->name('stripe.post');
@@ -112,9 +122,7 @@ Route::get('/home4', function () {
 Route::get('/teacher/profile', function () {
     return view('home5');
 })->name('test');
-Route::get('/home6', function () {
-    return view('home6');
-});
+
 
 Route::get('/home7', function () {
     return view('home7');

@@ -8,27 +8,31 @@
     }
     .banner_text{
     position: absolute;
-    top: 67%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
     width: fit-content;
     }
     .freeBtn{
+
         background: #C9C97E;
         border: 1px solid #707070;
-        margin-top:10px;
+        margin-top:30px;
         font-weight:bolder;
-        width: 39% !important;
-        font-size: 25px;
-        color:black
+        width: 30% !important;
+        font-size: 21px;
+        color:black;
+        font-family:sans-serif;
     }
 .comb_btn{
-    background:#c9c97ea6 !important;margin-top: 41px;
+    background:#7a7a61b0 !important;margin-top: 41px;color:white !important;font-family:sans-serif;
 }
  .textbold{
+
         color: white;
-        font-size:50px;
+        font-size: 43px;
+        font-family: sans-serif;
     }
     .card-img-top{
         width: 100%;
@@ -76,11 +80,11 @@
    }
 </style>
 
-<div class="banner">
+<div class="banner53">
             <div class="banner_text text-center">
                 <h3 class="text-heading" style="font-weight: lighter">Write and share your content</h3>
                 <h2 class="textbold">Read and extend technical knowledge</h2>
-                <button class="btn freeBtn ">Write a Blog</button><br>
+                <button class="btn freeBtn " >Write a Blog</button><br>
                 <button class="btn freeBtn comb_btn">Post Content</button>
             </div>
 </div>
@@ -91,7 +95,17 @@
 
 
 
-<img class="header-dots-img" src="http://localhost/Teacher-student/public/images/dot-shape-primary.svg" alt="Image">
+<div class="row row_width">
+    <div class="col-xs-2 text-center"></div>
+<div class="col-xs-9 text-center">
+<h1 style="font-size: 100px;color:#f0f0f0;opacity:54%; font-family: sans-serif;font-weight: bold">
+BLOG
+</h1>
+</div>
+<div class="col-xs-1" style="text-align: right;padding-right: 0;">
+    <img class="header-dots-img" style="opacity: 50%;" src="{{ asset('/images/dt1.png') }}" alt="Image">
+</div>
+</div>
 
 
 
@@ -135,16 +149,20 @@
 
 
         <section style="margin-top: 15px;" class="cardbgcolor">
-            <div class="container ">
-        <div style="row" >
+            <div class="container row_width">
+        <div style="row row_width" >
         <div class="col-sm-4">
         <div class="pp">
             <a href="#" class="b_heading_b" style="
-            font-size: 24px;"> < Back</a>
+            font-size: 23px;"> < Back</a>
         </div>
         </div>
         <div class="col-sm-5">
-        <div class="text-center">    <h1 class="text-heading blog_heading common_blog_color">Latest News & Articles</h1></div>
+        <div class="text-center">    <h1 class="text-heading blog_heading common_blog_color">Latest News & Articles</h1>
+<img src="{{ asset('images/Lin22.png') }}" style="height: 5px;" alt="" srcset="">
+<img src="{{ asset('images/Lin22.png') }}" style="height: 5px;" alt="" srcset="">
+
+        </div>
 
 
         </div>
@@ -156,7 +174,7 @@
             </div>  --}}
 
             <div style="text-align: right;">
-            <i class="glyphicon glyphicon-arrow-up glyp" ></i><span class="b_side_he next_he box_b">Demo Text</span>
+            <i class="glyphicon  glyp" >+</i><span class="b_side_he next_he box_b">Add New</span>
         </div>
 
     </div>
@@ -183,15 +201,15 @@
                     <div style="position: absolute;
                     top: 882px;
                     right: 0%;">
-                        <img class="img_side" src="http://localhost/Teacher-student/public/images/dot-shape-primary.svg" alt="Image">
+                        <img class="img_side" src="{{ asset('images/dot-shape-primary.svg') }}" alt="Image">
                     </div>
                 </div>
             </div>
 
 
     <section style="margin-top: 24px;" class="cardbgcolor">
-        <div class="container">
-    <div class="row">
+        <div class="container row_width">
+    <div class="row row_width m-0">
 
 
 
@@ -199,11 +217,9 @@
 
             <div class="col-md-8 " >
 
-
-
                 <div style="position:relative">
                     <div class="pos_l">
-                        <img class="img_side" src="http://localhost/Teacher-student/public/images/dot-shape-primary.svg" alt="Image">
+                        <img class="img_side" src="{{ asset('images/dot-shape-primary.svg') }}" alt="Image">
                     </div>
                 </div>
 
@@ -216,12 +232,15 @@
             <div class="demo_b">
 Demo
 </div>
-<img class="img_width" src="https://image.shutterstock.com/z/stock-photo-sexy-secretary-personal-assistant-typical-office-life-man-bearded-hipster-boss-sit-in-leather-1484628398.jpg"  alt="" srcset="">
+<img class="img_width c_w" src="{{ asset('images/33.png') }}"  alt="" srcset="">
 
 <h3 class="bLog_b_head common_blog_color">Easy Python Course.</h3>
-<h4 class="b_heading_b">Overview</h4>
+<h4 class="b_heading_b">21-June-2021</h4>
 
-<h3 class="r_m_space">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis adipisci beatae aperiam temporibus <br> obcaecati magni, nesciunt repellendus architecto corporis numquam nemo porro iste! Officiis, esse dolorem voluptas a itaque cum.</h3>
+<h3 class="r_m_space">A great book by the author Nir Eyal called Hooked. This book is amazing. He talks
+    about building Habit Forming Products. Think about it: Habit Forming Products, hooked
+    on Instagram, Clubhouse, Gaming, and many others platforms. I just can't get enough
+    of it.</h3>
 <div class=" r_m_space">
   <h4>  <a href="{{ url('/blog_detail') }}" class="b_heading_b">Read more</a>   </h4>
 </div>
@@ -231,12 +250,15 @@ Demo
     <div class="demo_b">
 Demo
 </div>
-<img class="img_width" src="https://image.shutterstock.com/z/stock-photo-sexy-secretary-personal-assistant-typical-office-life-man-bearded-hipster-boss-sit-in-leather-1484628398.jpg"  alt="" srcset="">
+<img class="img_width c_w" src="{{ asset('images/33.png') }}"  alt="" srcset="">
 
 <h3 class="bLog_b_head common_blog_color">Easy Python Course.</h3>
-<h4 class="b_heading_b">Overview</h4>
+<h4 class="b_heading_b">21-June-2021</h4>
 
-<h3 class="r_m_space">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis adipisci beatae aperiam temporibus <br> obcaecati magni, nesciunt repellendus architecto corporis numquam nemo porro iste! Officiis, esse dolorem voluptas a itaque cum.</h3>
+<h3 class="r_m_space">A great book by the author Nir Eyal called Hooked. This book is amazing. He talks
+    about building Habit Forming Products. Think about it: Habit Forming Products, hooked
+    on Instagram, Clubhouse, Gaming, and many others platforms. I just can't get enough
+    of it.</h3>
 <div class=" r_m_space">
 <h4>  <a href="{{ url('/blog_detail') }}" class="b_heading_b">Read more</a>   </h4>
 </div>
@@ -260,22 +282,22 @@ Demo
 
 
 
-<div class="col-md-4 mt_blog_side">
+<div class="col-md-4 ">
 
     <div class="col-sm-12" style="background-color:#f2f0f0">
-<h3 class="text-center common_blog_color" style="    font-size: 31px;">
+<h3 class="text-center common_blog_color" style="    font-size: 31px;font-family: sans-serif !important;">
 Recent articles
 </h3>
         <div class="row pt_b">
     <div class="col-sm-5" style="    padding: 0;">
-        <img class="img_blog_side" src="https://image.shutterstock.com/z/stock-photo-sexy-secretary-personal-assistant-typical-office-life-man-bearded-hipster-boss-sit-in-leather-1484628398.jpg" class="img_blog_side" alt="" srcset="">
+        <img class="img_blog_side" src="{{ asset('images/34.png') }}" class="img_blog_side" alt="" srcset="">
         </div>
         <div class="col-sm-7">
 <h4 class="b_side_he">
-title demo
+    Easy Python Course
 </h4>
 <p>
-jk fa jfkdsaj fdak Lorem ipsum dolor sit amet consectetur adipisicing
+    A great book by the author Nir Eyal called Hooked.
 </p>
 <p class="b_heading_b">
 12 Sep 2022
@@ -293,14 +315,14 @@ jk fa jfkdsaj fdak Lorem ipsum dolor sit amet consectetur adipisicing
 
 <div class="row pt_b">
     <div class="col-sm-5" style="    padding: 0;">
-        <img class="img_blog_side" src="https://image.shutterstock.com/z/stock-photo-sexy-secretary-personal-assistant-typical-office-life-man-bearded-hipster-boss-sit-in-leather-1484628398.jpg" class="img_blog_side" alt="" srcset="">
+        <img class="img_blog_side" src="{{ asset('images/34.png') }}" class="img_blog_side" alt="" srcset="">
         </div>
         <div class="col-sm-7">
 <h4 class="b_side_he">
-title demo
+    Easy Python Course
 </h4>
 <p>
-jk fa jfkdsaj fdak Lorem ipsum dolor sit amet consectetur adipisicing
+    A great book by the author Nir Eyal called Hooked.
 </p>
 <p class="b_heading_b">
 12 Sep 2022
@@ -313,14 +335,14 @@ jk fa jfkdsaj fdak Lorem ipsum dolor sit amet consectetur adipisicing
 
 <div class="row pt_b">
     <div class="col-sm-5" style="    padding: 0;">
-        <img class="img_blog_side" src="https://image.shutterstock.com/z/stock-photo-sexy-secretary-personal-assistant-typical-office-life-man-bearded-hipster-boss-sit-in-leather-1484628398.jpg" class="img_blog_side" alt="" srcset="">
+        <img class="img_blog_side" src="{{ asset('images/34.png') }}" class="img_blog_side" alt="" srcset="">
         </div>
         <div class="col-sm-7">
 <h4 class="b_side_he">
-title demo
+    Easy Python Course
 </h4>
 <p>
-jk fa jfkdsaj fdak Lorem ipsum dolor sit amet consectetur adipisicing
+    A great book by the author Nir Eyal called Hooked.
 </p>
 <p class="b_heading_b">
 12 Sep 2022
@@ -401,7 +423,7 @@ jk fa jfkdsaj fdak Lorem ipsum dolor sit amet consectetur adipisicing
                 <img src="{{url('/images/dot-shape-primary.svg')}}" alt="Image"/>
                 <img src="{{url('/images/dot-shape-white.svg')}}" alt="Image"/>
             </div>
-            <div class="container">
+            <div class="container row_width">
                 <h1>Have A Vision For Your</h1>
                 <h1>Next Project? Let's Get Your</h1>
                 <h1>14 Day Trial Started Now!</h1>

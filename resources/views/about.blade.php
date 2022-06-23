@@ -72,26 +72,29 @@
    }
 </style>
 
-<div class="banner">
+<div class="banner55">
             <div class="banner_text text-center">
 
             </div>
         </div>
         <section style="margin-top: 15px;" class="cardbgcolor">
-<div class="container">
+<div class="container row_width">
 
-<div class="row">
-<div class="col-md-12">
-<h1>
+<div class="row row_width">
+<div class="col-md-12 padding_4_col m_q_left_space">
+<h1 style="font-family: sans-serif;">
 About Us
 </h1>
 <p class="about_p">
-Lorem ipsum dolor, sit amet consectetur adipisicing elit. Praesentium illo perferendis error eius, aliquid vero consequuntur deleniti similique hic vel, fuga veniam quibusdam nesciunt fugiat quasi pariatur tenetur laborum beatae. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat odit tenetur nulla eveniet voluptatum deserunt doloribus, voluptatem quo, iure modi voluptates error. Corporis natus modi illum pariatur sunt magni sed!. Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque eos blanditiis, corporis ipsam dicta quod! Error eum voluptate voluptatum corporis, harum sapiente natus itaque quibusdam repellendus? Quasi rem optio excepturi?
+    Our mission is to provide a platform that gives students from all backgrounds the
+    opportunity to learn new skills that will give them a competitive edge in the marketplace.
+    We are excited to launch with the hopes of changing lives through education. Our
+    product is a platform filled with a cohesive objective for our students and teachers.
 </p>
 </div>
 
-<div class="col-md-12">
-<img src="https://thumbs.dreamstime.com/z/excess-duties-female-assistant-does-massage-to-her-boss-personal-assistant-does-massage-to-her-boss-155386022.jpg"  class="img_ab" alt="" srcset="">
+<div class="col-md-12 padding_4_col m_q_left_space">
+<img src="{{ asset('images/36.png') }}"  class="img_ab" alt="" srcset="">
 </div>
 
 </div>

@@ -2,6 +2,9 @@
     font-size: 22px;
     font-family: sans-serif;
 }
+.ml_t{
+margin-left: 2rem;margin-bottom: 3rem;
+}
 .img_ab{
     width: 100%;margin-top: 13%;
 }
@@ -14,12 +17,12 @@
     justify-content: space-evenly;
 }
 .field_label{
-    font-size: 20px;margin-top: 12px;
+    font-size: 20px;margin-top: 12px;font-family:sans-serif
 }.glyphicon{
-     font-size: 23px;
- }
+font-size: 23px;
+}
 .forg_m{
-    margin-top: 28px;
+    margin-top: 28px;font-family: sans-serif;
 }
 .sub_btn{
     margin-top: 38px;
@@ -33,13 +36,13 @@
     margin-right: -28%;
 }
 .blog_heading{
-    color: #151575 !important;font-weight: 600;font-size: 33px;font-family: sans-serif;
+color: #151575 !important;font-weight: 600;font-size: 33px;font-family: sans-serif;
 }
 .img_width{
     width: 100%;
 }
 .btn_cs{
-    margin-top: 30px;
+ margin-top: 30px;
 }
 .under-line2{
     font-family: sans-serif;
@@ -80,13 +83,30 @@
     padding-bottom: 1%;color:white;
 }
 .kids_sec{
-    background: url(../images/back_2.png);
+    background: url(../images/46.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 57rem;
-    margin-bottom: 3%;
+height: 78rem;
+margin-bottom: 3%;
 }
+
+
+.card.middle-card2 {
+    background: rgb(146 135 135 / 15%);
+    box-shadow: 4px 3px 9px rgb(0 0 0 / 15%);
+    border-left: 5px solid rgb(0 0 0 / 15%);
+    border-right: 5px solid rgb(0 0 0 / 15%);
+    border-top: 1px solid rgb(0 0 0 / 15%);
+    color:black;
+    }
+    .middle-card2 strong{
+    color: black;
+    }
+
+
+
+
 .inrSec{
     background-color: white;padding-top: 1rem;position: relative;top: 9rem;z-index: 10;
 }
@@ -96,10 +116,13 @@
 .v_pad_t{
     padding-top: 30px !important;
 }
+.c_cont{
+margin:6rem;
+}
 .doble_img{
     text-align: right;
     margin-right: 15rem;
-    /* margin-top: -19px; */
+    margin-top: -50px;
     position: relative;
     top: -7rem;
 }
@@ -131,6 +154,7 @@
     margin-left: 15px;
 }
 .btn_ad_style{
+    margin-bottom: 2rem;
     font-size: 20px;padding-left: 20px;padding-right: 20px;font-family: sans-serif;font-weight: bold;
 }
 .box_additional{
@@ -145,6 +169,25 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
+.centered {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .m-0{
+    margin: 0 !important;
+    }
+.w-100{
+width: 100% !important;
+}
+.row{
+width: 100% !important;
+
+}
+.tmp{
+display: none;
+}
 .btn_uper{
     margin-top: -8%;
 }
@@ -153,7 +196,7 @@
 }
 .glyp{
     font-size: 12px;
-    background-color: #CDCD4F;
+    background-color: #cdcd4f;
     padding-left: 7px;
     padding-right: 7px;
     margin-right: 0;
@@ -168,7 +211,7 @@
 }
 .b_heading_b{
     font-weight: bold;font-family: sans-serif;
-    color: #CDCD4F;
+    color: #cdcd4f;
 }
 .next_he{
     font-size: 22px !important;
@@ -177,7 +220,7 @@
     color: #050576;
 }
 .b_side_he{
-    margin-top: 0; color: #050576;margin-bottom: 5px;font-size: 22px;padding: 5.5px;font-family:sans-serif !important;
+    margin-top: 0; color: #050576;margin-bottom: 5px;font-size: 22px;padding: 5.5px;font-family:sans-serif !important;font-weight: bold;
 }
 .cont{
     margin:170px;
@@ -206,7 +249,7 @@
     left: -11%;
 }
 .c_w{
-    height: 313px;
+height: 313px;
 }
 .cart_b{
     font-size: 30px !important;
@@ -238,8 +281,11 @@
     width: 156px;
     border-radius: 20px 0px 0px 20px;border-right: 5px solid #9D9D6B;
 }
+.reg_font{
+font-family: sans-serif;
+}
 .trail_space{
-    font-size: 33px;margin-bottom: 26%;
+font-size: 33px;margin-bottom: 26%;font-family: sans-serif;
 }
 .pp{
     text-align:right;margin-top:20px;
@@ -293,6 +339,53 @@
 }
 .padding_4_col{
     padding-left: 8rem !important;
+}
+
+@media (min-width: 235px) and (max-width: 762px) {
+.m_q_left_space{
+padding-left: 33px;
+}
+.padding_4_col2{
+    padding-left: 7rem !important;
+}
+
+.pos_l{
+display: none;
+}
+.img_side{
+display: none;
+}
+.on_resp{
+font-size: 3rem !important;
+}
+.on_resp2{
+    font-size: 2rem !important;
+    }
+.freeBtn2{
+width: 50% !important;
+}
+.freeBtn{
+font-size: 11px !important;
+}
+.t_mgn{
+    margin-top: 0rem;
+}
+.padding_4_col3{
+    margin-left: 8rem !important;
+}
+.c_w {
+    height: 175px !important;
+}
+.resp_onLogin{
+display: none;
+}
+.log_pad{
+    padding: 4rem;
+}
+}
+
+.padding_4_col{
+    padding-left: 8rem ;
 }
 /* @media (min-width: 993px) and (max-width: 4000px) {
     .main-header{

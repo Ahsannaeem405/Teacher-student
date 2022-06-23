@@ -59,7 +59,7 @@
     <body>
 
 
-        <button type="button" onclick="check_alarm()" class="btn btn-primary res_nav" id="show_nav">
+        <button type="button" onclick="check_alarm()" style="background-color: #2c3250;" class="btn btn-primary res_nav" id="show_nav">
             <i class="fas fa-bars"></i>
           </button>
 
@@ -76,6 +76,7 @@
                         </button> --}}
                         <div class="" id="navbarNavDropdown">
                             <ul class="nav navbar-nav">
+                                <li><a class="" href="{{ url('/') }}">Home</a></li>
                                 <li><a class="" href="{{ url('/about') }}">About Us</a></li>
                                 <li><a class="" href="{{ url('/features') }}">Features</a></li>
                                 <li><a class="" href="{{url('price')}}">Pricing</a></li>
@@ -86,7 +87,7 @@
                 </div>
                 <div class="col-md-3 mt-3 man-img-col">
                   <a href="{{ url('/login') }}" class="btn loginbtn">Login</a>
-                  <a href="{{ url('register/here') }}" class="btn registerbtn">Sign Up</a>
+                  <a href="{{ url('register/here') }}" style="margin-left: 3%;" class="btn registerbtn">Sign Up</a>
                 </div>
             </div>
         </header>
