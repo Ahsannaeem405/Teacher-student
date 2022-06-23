@@ -1,6 +1,6 @@
 @extends('teacher.dashboard-layout')
 
-@section('title', 'Dashboard')
+@section('title', 'My Profile')
 
 @section('content')
     <div class="container-fluid" >
@@ -82,7 +82,7 @@
 @endsection
 
 @section('JS')
-    @include('student.layouts.footer')
+    @include('teacher.layouts.footer')
 
     <script>
         ClassicEditor

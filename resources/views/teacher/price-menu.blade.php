@@ -1,6 +1,6 @@
-@extends('student.dashboard-layout')
+@extends('teacher.dashboard-layout')
 
-@section('title', 'Price Menu')
+@section('title', 'Pricing Menu')
 
 @section('content')
     <div class="container-fluid" style="margin-bottom: 15%;">
@@ -40,7 +40,8 @@
                 <div class="container pricing" style="width: 100%">
                     <div class="row row_width padding_4_col2 padding_4_col">
                         <div class="col-lg-4  col-md-6 col-sm-12">
-                            <div class="col-12" style="border: 1px solid #C9C97E; background-color: #f5f5f5">
+                            <div class="col-12"
+                                 style="border: 1px solid #C9C97E; background-color: #f5f5f5; padding-bottom: 6%">
                                 <div class="card border">
                                     <div class="card-body ">
                                         <h4>Free</h4>
@@ -54,7 +55,9 @@
                                             <li class="list-unstyled plan_list"> <img src="{{ asset('images/tick.png') }}" width="24" height="18" alt="" srcset=""> <span class="l_p"></span> <span class="li_font">Share your videos with your social media</span></li>
                                             <li class="list-unstyled plan_list"> <img src="{{ asset('images/tick.png') }}" width="24" height="18" alt="" srcset=""> <span class="l_p"></span> <span class="li_font">Share your videos with your social media</span></li>
                                         </ul>
-                                        <button>Select Plan</button>
+                                        <a href="{{ route('teacher.payment-type') }}"
+                                           style="color: white; background-color: #318215; text-decoration: none;
+                                                border-radius: 10px; padding: 10px 45px;">Select Plan</a>
                                     </div>
                                 </div>
                             </div>
@@ -82,9 +85,12 @@
 
                                         <div class="row">
                                             <div class="col-lg-12">
-                                                <button type="button" class=""
-                                                style="color: white; border: 2px solid white;
-                                                border-radius: 10px; padding: 10px 45px;">Select Plan</button>
+                                                <a href="{{ route('teacher.payment-type') }}"
+                                                   style="color: white; background-color: #318215; text-decoration: none;
+                                                   border-radius: 10px; padding: 10px 45px;">Select Plan</a>
+{{--                                                <button type="button"--}}
+{{--                                                style="color: white; border: 2px solid white;--}}
+{{--                                                border-radius: 10px; padding: 10px 45px;">Select Plan</button>--}}
                                             </div>
                                         </div>
                                     </div>
@@ -115,9 +121,13 @@
 
                                         <div class="row">
                                             <div class="col-lg-12">
-                                                <button type="button"
-                                                        style="color: white;
-                                                border-radius: 10px; padding: 10px 45px;">Select Plan</button>
+                                                <a href="{{ route('teacher.payment-type') }}"
+                                                   style="color: white; background-color: #318215; text-decoration: none;
+                                                    border-radius: 10px; padding: 10px 45px;">
+                                                    Select Plan</a>
+{{--                                                <button type="button"--}}
+{{--                                                        style="color: white;--}}
+{{--                                                border-radius: 10px; padding: 10px 45px;">Select Plan</button>--}}
                                             </div>
                                         </div>
                                     </div>
@@ -151,5 +161,5 @@
 @endsection
 
 @section('JS')
-    @include('student.layouts.footer')
+    @include('teacher.layouts.footer')
 @endsection

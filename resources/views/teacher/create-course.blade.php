@@ -1,6 +1,6 @@
 @extends('teacher.dashboard-layout')
 
-@section('title', 'Dashboard')
+@section('title', 'Create Course')
 
 @section('content')
     <div class="container-fluid" style="margin-bottom: 15%;">
@@ -122,7 +122,7 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="row" style="margin-bottom: 4%;">
             <div class="col-lg-12">
                 <h4><strong>Class Name</strong></h4>
                 <div class="col-lg-4">
@@ -137,7 +137,7 @@
                     <div class="col-lg-4">
                         <p>No matching subject?</p>
                     </div>
-                    <div class="col-lg-4">
+                    <div class="col-lg-6">
                         <div class="col-lg-1">
                             <a href="#"
                                style="background-color: #C9C97E; color: black; border-radius: 3px;
@@ -145,10 +145,38 @@
                          padding-left: 10px; padding-right: 10px; border: none">+</a>
                         </div>
 
-                        <div class="col-lg-9">
-                            <p style="padding-left: 6px;">Add New</p>
+                        <div class="col-lg-10">
+                            <p style="padding-left: 6px;">Create New</p>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h4><strong>Describe course</strong></h4>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <textarea name="description_course" id="description_course"
+                placeholder="Tell the user /student the course is about...."></textarea>
+            </div>
+        </div>
+
+        <div class="row" style="margin-bottom: 4%;">
+            <div class="col-lg-12" style="text-align: right">
+                <p>Max: 3000 words</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="" style="text-align: center">
+                    <button type="submit" class="profile-save-btn">Save</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="#" class="profile-draft-btn">Draft</a>
                 </div>
             </div>
         </div>
@@ -156,5 +184,16 @@
 @endsection
 
 @section('JS')
-    @include('student.layouts.footer')
+    @include('teacher.layouts.footer')
+
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '#description_course' ) )
+            .then( editor => {
+                console.log( editor );
+            } )
+            .catch( error => {
+                console.error( error );
+            } );
+    </script>
 @endsection
