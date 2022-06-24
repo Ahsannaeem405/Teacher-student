@@ -14,13 +14,13 @@
             <nav class="navbar navbar-default navbar-expand-lg navbar-light"
                  style="background-color: unset; border: 0px">
                 <div class="container-fluid">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar">
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                    </div>
+{{--                    <div class="navbar-header">--}}
+{{--                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar">--}}
+{{--                            <span class="icon-bar"></span>--}}
+{{--                            <span class="icon-bar"></span>--}}
+{{--                            <span class="icon-bar"></span>--}}
+{{--                        </button>--}}
+{{--                    </div>--}}
                     <div class="container-fluid collapse navbar-collapse" id="myNavbar"
                          style="padding: 0px;">
                         <ul class="nav navbar-nav" style="padding-top: 5px; color: white">
