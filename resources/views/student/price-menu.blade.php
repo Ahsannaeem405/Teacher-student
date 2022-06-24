@@ -36,11 +36,90 @@
         </div>
 
         <div class="row">
-            <div class="col-lg-12">
-                <div class="container pricing" style="width: 100%">
+
+
+
+
+
+
+
+
+
+
+            <div class="col-lg-12" style="margin-bottom: 1rem;">
+                <div class="container pricing" style="width: 100% ;">
                     <div class="row row_width padding_4_col2 padding_4_col">
-                        <div class="col-lg-4  col-md-6 col-sm-12">
-                            <div class="col-12" style="border: 1px solid #C9C97E; background-color: #f5f5f5">
+
+
+
+
+
+
+
+
+
+
+
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                            <div class="col-12" style="border: 1px solid #C9C97E;
+                            background-color: #f5f5f5; padding-bottom: 20px;margin-bottom: 1rem;">
+                                <div class="card border">
+                                    <div class="card-body">
+                                        <h4>Free</h4>
+                                        <div class="enterprice-plan">
+                                            <p> Free</p>
+                                        </div>
+
+                                        <div class="row" style="display: flex; justify-content: center">
+                                            <div class="col-lg-11">
+                                                <ul>
+                                                    <li class="list-unstyled plan_list"> <img src="http://localhost/Teacher-student/public/images/tick.png" width="19" height="18" alt="" srcset=""> <span class="l_p"></span> <span class="li_font">Watch your video anytime at your leisure</span></li>
+                                                    <li class="list-unstyled plan_list"> <img src="http://localhost/Teacher-student/public/images/tick.png" width="24" height="18" alt="" srcset=""> <span class="l_p"></span> <span class="li_font">Get unlimited videos per month for <span style="color: #C9C97E">25$</span> a month</span></li>
+                                                    <li class="list-unstyled plan_list"> <img src="http://localhost/Teacher-student/public/images/tick.png" width="24" height="18" alt="" srcset=""> <span class="l_p"></span> <span class="li_font">Watch videos anytime at your leisure</span></li>
+                                                    <li class="list-unstyled plan_list"> <img src="http://localhost/Teacher-student/public/images/tick.png" width="24" height="18" alt="" srcset=""> <span class="l_p"></span> <span class="li_font">Share your videos with your social media</span></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <button type="button" style="color: white;
+                                                border-radius: 10px; padding: 10px 45px;">Select Plan</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        {{--  <div class="col-lg-4  col-md-6 col-sm-12">
+                            <div class="col-12" style="border: 1px solid #C9C97E; background-color: #f5f5f5;margin-bottom: 1rem;">
                                 <div class="card border">
                                     <div class="card-body ">
                                         <h4>Free</h4>
@@ -48,20 +127,22 @@
                                             <h2 class="free-plan"><i>Free</i></h2>
                                         </div>
                                         <p class="card-text" style="color: #C9C97E">Features include:</p>
-                                        <ul>
+<div class="abc">
+                                        <ul style="margin:1rem;">
                                             <li class="list-unstyled plan_list"> <img src="{{ asset('images/tick.png') }}" width="19" height="18" alt="" srcset=""> <span class="l_p"></span> <span class="li_font">Watch <span style="color: #C9C97E">three</span>  video for free</span></li>
                                             <li class="list-unstyled plan_list"> <img src="{{ asset('images/tick.png') }}" width="24" height="18" alt="" srcset=""> <span class="l_p"></span> <span class="li_font">Watch your videos anytime at your leisure </span></li>
                                             <li class="list-unstyled plan_list"> <img src="{{ asset('images/tick.png') }}" width="24" height="18" alt="" srcset=""> <span class="l_p"></span> <span class="li_font">Share your videos with your social media</span></li>
                                             <li class="list-unstyled plan_list"> <img src="{{ asset('images/tick.png') }}" width="24" height="18" alt="" srcset=""> <span class="l_p"></span> <span class="li_font">Share your videos with your social media</span></li>
                                         </ul>
+                                    </div>
                                         <button>Select Plan</button>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>  --}}
 
                         <div class="col-lg-4 col-md-6 col-sm-12">
-                            <div class="col-12" style="background-color: #C9C97E; padding-bottom: 60px;">
+                            <div class="col-12" style="background-color: #C9C97E; padding-bottom: 60px;margin-bottom: 1rem;">
                                 <div class="card border">
                                     <div class="card-body">
                                         <h4 style="color: white">Basic</h4>
@@ -94,7 +175,7 @@
 
                         <div class="col-lg-4 col-md-6 col-sm-12">
                             <div class="col-12" style="border: 1px solid #C9C97E;
-                            background-color: #f5f5f5; padding-bottom: 20px;">
+                            background-color: #f5f5f5; padding-bottom: 20px;margin-bottom: 1rem;">
                                 <div class="card border">
                                     <div class="card-body">
                                         <h4>Enterprise</h4>

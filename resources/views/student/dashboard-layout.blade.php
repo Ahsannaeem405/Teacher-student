@@ -28,11 +28,11 @@
 
     <div class=" tab-sec">
         <div class=" row" style="padding-top: 0px; padding-left: 20px; margin-right: 0px;">
-            <div class=" col-md-4 tab-col vh-100">
+
 
                 @include('student.layouts.sidebar')
 
-            </div>
+
             <div class=" col-md-8 tab-content-col">
 
                 @yield('content')
@@ -64,4 +64,4 @@
     </div>
 
 @yield('JS')
-{{--@include('footer')--}}
+{{--  @include('footer')  --}}

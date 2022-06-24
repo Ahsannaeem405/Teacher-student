@@ -113,58 +113,7 @@
                 </div>
             </div>
 
-            <div class="row" style="margin-top: 10px;">
-                <div class="col-lg-4" style="padding-left: 40px;">
-                    <img src="{{ asset('images/sd-pic.png') }}" alt="no image" width="180">
-                    <p style="margin-top: 15px; font-size: 16px; font-weight: bold;"><a href="{{ route('student.course-detail') }}"
-                          style="text-decoration: none; color: black">
-                            Learn python coding for<br>beginners
-                        </a></p>
 
-                    <div class="row" style="margin-top: 10px;">
-                        <div class="col-lg-5">
-                            <p style="color: #C9C97E; font-size: 12px;">Physics Class</p>
-                        </div>
-                        <div class="col-lg-6">
-                            <p style="font-size: 10px; font-style: italic">Length: 3 hr 30 min</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4" style="padding-left: 40px;">
-                    <img src="{{ asset('images/sd-pic.png') }}" alt="no image" width="180">
-                    <p style="margin-top: 15px; font-size: 16px; font-weight: bold;"><a href="{{ route('student.course-detail') }}"
-                         style="text-decoration: none; color: black">
-                            Learn python coding for<br>beginners
-                        </a></p>
-
-                    <div class="row" style="margin-top: 10px;">
-                        <div class="col-lg-5">
-                            <p style="color: #C9C97E; font-size: 12px;">Physics Class</p>
-                        </div>
-                        <div class="col-lg-6">
-                            <p style="font-size: 10px; font-style: italic">Length: 3 hr 30 min</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4" style="padding-left: 40px;">
-                    <img src="{{ asset('images/sd-pic.png') }}" alt="no image" width="180">
-                    <p style="margin-top: 15px; font-size: 16px; font-weight: bold;"><a href="{{ route('student.course-detail') }}"
-                         style="text-decoration: none; color: black">
-                            Learn python coding for<br>beginners
-                        </a></p>
-
-                    <div class="row" style="margin-top: 10px;">
-                        <div class="col-lg-5">
-                            <p style="color: #C9C97E; font-size: 12px;">Physics Class</p>
-                        </div>
-                        <div class="col-lg-6">
-                            <p style="font-size: 10px; font-style: italic">Length: 3 hr 30 min</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
             <div class="row" style="margin-top: 30px; margin-right: 40px; display: flex; justify-content: end;">
                 <div class="col-lg-1" style="text-align: center; margin-right: -12px;">
@@ -199,6 +148,7 @@
 @endsection
 
 @section('JS')
-    @include('teacher.layouts.footer')
+    @include('student.layouts.footer')
 @endsection
+
 

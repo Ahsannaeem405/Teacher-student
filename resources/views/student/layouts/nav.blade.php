@@ -1,6 +1,7 @@
-<link rel="stylesheet" href="{{ asset('css/style4.css') }}">
+
 <button type="button" onclick="check_alarm()" style="background-color: #2c3250;" class="btn btn-primary res_nav" id="show_nav">
-    <i class="fas fa-bars"></i>
+    <i class="fas fa2 fa-bars"></i>
+    <i class="fa-solid fa1 fa-xmark"></i>
   </button>
 <header class="main-header  active-header" style="padding: 0px; margin: 0px;">
     <div class="row " style="padding: 0px; margin: 0px;">
@@ -47,7 +48,9 @@
 
     function check_alarm(){
         $(".main-header").toggle();
-}
+        $(".fa1").toggle();
+        $(".fa2").toggle();
+    }
 
 
 

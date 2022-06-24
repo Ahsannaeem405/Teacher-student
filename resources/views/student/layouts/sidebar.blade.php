@@ -1,3 +1,8 @@
+<button type="button" onclick="check_alarm2()" style="background-color: #f2f2f2;color:black" class="btn btn-primary res_nav2" id="show_nav">
+    <i class="fas fa-bars 3_d"></i>
+    <i class="fa-solid fa-xmark krs"></i>
+</button>
+<div class="side_bar_res col-md-4 tab-col vh-100">
 <img src="{{url('/images/profile.png')}}" alt="Image" class="tab-img"/>
 <p style="font-size: 22px; ">{{ auth()->user()->first_name }}</p>
 <h4>{{ (auth()->user()->role == 3) ? '(Student)' : ''}}</h4>
@@ -60,3 +65,18 @@
 {{--    <li><a href="#block" data-toggle="tab">Write Block</a></li>--}}
 {{--    <li><a href="#status" data-toggle="tab">My Status</a></li>--}}
 
+</div>
+
+
+<script>
+
+    function check_alarm2(){
+        $(".side_bar_res").toggle();
+        $(".krs").toggle();
+        $(".3_d").toggle();
+}
+
+
+
+
+</script>

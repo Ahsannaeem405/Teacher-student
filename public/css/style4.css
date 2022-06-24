@@ -5,6 +5,9 @@
 .ml_t{
 margin-left: 2rem;margin-bottom: 3rem;
 }
+.fa-xmark{
+display: none;
+}
 .img_ab{
     width: 100%;margin-top: 13%;
 }
@@ -309,11 +312,22 @@ font-size: 33px;margin-bottom: 26%;font-family: sans-serif;
         display:  block !important;
         position: fixed;
         top: 0%;
-        right: 0;
+        right: 1rem;
+        z-index: 50000000000;
+    }
+
+    .res_nav2{
+        display:  block !important;
+
         z-index: 50000000000;
     }
 }
 .res_nav{
+    background-color: none;
+    display: none;
+}
+
+.res_nav2{
     background-color: none;
     display: none;
 }
