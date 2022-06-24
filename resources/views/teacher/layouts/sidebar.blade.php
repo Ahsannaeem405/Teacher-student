@@ -21,7 +21,7 @@
     </div>
 @endif
 
-@if(request()->route()->getName() == $upload_prof || request()->route()->getName() == $status || request()->route()->getName() == $change_password)
+@if(request()->route()->getName() == 'teacher.upload-profile' || request()->route()->getName() == 'teacher.status' || request()->route()->getName() == 'teacher.upload-profile')
     <ul class="nav-tabs tabs-left sideways"
         style="margin-top: 20px; padding-top: 80px;">
         <li class="{{ request()->routeIs('teacher.upload-profile') ? 'active' : ''}}">
