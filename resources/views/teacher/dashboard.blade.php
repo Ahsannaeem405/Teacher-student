@@ -43,26 +43,32 @@
                             <p style="color: #3399FF">Documents:3</p>
                         </div>
                         <div class="card-footer">
-                            <div class="row">
-                                <div class="col-lg-1" style="margin-right: 40px; padding-left: 50px;">
-                                    <div class="12" style="margin-left: 8px;">
-                                        <i class="fas fa-pen" style="color: #C9C97E"></i>
+                            <div class="row" style="display: flex; justify-content: center">
+                                <div class="col-lg-1" style="padding-right: 30px;">
+                                    <div class="12" >
+                                        <span style="padding-left: 5px;">
+                                            <i class="fas fa-pen" style="color: #C9C97E"></i>
+                                        </span>
                                     </div>
                                     <div class="12">
                                         <p style="color: #C9C97E; font-weight: bold">Edit</p>
                                     </div>
                                 </div>
-                                <div class="col-lg-1" style="margin-right: 40px;">
-                                    <div class="col-12" style="margin-left: 7px;">
-                                        <i class="fas fa-eye" style="color: #C9C97E"></i>
+                                <div class="col-lg-1" style="padding-right: 30px;">
+                                    <div class="col-12">
+                                        <span style="padding-left: 5px;">
+                                            <i class="fas fa-eye" style="color: #C9C97E"></i>
+                                        </span>
                                     </div>
                                     <div class="col-12">
                                         <p style="color: #C9C97E; font-weight: bold">View</p>
                                     </div>
                                 </div>
                                 <div class="col-lg-1" >
-                                    <div class="col-12" style="margin-left: 10px;">
-                                        <i class="fas fa-trash" style="color: red"></i>
+                                    <div class="col-12">
+                                        <div style="padding-left: 5px;">
+                                            <i class="fas fa-trash" style="color: red"></i>
+                                        </div>
                                     </div>
                                     <div class="col-12">
                                         <p style="color: red; font-weight: bold">Delete</p>
@@ -87,26 +93,32 @@
                             <p style="color: #3399FF">Documents:3</p>
                         </div>
                         <div class="card-footer">
-                            <div class="row">
-                                <div class="col-lg-1" style="margin-right: 40px; padding-left: 50px;">
-                                    <div class="12" style="margin-left: 8px;">
-                                        <i class="fas fa-pen" style="color: #C9C97E"></i>
+                            <div class="row" style="display: flex; justify-content: center">
+                                <div class="col-lg-1" style="padding-right: 30px;">
+                                    <div class="12" >
+                                        <span style="padding-left: 5px;">
+                                            <i class="fas fa-pen" style="color: #C9C97E"></i>
+                                        </span>
                                     </div>
                                     <div class="12">
                                         <p style="color: #C9C97E; font-weight: bold">Edit</p>
                                     </div>
                                 </div>
-                                <div class="col-lg-1" style="margin-right: 40px;">
-                                    <div class="col-12" style="margin-left: 7px;">
-                                        <i class="fas fa-eye" style="color: #C9C97E"></i>
+                                <div class="col-lg-1" style="padding-right: 30px;">
+                                    <div class="col-12">
+                                        <span style="padding-left: 5px;">
+                                            <i class="fas fa-eye" style="color: #C9C97E"></i>
+                                        </span>
                                     </div>
                                     <div class="col-12">
                                         <p style="color: #C9C97E; font-weight: bold">View</p>
                                     </div>
                                 </div>
                                 <div class="col-lg-1" >
-                                    <div class="col-12" style="margin-left: 10px;">
-                                        <i class="fas fa-trash" style="color: red"></i>
+                                    <div class="col-12">
+                                        <div style="padding-left: 5px;">
+                                            <i class="fas fa-trash" style="color: red"></i>
+                                        </div>
                                     </div>
                                     <div class="col-12">
                                         <p style="color: red; font-weight: bold">Delete</p>
@@ -131,26 +143,32 @@
                             <p style="color: #3399FF">Documents:3</p>
                         </div>
                         <div class="card-footer">
-                            <div class="row">
-                                <div class="col-lg-1" style="margin-right: 40px; padding-left: 50px;">
-                                    <div class="12" style="margin-left: 8px;">
-                                        <i class="fas fa-pen" style="color: #C9C97E"></i>
+                            <div class="row" style="display: flex; justify-content: center">
+                                <div class="col-lg-1" style="padding-right: 30px;">
+                                    <div class="12" >
+                                        <span style="padding-left: 5px;">
+                                            <i class="fas fa-pen" style="color: #C9C97E"></i>
+                                        </span>
                                     </div>
                                     <div class="12">
                                         <p style="color: #C9C97E; font-weight: bold">Edit</p>
                                     </div>
                                 </div>
-                                <div class="col-lg-1" style="margin-right: 40px;">
-                                    <div class="col-12" style="margin-left: 7px;">
-                                        <i class="fas fa-eye" style="color: #C9C97E"></i>
+                                <div class="col-lg-1" style="padding-right: 30px;">
+                                    <div class="col-12">
+                                        <span style="padding-left: 5px;">
+                                            <i class="fas fa-eye" style="color: #C9C97E"></i>
+                                        </span>
                                     </div>
                                     <div class="col-12">
                                         <p style="color: #C9C97E; font-weight: bold">View</p>
                                     </div>
                                 </div>
                                 <div class="col-lg-1" >
-                                    <div class="col-12" style="margin-left: 10px;">
-                                        <i class="fas fa-trash" style="color: red"></i>
+                                    <div class="col-12">
+                                        <div style="padding-left: 5px;">
+                                            <i class="fas fa-trash" style="color: red"></i>
+                                        </div>
                                     </div>
                                     <div class="col-12">
                                         <p style="color: red; font-weight: bold">Delete</p>
@@ -177,26 +195,32 @@
                             <p style="color: #3399FF">Documents:3</p>
                         </div>
                         <div class="card-footer">
-                            <div class="row">
-                                <div class="col-lg-1" style="margin-right: 40px; padding-left: 50px;">
-                                    <div class="12" style="margin-left: 8px;">
-                                        <i class="fas fa-pen" style="color: #C9C97E"></i>
+                            <div class="row" style="display: flex; justify-content: center">
+                                <div class="col-lg-1" style="padding-right: 30px;">
+                                    <div class="12" >
+                                        <span style="padding-left: 5px;">
+                                            <i class="fas fa-pen" style="color: #C9C97E"></i>
+                                        </span>
                                     </div>
                                     <div class="12">
                                         <p style="color: #C9C97E; font-weight: bold">Edit</p>
                                     </div>
                                 </div>
-                                <div class="col-lg-1" style="margin-right: 40px;">
-                                    <div class="col-12" style="margin-left: 7px;">
-                                        <i class="fas fa-eye" style="color: #C9C97E"></i>
+                                <div class="col-lg-1" style="padding-right: 30px;">
+                                    <div class="col-12">
+                                        <span style="padding-left: 5px;">
+                                            <i class="fas fa-eye" style="color: #C9C97E"></i>
+                                        </span>
                                     </div>
                                     <div class="col-12">
                                         <p style="color: #C9C97E; font-weight: bold">View</p>
                                     </div>
                                 </div>
                                 <div class="col-lg-1" >
-                                    <div class="col-12" style="margin-left: 10px;">
-                                        <i class="fas fa-trash" style="color: red"></i>
+                                    <div class="col-12">
+                                        <div style="padding-left: 5px;">
+                                            <i class="fas fa-trash" style="color: red"></i>
+                                        </div>
                                     </div>
                                     <div class="col-12">
                                         <p style="color: red; font-weight: bold">Delete</p>
@@ -221,26 +245,32 @@
                             <p style="color: #3399FF">Documents:3</p>
                         </div>
                         <div class="card-footer">
-                            <div class="row">
-                                <div class="col-lg-1" style="margin-right: 40px; padding-left: 50px;">
-                                    <div class="12" style="margin-left: 8px;">
-                                        <i class="fas fa-pen" style="color: #C9C97E"></i>
+                            <div class="row" style="display: flex; justify-content: center">
+                                <div class="col-lg-1" style="padding-right: 30px;">
+                                    <div class="12" >
+                                        <span style="padding-left: 5px;">
+                                            <i class="fas fa-pen" style="color: #C9C97E"></i>
+                                        </span>
                                     </div>
                                     <div class="12">
                                         <p style="color: #C9C97E; font-weight: bold">Edit</p>
                                     </div>
                                 </div>
-                                <div class="col-lg-1" style="margin-right: 40px;">
-                                    <div class="col-12" style="margin-left: 7px;">
-                                        <i class="fas fa-eye" style="color: #C9C97E"></i>
+                                <div class="col-lg-1" style="padding-right: 30px;">
+                                    <div class="col-12">
+                                        <span style="padding-left: 5px;">
+                                            <i class="fas fa-eye" style="color: #C9C97E"></i>
+                                        </span>
                                     </div>
                                     <div class="col-12">
                                         <p style="color: #C9C97E; font-weight: bold">View</p>
                                     </div>
                                 </div>
                                 <div class="col-lg-1" >
-                                    <div class="col-12" style="margin-left: 10px;">
-                                        <i class="fas fa-trash" style="color: red"></i>
+                                    <div class="col-12">
+                                        <div style="padding-left: 5px;">
+                                            <i class="fas fa-trash" style="color: red"></i>
+                                        </div>
                                     </div>
                                     <div class="col-12">
                                         <p style="color: red; font-weight: bold">Delete</p>
@@ -265,26 +295,32 @@
                             <p style="color: #3399FF">Documents:3</p>
                         </div>
                         <div class="card-footer">
-                            <div class="row">
-                                <div class="col-lg-1" style="margin-right: 40px; padding-left: 50px;">
-                                    <div class="12" style="margin-left: 8px;">
-                                        <i class="fas fa-pen" style="color: #C9C97E"></i>
+                            <div class="row" style="display: flex; justify-content: center">
+                                <div class="col-lg-1" style="padding-right: 30px;">
+                                    <div class="12" >
+                                        <span style="padding-left: 5px;">
+                                            <i class="fas fa-pen" style="color: #C9C97E"></i>
+                                        </span>
                                     </div>
                                     <div class="12">
                                         <p style="color: #C9C97E; font-weight: bold">Edit</p>
                                     </div>
                                 </div>
-                                <div class="col-lg-1" style="margin-right: 40px;">
-                                    <div class="col-12" style="margin-left: 7px;">
-                                        <i class="fas fa-eye" style="color: #C9C97E"></i>
+                                <div class="col-lg-1" style="padding-right: 30px;">
+                                    <div class="col-12">
+                                        <span style="padding-left: 5px;">
+                                            <i class="fas fa-eye" style="color: #C9C97E"></i>
+                                        </span>
                                     </div>
                                     <div class="col-12">
                                         <p style="color: #C9C97E; font-weight: bold">View</p>
                                     </div>
                                 </div>
                                 <div class="col-lg-1" >
-                                    <div class="col-12" style="margin-left: 10px;">
-                                        <i class="fas fa-trash" style="color: red"></i>
+                                    <div class="col-12">
+                                        <div style="padding-left: 5px;">
+                                            <i class="fas fa-trash" style="color: red"></i>
+                                        </div>
                                     </div>
                                     <div class="col-12">
                                         <p style="color: red; font-weight: bold">Delete</p>
