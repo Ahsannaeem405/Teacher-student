@@ -1,10 +1,12 @@
-@php
-    $upload_prof = 'teacher.upload-profile';
-    $status = 'teacher.status';
-    $change_password = 'teacher.change-password';
-@endphp
+<button type="button" onclick="check_alarm2()" style="background-color: #f2f2f2;color:black" class="btn btn-primary res_nav2" id="show_nav">
+    <i class="fas fa-bars 3_d"></i>
+    <i class="fa-solid fa-xmark krs"></i>
+</button>
 
-@if(request()->route()->getName() != $upload_prof)
+@if(request()->route()->getName() != 'teacher.upload-profile' ||
+    request()->route()->getName() == 'teacher.status' ||
+    request()->route()->getName() == 'teacher.change-password')
+
     <img src="{{url('/images/profile.png')}}" alt="Image" class="tab-img"/>
     <p style="font-size: 22px; ">{{ auth()->user()->first_name }}</p>
     <h4>{{ (auth()->user()->role == 2) ? '(Teacher)' : ''}}</h4>
@@ -87,6 +89,14 @@
     </div>
 @endif
 
+
+<script>
+    function check_alarm2(){
+        $(".side_bar_res").toggle();
+        $(".krs").toggle();
+        $(".3_d").toggle();
+    }
+</script>
 
 {{--    <li><a href="#chat" data-toggle="tab">History</a></li>--}}
 {{--    <li><a href="#payment" data-toggle="tab">Notes</a></li>--}}
