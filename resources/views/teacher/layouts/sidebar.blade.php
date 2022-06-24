@@ -3,7 +3,7 @@
     <i class="fa-solid fa-xmark krs"></i>
 </button>
 
-<div class="side_bar_res col-md-4 tab-col vh-100">
+<div class="side_bar_res col-md-12 tab-col vh-100">
 
 @if(request()->route()->getName() != 'teacher.upload-profile' ||
     request()->route()->getName() == 'teacher.status' ||
