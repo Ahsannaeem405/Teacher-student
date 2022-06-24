@@ -3,6 +3,8 @@
     <i class="fa-solid fa-xmark krs"></i>
 </button>
 
+<div class="side_bar_res col-md-4 tab-col vh-100">
+
 @if(request()->route()->getName() != 'teacher.upload-profile' ||
     request()->route()->getName() == 'teacher.status' ||
     request()->route()->getName() == 'teacher.change-password')
@@ -19,6 +21,7 @@
         <span style="font-weight: bold">4.8</span>
         <span style="color: #C9C9C9">(22)</span>
     </div>
+
 @endif
 
 @if(request()->route()->getName() == 'teacher.upload-profile' || request()->route()->getName() == 'teacher.status' || request()->route()->getName() == 'teacher.upload-profile')
@@ -88,7 +91,7 @@
         <img src="{{ asset('images/dt1.png') }}" alt="no image" width="30">
     </div>
 @endif
-
+</div>
 
 <script>
     function check_alarm2(){
