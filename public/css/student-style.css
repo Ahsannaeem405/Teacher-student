@@ -353,7 +353,21 @@ button.btn.dropdown-toggle.nav-img-btn {
     border-radius: 10px;
     font-size: 24px;
 }
+.add-new-btn{
+    background-color: #C9C97E;
+    color: black;
+    border-radius: 3px;
+    text-align: center;
+    padding-top: 2px;
+    height: 24px;
+    width: 40px;
+}
 
+.add-new-btn > a {
+    color: black;
+    text-decoration: none;
+    border: none
+}
 .course-search-btn{
     background-color: black;
     border-radius: 10px 0px 0px 10px;
@@ -363,7 +377,9 @@ button.btn.dropdown-toggle.nav-img-btn {
     padding-bottom: 10px;
     color: white;
 }
-
+.dd{
+display: none;
+}
 .course-time-btn{
     background-color: black;
     border-radius: 10px 0px 0px 10px;
@@ -374,6 +390,11 @@ button.btn.dropdown-toggle.nav-img-btn {
     color: white;
 }
 
+@media (min-width: 235px) and (max-width: 766px) {
+.hist_list_mrgn_btm{
+margin-bottom: 5rem;text-align: center;
+}
+}
 .payment-home-btn{
     padding: 15px 50px;
     background-color: #C9C97E;
@@ -442,3 +463,64 @@ button.btn.dropdown-toggle.nav-img-btn {
     border: none
 }
 
+@media (min-width: 235px) and (max-width: 990px) {
+.notes_resp_mrgn{
+    margin-left: 4rem;
+}
+.side_bar_res{
+display: none;
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+@media (min-width: 235px) and (max-width: 992px) {
+    .main-header{
+        display: none;
+    }
+.abc{
+    margin: 1rem;
+width: 30%;
+/* display: flex; */
+justify-content: center;margin:auto
+}
+    .active-header2 {
+        background: #2C3250;
+        -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+        -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+    }
+    .res_nav{
+        display:  block !important;
+        position: fixed;
+        top: 0%;
+        right: 1rem;
+        z-index: 50000000000;
+    }
+
+    .res_nav2{
+        display:  block !important;
+
+        z-index: 50000000000;
+    }
+}
+.res_nav{
+    background-color: none;
+    display: none;
+}
+
+.res_nav2{
+    background-color: none;
+    display: none;
+}
+.fa-xmark{
+    display: none;
+    }

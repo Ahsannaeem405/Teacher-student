@@ -6,10 +6,10 @@
                 <p>Virtual teaching is a marketplace filled with qualified teachers that will provide excellent teaching resources. We are happy to work with you in your learning journey.</p>
                 <h4>Follow Us:</h4>
                 <ul class="footer-icon">
-                    <li><i class="fa fa-linkedin"></i></li>
-                    <li><i class="fa fa-facebook"></i></li>
-                    <li><i class="fa fa-twitter"></i></li>
-                    <li><i class="fa fa-instagram"></i></li>
+                    <li><i class="fa-brands fa-linkedin-in"></i></li>
+                    <li><i class="fa-brands fa-facebook-f"></i></li>
+                    <li><i class="fa-brands fa-twitter"></i></li>
+                    <li><i class="fa-brands fa-instagram"></i></li>
                 </ul>
             </div>
             <div class="col-md-2">
