@@ -25,13 +25,26 @@
     @include('teacher.layouts.nav')
 
     @php
-        $plans = request()->route()->getName() == 'teacher.price-menu';
-        $payment_type = request()->route()->getName() == 'teacher.payment-type';
-        $payment_sub =  request()->route()->getName() == 'teacher.payment-submission';
+        $plans = 'teacher.price-menu';
+        $payment_type = 'teacher.payment-type';
+        $payment_sub = 'teacher.payment-submission';
+        $course_detail = 'teacher.course-detail';
+        $profile = 'teacher.myProfile';
+        $create_own = 'teacher.create-course';
+        $dashboard = 'teacher.dashboard';
+        $upload_profile = 'teacher.upload-profile';
+        $status = 'teacher.status';
+        $change_password = 'teacher.change-password';
     @endphp
 
     @if(request()->route()->getName() == $plans || request()->route()->getName() == $payment_type || request()->route()->getName() == $payment_sub)
         <div class="banner-one" style="width: 100%;"></div>
+    @elseif(request()->route()->getName() == $course_detail || request()->route()->getName() == $profile)
+        <div class="banner-three" style="width: 100%;"></div>
+    @elseif(request()->route()->getName() == $create_own || request()->route()->getName() == $dashboard)
+        <div class="banner-four" style="width: 100%;"></div>
+    @elseif(request()->route()->getName() == $upload_profile || request()->route()->getName() == $status || request()->route()->getName() == $change_password)
+        <div class="banner-five" style="width: 100%;"></div>
     @else
         <div class="banner-two" style="width: 100%;"></div>
     @endif

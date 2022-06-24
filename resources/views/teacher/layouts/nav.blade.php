@@ -1,7 +1,7 @@
 <header class="main-header active-header" style="padding: 0px; margin: 0px;">
     <div class="row " style="padding: 0px; margin: 0px;">
         <div class="col-md-3 logo-col" style="padding-top: 15px;">
-            <a href="{{ route('student.dashboard') }}" style="text-decoration: none">
+            <a href="{{ route('teacher.dashboard') }}" style="text-decoration: none">
                 <img src="{{url('/images/logo.svg')}}" alt="Image"/>
             </a>
         </div>
@@ -38,7 +38,7 @@
                     <span class="caret" style="color: white"></span>
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="about-us">
-                    <li><a href="{{ route('student.my-profile') }}">My Profile</a></li>
+                    <li><a href="{{ route('teacher.upload-profile') }}">My Profile</a></li>
                     <li><a href="{{ url('logout') }}">Logout</a></li>
                 </ul>
             </div>

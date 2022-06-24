@@ -38,4 +38,36 @@ class TeacherController extends Controller
 
         return view('teacher.payment-successful');
     }
+
+    public function courseDetail(){
+        return view('teacher.course-detail');
+    }
+
+    public function notes(){
+        return view('teacher.notes');
+    }
+
+    public function createNotes(){
+        return view('teacher.new-notes');
+    }
+
+    public function createBlog(){
+        return view('teacher.create-blog');
+    }
+
+    public function createClass(){
+        return view('teacher.create-class');
+    }
+
+    public function uploadProfile(){
+        return view('teacher.upload-profile');
+    }
+
+    public function status(){
+        return view('teacher.status');
+    }
+
+    public function changePassword(){
+        return view('teacher.change-password');
+    }
 }

@@ -57,16 +57,24 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth', 'as' => 'admin.'], fu
 });
 
 
-Route::group(['prefix' => 'teacher',  'as' => 'teacher.'], function(){
+Route::group(['prefix' => 'teacher', 'middleware' => 'auth', 'as' => 'teacher.'], function(){
 
     Route::get('dashboard', [TeacherController::class, 'index'])->name('dashboard');
-    Route::get('/profile', [TeacherController::class, 'myProfile'])->name('my-profile');
+    Route::get('/my/profile', [TeacherController::class, 'myProfile'])->name('myProfile');
     Route::get('/course/create', [TeacherController::class, 'createCourse'])->name('create-course');
     Route::get('/courses', [TeacherController::class, 'myCourse'])->name('my-courses');
     Route::get('/my-students', [TeacherController::class, 'myStudents'])->name('my-students');
     Route::get('/pricing/menu', [TeacherController::class, 'priceMenu'])->name('price-menu');
     Route::get('/payment/type', [TeacherController::class, 'paymentType'])->name('payment-type');
     Route::post('/payment/submission', [TeacherController::class, 'paymentSubmission'])->name('payment-submission');
+    Route::get('/course/detail', [TeacherController::class, 'courseDetail'])->name('course-detail');
+    Route::get('/notes', [TeacherController::class, 'notes'])->name('t-notes');
+    Route::get('/create/notes', [TeacherController::class, 'createNotes'])->name('create-notes');
+    Route::get('/create/blog', [TeacherController::class, 'createBlog'])->name('create-blog');
+    Route::get('/create/class', [TeacherController::class, 'createClass'])->name('create-class');
+    Route::get('/upload/profile', [TeacherController::class, 'uploadProfile'])->name('upload-profile');
+    Route::get('/status', [TeacherController::class, 'status'])->name('status');
+    Route::get('/change/password', [TeacherController::class, 'changePassword'])->name('change-password');
 });
 
 Route::group(['prefix' => 'student', 'middleware' => 'auth', 'as' => 'student.'], function(){

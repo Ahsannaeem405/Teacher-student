@@ -139,7 +139,7 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="col-lg-1">
-                            <a href="#"
+                            <a href="{{ route('teacher.create-class') }}"
                                style="background-color: #C9C97E; color: black; border-radius: 3px;
                          padding-top: 5px; padding-bottom: 5px; text-decoration: none;
                          padding-left: 10px; padding-right: 10px; border: none">+</a>

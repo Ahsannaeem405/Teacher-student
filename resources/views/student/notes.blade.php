@@ -4,23 +4,19 @@
 
 @section('content')
     <div class="container-fluid" style="margin-bottom: 15%;">
-         <div class="row">
-             <div class="col-lg-12" style="display: flex; justify-content: end;
-             padding-top: 50px;">
-                 <div class="row">
-                     <div class="col-lg-1">
-                         <a href="{{ route('student.create-notes') }}"
-                         style="background-color: #C9C97E; color: black; border-radius: 3px;
-                         padding-top: 5px; padding-bottom: 5px; text-decoration: none;
-                         padding-left: 10px; padding-right: 10px; border: none">+</a>
-                     </div>
+        <div class="row">
+            <div class="col-lg-10" style=" padding-top: 50px;">
+                <div class="row" style="display: flex; justify-content: end">
+                    <div class="col-lg-1 col-md-1 add-new-btn">
+                        <a href="#">+</a>
+                    </div>
 
-                     <div class="col-lg-9">
-                         <p style="padding-left: 6px;">Add New</p>
-                     </div>
-                 </div>
-             </div>
-         </div>
+                    <div class="col-lg-2 col-md-2">
+                        <p style="padding: 0px;">Add New</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <div class="row">
             <div class="col-lg-8" style="padding-left: 80px; padding-top: 30px;">

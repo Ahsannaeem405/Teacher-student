@@ -44,6 +44,14 @@
     margin-bottom: 30px;
 }
 
+.status{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    /*margin-top: 30px;*/
+    margin-bottom: 30px;
+}
+
 .dashboard-searchbar-bottom-line{
     display: flex;
     justify-content: center;
@@ -392,5 +400,45 @@ button.btn.dropdown-toggle.nav-img-btn {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.banner-three {
+    background: url(../images/teacher-header.png);
+    min-height: 600px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.banner-four {
+    background: url(../images/teacher-header2.png);
+    min-height: 400px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.banner-five {
+    background: url(../images/student-profile-header.png);
+    min-height: 600px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.add-new-btn{
+    background-color: #C9C97E;
+    color: black;
+    border-radius: 3px;
+    text-align: center;
+    padding-top: 2px;
+    height: 24px;
+    width: 40px;
+}
+
+.add-new-btn > a {
+    color: black;
+    text-decoration: none;
+    border: none
 }
 

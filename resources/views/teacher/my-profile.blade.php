@@ -4,80 +4,65 @@
 
 @section('content')
     <div class="container-fluid" >
-        <div class="row">
-            <div class="col-lg-6" style="padding-left: 80px;">
-                <h3>MY PROFILE</h3>
+        <div class="row" style="margin-bottom: 2%;">
+            <div class="col-lg-8" style="padding-top: 30px;">
+                <h3>DASHBOARD / <span style="color: #C9C97E">MY PROFILE</span></h3>
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-lg-6 profile-upload-photo">
-                <h4>Upload photo</h4>
-            </div>
-        </div>
 
-        <div class="row">
-            <div class="col-lg-6 profile-image">
-                <img src="{{ asset('images/teacher-chat.png') }}" alt="no image" width="60">
-                <span style="font-size: 26px;">...</span>
+        <form action="#">
+            <div class="row profile-input-field">
+                <div class="col-lg-6" >
+                    <label for="">First Name</label>
+                    <input type="text" class="form-control" name="first_name">
+                </div>
             </div>
 
-            <div class="col-lg-6" style="text-align: end;">
-                <img src="{{ asset('images/dt1.png') }}" alt="no image" width="30">
+            <div class="row profile-input-field">
+                <div class="col-lg-6" >
+                    <label for="">Last Name</label>
+                    <input type="text" class="form-control" name="last_name">
+                </div>
             </div>
-        </div>
 
-        <div class="row profile-image-bottom-line" style="">
-            <div class="col-lg-11" style="border: 1px solid #707070"></div>
-        </div>
-
-        <div class="row profile-input-field">
-            <div class="col-lg-6" >
-                <label for="">Name</label>
-                <input type="text" class="form-control" name="name">
+            <div class="row profile-input-field">
+                <div class="col-lg-6" >
+                    <label for="">Email</label>
+                    <input type="email" class="form-control" name="email">
+                </div>
             </div>
-        </div>
 
-        <div class="row profile-input-field">
-            <div class="col-lg-6">
-                <label for="">Bio</label>
-                <textarea name="bio" id="editor"></textarea>
+            <div class="row profile-input-field">
+                <div class="col-lg-6" >
+                    <label for="">Subject</label>
+                    <select class="form-control" name="role">
+                        <option selected>Select</option>
+                        <option value="2">Technology</option>
+                        <option value="3">Entertainment</option>
+                        <option value="3">Politics</option>
+                        <option value="3">Psychology</option>
+                    </select>
+                </div>
             </div>
-        </div>
 
-        <div class="row profile-input-field">
-            <div class="col-lg-6" >
-                <label for="">E-mail</label>
-                <input type="email" class="form-control" name="email">
+            <div class="row profile-input-field">
+                <div class="col-lg-12">
+                    <label for="">Bio</label>
+                    <textarea name="bio" id="editor"></textarea>
+                </div>
             </div>
-        </div>
 
-        <div class="row profile-input-field">
-            <div class="col-lg-6" >
-                <label for="">Teacher or Student</label>
-                <select class="form-control" name="role">
-                    <option selected>Select</option>
-                    <option value="2">Teacher</option>
-                    <option value="3">Student</option>
-                </select>
+            <div class="row">
+                <div class="col-lg-12 col-md-12" style="text-align: end">
+                    <p>Max: 500 words</p>
+                </div>
             </div>
-        </div>
 
-        <div class="row profile-input-field">
-            <div class="col-lg-6" >
-                <label for="">LinkedIn Profile</label>
-                <input type="text" class="form-control" name="linkedIn_prof">
+            <div class="profile-input-field">
+                <button type="submit" class="profile-save-btn">Save</button>&nbsp;&nbsp;&nbsp;&nbsp;
             </div>
-        </div>
-
-        <div class="profile-input-field">
-            <button type="submit" class="profile-save-btn">Save</button>&nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="#" class="profile-draft-btn">Draft</a>
-        </div>
-
-        <div class="prof-delete-acc">
-            <a href="#" class="prof-delete-acc-text">Delete your account</a>
-        </div>
+        </form>
     </div>
 @endsection
 

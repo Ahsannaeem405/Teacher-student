@@ -1,6 +1,6 @@
 @extends('teacher.dashboard-layout')
 
-@section('title', 'My Courses')
+@section('title', 'My Students')
 
 @section('content')
     <div class="container-fluid" style="margin-bottom: 15%;">

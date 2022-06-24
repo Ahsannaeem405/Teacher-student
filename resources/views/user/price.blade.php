@@ -24,16 +24,14 @@
         <h3 class="textbold" style="color:#a5a3a3;font-family:sans-serif !important;
         width: 88%;
         margin: auto;
-        ">choose the right payment option that best suits you.</h3>
+        ">Choose the right payment option that best suits
+            you.</h3>
 
     </div>
 
 
 </div>
-<div style="background-color: white;
-margin-top: -19rem;
-border-radius: 1%">
-<div >
+<div style="background-color: white; margin-top: -19rem; border-radius: 1%"><div >
 
 
     <br>    <br>    <br>

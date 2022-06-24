@@ -1,16 +1,7 @@
 <img src="{{url('/images/profile.png')}}" alt="Image" class="tab-img"/>
 <p style="font-size: 22px; ">{{ auth()->user()->first_name }}</p>
 <h4>{{ (auth()->user()->role == 3) ? '(Student)' : ''}}</h4>
-{{--<ul class="profile-list-rating">--}}
-{{--    <li><i class="fa fa-star" aria-hidden="true"></i></li>--}}
-{{--    <li><i class="fa fa-star" aria-hidden="true"></i></li>--}}
-{{--    <li><i class="fa fa-star" aria-hidden="true"></i></li>--}}
-{{--    <li><i class="fa fa-star" aria-hidden="true"></i></li>--}}
-{{--    <li><i class="fa fa-star-half-o" aria-hidden="true"></i></li>--}}
-{{--    <li>4.8</li>--}}
-{{--    <li>(22)</li>--}}
-{{--</ul>--}}
-{{--{{dd()}}--}}
+
 @if(\Request::route()->getName() == 'student.my-profile')
     <ul class="nav-tabs tabs-left sideways" style="margin-top: 20px;">
         <li class="active"><a href="{{ route('student.my-profile') }}">My profile</a></li>

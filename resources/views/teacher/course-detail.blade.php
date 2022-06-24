@@ -1,4 +1,4 @@
-@extends('student.dashboard-layout')
+@extends('teacher.dashboard-layout')
 
 @section('title', 'Course Detail')
 
@@ -7,16 +7,6 @@
         <div class="row" style="margin-bottom: 2%;">
             <div class="col-lg-8" style="padding-top: 30px;">
                 <h3>DASHBOARD / <span style="color: #C9C97E">COURSE DETAILS</span></h3>
-            </div>
-
-            <div class="col-lg-4" style="padding-top: 40px;">
-                <div class="add-to-cart">
-                    <a href="{{ route('student.add-to-cart') }}">
-                        <i class="fas fa-shopping-cart"></i>
-                        &nbsp;&nbsp;&nbsp;&nbsp;<span>Add to Cart</span>
-                    </a>
-
-                </div>
             </div>
         </div>
 
@@ -94,7 +84,7 @@
             <div class=" col-md-9 heading-1 float-text">
                 <h2 class="bottom-line"> Class session videos / documents</h2>
                 <span class="span-class"
-                style="padding-top: 25px;"><i class="fa fa-download" aria-hidden="true"></i> download</span>
+                      style="padding-top: 25px;"><i class="fa fa-download" aria-hidden="true"></i> download</span>
             </div>
             <div class="col-md-3"></div>
         </div>
@@ -130,5 +120,5 @@
 @endsection
 
 @section('JS')
-    @include('student.layouts.footer')
+    @include('teacher.layouts.footer')
 @endsection
