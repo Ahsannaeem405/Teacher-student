@@ -1,6 +1,6 @@
 @extends('teacher.dashboard-layout')
 
-@section('title', 'Upload Profile Photo')
+@section('title', 'Status')
 
 @section('content')
     <div class="container-fluid" >
