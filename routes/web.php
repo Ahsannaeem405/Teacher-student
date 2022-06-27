@@ -47,12 +47,7 @@ Route::get('/price', function () {
 });
 
 
-
-
-
-
-
-Route::group(['prefix' => 'admin', 'middleware' => 'auth', 'as' => 'admin.'], function(){
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'check_admin'], 'as' => 'admin.'], function(){
 
     Route::get('dashboard', [AdminController::class, 'index'])->name('dashboard');
     Route::post('/update/teacher', [TeacherController::class, 'updateTeacher'])
@@ -81,45 +76,44 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth', 'as' => 'admin.'], fu
         ->name('updateSubscription');
     Route::get('/delete/{id}', [SubscriptionController::class, 'delete'])
         ->name('subscription-delete');
-    //Route::get('users', [AdminController::class, 'getUsers'])->name('users');
-    //Route::get('teachers', [AdminController::class, 'getTechers'])->name('teachers');
 
 });
 
 
-Route::group(['prefix' => 'teacher', 'middleware' => 'auth', 'as' => 'teacher.'], function(){
+Route::group(['prefix' => 'teacher', 'middleware' => ['auth', 'check_teacher'], 'as' => 'teacher.'], function(){
 
-    Route::get('dashboard', [TeacherDashboardController::class, 'index'])->name('dashboard');
-    Route::get('/my/profile', [TeacherDashboardController::class, 'myProfile'])->name('myProfile');
-    Route::get('/course/create', [TeacherDashboardController::class, 'createCourse'])->name('create-course');
-    Route::get('/courses', [TeacherDashboardController::class, 'myCourse'])->name('my-courses');
-    Route::get('/my-students', [TeacherDashboardController::class, 'myStudents'])->name('my-students');
-    Route::get('/pricing/menu', [TeacherDashboardController::class, 'priceMenu'])->name('price-menu');
-    Route::get('/payment/type', [TeacherDashboardController::class, 'paymentType'])->name('payment-type');
-    Route::post('/payment/submission', [TeacherDashboardController::class, 'paymentSubmission'])->name('payment-submission');
-    Route::get('/course/detail', [TeacherDashboardController::class, 'courseDetail'])->name('course-detail');
-    Route::get('/notes', [TeacherDashboardController::class, 'notes'])->name('t-notes');
-    Route::get('/create/notes', [TeacherDashboardController::class, 'createNotes'])->name('create-notes');
-    Route::get('/create/blog', [TeacherDashboardController::class, 'createBlog'])->name('create-blog');
-    Route::get('/create/class', [TeacherDashboardController::class, 'createClass'])->name('create-class');
-    Route::get('/upload/profile', [TeacherDashboardController::class, 'uploadProfile'])->name('upload-profile');
-    Route::get('/status', [TeacherDashboardController::class, 'status'])->name('status');
-    Route::get('/change/password', [TeacherDashboardController::class, 'changePassword'])->name('change-password');
+        Route::get('dashboard', [TeacherDashboardController::class, 'index'])->name('dashboard');
+        Route::get('/my/profile', [TeacherDashboardController::class, 'myProfile'])->name('myProfile');
+        Route::get('/course/create', [TeacherDashboardController::class, 'createCourse'])->name('create-course');
+        Route::get('/courses', [TeacherDashboardController::class, 'myCourse'])->name('my-courses');
+        Route::get('/my-students', [TeacherDashboardController::class, 'myStudents'])->name('my-students');
+        Route::get('/pricing/menu', [TeacherDashboardController::class, 'priceMenu'])->name('price-menu');
+        Route::get('/payment/type', [TeacherDashboardController::class, 'paymentType'])->name('payment-type');
+        Route::post('/payment/submission', [TeacherDashboardController::class, 'paymentSubmission'])->name('payment-submission');
+        Route::get('/course/detail', [TeacherDashboardController::class, 'courseDetail'])->name('course-detail');
+        Route::get('/notes', [TeacherDashboardController::class, 'notes'])->name('t-notes');
+        Route::get('/create/notes', [TeacherDashboardController::class, 'createNotes'])->name('create-notes');
+        Route::get('/create/blog', [TeacherDashboardController::class, 'createBlog'])->name('create-blog');
+        Route::get('/create/class', [TeacherDashboardController::class, 'createClass'])->name('create-class');
+        Route::get('/upload/profile', [TeacherDashboardController::class, 'uploadProfile'])->name('upload-profile');
+        Route::get('/status', [TeacherDashboardController::class, 'status'])->name('status');
+        Route::get('/change/password', [TeacherDashboardController::class, 'changePassword'])->name('change-password');
+
 });
 
-Route::group(['prefix' => 'student', 'middleware' => 'auth', 'as' => 'student.'], function(){
+Route::group(['prefix' => 'student', 'middleware' => ['auth', 'check_student'], 'as' => 'student.'], function(){
 
-    Route::get('dashboard', [StudentDashboardController::class, 'index'])->name('dashboard');
-    Route::get('/my-profile', [StudentDashboardController::class, 'myProfile'])->name('my-profile');
-    Route::get('/history', [StudentDashboardController::class, 'history'])->name('history');
-    Route::get('/notes', [StudentDashboardController::class, 'notes'])->name('notes');
-    Route::get('/notes/create', [StudentDashboardController::class, 'createNotes'])->name('create-notes');
-    Route::get('/chat', [StudentDashboardController::class, 'chat'])->name('chat');
-    Route::get('/price/menu', [StudentDashboardController::class, 'priceMenu'])->name('price-menu');
-    Route::get('/teacher/timeline', [StudentDashboardController::class, 'teacherTimeline'])->name('teacher-timeline');
-    Route::get('/course/detail', [StudentDashboardController::class, 'courseDetail'])->name('course-detail');
-    Route::get('/course/cart', [StudentDashboardController::class, 'courseCart'])->name('add-to-cart');
-    Route::get('/payment/type', [StudentDashboardController::class, 'paymentType'])->name('payment-type');
+        Route::get('dashboard', [StudentDashboardController::class, 'index'])->name('dashboard');
+        Route::get('/my-profile', [StudentDashboardController::class, 'myProfile'])->name('my-profile');
+        Route::get('/history', [StudentDashboardController::class, 'history'])->name('history');
+        Route::get('/notes', [StudentDashboardController::class, 'notes'])->name('notes');
+        Route::get('/notes/create', [StudentDashboardController::class, 'createNotes'])->name('create-notes');
+        Route::get('/chat', [StudentDashboardController::class, 'chat'])->name('chat');
+        Route::get('/price/menu', [StudentDashboardController::class, 'priceMenu'])->name('price-menu');
+        Route::get('/teacher/timeline', [StudentDashboardController::class, 'teacherTimeline'])->name('teacher-timeline');
+        Route::get('/course/detail', [StudentDashboardController::class, 'courseDetail'])->name('course-detail');
+        Route::get('/course/cart', [StudentDashboardController::class, 'courseCart'])->name('add-to-cart');
+        Route::get('/payment/type', [StudentDashboardController::class, 'paymentType'])->name('payment-type');
 
 });
 
