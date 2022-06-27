@@ -8,7 +8,7 @@
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <div>
-                        <h3>Users</h3>
+                        <h3>Students</h3>
                     </div>
                 </div>
 

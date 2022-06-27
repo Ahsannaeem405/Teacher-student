@@ -12,7 +12,7 @@
 
         <div class="pcoded-navigatio-lavel">Students</div>
         <ul class="pcoded-item pcoded-left-item">
-            <li class="pcoded-hasmenu">
+            <li class="pcoded-hasmenu {{ request()->routeIs('admin.student.index') ? 'active' : '' }}">
                 <a href="javascript:void(0)">
                     <span class="pcoded-micon"><i class="feather icon-user"></i></span>
                     <span class="pcoded-mtext">Students</span>
@@ -29,7 +29,7 @@
 
         <div class="pcoded-navigatio-lavel">Teachers</div>
         <ul class="pcoded-item pcoded-left-item">
-            <li class="pcoded-hasmenu">
+            <li class="pcoded-hasmenu {{ request()->routeIs('admin.teacher.index') ? 'active' : '' }}">
                 <a href="javascript:void(0)">
                     <span class="pcoded-micon"><i class="feather icon-user"></i></span>
                     <span class="pcoded-mtext">Teachers</span>
