@@ -10,16 +10,16 @@
             </li>
         </ul>
 
-        <div class="pcoded-navigatio-lavel">Users</div>
+        <div class="pcoded-navigatio-lavel">Students</div>
         <ul class="pcoded-item pcoded-left-item">
             <li class="pcoded-hasmenu">
                 <a href="javascript:void(0)">
                     <span class="pcoded-micon"><i class="feather icon-user"></i></span>
-                    <span class="pcoded-mtext">Users</span>
+                    <span class="pcoded-mtext">Students</span>
                 </a>
                 <ul class="pcoded-submenu">
                     <li class="">
-                        <a href="{{ route('admin.users') }}">
+                        <a href="{{ route('admin.student.index') }}">
                             <span class="pcoded-mtext">View All</span>
                         </a>
                     </li>
@@ -36,7 +36,7 @@
                 </a>
                 <ul class="pcoded-submenu">
                     <li class="">
-                        <a href="{{route('admin.teachers')}}">
+                        <a href="{{route('admin.teacher.index')}}">
                             <span class="pcoded-mtext">View All</span>
                         </a>
                     </li>
@@ -55,7 +55,7 @@
                 <ul class="pcoded-submenu">
 {{--                    <li class="{{ request()->routeIs('admin.get-categories') ? 'active' : '' }}">--}}
                     <li class="">
-                        <a href="#">
+                        <a href="{{ route('admin.subscriptions') }}">
                             <span class="pcoded-mtext">View all</span>
                         </a>
                     </li>

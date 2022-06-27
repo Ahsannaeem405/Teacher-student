@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class TeacherController extends Controller
+class TeacherDashboardController extends Controller
 {
     public function index(){
         return view('teacher.dashboard');

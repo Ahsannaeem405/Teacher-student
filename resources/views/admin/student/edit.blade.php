@@ -17,7 +17,7 @@
                     </div>
                 </div>
             </div>
-            <form action="{{ route('admin.updateTeacher') }}" method="POST">
+            <form action="{{ route('admin.updateStudent') }}" method="POST">
                 @csrf
                 <div class="modal-body">
                     <input type="hidden" name="user_id" id="user_id">

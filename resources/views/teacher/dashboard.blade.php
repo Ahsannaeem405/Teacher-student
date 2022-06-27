@@ -294,6 +294,7 @@
                             <p style="color: #3399FF">Video:5</p>
                             <p style="color: #3399FF">Documents:3</p>
                         </div>
+
                         <div class="card-footer">
                             <div class="row" style="display: flex; justify-content: center">
                                 <div class="col-lg-1" style="padding-right: 30px;">
@@ -306,6 +307,7 @@
                                         <p style="color: #C9C97E; font-weight: bold">Edit</p>
                                     </div>
                                 </div>
+
                                 <div class="col-lg-1" style="padding-right: 30px;">
                                     <div class="col-12">
                                         <span style="padding-left: 5px;">
@@ -316,12 +318,14 @@
                                         <p style="color: #C9C97E; font-weight: bold">View</p>
                                     </div>
                                 </div>
+
                                 <div class="col-lg-1" >
                                     <div class="col-12">
                                         <div style="padding-left: 5px;">
                                             <i class="fas fa-trash" style="color: red"></i>
                                         </div>
                                     </div>
+
                                     <div class="col-12">
                                         <p style="color: red; font-weight: bold">Delete</p>
                                     </div>
