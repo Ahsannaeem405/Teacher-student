@@ -50,6 +50,9 @@ Route::get('/price', function () {
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'check_admin'], 'as' => 'admin.'], function(){
 
     Route::get('dashboard', [AdminController::class, 'index'])->name('dashboard');
+    Route::get('/myprofile', [AdminController::class, 'myProfile'])->name('my-profile');
+    Route::post('/profile/update', [AdminController::class,'profileUpdate'])
+                                                        ->name('update-profile');
     Route::post('/update/teacher', [TeacherController::class, 'updateTeacher'])
                                                      ->name('updateTeacher');
     Route::get('/tech/delete/{id}', [TeacherController::class, 'delete'])
@@ -76,6 +79,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'check_admin'], 'as'
         ->name('updateSubscription');
     Route::get('/delete/{id}', [SubscriptionController::class, 'delete'])
         ->name('subscription-delete');
+
 
 });
 

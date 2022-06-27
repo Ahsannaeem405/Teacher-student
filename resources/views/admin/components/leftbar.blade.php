@@ -47,7 +47,7 @@
         <div class="pcoded-navigatio-lavel">Subscription </div>
         <ul class="pcoded-item pcoded-left-item">
 {{--            <li class="pcoded-hasmenu {{ request()->routeIs('admin.get-categories') ? 'active pcoded-trigger' : '' }}">--}}
-            <li class="pcoded-hasmenu">
+            <li class="pcoded-hasmenu {{ request()->routeIs('admin.subscriptions') ? 'active' : '' }}">
                 <a href="javascript:void(0)">
                     <span class="pcoded-micon"><i class="feather icon-sidebar"></i></span>
                     <span class="pcoded-mtext">Subscription </span>
@@ -63,15 +63,14 @@
             </li>
         </ul>
 
-        <div class="pcoded-navigatio-lavel">Administration</div>
-        <ul class="pcoded-item pcoded-left-item">
-{{--            <li class=" {{ request()->routeIs('admin.get-categories') ? 'active' : '' }}">--}}
-            <li class="">
-                <a href="#">
-                    <span class="pcoded-micon"><i class="feather icon-settings"></i></span>
-                    <span class="pcoded-mtext">Settings</span>
-                </a>
-            </li>
-        </ul>
+{{--        <div class="pcoded-navigatio-lavel">Administration</div>--}}
+{{--        <ul class="pcoded-item pcoded-left-item">--}}
+{{--            <li class="">--}}
+{{--                <a href="#">--}}
+{{--                    <span class="pcoded-micon"><i class="feather icon-settings"></i></span>--}}
+{{--                    <span class="pcoded-mtext">Settings</span>--}}
+{{--                </a>--}}
+{{--            </li>--}}
+{{--        </ul>--}}
     </div>
 </nav>

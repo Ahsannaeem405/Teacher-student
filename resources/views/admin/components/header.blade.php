@@ -76,6 +76,12 @@
                                 </a>
 
                             </li>
+                            <li>
+                                <a href="{{ route('admin.my-profile') }}">
+                                    <i class="feather icon-user"></i>My Profile
+                                </a>
+
+                            </li>
                         </ul>
                     </div>
                 </li>

@@ -45,6 +45,16 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function getData(){
+        return $this->where('id', auth()->user()->id)
+            ->first();
+    }
+
+    public function updateProfile($data, $id){
+        return $this->where('id', $id)
+            ->update($data);
+    }
+
     public function getUser(){
         return $this->where('role', 3)->get();
     }
