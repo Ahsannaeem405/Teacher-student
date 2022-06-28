@@ -2,12 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CreateClass;
+use App\Models\CreateCourse;
 use Illuminate\Http\Request;
 
 class TeacherDashboardController extends Controller
 {
     public function index(){
-        return view('teacher.dashboard');
+        $record = (new CreateClass())->getClasses();
+
+        $data = [
+          'classes' => $record
+        ];
+        return view('teacher.dashboard', $data);
     }
 
     public function myProfile(){
@@ -15,7 +22,12 @@ class TeacherDashboardController extends Controller
     }
 
     public function createCourse(){
-        return view('teacher.create-course');
+        $record = (new CreateClass())->getClassesIdName();
+
+        $data = [
+            'classes' => $record
+        ];
+        return view('teacher.create-course', $data);
     }
 
     public function myCourse(){

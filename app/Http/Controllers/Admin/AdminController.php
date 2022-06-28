@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use phpDocumentor\Reflection\DocBlock\Tags\Uses;
 
 class AdminController extends Controller
 {
@@ -24,7 +23,7 @@ class AdminController extends Controller
     }
 
     public function profileUpdate(Request $request){
-        
+
         $this->validate($request, [
             'first_name' => 'required|string|between:3,20',
             'email' => 'required|string',
