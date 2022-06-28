@@ -8,11 +8,11 @@
     <div class="container py-5">
 
 
-        <div class="row col-centered">
-            <div class="col-lg-4 col-md-4 col-md-offset-4 mx-auto">
+        <div class="row col-centered dis_flex">
+            <div class=" ">
                 <div class="card border-1 shadow reg_font">
                     {{--                <div class="card-header">{{ __('Register') }}</div>--}}
-                    <div class="d-flex justify-content-center mb-3">
+                    <div class="d-flex justify-content-center mb-3 text-center">
                         <h2>{{ __('Register') }}</h2>
                     </div>
                     <div class="card-body d-flex flex-column align-items-center">
@@ -103,12 +103,12 @@
                                 @enderror
                             </div>
 
-                            <div class="form-group mb-4">
+                            <div class="form-group mb-4 text-center">
                                 <span>Already Register?&nbsp;<a href="{{ url('/sign-in') }}"
                                                                 class="text-decoration-none">Login</a></span>
                             </div>
 
-                            <div class="form-group mb-2">
+                            <div class="form-group mb-2 text-center">
                                 <button type="submit" class="btn"
                                         style="background-color: #b5b56f; color: white;">{{ __('Register') }}</button>
                             </div>

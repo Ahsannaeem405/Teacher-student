@@ -83,7 +83,7 @@
                         </div>
                     </nav>
                 </div>
-                <div class="col-md-3 mt-3 man-img-col">
+                <div class="col-md-3 mt-3 man-img-col text-end-btn  ">
                   <a href="{{ url('/login') }}" class="btn loginbtn">Login</a>
                   <a href="{{ url('register/here') }}" class="btn registerbtn">Sign Up</a>
                 </div>

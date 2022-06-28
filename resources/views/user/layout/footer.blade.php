@@ -4,7 +4,7 @@
             <div class="col-md-4 padding_4_col2 footer-first-col">
                 <img src="{{url('/images/logo-main.svg')}}" alt="Image"/>
                 <p>Virtual teaching is a marketplace filled with qualified teachers that will provide excellent teaching resources. We are happy to work with you in your learning journey.</p>
-                <h4>Follow Us:</h4>
+                <h4 class="m_right">Follow Us:</h4>
                 <ul class="footer-icon">
                     <li><i class="fa-brands fa-linkedin-in"></i></li>
                     <li><i class="fa-brands fa-facebook-f"></i></li>

@@ -26,8 +26,8 @@
         </div>
 
         <div class="row" style="margin-top: 40px; margin-bottom: 0px; padding-bottom: 0px;">
-            <div class="col-lg-6" style="text-align: end; margin-bottom: 0px; padding-bottom: 0px;">
-                <p style="font-size: 20px; font-weight: bold">Search History</p>
+            <div class="col-lg-12 " style=" margin-bottom: 0px; padding-bottom: 0px;">
+                <p class="seatch_his_center" style="text-align: end; font-size: 20px; font-weight: bold">Search History</p>
             </div>
 
             <div class="col-lg-6" style="text-align: end; padding-top: 8px; margin-bottom: 0px; padding-bottom: 0px;">

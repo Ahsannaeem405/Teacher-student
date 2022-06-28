@@ -85,8 +85,8 @@
              </div>
 
             <div class="col-md-4">
-                <h1 class="text-center" style="margin-bottom: 76px; margin-top: 51px;">
-                    Log in </h1>
+                <h2 class="text-center" >
+                    Log in </h2>
 
                 <form action="#" method="POST">
                     <div class="form-group mb-4">
@@ -128,8 +128,8 @@
             </div>
         </div>
 
-        <div class="row trail_space" >
-            <div class="col-md-5 col-centered">
+        <div class="row trail_space " >
+            <div class="col-md-5 col-centered ">
                 Sign Up for a free 7-day trail
             </div>
         </div>

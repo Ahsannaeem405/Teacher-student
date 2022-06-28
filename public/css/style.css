@@ -27,6 +27,7 @@ margin: auto;
 }
 div#navbarNavDropdown {
 justify-content: center;
+text-align: start;
 }
 .col-md-3.man-img-col img {
 border: 5px solid #fff;
@@ -51,7 +52,7 @@ background: #fafafa;
 padding: 50px 0px 0px;
 }
 .container {
-max-width: 1320px !important;
+max-width: 100% !important;
 }
 .footer .col-md-4.footer-first-col img {
 width: 90px;
@@ -113,6 +114,7 @@ text-align: right;
 .footer-float-right img {
 width: 50px;
 }
+
 /* homepage css */
 .banner {
 background: url(../images/a1.png);
@@ -274,7 +276,13 @@ background-size: cover;
     background-size: cover;
     }
 .two-img {
-text-align: right;
+position:absolute;
+/* top: 28px; */
+    right: 3px;
+}
+.one-img{
+    position:absolute;
+    left: 30px;
 }
 .two-img img,.one-img img {
 width: 50px;
@@ -357,7 +365,16 @@ background-size: cover;
 .tab-sec .col-md-4.tab-col {
 padding: 50px 0px;
 background: #f2f2f2;
-  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: left;
+}
+.side_bar_profile{
+    display: flex;
+    flex-direction: column;
+    margin-right: 54px;
 }
 img.tab-img {
 border-radius: 50%;
@@ -394,10 +411,14 @@ font-size: 18px;
 }
 .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
 color: #fff;
-text-decoration: none;
+text-decoration: underline;
 background: none;
 border: none;
 cursor: pointer;
+}
+.nav>li>a:focus, .nav>li>a:hover{
+    text-decoration: underline;
+    background: none !important;
 }
 .nav-tabs>li>a:hover {
 text-decoration: none;
@@ -641,6 +662,11 @@ box-shadow: 5px 5px 30px rgb(0 0 0 / 30%);
 border-radius: 50%;
 outline: 15px solid #fff;
 font-size: 24px;
+background: black;
+    color: white;
+    /* padding: 27px; */
+    width: 115px;
+    height: 108px;
 }
 .pricing p{
 font-size: 20px;
@@ -864,7 +890,7 @@ border-radius: 10px;
 
 @media(max-width:767px){
 .col-md-3.logo-col, .col-md-6.menu-col, .col-md-3.man-img-col {
-    width: 33.333%;
+    /* width: 33.333%; */
 }
 .col-md-4.footer-first-col {
     text-align: center;
@@ -874,8 +900,22 @@ ul.footer-icon {
     justify-content: center;
 }
 .footer .col-md-2, .col-md-4.forth-col {
-    text-align: center;
+    /* text-align: center; */
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+
 }
+.col-md-4.forth-col{
+    display: grid !important;
+    margin-left: 71px !important;
+}
+ul.footer-icon {
+    font-size: 15px !important;
+    margin-right: 25px;
+}
+
 .two-img img, .one-img img {
     width: 26px;
 }

@@ -61,14 +61,14 @@
             </div>
 
             <div class="row" style="margin-top: 10px;">
-                <div class="col-md-4" style="padding-left: 40px;">
+                <div class="col-md-4 col-sm-12 class_learn" style="padding-left: 40px;">
                     <img src="{{ asset('images/sd-pic.png') }}" alt="no image" width="180">
                     <p style="margin-top: 15px; font-size: 16px; font-weight: bold;"><a href="{{ route('student.course-detail') }}"
                            style="text-decoration: none; color: black">
                             Learn python coding for<br>beginners
                         </a></p>
 
-                    <div class="row" style="margin-top: 10px;">
+                    <div class="row " style="margin-top: 10px;">
                         <div class="col-md-5">
                             <p style="color: #C9C97E; font-size: 12px;">Physics Class</p>
                         </div>
@@ -78,7 +78,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-4" style="padding-left: 40px;">
+                <div class="col-md-4 col-sm-12 class_learn" style="padding-left: 40px;">
                     <img src="{{ asset('images/sd-pic.png') }}" alt="no image" width="180">
                     <p style="margin-top: 15px; font-size: 16px; font-weight: bold;"><a href="{{ route('student.course-detail') }}"
                          style="text-decoration: none; color: black">
@@ -95,7 +95,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-4" style="padding-left: 40px;">
+                <div class="col-md-4 col-sm-12 class_learn" style="padding-left: 40px;">
                     <img src="{{ asset('images/sd-pic.png') }}" alt="no image" width="180">
                     <p style="margin-top: 15px; font-size: 16px; font-weight: bold;"><a href="{{ route('student.course-detail') }}"
                            style="text-decoration: none; color: black">

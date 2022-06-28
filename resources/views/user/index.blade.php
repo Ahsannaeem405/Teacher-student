@@ -259,9 +259,7 @@ With Virtually Teaching You Can
         <div class="container text-center ">
 <div class="row">
 <div class="col-xs-9 col-centered" style="margin-top: -105px;">
-            <h1 style="    font-size: 38px;padding-top: 2rem;
-            color: white;
-            font-weight: bold;
+            <h1 style="font-size:38px;margin-top: 12rem;margin-bottom:3rem; color: white;font-weight: bold;
             font-family: sans-serif;">When you're determined to learn you will find a balance.</h1>
 <p style="font-size: 23px;
 color: white;

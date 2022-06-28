@@ -77,16 +77,16 @@
 
     <section style="margin-top: 15px;" class="cardbgcolor">
         <div class="container">
-            <div class="row w-100">
-                <div class="col-md-4 resp_onLogin">
+            <div class="row">
+                <div class="col-md-2 resp_onLogin">
                     <div class="" style="margin-top: 128%;margin-left: -28%;">
                         <img class="img_side" src="{{url('/images/dot-shape-primary.svg')}}" alt="Image"/>
                     </div>
                 </div>
 
-                <div class="col-md-4 log_pad">
-                    <h1 class="text-center" style="margin-bottom: 76px; margin-top: 51px;font-family: sans-serif;">
-                        Log in </h1>
+                <div class="col-md-8 log_pad">
+                    <h2 class="text-center" >
+                        Log in </h2>
 
                     <form action="{{ route('login') }}" method="POST">
                         @csrf
@@ -122,15 +122,15 @@
                     </form>
                 </div>
 
-                <div class="col-md-4 resp_onLogin">
+                <div class="col-md-2 resp_onLogin">
                     <div class="right_dot" >
                         <img class="img_side" src="{{url('/images/dot-shape-primary.svg')}}" alt="Image"/>
                     </div>
                 </div>
             </div>
 
-            <div class="row trail_space" >
-                <div class="col-md-5 col-centered">
+            <div class="trail_space" >
+                <div class="col-md-5 col-centered ">
                     Sign Up for a free 7-day trail
                 </div>
             </div>

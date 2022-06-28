@@ -4,10 +4,11 @@
 </button>
 
 <div class="side_bar_res col-md-4 tab-col vh-100">
+    <div class="side_bar_profile">
 <img src="{{url('/images/profile.png')}}" alt="Image" class="tab-img"/>
 <p style="font-size: 22px; ">{{ auth()->user()->first_name }}</p>
 <h4>{{ (auth()->user()->role == 3) ? '(Student)' : ''}}</h4>
-
+</div>
 @if(\Request::route()->getName() == 'student.my-profile')
     <ul class="nav-tabs tabs-left sideways" style="margin-top: 20px;">
         <li class="active"><a href="{{ route('student.my-profile') }}">My profile</a></li>

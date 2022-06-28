@@ -6,7 +6,7 @@
 {{--    </div>--}}
 
 {{--    <div class="container py-5">--}}
-{{--        <div class="d-flex justify-content-center mb-3">--}}
+{{--        <div class="d-flex justify-content-center mb-3 ">--}}
 {{--            <h2>Register Here</h2>--}}
 {{--        </div>--}}
 
@@ -96,11 +96,11 @@
 {{--                                    @enderror--}}
 {{--                                </div>--}}
 
-{{--                                <div class="form-group mb-4">--}}
+{{--                                <div class="form-group mb-4 text-center">--}}
 {{--                                    <span>Already Register?&nbsp;<a href="{{ url('/sign-in') }}" class="text-decoration-none">Login</a></span>--}}
 {{--                                </div>--}}
 
-{{--                                <div class="form-group mb-2">--}}
+{{--                                <div class="form-group mb-2 text-center">--}}
 {{--                                    <button type="submit" class="btn"--}}
 {{--                                            style="background-color: #b5b56f; color: white;">{{ __('Register') }}</button>--}}
 {{--                                </div>--}}

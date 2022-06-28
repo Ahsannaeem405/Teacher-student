@@ -51,7 +51,7 @@
         </div>
 
         <div class="row" style="margin-top: 10px;">
-            <div class="col-lg-4" style="padding-left: 40px;">
+            <div class="col-lg-4 " style="padding-left: 40px;">
                 <img src="{{ asset('images/sd-pic.png') }}" alt="no image" width="180">
                 <p style="margin-top: 15px; font-size: 16px; font-weight: bold;"><a href="{{ route('teacher.course-detail') }}"
                                                                                     style="text-decoration: none; color: black">
@@ -68,7 +68,7 @@
                 </div>
             </div>
 
-            <div class="col-lg-4" style="padding-left: 40px;">
+            <div class="col-lg-4 " style="padding-left: 40px;">
                 <img src="{{ asset('images/sd-pic.png') }}" alt="no image" width="180">
                 <p style="margin-top: 15px; font-size: 16px; font-weight: bold;"><a href="{{ route('teacher.course-detail') }}"
                                                                                     style="text-decoration: none; color: black">
@@ -85,7 +85,7 @@
                 </div>
             </div>
 
-            <div class="col-lg-4" style="padding-left: 40px;">
+            <div class="col-lg-4 " style="padding-left: 40px;">
                 <img src="{{ asset('images/sd-pic.png') }}" alt="no image" width="180">
                 <p style="margin-top: 15px; font-size: 16px; font-weight: bold;"><a href="{{ route('teacher.course-detail') }}"
                                                                                     style="text-decoration: none; color: black">

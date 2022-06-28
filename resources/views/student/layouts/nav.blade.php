@@ -17,7 +17,7 @@
 
                     <div class="container-fluid collapse navbar-collapse" id="myNavbar"
                          style="padding: 0px;">
-                        <ul class="nav navbar-nav" style="padding-top: 5px; color: white">
+                        <ul class="nav navbar-nav" style="padding-top: 5px; color: white ">
                             <li><a href="#" style="padding-top: 5px;">About Us</a></li>
                             <li><a href="#" style="padding-top: 5px;">Features</a></li>
                             <li><a href="#" style="padding-top: 5px;">Pricing</a></li>

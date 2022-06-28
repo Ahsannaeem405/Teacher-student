@@ -99,7 +99,7 @@
                     <div class="card-body">
                         <h4>Enterprise</h4>
                         <div class="price">
-                            <h2 class="">$300 <br><span>month</span></h2>
+                            <h2 class="">$300 <span>month</span></h2>
                         </div>
                         <p class="card-text">Features include:</p>
                         <ul>
