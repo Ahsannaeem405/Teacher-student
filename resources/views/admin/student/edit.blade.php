@@ -1,4 +1,6 @@
- <div class="modal fade" id="exampleModal" role="dialog">
+{{--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Open modal for @mdo</button>--}}
+
+    <div class="modal fade" id="exampleModal" role="dialog">
     <div class="modal-dialog">
 
         <div class="modal-content">
@@ -15,7 +17,7 @@
                     </div>
                 </div>
             </div>
-            <form action="{{ route('admin.updateTeacher') }}" method="POST">
+            <form action="{{ route('admin.updateStudent') }}" method="POST">
                 @csrf
                 <div class="modal-body">
                     <input type="hidden" name="user_id" id="user_id">

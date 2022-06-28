@@ -8,7 +8,7 @@
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <div>
-                        <h3>Users</h3>
+                        <h3>Students</h3>
                     </div>
                 </div>
 
@@ -60,7 +60,10 @@
 {{--                                </td>--}}
 
                                 <td style="vertical-align: middle !important;">
-                                    <a href="#">
+                                    <a href="#" data-toggle="modal" data-target="#exampleModal" onclick="edit(this)"
+                                       data-user_id={{$user->id}} data-first_name={{$user->first_name}}
+                                       data-last_name={{$user->last_name}} data-email={{$user->email}}
+                                       data-role={{$user->role}}>
                                         <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor"
                                              stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
                                              class="css-i6dzq1">
@@ -69,7 +72,7 @@
                                         </svg>
                                     </a>
 
-                                    <a href="#">
+                                    <a href="{{ route('admin.studentDelete' , ['id' => encrypt($user->id)]) }}">
                                         <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor"
                                              stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"
                                              class="css-i6dzq1"><polyline points="3 6 5 6 21 6"></polyline>
@@ -90,4 +93,30 @@
             </div>
         </div>
     </div>
+@endsection
+
+@include('admin.student.edit')
+
+@section('JS')
+    <script>
+        function edit(el) {
+            var link = $(el)
+            var modal = $("#exampleModal")
+            var user_id = link.data('user_id')
+            var first_name = link.data('first_name')
+            var last_name = link.data('last_name')
+            var email = link.data('email')
+            var role = link.data('role')
+            //var image = link.data('image')
+            modal.find('#user_id').val(user_id);
+            modal.find('#first_name').val(first_name);
+            modal.find('#last_name').val(last_name);
+            modal.find('#email').val(email);
+            modal.find('#role').val(role);
+            //modal.find('#image').val(image);
+
+            //console.log(image);
+        }
+
+    </script>
 @endsection
