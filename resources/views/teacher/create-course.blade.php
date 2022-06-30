@@ -5,11 +5,11 @@
 @section('content')
     <div class="container-fluid" style="margin-bottom: 15%;">
         <div class="row">
-            <div class="col-lg-6" style="padding-top: 30px;">
+            <div class="col-lg-6 pl_0 text_center" style="padding-top: 30px;">
                 <h3>DASHBOARD</h3>
             </div>
 
-            <div class="col-lg-6" style="padding-top: 50px;">
+            <div class="col-lg-6 text_center" style="padding-top: 50px;">
                 <button type="submit" class="search-btn" style="cursor: unset">
                     <img src="{{ asset('images/search-icon.png') }}" alt="no image" width="20">
                 </button>
@@ -30,7 +30,7 @@
 
         <div class="row">
             <div class="col-lg-12">
-                <div class="col-12">
+                <div class="col-12 text_center">
                     <h4><strong>Add Course Cover Image</strong></h4>
                 </div>
             </div>
@@ -39,8 +39,7 @@
         <form action="{{ route('teacher.createCourse.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="row">
-                <div class="col-lg-12">
-                    <div class="col-12">
+                    <div class="col-lg-12 text_center">
                         <label for="file-upload" class="course-cover-plus">
                             <strong>+</strong></label>
                         <input type="file" name="course_cover"
@@ -55,7 +54,7 @@
                         <label id="file-name"></label>
                         <p>(format: JPG, PNG)</p>
                     </div>
-                </div>
+               
             </div>
 
             <div class="row" style="margin-bottom: 4%;">
@@ -89,8 +88,8 @@
 
             <div class="row" style="margin-bottom: 4%;">
                 <div class="col-lg-12">
-                    <h4><strong>Add course date and time stamp</strong></h4>
-                    <div class="col-lg-4" style="padding-top: 24px;">
+                    <h4 class="text_center" ><strong>Add course date and time stamp</strong></h4>
+                    <div class="col-lg-4 text_center" style="padding-top: 24px;">
                         <button type="submit" class="course-search-btn" style="cursor: unset">
                         </button>
 
@@ -98,7 +97,7 @@
                                placeholder="DD-MM-YY" name="course_date" required>
                     </div>
 
-                    <div class="col-lg-8">
+                    <div class="col-lg-8 text_center">
                         <div>
                             <label for="">Time</label>
                         </div>
@@ -113,14 +112,14 @@
             </div>
 
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-12 text_center">
                     <h4><strong>Upload Course session videos/documents</strong></h4>
                 </div>
             </div>
 
             <div class="row">
-                <div class="col-lg-12">
-                    <div class="col-lg-2">
+            <div class="col-lg-12  text_center">
+                    <div class="col-lg-2 col-md-6 col-sm-5 text_center">
                         <label for="vid_1" class="course-cover-plus">
                             <strong>+</strong></label>
                         <input type="file" name="vid_1" id="vid_1"
@@ -128,7 +127,7 @@
                         <label id="name_1"></label>
                     </div>
 
-                    <div class="col-lg-2">
+                    <div class="col-lg-2 col-md-6 col-sm-5 text_center ">
                         <label for="vid_2" class="course-cover-plus">
                             <strong>+</strong></label>
                         <input type="file" name="vid_2" id="vid_2"
@@ -136,7 +135,7 @@
                         <label id="name_2"></label>
                     </div>
 
-                    <div class="col-lg-2">
+                    <div class="col-lg-2 col-md-6 col-sm-5 ">
                         <label for="vid_3" class="course-cover-plus">
                             <strong>+</strong></label>
                         <input type="file" name="vid_3" id="vid_3"
@@ -144,7 +143,7 @@
                         <label id="name_3"></label>
                     </div>
 
-                    <div class="col-lg-2">
+                    <div class="col-lg-2 col-md-6 col-sm-5 ">
                         <label for="vid_4" class="course-cover-plus">
                             <strong>+</strong></label>
                         <input type="file" name="vid_4" id="vid_4"
@@ -155,7 +154,7 @@
             </div>
 
             <div class="row" style="margin-bottom: 4%;">
-                <div class="col-lg-4">
+                <div class="col-lg-4 text_center">
                     <p>(format: JPG, PNG)</p>
                 </div>
             </div>
@@ -176,8 +175,8 @@
                         <div class="col-lg-4">
                             <p>No matching subject?</p>
                         </div>
-                        <div class="col-lg-6">
-                            <div class="col-lg-1">
+                        <div class="col-lg-6 create_new_btn">
+                            <div class="col-lg-1 pl_0 pr_0">
                                 <a href="{{ route('teacher.create-class') }}"
                                    style="background-color: #C9C97E; color: black; border-radius: 3px;
                          padding-top: 5px; padding-bottom: 5px; text-decoration: none;

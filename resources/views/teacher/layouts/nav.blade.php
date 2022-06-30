@@ -39,7 +39,8 @@
                 <button class="btn dropdown-toggle nav-img-btn" type="button"
                         data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false" style="background: none">
-                    <img src="{{url('/images/607160c7d3be9.png')}}" class="head-user-img" alt="Image"/>
+                    <img src="{{(!empty(auth()->user()->image)) ? auth()->user()->image :
+                     url('/images/user-avatar.png')}}" class="head-user-img" alt="Image"/>
                     <span class="caret" style="color: white"></span>
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="about-us">

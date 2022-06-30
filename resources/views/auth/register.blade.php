@@ -19,27 +19,13 @@
                         <form action="{{ route('register') }}" method="POST">
                             @csrf
                             <div class="form-group mb-4">
-                                <label for="first_name" class="field_label fw-bolder">First Name:</label>
+                                <label for="first_name" class="field_label fw-bolder">Name:</label>
                                 <input type="text"
                                        class="form-control input-field-reg @error('name') is-invalid @enderror"
-                                       name="first_name" value="{{ old('first_name') }}" required
-                                       autocomplete="first_name" autofocus
-                                       placeholder="Enter First Name" id="first_name">
-                                @error('first_name')
-                                <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-
-                            <div class="form-group mb-4">
-                                <label for="last_name" class="field_label fw-bolder">Last Name:</label>
-                                <input type="text"
-                                       class="form-control input-field-reg @error('last_name') is-invalid @enderror"
-                                       name="last_name" value="{{ old('last_name') }}" required autocomplete="last_name"
-                                       autofocus
-                                       placeholder="Enter Last Name" id="last_name">
-                                @error('last_name')
+                                       name="name" value="{{ old('name') }}" required
+                                       autocomplete="name" autofocus
+                                       placeholder="Enter Name" id="name">
+                                @error('name')
                                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

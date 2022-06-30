@@ -86,7 +86,16 @@
                 <span class="span-class"
                       style="padding-top: 25px;"><i class="fa fa-download" aria-hidden="true"></i> download</span>
             </div>
-            <div class="col-md-3"></div>
+            <div class="col-md-3">
+                <form action="{{ route('teacher.course-video') }}" method="post" id="course_vid_form" enctype="multipart/form-data">
+                    @csrf
+                    <input type="hidden" name="course_id" value="{{ $course->id }}">
+                    <label for="course_vid" style="padding-top: 25px; color: #C8C97D; font-size: 25px;">
+                        <i class="fa fa-plus-circle"></i>
+                    </label>
+                    <input type="file" id="course_vid" name="course_vid" style="visibility: hidden">
+                </form>
+            </div>
         </div>
 
         <div class="row" style="margin-top: 20px;">
@@ -100,8 +109,13 @@
             </div>
           @endforeach
         </div>
-
-
     </div>
 @endsection
 
+@section('JS')
+    <script>
+        $('#course_vid').on('change', function (){
+           $('#course_vid_form').submit();
+        });
+    </script>
+@endsection

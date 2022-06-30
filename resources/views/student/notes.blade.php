@@ -59,63 +59,65 @@
         <div class="col-lg-4" style="margin-bottom: 20px;">
             <div class="col-lg-12 col-md-12 notes_resp_mrgn" style="background-color: #F9C660;
                  padding: 20px; margin-bottom: 20px;">
-                <button type="button" class="btn btn-xs btn-danger userDeletenote" userId="{{$note->id}}" > <i class='fa fa-trash'></i></button>
-                <a href="{{url('student/edit_note/'.$note->id)}}" class="btn btn-xs btn-primary" ><i class="fa fa-pencil"></i> </a>
-                    <h3 style="text-align: center">{{$note->title}}</h3>
+                <button type="button" class="btn btn-xs btn-danger userDeletenote" userId="{{$note->id}}"> <i class='fa fa-trash'></i></button>
+                <a href="{{url('student/edit_note/'.$note->id)}}" class="btn btn-xs btn-primary"><i class="fa fa-pencil"></i> </a>
+                <h3 style="text-align: center">{{$note->title}}</h3>
+                <div class="posted_note">
                     <p style="text-align: center; margin-top: 30px;">
                         {!!$note->note_description!!}
                     </p>
                 </div>
-
-
             </div>
+
+
         </div>
-        @endforeach
-
-
-
     </div>
-    @endsection
+    @endforeach
 
-    @section('JS')
-    @include('student.layouts.footer')
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-    <script>
-        $('.userDeletenote').click(function(e) {
-            e.preventDefault();
-            var user_id = $(this).attr('userId');
-            // alert(user_id);
-            swal({
-                    title: "Are you sure?",
-                    text: "Do you want to delete this note?",
-                    icon: "warning",
-                    buttons: true,
-                    dangerMode: true,
-                })
-                .then((willDelete) => {
-                    if (willDelete) {
-                        $.ajax({
-                            url: '{{URL::to('
-                            student / delete_note ')}}',
-                            type: 'get',
-                            data: {
-                                'user_id': user_id
-                            },
-                            success: function(result) {
-                                swal(result.success, {
-                                        icon: "success",
-                                    })
-                                    .then((result) => {
-                                        location.reload();
-                                    });
-                                // window.reload();
-                            }
-                        });
-                        // admin/deleteuser
-                    }
-                });
-        });
-    </script>
-    @endsection
+
+</div>
+@endsection
+
+@section('JS')
+@include('student.layouts.footer')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<script>
+    $('.userDeletenote').click(function(e) {
+        e.preventDefault();
+        var user_id = $(this).attr('userId');
+        // alert(user_id);
+        swal({
+                title: "Are you sure?",
+                text: "Do you want to delete this note?",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+            .then((willDelete) => {
+                if (willDelete) {
+                    $.ajax({
+                        url: '{{URL::to('
+                        student / delete_note ')}}',
+                        type: 'get',
+                        data: {
+                            'user_id': user_id
+                        },
+                        success: function(result) {
+                            swal(result.success, {
+                                    icon: "success",
+                                })
+                                .then((result) => {
+                                    location.reload();
+                                });
+                            // window.reload();
+                        }
+                    });
+                    // admin/deleteuser
+                }
+            });
+    });
+</script>
+@endsection
