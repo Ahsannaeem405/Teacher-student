@@ -898,6 +898,7 @@ border-radius: 10px;
 .col-md-4.footer-first-col {
     text-align: center;
     padding-right: 0px;
+    padding-left: 0px;
 }
 ul.footer-icon {
     justify-content: center;

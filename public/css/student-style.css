@@ -402,6 +402,7 @@ button.btn.dropdown-toggle.nav-img-btn {
         margin-bottom: 5rem;
         text-align   : center;
     }
+   
 }
 
 .payment-home-btn {
@@ -472,30 +473,9 @@ button.btn.dropdown-toggle.nav-img-btn {
     border         : none
 }
 
-@media (min-width: 235px) and (max-width: 990px) {
-    .notes_resp_mrgn {
-        /* margin-left: 4rem; */
-    }
-
-    .add_new_stu {
-        justify-content: center !important;
-        align-items: center !important;
-    }
-
-    .side_bar_res {
-        display: none;
-    }
+.teacher_chat img{
+    width: 60px;
 }
-
-
-
-
-
-
-
-
-
-
 
 @media (min-width: 235px) and (max-width: 992px) {
     .main-header {
@@ -523,6 +503,23 @@ button.btn.dropdown-toggle.nav-img-btn {
         top     : 0%;
         right   : 1rem;
         z-index : 50000000000;
+    }
+
+    .teacher_chat img {
+        width: 20% !important;
+    }
+
+    .notes_resp_mrgn {
+        /* margin-left: 4rem; */
+    }
+
+    .add_new_stu {
+        justify-content: center !important;
+        align-items    : center !important;
+    }
+
+    .side_bar_res {
+        display: none;
     }
 
     .class_learn {
