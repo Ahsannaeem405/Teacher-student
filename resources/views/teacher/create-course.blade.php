@@ -43,17 +43,17 @@
                     <div class="col-12">
                         <label for="file-upload" class="course-cover-plus">
                             <strong>+</strong></label>
-                        <label id="file-name"></label>
-                        <p>(format: JPG, PNG)</p>
                         <input type="file" name="course_cover"
                                class="@error('course_cover') is-invalid @enderror"
                                autocomplete="course_cover" autofocus
-                               id="file-upload" style="visibility:hidden;">
+                               id="file-upload" style="visibility:hidden; display: none">
                         @error('course_cover')
                         <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                         @enderror
+                        <label id="file-name"></label>
+                        <p>(format: JPG, PNG)</p>
                     </div>
                 </div>
             </div>
@@ -97,31 +97,35 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="col-lg-2">
-                        <label for="course_cover" class="course-cover-plus">
+                        <label for="vid_1" class="course-cover-plus">
                             <strong>+</strong></label>
-                        <input type="file" name="course_cover" id="course_cover"
+                        <input type="file" name="vid_1" id="vid_1"
                                style="visibility:hidden;">
+                        <label id="name_1"></label>
                     </div>
 
                     <div class="col-lg-2">
-                        <label for="course_cover" class="course-cover-plus">
+                        <label for="vid_2" class="course-cover-plus">
                             <strong>+</strong></label>
-                        <input type="file" name="course_cover" id="course_cover"
+                        <input type="file" name="vid_2" id="vid_2"
                                style="visibility:hidden;">
+                        <label id="name_2"></label>
                     </div>
 
                     <div class="col-lg-2">
-                        <label for="course_cover" class="course-cover-plus">
+                        <label for="vid_3" class="course-cover-plus">
                             <strong>+</strong></label>
-                        <input type="file" name="course_cover" id="course_cover"
+                        <input type="file" name="vid_3" id="vid_3"
                                style="visibility:hidden;">
+                        <label id="name_3"></label>
                     </div>
 
                     <div class="col-lg-2">
-                        <label for="course_cover" class="course-cover-plus">
+                        <label for="vid_4" class="course-cover-plus">
                             <strong>+</strong></label>
-                        <input type="file" name="course_cover" id="course_cover"
+                        <input type="file" name="vid_4" id="vid_4"
                                style="visibility:hidden;">
+                        <label id="name_4"></label>
                     </div>
                 </div>
             </div>
@@ -196,12 +200,22 @@
 @endsection
 
 @section('JS')
-    @include('teacher.layouts.footer')
-
     <script>
-            $("#file-upload").change(function(){
-                $("#file-name").text(this.files[0].name);
-            });
-    </script>
+        $("#file-upload").change(function(){
+            $("#file-name").text(this.files[0].name);
+        });
 
+        $("#vid_1").change(function(){
+            $("#name_1").text(this.files[0].name);
+        });
+        $("#vid_2").change(function(){
+            $("#name_2").text(this.files[0].name);
+        });
+        $("#vid_3").change(function(){
+            $("#name_3").text(this.files[0].name);
+        });
+        $("#vid_4").change(function(){
+            $("#name_4").text(this.files[0].name);
+        });
+    </script>
 @endsection

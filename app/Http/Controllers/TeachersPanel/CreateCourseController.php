@@ -36,17 +36,17 @@ class CreateCourseController extends Controller
      */
     public function store(Request $request)
     {
+        //dd($request->all());
         $this->validate($request, [
-            'class_name' => 'required|numeric',
+            'class_name' => 'required',
             'course_date' => 'required|string|max:15',
             'course_time' => 'required|string|max:15',
-            'course_name' => 'required|string|max:100',
+            'course_name' => 'required|string|max:30',
         ]);
 
         try{
-
             $data = [
-                'class_name_id' => $request->class_name,
+                'create_class_id' => $request->class_name,
                 'course_date' => $request->course_date,
                 'course_time' => $request->course_time,
                 'course_name' => $request->course_name,
@@ -58,6 +58,20 @@ class CreateCourseController extends Controller
             if(!empty($request->description_course)){
                 $data['course_description'] = $request->description_course;
             }
+            if($request->has('vid_1') && !empty($request->vid_1)){
+                $vid[] = uploadVid($request, 'vid_1');
+            }
+            if($request->has('vid_2') && !empty($request->vid_2)){
+                $vid[] = uploadVid($request, 'vid_2');
+            }
+            if($request->has('vid_3') && !empty($request->vid_3)){
+                $vid[] = uploadVid($request, 'vid_3');
+            }
+            if($request->has('vid_4') && !empty($request->vid_4)){
+                $vid[] = uploadVid($request, 'vid_4');
+            }
+
+            $data['course_doc'] = json_encode($vid);
 
             $res = (new CreateCourse())->createCourse($data);
 
@@ -81,7 +95,7 @@ class CreateCourseController extends Controller
      */
     public function show($id)
     {
-        //
+        dd($id);
     }
 
     /**

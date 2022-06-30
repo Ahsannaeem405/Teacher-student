@@ -100,9 +100,9 @@ Route::group(['prefix' => 'teacher', 'middleware' => ['auth', 'check_teacher'], 
         Route::get('/courses', [TeacherDashboardController::class, 'myCourse'])->name('my-courses');
         Route::get('/my-students', [TeacherDashboardController::class, 'myStudents'])->name('my-students');
         Route::get('/pricing/menu', [TeacherDashboardController::class, 'priceMenu'])->name('price-menu');
-        Route::get('/payment/type', [TeacherDashboardController::class, 'paymentType'])->name('payment-type');
+        Route::get('/payment/type/{type}', [TeacherDashboardController::class, 'paymentType'])->name('payment-type');
         Route::post('/payment/submission', [TeacherDashboardController::class, 'paymentSubmission'])->name('payment-submission');
-        Route::get('/course/detail', [TeacherDashboardController::class, 'courseDetail'])->name('course-detail');
+        Route::get('/course/detail/{id}', [TeacherDashboardController::class, 'courseDetail'])->name('course-detail');
         Route::get('/notes', [TeacherDashboardController::class, 'notes'])->name('t-notes');
         Route::get('/create/notes', [TeacherDashboardController::class, 'createNotes'])->name('create-notes');
         Route::get('/create/blog', [TeacherDashboardController::class, 'createBlog'])->name('create-blog');

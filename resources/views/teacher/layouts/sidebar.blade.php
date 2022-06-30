@@ -4,27 +4,28 @@
 </button>
 
 <div class="side_bar_res col-md-12 tab-col vh-100">
+{{--{{dd(request()->path())}}--}}
+@if(request()->path() == 'teacher/upload/profile' ||
+    request()->path() == 'teacher/change/password' ||
+    request()->path() == 'teacher/status')
 
-@if(request()->route()->getName() != 'teacher.upload-profile' ||
-    request()->route()->getName() == 'teacher.status' ||
-    request()->route()->getName() == 'teacher.change-password')
-
-    <img src="{{url('/images/profile.png')}}" alt="Image" class="tab-img"/>
-    <p style="font-size: 22px; ">{{ auth()->user()->first_name }}</p>
-    <h4>{{ (auth()->user()->role == 2) ? '(Teacher)' : ''}}</h4>
-    <div>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span style="font-weight: bold">4.8</span>
-        <span style="color: #C9C9C9">(22)</span>
-    </div>
-
+@else
+        <img src="{{url('/images/profile.png')}}" alt="Image" class="tab-img"/>
+        <p style="font-size: 22px; ">{{ auth()->user()->first_name }}</p>
+        <h4>{{ (auth()->user()->role == 2) ? '(Teacher)' : ''}}</h4>
+        <div>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span style="font-weight: bold">4.8</span>
+            <span style="color: #C9C9C9">(22)</span>
+        </div>
 @endif
 
-@if(request()->route()->getName() == 'teacher.upload-profile' || request()->route()->getName() == 'teacher.status' || request()->route()->getName() == 'teacher.upload-profile')
+@if(request()->route()->getName() == 'teacher.upload-profile' || request()->route()->getName() == 'teacher.status' ||
+     request()->route()->getName() == 'teacher.upload-profile' || request()->route()->getName() == 'teacher.change-password')
     <ul class="nav-tabs tabs-left sideways"
         style="margin-top: 20px; padding-top: 80px;">
         <li class="{{ request()->routeIs('teacher.upload-profile') ? 'active' : ''}}">
@@ -53,13 +54,13 @@
         <li class="{{ request()->routeIs('teacher.create-class') ? 'active' : ''}}">
             <a href="{{ route('teacher.create-class') }}" style="text-decoration: none">Create Class</a></li>
 
-        <li class="{{ request()->routeIs('teacher.my-course') ? 'active' : ''}}">
+        <li class="{{ request()->routeIs('teacher.my-courses') ? 'active' : ''}}">
             <a href="{{ route('teacher.my-courses') }}" style="text-decoration: none">My Courses</a></li>
 
         <li class="{{ request()->routeIs('teacher.create-course') ? 'active' : ''}}">
             <a href="{{ route('teacher.create-course') }}" style="text-decoration: none">Create Course</a></li>
 
-        <li class="{{ request()->routeIs('teacher.my-student') ? 'active' : ''}}">
+        <li class="{{ request()->routeIs('teacher.my-students') ? 'active' : ''}}">
             <a href="{{ route('teacher.my-students') }}" style="text-decoration: none">My Students </a></li>
 
         <li class="">

@@ -16,12 +16,12 @@ class CreateCreateCoursesTable extends Migration
         Schema::create('create_courses', function (Blueprint $table) {
             $table->id();
             $table->string('course_image')->nullable();
-            $table->string('course_name', 100);
+            $table->string('course_name', 30);
             $table->string('course_date', 15);
             $table->string('course_time', 15);
             $table->text('course_doc')->nullable();
-            $table->unsignedBigInteger('class_name_id');
-            $table->foreign('class_name_id')
+            $table->unsignedBigInteger('create_class_id');
+            $table->foreign('create_class_id')
                 ->references('id')->on('create_classes')->onDelete('cascade');
 //            $table->string('class_name', 10);
             $table->text('course_description')->nullable();

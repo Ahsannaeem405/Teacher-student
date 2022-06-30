@@ -26,17 +26,17 @@
                         <div id="cover_img">
                             <label for="file-upload" class="course-cover-plus">
                                 <strong>+</strong></label>
-                            <label id="file-name"></label>
-                            <p>(format: JPG, PNG)</p>
                             <input type="file" name="class_cover"
                               class="@error('class_cover') is-invalid @enderror"
                                    autocomplete="class_cover" autofocus
-                                   id="file-upload" style="visibility:hidden;">
+                                   id="file-upload" style="visibility:hidden; display: none">
                             @error('class_cover')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
+                            <label id="file-name"></label>
+                            <p>(format: JPG, PNG)</p>
                         </div>
                     </div>
                 </div>
@@ -100,6 +100,34 @@
 
             <div class="row" style="margin-bottom: 3%;">
                 <div class="col-lg-6 col-md-6">
+                    <label for="">Class Duration</label>
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <span>Hours</span>
+                            <select class="form-control" name="class_hours" style="width: 60%;">
+                                <option value="1" selected>1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </div>
+
+                        <div class="col-lg-3">
+                            <span>Minutes</span>
+                            <select class="form-control" name="class_mints" style="width: 70%;">
+                                <option value="00" selected>00</option>
+                                <option value="15">15</option>
+                                <option value="30">30</option>
+                                <option value="45">45</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" style="margin-bottom: 3%;">
+                <div class="col-lg-6 col-md-6">
                     <label for="">Teacher Name</label>
                     <input type="text" class="form-control @error('teacher_name') is-invalid @enderror"
                            name="teacher_name" required autocomplete="teacher_name" autofocus
@@ -130,7 +158,7 @@
                 <div class="col-lg-12 col-md-12">
                     <label for="">Class Describe</label>
                     <textarea name="class_description" class="@error('class_description') is-invalid @enderror"
-                              autocomplete="class_description" autofocus
+                              autocomplete="class_description" autofocus id="editor"
                               placeholder="Tell the user/student the course is about"></textarea>
                     <p style="text-align: end">Max: 200 words</p>
                     @error('class_description')
@@ -154,7 +182,6 @@
 @endsection
 
 @section('JS')
-    @include('teacher.layouts.footer')
     <script>
         $("#file-upload").change(function(){
             $("#file-name").text(this.files[0].name);

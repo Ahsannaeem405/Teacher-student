@@ -21,6 +21,7 @@ class CreateCreateClassesTable extends Migration
             $table->text('class_description')->nullable();
             $table->string('class_date', 15);
             $table->string('class_time', 15);
+            $table->string('class_duration', 30);
             $table->string('class_image')->nullable();
             $table->softDeletes();
             $table->timestamps();

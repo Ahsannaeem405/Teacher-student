@@ -17,7 +17,6 @@
             <div class="col-sm-4">
                 <img src="{{asset('images')."/". $imagePath[0].".".$imagePath[1]}}"
                      class="img-fluid" alt="No Image" width="260">
-{{--                <img src="{{url('/images/black.png')}}" width="260" alt="Image"/>--}}
             </div>
             <div class="col-sm-8">
                 <div class="heading-1">
@@ -41,6 +40,3 @@
     </div>
 @endsection
 
-@section('JS')
-    @include('teacher.layouts.footer')
-@endsection

@@ -16,11 +16,27 @@ class CreateCourse extends Model
       'course_date',
       'course_time',
       'course_doc',
-      'class_name_id',
+      'create_class_id',
       'course_description'
     ];
 
     public function createCourse($data){
         return $this->create($data);
+    }
+
+    public function getCourses(){
+        return $this->join('create_classes', 'create_courses.create_class_id', '=', 'create_classes.id')
+            ->select('create_courses.*', 'create_classes.id AS class_id', 'create_classes.class_name',
+            'create_classes.class_duration')
+            ->get();
+    }
+
+    public function getSingleCourse($id){
+        return $this->join('create_classes', 'create_courses.create_class_id', '=', 'create_classes.id')
+            ->select('create_courses.*', 'create_classes.id AS class_id', 'create_classes.class_name',
+                'create_classes.class_duration', 'create_classes.teacher_name',
+                'create_classes.class_date', 'create_classes.class_time')
+            ->where('create_courses.id', $id)
+            ->first();
     }
 }

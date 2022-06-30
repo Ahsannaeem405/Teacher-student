@@ -156,7 +156,6 @@
 @endsection
 
 @section('JS')
-    @include('teacher.layouts.footer')
     <script>
         $("#file-upload").change(function(){
             $("#file-name").text(this.files[0].name);

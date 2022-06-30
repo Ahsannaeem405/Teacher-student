@@ -5,7 +5,7 @@
 @section('content')
     <div class="container-fluid" >
         <div class="row">
-            <div class="col-lg-8" style="padding-top: 30px;">
+            <div class="col-lg-8" style="padding-top: 30px; text-align: center">
                 <h3>CHANGE PASSWORD</h3>
             </div>
         </div>
@@ -56,6 +56,3 @@
     </div>
 @endsection
 
-@section('JS')
-    @include('teacher.layouts.footer')
-@endsection

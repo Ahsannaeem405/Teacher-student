@@ -1,4 +1,6 @@
 <?php
+
+use Illuminate\Support\Facades\Request;
 use Intervention\Image\ImageManager;
 use Intervention\Image\ImageManagerStatic as Image;
 
@@ -31,5 +33,20 @@ if( !function_exists( 'compressImagePHP' ) ) {
         $img->destroy();
 
         return $imgExplodedName[ 0 ] . '.' . $imgExplodedName[ 1 ];
+    }
+}
+
+if( !function_exists( 'uploadVid' ) ) {
+    function uploadVid($request, $key){
+        if(is_array($request) ){
+            $file = $request[ $key ];
+        } else {
+            $file = $request->file( $key );
+        }
+
+        $filename = $file->getClientOriginalName();
+        $path = public_path( 'videos' ) . DIRECTORY_SEPARATOR;
+        $file->move($path, $filename);
+        return $filename;
     }
 }

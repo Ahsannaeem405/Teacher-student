@@ -55,7 +55,7 @@
                                             <li class="list-unstyled plan_list"> <img src="{{ asset('images/tick.png') }}" width="24" height="18" alt="" srcset=""> <span class="l_p"></span> <span class="li_font">Share your videos with your social media</span></li>
                                             <li class="list-unstyled plan_list"> <img src="{{ asset('images/tick.png') }}" width="24" height="18" alt="" srcset=""> <span class="l_p"></span> <span class="li_font">Share your videos with your social media</span></li>
                                         </ul>
-                                        <a href="{{ route('teacher.payment-type') }}"
+                                        <a href="{{ route('teacher.payment-type', ['type' => encrypt('free')]) }}"
                                            style="color: white; background-color: #318215; text-decoration: none;
                                                 border-radius: 10px; padding: 10px 45px;">Select Plan</a>
                                     </div>
@@ -69,7 +69,7 @@
                                     <div class="card-body">
                                         <h4 style="color: white">Basic</h4>
                                         <div class="basic-plan">
-                                             <p>10$ / <span style="font-size: 12px;">Month</span></p>
+                                             <p>$10 / <span style="font-size: 12px;">Month</span></p>
                                         </div>
 
                                         <div class="row" style="display: flex; justify-content: center">
@@ -85,7 +85,7 @@
 
                                         <div class="row">
                                             <div class="col-lg-12">
-                                                <a href="{{ route('teacher.payment-type') }}"
+                                                <a href="{{ route('teacher.payment-type', ['type' => encrypt('$10')]) }}"
                                                    style="color: white; background-color: #318215; text-decoration: none;
                                                    border-radius: 10px; padding: 10px 45px;">Select Plan</a>
 {{--                                                <button type="button"--}}
@@ -105,7 +105,7 @@
                                     <div class="card-body">
                                         <h4>Enterprise</h4>
                                         <div class="enterprice-plan">
-                                            <p>25$ / <span style="font-size: 12px;">Month</span></p>
+                                            <p>$25 / <span style="font-size: 12px;">Month</span></p>
                                         </div>
 
                                         <div class="row" style="display: flex; justify-content: center">
@@ -121,7 +121,7 @@
 
                                         <div class="row">
                                             <div class="col-lg-12">
-                                                <a href="{{ route('teacher.payment-type') }}"
+                                                <a href="{{ route('teacher.payment-type', ['type' => encrypt('$25')]) }}"
                                                    style="color: white; background-color: #318215; text-decoration: none;
                                                     border-radius: 10px; padding: 10px 45px;">
                                                     Select Plan</a>
@@ -160,6 +160,3 @@
     </div>
 @endsection
 
-@section('JS')
-    @include('teacher.layouts.footer')
-@endsection
