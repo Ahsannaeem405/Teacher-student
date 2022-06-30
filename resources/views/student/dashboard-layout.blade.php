@@ -23,7 +23,7 @@
 
 <body class="" style="width: 100%">
     @include('student.layouts.nav')
-
+    @include('student.layouts.alert')
     <div class="banner-two" style="width: 100%;"></div>
 
     <div class=" tab-sec">

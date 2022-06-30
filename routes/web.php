@@ -132,9 +132,12 @@ Route::group(['prefix' => 'student', 'middleware' => ['auth', 'check_student'], 
         Route::get('/notes/create', [StudentDashboardController::class, 'createNotes'])->name('create-notes');
         Route::post('/add_note', [StudentDashboardController::class, 'storeNotes'])->name('store-notes');
         Route::get('/delete_note', [StudentDashboardController::class, 'deleteNotes'])->name('delete-notes');
+        Route::get('/edit_note/{id}', [StudentDashboardController::class, 'editNotes']);
+        Route::post('/update_note/{id}', [StudentDashboardController::class, 'updateNotes']);
         Route::get('/chat', [StudentDashboardController::class, 'chat'])->name('chat');
         Route::get('/price/menu', [StudentDashboardController::class, 'priceMenu'])->name('price-menu');
         Route::get('/teacher/timeline', [StudentDashboardController::class, 'teacherTimeline'])->name('teacher-timeline');
+        Route::get('/courses', [StudentDashboardController::class, 'courses'])->name('courses');
         Route::get('/course/detail', [StudentDashboardController::class, 'courseDetail'])->name('course-detail');
         Route::get('/course/cart', [StudentDashboardController::class, 'courseCart'])->name('add-to-cart');
         Route::get('/payment/type', [StudentDashboardController::class, 'paymentType'])->name('payment-type');

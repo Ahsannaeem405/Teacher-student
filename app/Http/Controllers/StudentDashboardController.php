@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\studentnote;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class StudentDashboardController extends Controller
@@ -32,12 +33,24 @@ class StudentDashboardController extends Controller
        $note->title=$request->notes_name;
        $note->note_description=$request->describe_notes;
        $note->save();
-        return back();
+        return back()->with('success',"Note Create Successfully");
     }
     public function deleteNotes(Request $request){
         studentnote::find($request->user_id)->delete();
         return response()->json(['success'=>'Note deleted successfully!']);
     }
+    public function editNotes($id){
+        $note=studentnote::find($id);
+        return view('student.edit-note',compact('note'));
+    }
+    public function updateNotes(Request $request,$id){
+        $note=studentnote::find($id);
+       
+        $note->title=$request->notes_name;
+        $note->note_description=$request->describe_notes;
+        $note->save();
+         return back()->with('success',"Note Updated Successfully");
+     }
     public function chat(){
         return view('student.chat');
     }
@@ -47,9 +60,13 @@ class StudentDashboardController extends Controller
     }
 
     public function teacherTimeline(){
-        return view('student.teacher-timeline');
+        $teachers=User::whereRole('2')->paginate('6');
+        return view('student.teacher-timeline',compact('teachers'));
     }
-
+    public function courses(){
+        $teachers=User::whereRole('2')->paginate('6');
+        return view('student.course',compact('teachers'));
+    }
     public function courseDetail(){
         return view('student.course-detail');
     }
