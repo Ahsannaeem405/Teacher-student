@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use App\Models\studentnote;
 use App\Models\User;
+use App\Models\CreateCourse;
+use App\Models\CourseLecture;
 use Illuminate\Http\Request;
 
 class StudentDashboardController extends Controller
@@ -60,8 +62,20 @@ class StudentDashboardController extends Controller
     }
 
     public function teacherTimeline(){
-        $teachers=User::whereRole('2')->paginate('6');
+        $teachers=User::whereRole('2')->whereHas('course')->paginate('6');
         return view('student.teacher-timeline',compact('teachers'));
+    }
+    public function teachercourses($id){
+        $teacher=User::find($id);
+        $courses=CreateCourse::whereTeacher_id($teacher->id)->whereHas('class')->get();
+       
+        return view('student.teacher-courses',compact('teacher','courses'));
+    }
+    public function teachercourseDetail($id){
+        $course=CreateCourse::with('class')->find($id); 
+        $lectures=CourseLecture::where('course_id', $id)
+        ->get('course_doc');
+        return view('student.teacher-coursedetail',compact('course','lectures'));
     }
     public function courses(){
         $teachers=User::whereRole('2')->paginate('6');
@@ -78,4 +92,5 @@ class StudentDashboardController extends Controller
     public function paymentType(){
         return view('student.payment-type');
     }
+  
 }

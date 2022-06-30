@@ -136,13 +136,18 @@ Route::group(['prefix' => 'student', 'middleware' => ['auth', 'check_student'], 
         Route::post('/update_note/{id}', [StudentDashboardController::class, 'updateNotes']);
         Route::get('/chat', [StudentDashboardController::class, 'chat'])->name('chat');
         Route::get('/price/menu', [StudentDashboardController::class, 'priceMenu'])->name('price-menu');
-        Route::get('/teacher/timeline', [StudentDashboardController::class, 'teacherTimeline'])->name('teacher-timeline');
         Route::get('/courses', [StudentDashboardController::class, 'courses'])->name('courses');
         Route::get('/course/detail', [StudentDashboardController::class, 'courseDetail'])->name('course-detail');
         Route::get('/course/cart', [StudentDashboardController::class, 'courseCart'])->name('add-to-cart');
         Route::get('/payment/type', [StudentDashboardController::class, 'paymentType'])->name('payment-type');
+        //teacher timeline
+        Route::get('/teacher/timeline', [StudentDashboardController::class, 'teacherTimeline'])->name('teacher-timeline');
+        Route::get('/all_courses/{id}', [StudentDashboardController::class, 'teachercourses'])->name('teacher-coursessssss');
+        Route::get('/course_detail/{id}', [StudentDashboardController::class, 'teachercourseDetail'])->name('course-detail');
 
+      
 });
+
 
 
 Route::get('/',[FrontController::class,'index']);

@@ -83,4 +83,8 @@ class User extends Authenticatable
         return $this->where('id', $id)
             ->delete();
     }
+    public function course()
+    {
+        return $this->belongsTo(CreateCourse::class, 'id', 'teacher_id');
+    }
 }

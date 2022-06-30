@@ -41,4 +41,8 @@ class CreateCourse extends Model
             ->where('create_courses.id', $id)
             ->first();
     }
+    public function class()
+    {
+        return $this->belongsTo(CreateClass::class, 'create_class_id', 'id');
+    }
 }
