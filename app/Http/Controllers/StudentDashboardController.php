@@ -34,6 +34,10 @@ class StudentDashboardController extends Controller
        $note->save();
         return back();
     }
+    public function deleteNotes(Request $request){
+        studentnote::find($request->user_id)->delete();
+        return response()->json(['success'=>'Note deleted successfully!']);
+    }
     public function chat(){
         return view('student.chat');
     }
