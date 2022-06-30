@@ -11,7 +11,7 @@
                 <div class="col-lg-10" style=" padding-top: 50px;">
                     <div class="row" style="display: flex; justify-content: end">
                         <div class="col-lg-1 col-md-1 add-new-btn">
-                            <a href="#">+</a>
+                            <a href="{{url('student/notes/create')}}">+</a>
                         </div>
 
                         <div class="col-lg-2 col-md-2">
@@ -55,35 +55,18 @@
         </div>
 
         <div class="row">
+            @foreach($notes as $note)
             <div class="col-lg-4" style="margin-bottom: 20px;">
                 <div class="col-lg-12 col-md-12 notes_resp_mrgn" style="background-color: #F9C660;
                  padding: 20px; margin-bottom: 20px;">
-                    <h3 style="text-align: center">My notes 1</h3>
+                    <h3 style="text-align: center">{{$note->title}}</h3>
                     <p style="text-align: center; margin-top: 30px;">
-                        Lorem ipsum dolor sit<br> amet, consectetur<br> adipiscing elit.
+                        {!!$note->note_description!!}
                     </p>
                 </div>
             </div>
-
-            <div class="col-lg-4" style="margin-bottom: 20px;">
-                <div class="col-lg-12 col-md-12 notes_resp_mrgn" style="background-color: #F9C660;
-                 padding: 20px; margin-bottom: 20px;">
-                    <h3 style="text-align: center">My notes 1</h3>
-                    <p style="text-align: center; margin-top: 30px;">
-                        Lorem ipsum dolor sit<br> amet, consectetur<br> adipiscing elit.
-                    </p>
-                </div>
-            </div>
-
-            <div class="col-lg-4">
-                <div class="col-lg-12 col-md-12 notes_resp_mrgn" style="background-color: #F9C660;
-                padding: 20px; margin-bottom: 20px;">
-                    <h3 style="text-align: center">My notes 1</h3>
-                    <p style="text-align: center; margin-top: 30px;">
-                        Lorem ipsum dolor sit<br> amet, consectetur<br> adipiscing elit.
-                    </p>
-                </div>
-            </div>
+@endforeach
+           
         </div>
 
 

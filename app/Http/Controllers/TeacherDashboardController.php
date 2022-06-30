@@ -22,6 +22,7 @@ class TeacherDashboardController extends Controller
     }
 
     public function createCourse(){
+        //dd(1);
         $record = (new CreateClass())->getClassesIdName();
 
         $data = [

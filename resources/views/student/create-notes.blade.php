@@ -9,7 +9,8 @@
                 <h3>DASHBOARD / <span style="color: #C9C97E">CREATE NEW NOTES</span></h3>
             </div>
         </div>
-
+<form action="{{url('student/add_note')}}" method="post">
+    @csrf
         <div class="row" style="margin-top: 40px; padding-left: 70px;">
             <div class="col-lg-6">
                 <label for="">Note Name</label>
@@ -33,6 +34,7 @@
                 </div>
             </div>
         </div>
+</form>
     </div>
 @endsection
 
