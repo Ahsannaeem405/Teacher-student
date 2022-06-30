@@ -130,6 +130,7 @@ Route::group(['prefix' => 'student', 'middleware' => ['auth', 'check_student'], 
         Route::get('/history', [StudentDashboardController::class, 'history'])->name('history');
         Route::get('/notes', [StudentDashboardController::class, 'notes'])->name('notes');
         Route::get('/notes/create', [StudentDashboardController::class, 'createNotes'])->name('create-notes');
+        Route::post('/add_note', [StudentDashboardController::class, 'storeNotes'])->name('store-notes');
         Route::get('/chat', [StudentDashboardController::class, 'chat'])->name('chat');
         Route::get('/price/menu', [StudentDashboardController::class, 'priceMenu'])->name('price-menu');
         Route::get('/teacher/timeline', [StudentDashboardController::class, 'teacherTimeline'])->name('teacher-timeline');
