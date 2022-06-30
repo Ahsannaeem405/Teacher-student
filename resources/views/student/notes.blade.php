@@ -3,11 +3,6 @@
 @section('title', 'Notes')
 
 @section('content')
-<<<<<<< HEAD
-<div class="container-fluid" style="margin-bottom: 15%;">
-    <div class="row ">
-  
-=======
     <div class="container-fluid" style="margin-bottom: 15%;">
          <div class="row">
              <div class="col-lg-12" style="display: flex; justify-content: end;
@@ -18,7 +13,6 @@
                         <div class="col-lg-1 col-md-1 add-new-btn">
                             <a href="{{url('student/notes/create')}}">+</a>
                         </div>
->>>>>>> 1a247fdd2f1ce72580326ef01fc6dd02f3686a5d
 
             <div class="col-lg-10 add_new_stu" style=" padding-top: 50px; display: flex; justify-content: end; align-items: center; padding-top: 50px;">
 
@@ -26,14 +20,6 @@
                     <a href="#">+</a>
                 </div>
 
-<<<<<<< HEAD
-                <div class="col-lg-2 col-md-2 ">
-                    <p style="padding: 0px;"> Add New</p>
-                </div>
-
-            </div>
-        
-=======
         <div class="row">
             <div class="col-lg-8" style="padding-left: 80px; padding-top: 30px;">
                 <h3>DASHBOARD</h3>
@@ -83,7 +69,6 @@
 
 
 
->>>>>>> 1a247fdd2f1ce72580326ef01fc6dd02f3686a5d
     </div>
 
     <div class="row">
