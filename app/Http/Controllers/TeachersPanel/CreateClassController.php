@@ -51,6 +51,7 @@ class CreateClassController extends Controller
 
             $data = [
               'teacher_name' => $request->teacher_name,
+              'user_id' => auth()->user()->id,
               'class_name' => $request->class_name,
               'class_title' => $request->class_title,
               'class_date' => $request->class_date,
@@ -66,7 +67,7 @@ class CreateClassController extends Controller
             }
 
             $res = (new CreateClass())->createClass($data);
-            if($res == '1'){
+            if(!empty($res)){
                 return redirect()->route('teacher.dashboard')->with('success', 'Class created successfully.');
             }else{
                 return redirect()->back()->with('error', 'Something went wrong.');

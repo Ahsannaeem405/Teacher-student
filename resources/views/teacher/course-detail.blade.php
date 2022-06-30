@@ -15,11 +15,10 @@
                 @php
                     $imagePath = explode('.', !is_null($course->course_image) ? $course->course_image : 'do_not_delete.png');
                 @endphp
-                <div class="card" style="box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-                    transition: 0.3s;">
+                <div class="card">
                     <div class="card-body" style="text-align: center">
                         <img src="{{asset('images')."/". $imagePath[0].".".$imagePath[1]}}"
-                             class="img-fluid" alt="No Image" width="260">
+                             class="img-fluid" alt="No Image" width="290">
                     </div>
                 </div>
                 <span class="img-text" style="float: right">Lenght: {{ $course->class_duration }}</span>
@@ -91,29 +90,15 @@
         </div>
 
         <div class="row" style="margin-top: 20px;">
+          @foreach($lectures as $lecture)
             <div class="col-md-3">
-                <div class="col-12">
-                    <a href="/images/play.png" download>
-                        <img src="{{url('/images/play-one.png')}}" width="200" alt="Image"/>
-                    </a>
-                </div>
+                <a href="#" download>
+                    <video width="200" height="140" controls>
+                        <source src='{{asset("/videos/$lecture->course_doc")}}' type="video/mp4">
+                    </video>
+                </a>
             </div>
-
-            <div class="col-md-3">
-                <div class="col-12">
-                    <a href="/images/play.png" download>
-                        <img src="{{url('/images/play-one.png')}}" width="200" alt="Image"/>
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-md-3">
-                <div class="col-12">
-                    <a href="/images/play.png" download>
-                        <img src="{{url('/images/play-one.png')}}" width="200" alt="Image"/>
-                    </a>
-                </div>
-            </div>
+          @endforeach
         </div>
 
 
