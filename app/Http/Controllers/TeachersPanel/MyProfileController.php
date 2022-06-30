@@ -16,6 +16,8 @@ class MyProfileController extends Controller
             'email' => 'required|string',
             'role' => 'required',
             'linkedIn_prof' => 'string',
+            'stripe_secret_key' => 'string',
+            'stripe_public_key' => 'string'
         ]);
 
         try{
@@ -29,6 +31,14 @@ class MyProfileController extends Controller
             }
             if(!empty($request->bio)){
                 $data['bio'] = $request->bio;
+            }
+
+            if(!empty($request->stripe_public_key)){
+                $data['stripe_public_key'] = $request->stripe_public_key;
+            }
+
+            if(!empty($request->stripe_secret_key)){
+                $data['stripe_secret_key'] = $request->stripe_secret_key;
             }
 
             if(!empty($request->linkedIn_prof)){
