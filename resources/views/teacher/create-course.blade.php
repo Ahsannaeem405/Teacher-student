@@ -61,7 +61,29 @@
             <div class="row" style="margin-bottom: 4%;">
                 <div class="col-lg-6">
                     <h4><strong>Course Name</strong></h4>
-                    <input type="text" name="course_name" class="form-control">
+                    <input type="text" name="course_name" required class="form-control
+                    @error('course_price') is-invalid @enderror" value="{{ old('course_name') }}">
+
+                    @error('course_name')
+                    <span class="invalid feedback alert-danger" role="alert">
+                                <strong>{{ $message }}.</strong>
+                            </span>
+                    @enderror
+                </div>
+            </div>
+
+            <div class="row" style="margin-bottom: 4%;">
+                <div class="col-lg-6">
+                    <h4><strong>Course Price</strong></h4>
+                    <input type="number" name="course_price" class="form-control
+                    @error('course_price') is-invalid @enderror" value="{{ old('course_price') }}"
+                           oninput="this.value = this.value.replace(/[^0-9.]/g, '');
+                           this.value = this.value.replace(/(\..*)\./g, '$1');" required>
+                    @error('course_price')
+                    <span class="invalid feedback alert-danger" role="alert">
+                                <strong>{{ $message }}.</strong>
+                            </span>
+                    @enderror
                 </div>
             </div>
 
@@ -72,7 +94,8 @@
                         <button type="submit" class="course-search-btn" style="cursor: unset">
                         </button>
 
-                        <input type="text" class="search-input" placeholder="DD-MM-YY" name="course_date">
+                        <input type="text" class="search-input"
+                               placeholder="DD-MM-YY" name="course_date" required>
                     </div>
 
                     <div class="col-lg-8">
@@ -83,7 +106,8 @@
                             <i class="fa-solid fa-clock"></i>
                         </button>
 
-                        <input type="text" class="search-input" placeholder="01-30 PM" name="course_time">
+                        <input type="text" class="search-input"
+                               placeholder="01-30 PM" name="course_time" required>
                     </div>
                 </div>
             </div>
@@ -140,7 +164,7 @@
                 <div class="col-lg-12">
                     <h4><strong>Class Name</strong></h4>
                     <div class="col-lg-4">
-                        <select class="form-control" name="class_name">
+                        <select class="form-control" name="class_name" required>
                             <option value="" selected>Choose your own class</option>
                             @foreach($classes as $class)
                                 <option value="{{ $class->id }}">{{ ucfirst($class->class_name) }}</option>

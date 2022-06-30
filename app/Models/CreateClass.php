@@ -12,6 +12,7 @@ class CreateClass extends Model
 
     protected $fillable = [
         'class_name',
+        'user_id',
         'class_title',
         'class_description',
         'class_date',

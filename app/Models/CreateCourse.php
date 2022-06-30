@@ -13,7 +13,9 @@ class CreateCourse extends Model
     protected $fillable = [
       'course_image',
       'course_name',
+      'price',
       'course_date',
+      'teacher_id',
       'course_time',
       'course_doc',
       'create_class_id',
@@ -32,7 +34,7 @@ class CreateCourse extends Model
     }
 
     public function getSingleCourse($id){
-        return $this->join('create_classes', 'create_courses.create_class_id', '=', 'create_classes.id')
+        return $this->leftJoin('create_classes', 'create_courses.create_class_id', '=', 'create_classes.id')
             ->select('create_courses.*', 'create_classes.id AS class_id', 'create_classes.class_name',
                 'create_classes.class_duration', 'create_classes.teacher_name',
                 'create_classes.class_date', 'create_classes.class_time')

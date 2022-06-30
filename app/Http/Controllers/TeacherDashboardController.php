@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CourseLecture;
 use App\Models\CreateClass;
 use App\Models\CreateCourse;
 use Illuminate\Http\Request;
@@ -65,8 +66,11 @@ class TeacherDashboardController extends Controller
         $id = decrypt($course_id);
         $res = (new CreateCourse())->getSingleCourse($id);
 
+        $lec = (new CourseLecture())->getLectures($id);
+
         $data = [
-          'course' => $res
+          'course' => $res,
+          'lectures' => $lec
         ];
         return view('teacher.course-detail', $data);
     }
