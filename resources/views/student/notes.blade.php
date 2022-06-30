@@ -1,7 +1,7 @@
 @extends('student.dashboard-layout')
 
 @section('title', 'Notes')
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/fontawesome.min.css" integrity="sha384-zIaWifL2YFF1qaDiAo0JFgsmasocJ/rqu7LKYH8CoBEXqGbb9eO+Xi3s6fQhgFWM" crossorigin="anonymous">
 @section('content')
     <div class="container-fluid" style="margin-bottom: 15%;">
          <div class="row">
@@ -11,7 +11,7 @@
                 <div class="col-lg-10" style=" padding-top: 50px;">
                     <div class="row" style="display: flex; justify-content: end">
                         <div class="col-lg-1 col-md-1 add-new-btn">
-                            <a href="#">+</a>
+                            <a href="{{url('student/notes/create')}}">+</a>
                         </div>
 
                         <div class="col-lg-2 col-md-2">
@@ -55,35 +55,20 @@
         </div>
 
         <div class="row">
+            @foreach($notes as $note)
             <div class="col-lg-4" style="margin-bottom: 20px;">
                 <div class="col-lg-12 col-md-12 notes_resp_mrgn" style="background-color: #F9C660;
                  padding: 20px; margin-bottom: 20px;">
-                    <h3 style="text-align: center">My notes 1</h3>
+                <button type="button" class="btn btn-xs btn-danger userDeletenote" userId="{{$note->id}}" > <i class='fa fa-trash'></i></button>
+                <button type="button" class="btn btn-xs btn-primary" data-toggle="modal" data-target="#edit"><i class="fa fa-pencil"></i> </button>
+                    <h3 style="text-align: center">{{$note->title}}</h3>
                     <p style="text-align: center; margin-top: 30px;">
-                        Lorem ipsum dolor sit<br> amet, consectetur<br> adipiscing elit.
+                        {!!$note->note_description!!}
                     </p>
                 </div>
             </div>
-
-            <div class="col-lg-4" style="margin-bottom: 20px;">
-                <div class="col-lg-12 col-md-12 notes_resp_mrgn" style="background-color: #F9C660;
-                 padding: 20px; margin-bottom: 20px;">
-                    <h3 style="text-align: center">My notes 1</h3>
-                    <p style="text-align: center; margin-top: 30px;">
-                        Lorem ipsum dolor sit<br> amet, consectetur<br> adipiscing elit.
-                    </p>
-                </div>
-            </div>
-
-            <div class="col-lg-4">
-                <div class="col-lg-12 col-md-12 notes_resp_mrgn" style="background-color: #F9C660;
-                padding: 20px; margin-bottom: 20px;">
-                    <h3 style="text-align: center">My notes 1</h3>
-                    <p style="text-align: center; margin-top: 30px;">
-                        Lorem ipsum dolor sit<br> amet, consectetur<br> adipiscing elit.
-                    </p>
-                </div>
-            </div>
+@endforeach
+           
         </div>
 
 
@@ -94,4 +79,43 @@
 
 @section('JS')
     @include('student.layouts.footer')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<script>
+  $('.userDeletenote').click(function(e){
+            e.preventDefault();
+           var user_id= $(this).attr('userId');
+// alert(user_id);
+            swal({
+                title: "Are you sure?",
+                text: "Do you want to delete this note?",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+                })
+            .then((willDelete) => {
+                if (willDelete) {
+                      $.ajax({
+                        url:'{{URL::to('student/delete_note')}}',
+                        type:'get',
+                        data:{
+                            'user_id':user_id
+                        },
+                        success:function(result)
+                        {
+                        swal(result.success, {
+                         icon: "success",
+                         })
+                         .then((result) => {
+                           location.reload();
+                        });
+                        // window.reload();
+                         }
+                    });
+                        // admin/deleteuser
+                }
+            });
+        });
+        </script>
 @endsection

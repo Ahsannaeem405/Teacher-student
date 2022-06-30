@@ -3,9 +3,9 @@
 @section('title', 'Dashboard')
 
 @section('content')
-    <div class="container-fluid " style="margin-bottom: 15%;">
+    <div class="container-fluid text_center pl_0" style="margin-bottom: 15%;">
         <div class="row">
-            <div class="col-lg-6" style="padding-left: 80px; padding-top: 30px;">
+            <div class="col-lg-6 pl_0" style="padding-left: 80px; padding-top: 30px;">
                 <h3>DASHBOARD</h3>
             </div>
             @php
@@ -18,7 +18,7 @@
                 </button>
 
                 @if($records == 0)
-                    <input type="text" class="search-input" placeholder="" name="search">
+                    <input type="text" class="search-input search-margin" placeholder="" name="search">
                 @else
                     <input type="text" class="search-input" placeholder="python coding" name="search">
                 @endif
@@ -31,7 +31,7 @@
                     <img src="{{ asset('images/search-results.png') }}" alt="no image" width="30">
                 </div>
 
-                <div class="col-lg-3" style="padding: 0px; margin: 0px;">
+                <div class="col-lg-3 text_center" style="padding: 0px; margin: 0px;">
                     <p>Search results <strong>'100'</strong></p>
                 </div>
             </div>
@@ -49,7 +49,7 @@
         @endif
 
         @if($records != 0)
-            <div class="row" style="padding-left: 30px;">
+            <div class="row text_center" style="padding-left: 30px;">
                 <div class="col-lg-3">
                    <div>
                        <span>
