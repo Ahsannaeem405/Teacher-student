@@ -3,7 +3,7 @@
     <i class="fa-solid fa-xmark krs"></i>
 </button>
 
-<div class="side_bar_res col-md-4 tab-col vh-100">
+<div class="side_bar_res col-md-4 tab-col vh-100 ">
     <div class="side_bar_profile">
 <img src="{{url('/images/profile.png')}}" alt="Image" class="tab-img"/>
 <p style="font-size: 22px; ">{{ auth()->user()->first_name }}</p>

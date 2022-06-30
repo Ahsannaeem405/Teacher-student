@@ -395,7 +395,10 @@ font-family: system-ui;
 list-style: none;
 border: none;
 padding: 0px;
+width: 100%;
+text-align: center;
 }
+
 .tabs-left>li {
 float: none;
 margin: 5px 0px;
