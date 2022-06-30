@@ -474,7 +474,12 @@ button.btn.dropdown-toggle.nav-img-btn {
 
 @media (min-width: 235px) and (max-width: 990px) {
     .notes_resp_mrgn {
-        margin-left: 4rem;
+        /* margin-left: 4rem; */
+    }
+
+    .add_new_stu {
+        justify-content: center !important;
+        align-items: center !important;
     }
 
     .side_bar_res {
@@ -526,17 +531,35 @@ button.btn.dropdown-toggle.nav-img-btn {
         display       : flex !important;
         align-items   : center !important;
         flex-direction: column !important;
-        padding-left  : unset !important;
-        font-size: 20px ;
-     
+        padding-left  : 40px !important;
+
     }
 
-.text_center{
-    text-align: center !important;
-}
-.pl_0{
-    padding-left: unset !important;
-}
+    .class_learn p {
+        font-size: 20px !important;
+
+    }
+
+    .text_center {
+        text-align: center !important;
+    }
+
+    .search_field_stu {
+        display        : flex;
+        align-items    : center;
+        justify-content: center;
+    }
+
+    .dashborad_haeding {
+        padding-left: unset !important;
+    }
+
+    .dashbord_note_stu {}
+
+    .pl_0 {
+        padding-left: unset !important;
+    }
+
     .class_learn img {
         width: 70% !important;
     }

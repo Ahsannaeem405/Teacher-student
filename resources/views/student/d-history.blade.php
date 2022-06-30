@@ -5,14 +5,14 @@
 @section('content')
     <div class="container-fluid" style="margin-bottom: 15%;">
         <div class="row">
-            <div class="col-lg-6" style="padding-left: 80px; padding-top: 30px;">
+            <div class="col-lg-6 dashborad_haeding" style="padding-left: 80px; padding-top: 30px;">
                 <h3>DASHBOARD</h3>
             </div>
             @php
                 $records = 0;
             @endphp
 
-            <div class="col-lg-6" style="padding-top: 50px;">
+            <div class="col-lg-6 search_field_stu" style="padding-top: 50px;">
                 <button type="submit" class="search-btn">
                     <img src="{{ asset('images/search-icon.png') }}" alt="no image" width="20">
                 </button>
@@ -27,7 +27,7 @@
 
         <div class="row" style="margin-top: 40px; margin-bottom: 0px; padding-bottom: 0px;">
             <div class="col-lg-12 " style=" margin-bottom: 0px; padding-bottom: 0px;">
-                <p class="seatch_his_center" style="text-align: end; font-size: 20px; font-weight: bold">Search History</p>
+                <p class="seatch_his_center text_center" style="text-align: end; font-size: 20px; font-weight: bold">Search History</p>
             </div>
 
             <div class="col-lg-6" style="text-align: end; padding-top: 8px; margin-bottom: 0px; padding-bottom: 0px;">
