@@ -5,7 +5,7 @@
             <img src="{{url('/images/boy.png')}}" alt="Image" class="tab-img"/>
             <h2>Josh</h2>
             <h3>(Student)</h3>
-            <ul class="nav-tabs tabs-left sideways">
+            <ul class="nav-tabs tabs-left sideways" >
                 <li class="active"><a href="#class" data-toggle="tab">My Class</a></li>
                 <li><a href="#course" data-toggle="tab">My Course</a></li>
                 <li><a href="#meeting" data-toggle="tab">Join Meeting</a></li>

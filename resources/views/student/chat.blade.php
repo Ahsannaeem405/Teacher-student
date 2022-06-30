@@ -5,7 +5,7 @@
 @section('content')
     <div class="container-fluid" style="margin-bottom: 15%;">
         <div class="row">
-            <div class="col-lg-12" style="padding-left: 80px; padding-top: 30px;">
+            <div class="col-lg-12 pl_0" style="padding-left: 80px; padding-top: 30px;">
                 <h3>DASHBOARD</h3>
             </div>
         </div>
@@ -20,8 +20,8 @@
             <div class="col-lg-12" style="border: 1px solid #707070"></div>
         </div>
 
-        <div class="row">
-            <div class="col-lg-4">
+        <div class="row teacher_chat">
+            <div class="col-lg-3">
                 <div>
                    <span>
                        <i class="fa-solid fa-magnifying-glass"
@@ -31,7 +31,7 @@
                     </span>
                 </div>
 
-                <div class="row">
+                <div class="row teacher_chat">
                     <div class="col-lg-4" style="padding-top: 10px;">
                         <img src="{{url('/images/teacher-chat.png')}}"
                              width="70" alt="Image"/>
@@ -43,7 +43,7 @@
                     </div>
                 </div>
 
-                <div class="row">
+                <div class="row teacher_chat">
                     <div class="col-lg-4" style="padding-top: 10px;">
                         <img src="{{url('/images/teacher-chat.png')}}"
                              width="70" alt="Image"/>
@@ -55,7 +55,7 @@
                     </div>
                 </div>
 
-                <div class="row">
+                <div class="row teacher_chat">
                     <div class="col-lg-4" style="padding-top: 10px;">
                         <img src="{{url('/images/teacher-chat.png')}}"
                              width="70" alt="Image"/>
@@ -67,7 +67,7 @@
                     </div>
                 </div>
 
-                <div class="row">
+                <div class="row teacher_chat">
                     <div class="col-lg-4" style="padding-top: 10px;">
                         <img src="{{url('/images/teacher-chat.png')}}"
                              width="70" alt="Image"/>
@@ -79,7 +79,7 @@
                     </div>
                 </div>
 
-                <div class="row">
+                <div class="row teacher_chat">
                     <div class="col-lg-4" style="padding-top: 10px;">
                         <img src="{{url('/images/teacher-chat.png')}}"
                              width="70" alt="Image"/>
@@ -91,7 +91,7 @@
                     </div>
                 </div>
 
-                <div class="row">
+                <div class="row teacher_chat">
                     <div class="col-lg-4" style="padding-top: 10px;">
                         <img src="{{url('/images/teacher-chat.png')}}"
                              width="70" alt="Image"/>

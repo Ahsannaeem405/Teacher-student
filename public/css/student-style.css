@@ -252,7 +252,9 @@
     padding         : 30px;
     outline         : 12px solid #f3eded;
 }
-
+.posted_note span{
+    white-space: unset !important;
+}
 .portfolio {
     display         : flex;
     justify-content : space-around;
@@ -402,6 +404,7 @@ button.btn.dropdown-toggle.nav-img-btn {
         margin-bottom: 5rem;
         text-align   : center;
     }
+   
 }
 
 .payment-home-btn {
@@ -472,30 +475,9 @@ button.btn.dropdown-toggle.nav-img-btn {
     border         : none
 }
 
-@media (min-width: 235px) and (max-width: 990px) {
-    .notes_resp_mrgn {
-        /* margin-left: 4rem; */
-    }
-
-    .add_new_stu {
-        justify-content: center !important;
-        align-items: center !important;
-    }
-
-    .side_bar_res {
-        display: none;
-    }
+.teacher_chat img{
+    width: 60px;
 }
-
-
-
-
-
-
-
-
-
-
 
 @media (min-width: 235px) and (max-width: 992px) {
     .main-header {
@@ -525,18 +507,36 @@ button.btn.dropdown-toggle.nav-img-btn {
         z-index : 50000000000;
     }
 
+    .teacher_chat img {
+        width: 20% !important;
+    }
+
+    .notes_resp_mrgn {
+        /* margin-left: 4rem; */
+    }
+
+    .add_new_stu {
+        justify-content: center !important;
+        align-items    : center !important;
+    }
+
+    .side_bar_res {
+        display: none;
+    }
+
     .class_learn {
         text-align    : center !important;
-        padding-left  : unset;
+        padding-left  : unset !important;
         display       : flex !important;
         align-items   : center !important;
         flex-direction: column !important;
-        padding-left  : 40px !important;
+        /* padding-left  : 40px !important; */
+        padding: 30px 0;
 
     }
 
     .class_learn p {
-        font-size: 20px !important;
+        font-size: 18px !important;
 
     }
 
