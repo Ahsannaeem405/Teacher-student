@@ -18,12 +18,15 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'first_name',
-        'last_name',
+        'name',
         'email',
         'password',
         'role',
-        'status'
+        'status',
+        'bio',
+        'linkedin_url',
+        'stripe_secret_key',
+        'stripe_public_key'
     ];
 
     /**
@@ -80,6 +83,21 @@ class User extends Authenticatable
     }
 
     public function studentDel($id){
+        return $this->where('id', $id)
+            ->delete();
+    }
+
+    public function getTeacherData(){
+        return $this->where('id', auth()->user()->id)
+            ->first();
+    }
+
+    public function updateMyProfile($data){
+        return $this->where('id', auth()->user()->id)
+            ->update($data);
+    }
+
+    public function delUser($id){
         return $this->where('id', $id)
             ->delete();
     }
