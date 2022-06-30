@@ -15,7 +15,8 @@ use App\Http\Controllers\Admin\{
 };
 use App\Http\Controllers\TeachersPanel\{
     CreateClassController,
-    CreateCourseController
+    CreateCourseController,
+    MyProfileController
 };
 
 use App\Http\Controllers\FrontController;
@@ -42,14 +43,14 @@ Route::get('/test', function (){
 
 Route::get('/login', function () {
     return view('auth.login');
-});
+})->name('user-login');
 
 
 Route::get('/logout', [LogoutController::class, 'logout']);
 
 Route::get('register/here', function (){
     return view('auth.register');
-});
+})->name('user-reg');
 // user routes
 Route::get('/price', function () {
     return view('user.price');
@@ -111,6 +112,11 @@ Route::group(['prefix' => 'teacher', 'middleware' => ['auth', 'check_teacher'], 
         Route::get('/status', [TeacherDashboardController::class, 'status'])->name('status');
         Route::get('/change/password', [TeacherDashboardController::class, 'changePassword'])->name('change-password');
         //Route::post('/create/newclass', [CreateClassController::class, 'createNewClass'])->name('new-class');
+        Route::post('/profile/update', [MyProfileController::class, 'update'])
+            ->name('profile-update');
+        Route::get('/profile/del/{id}', [MyProfileController::class, 'delete'])
+            ->name('profile-del');
+
         Route::resources([
             'createClass' => CreateClassController::class
         ], ['except'=>['destroy']
@@ -121,6 +127,8 @@ Route::group(['prefix' => 'teacher', 'middleware' => ['auth', 'check_teacher'], 
             'createCourse' => CreateCourseController::class
         ], ['except'=>['destroy']
         ]);
+        Route::post('/course/video', [CreateCourseController::class, 'courseVideo'])
+            ->name('course-video');
 });
 
 Route::group(['prefix' => 'student', 'middleware' => ['auth', 'check_student'], 'as' => 'student.'], function(){

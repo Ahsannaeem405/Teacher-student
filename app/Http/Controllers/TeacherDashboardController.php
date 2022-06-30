@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\CourseLecture;
 use App\Models\CreateClass;
 use App\Models\CreateCourse;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class TeacherDashboardController extends Controller
@@ -93,7 +94,12 @@ class TeacherDashboardController extends Controller
     }
 
     public function uploadProfile(){
-        return view('teacher.upload-profile');
+        $res = (new User())->getTeacherData();
+        $data = [
+          'profile' => $res
+        ];
+
+        return view('teacher.upload-profile', $data);
     }
 
     public function status(){

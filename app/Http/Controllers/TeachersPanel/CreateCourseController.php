@@ -134,4 +134,26 @@ class CreateCourseController extends Controller
     {
         //
     }
+
+    public function courseVideo(Request $request){
+
+        try{
+            if($request->has('course_vid') && !empty($request->course_vid)){
+                $vid = uploadVid($request, 'course_vid');
+            }
+
+            $data = [
+                'course_id' => $request->course_id,
+                'course_doc' => $vid
+            ];
+            $result = (new CourseLecture())->storeSingleLectures($data);
+            if(!empty($result)){
+                return redirect()->back();
+            }else{
+                return redirect()->back()->with('error', 'Something went wrong');
+            }
+        } catch (\Exception $ex){
+            return redirect()->back()->with('error', $ex->getMessage());
+        }
+    }
 }

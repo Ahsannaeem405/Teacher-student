@@ -87,8 +87,9 @@
                       style="padding-top: 25px;"><i class="fa fa-download" aria-hidden="true"></i> download</span>
             </div>
             <div class="col-md-3">
-                <form action="#" method="post" id="course_vid_form">
+                <form action="{{ route('teacher.course-video') }}" method="post" id="course_vid_form" enctype="multipart/form-data">
                     @csrf
+                    <input type="hidden" name="course_id" value="{{ $course->id }}">
                     <label for="course_vid" style="padding-top: 25px; color: #C8C97D; font-size: 25px;">
                         <i class="fa fa-plus-circle"></i>
                     </label>

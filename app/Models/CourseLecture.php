@@ -24,6 +24,9 @@ class CourseLecture extends Model
         }
         return $lec;
     }
+    public function storeSingleLectures($data){
+        return $this->create($data);
+    }
 
     public function getLectures($id){
         return $this->where('course_id', $id)
