@@ -67,8 +67,6 @@
 @endsection
 
 @section('JS')
-    @include('teacher.layouts.footer')
-
     <script>
         ClassicEditor
             .create( document.querySelector( '#editor' ) )

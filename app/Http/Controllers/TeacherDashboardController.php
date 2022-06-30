@@ -31,7 +31,12 @@ class TeacherDashboardController extends Controller
     }
 
     public function myCourse(){
-        return view('teacher.my-courses');
+        $res = (new CreateCourse())->getCourses();
+        $data = [
+            'courses' => $res
+        ];
+
+        return view('teacher.my-courses', $data);
     }
 
     public function myStudents(){
@@ -42,8 +47,13 @@ class TeacherDashboardController extends Controller
         return view('teacher.price-menu');
     }
 
-    public function paymentType(){
-        return view('teacher.payment-type');
+    public function paymentType($type){
+        $plan_type = decrypt($type);
+        $data = [
+          'type' => $plan_type
+        ];
+
+        return view('teacher.payment-type', $data);
     }
 
     public function paymentSubmission(){
@@ -51,8 +61,14 @@ class TeacherDashboardController extends Controller
         return view('teacher.payment-successful');
     }
 
-    public function courseDetail(){
-        return view('teacher.course-detail');
+    public function courseDetail($course_id){
+        $id = decrypt($course_id);
+        $res = (new CreateCourse())->getSingleCourse($id);
+
+        $data = [
+          'course' => $res
+        ];
+        return view('teacher.course-detail', $data);
     }
 
     public function notes(){

@@ -3,6 +3,7 @@
 @section('title', 'Payment Type')
 
 @section('content')
+
     <div class="select-sec" style="margin-bottom: 50%;">
         <div class="container" style="width: 100%">
             <h2>SELECT THE PAYMENT OPTION AND CONTINUE</h2>
@@ -13,16 +14,19 @@
                             @csrf
                             <ul class="payment-form-row">
                                 <li id="border_pay">
-                                    <input type="radio" id="html" name="payment_method" value="pay_pal">
-                                    <label for="html"><img src="{{url('/images/pay.png')}}" alt="Image"/></label>
+                                    <input type="radio" id="paypal" name="payment_method" value="pay_pal">
+                                    <label for="paypal"><img src="{{url('/images/pay.png')}}" alt="Image"/></label>
                                 </li>
                                 <li id="border_visa">
-                                    <input type="radio" id="html" name="payment_method" value="Visa">
-                                    <label for="html"><img src="{{url('/images/visanew.png')}}" alt="Image"/></label>
+                                    <input type="radio" id="visa" name="payment_method" value="Visa">
+                                    <label for="visa"><img src="{{url('/images/visanew.png')}}" alt="Image"/></label>
                                 </li>
                             </ul>
-                            <label for="email" class="mt-5"><h3>PayPal E-mail </h3></label><br>
-                            <input type="email" id="email" name="email" style="margin-bottom: 60%;">
+                            <div id="paypal_input" style="display: none">
+                                <label for="paypal_email" class="mt-5"><h3>PayPal E-mail </h3></label><br>
+                                <input type="email" id="paypal_email" class="form-control"
+                                       name="paypal_email" style="margin-bottom: 60%;">
+                            </div>
                             <input type="submit" value="Pay Now" style="margin-bottom: 50%;">
                         </form>
                         <p style="font-size: 18px;">(You will be redirected to official payment gateway page)</p>
@@ -35,7 +39,7 @@
                             <p style="color: black; font-size: 17px;"><strong>Learn python coding for beginners </strong></p>
                         </div>
                         <div class="col-md-2">
-                            <p style="color: #318215"><strong>$10</strong></p>
+                            <p style="color: #318215"><strong>{{ $type }}</strong></p>
                         </div>
                     </div>
                     <h3>Plane Details</h3>
@@ -59,5 +63,15 @@
 @endsection
 
 @section('JS')
-    @include('teacher.layouts.footer')
+    <script>
+        $('#paypal').on('click', function (){
+            console.log('here');
+            $('#paypal_input').removeAttr("style");
+        });
+
+        $('#visa').on('click', function (){
+            console.log('here');
+            $('#paypal_input').hide();
+        });
+    </script>
 @endsection

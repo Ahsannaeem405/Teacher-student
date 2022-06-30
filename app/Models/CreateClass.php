@@ -16,6 +16,7 @@ class CreateClass extends Model
         'class_description',
         'class_date',
         'class_time',
+        'class_duration',
         'class_image',
         'teacher_name'
     ];

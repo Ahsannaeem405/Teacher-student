@@ -39,6 +39,3 @@
     </div>
 @endsection
 
-@section('JS')
-    @include('teacher.layouts.footer')
-@endsection

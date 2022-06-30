@@ -36,23 +36,26 @@ class CreateClassController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request->all());
-
         $this->validate($request, [
            'teacher_name' => 'required|string|min:3|max:25',
            'class_name' => 'required|string|max:10',
            'class_date' => 'required|string|max:15',
            'class_time' => 'required|string|max:15',
            'class_title' => 'required|string|max:100',
+           'class_hours' => 'required|numeric',
+           'class_mints' => 'required|numeric',
         ]);
 
         try{
+            $class_duration = $request->class_hours.' '.'hr'.' '.$request->class_mints.' '.'min';
+
             $data = [
               'teacher_name' => $request->teacher_name,
               'class_name' => $request->class_name,
               'class_title' => $request->class_title,
               'class_date' => $request->class_date,
-              'class_time' => $request->class_time
+              'class_time' => $request->class_time,
+              'class_duration' => $class_duration,
             ];
 
             if($request->has('class_cover') && !empty($request->class_cover)){
