@@ -29,9 +29,9 @@
             <div class="col-lg-11" style="border: 1px solid #707070"></div>
         </div>
 
-        @if(count($classes) > 0)
-            @foreach($classes as $class)
-                <div class="row" style="margin-bottom: 8%;">
+        <div class="row" style="margin-bottom: 8%;">
+            @if(count($classes) > 0)
+                @foreach($classes as $class)
                     <div class="col-lg-4">
                         <div class="col-12">
                             <div class="card tdb-card">
@@ -40,15 +40,13 @@
                                         $imagePath = explode('.', !is_null($class->class_image) ? $class->class_image : 'do_not_delete.png');
                                     @endphp
                                     <img src="{{asset('images')."/". $imagePath[0].".".$imagePath[1]}}"
-                                         class="img-fluid" alt="No Image" width="180">
+                                         class="img-fluid" alt="No Image" width="200">
                                 </div>
                                 <div class="card-body">
                                     <h4><strong>{{ ucfirst($class->class_name) }} Class</strong></h4>
 
                                     <p>Created on: {{ date('d-F-Y', strtotime($class->class_date)) }}</p>
                                     <p>Time: {{ $class->class_time }}</p>
-                                    {{--                                <p style="color: #3399FF">Video:5</p>--}}
-                                    {{--                                <p style="color: #3399FF">Documents:3</p>--}}
                                 </div>
                                 <div class="card-footer">
                                     <div class="row" style="display: flex; justify-content: center">
@@ -95,11 +93,11 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            @endforeach
-        @else
-            <h4>No class found...</h4>
-        @endif
+                @endforeach
+            @else
+                <h4>No class found...</h4>
+            @endif
+        </div>
 
         <div class="row" style="margin-top: 30px; margin-right: 40px; display: flex; justify-content: end;">
             <div class="col-lg-1" style="text-align: center; margin-right: -12px;">

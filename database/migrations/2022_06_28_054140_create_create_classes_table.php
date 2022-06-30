@@ -17,6 +17,9 @@ class CreateCreateClassesTable extends Migration
             $table->id();
             $table->string('class_name', 10);
             $table->string('teacher_name', 25);
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')
+                ->references('id')->on('users')->onDelete('cascade');
             $table->string('class_title', 100);
             $table->text('class_description')->nullable();
             $table->string('class_date', 15);

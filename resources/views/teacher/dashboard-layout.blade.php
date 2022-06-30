@@ -58,6 +58,8 @@
             </div>
             <div class="col-md-9 tab-content-col">
 
+                @include('teacher.layouts.alerts')
+
                 @yield('content')
 
             </div>

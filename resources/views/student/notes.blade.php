@@ -59,13 +59,10 @@
         <div class="col-lg-4" style="margin-bottom: 20px;">
             <div class="col-lg-12 col-md-12 notes_resp_mrgn" style="background-color: #F9C660;
                  padding: 20px; margin-bottom: 20px;">
-                <button type="button" class="btn btn-xs btn-danger userDeletenote" userId="{{$note->id}}"> <i class='fa fa-trash'></i></button>
-                <button type="button" class="btn btn-xs btn-primary" data-toggle="modal" data-target="#edit"><i class="fa fa-pencil"></i> </button>
-                <h3 style="text-align: center">{{$note->title}}</h3>
-
-                <div class="posted_note">
-                    <p>
-
+                <button type="button" class="btn btn-xs btn-danger userDeletenote" userId="{{$note->id}}" > <i class='fa fa-trash'></i></button>
+                <a href="{{url('student/edit_note/'.$note->id)}}" class="btn btn-xs btn-primary" ><i class="fa fa-pencil"></i> </a>
+                    <h3 style="text-align: center">{{$note->title}}</h3>
+                    <p style="text-align: center; margin-top: 30px;">
                         {!!$note->note_description!!}
                     </p>
                 </div>

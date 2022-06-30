@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\TeachersPanel;
 
 use App\Http\Controllers\Controller;
+use App\Models\CourseLecture;
 use App\Models\CreateCourse;
 use Illuminate\Http\Request;
 
@@ -39,6 +40,7 @@ class CreateCourseController extends Controller
         //dd($request->all());
         $this->validate($request, [
             'class_name' => 'required',
+            'course_price' => 'required|numeric',
             'course_date' => 'required|string|max:15',
             'course_time' => 'required|string|max:15',
             'course_name' => 'required|string|max:30',
@@ -47,6 +49,8 @@ class CreateCourseController extends Controller
         try{
             $data = [
                 'create_class_id' => $request->class_name,
+                'teacher_id' => auth()->user()->id,
+                'price' => $request->course_price,
                 'course_date' => $request->course_date,
                 'course_time' => $request->course_time,
                 'course_name' => $request->course_name,
@@ -71,11 +75,11 @@ class CreateCourseController extends Controller
                 $vid[] = uploadVid($request, 'vid_4');
             }
 
-            $data['course_doc'] = json_encode($vid);
-
             $res = (new CreateCourse())->createCourse($data);
 
-            if(!empty($res)){
+            $result = (new CourseLecture())->storeLectures($res->id, $vid);
+
+            if(!empty($result)){
                 return redirect()->route('teacher.my-courses')->with('success', 'Class created successfully.');
             }else{
                 return redirect()->back()->with('error', 'Something went wrong.');

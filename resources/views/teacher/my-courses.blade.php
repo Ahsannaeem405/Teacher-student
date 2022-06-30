@@ -51,7 +51,7 @@
 
         <div class="row" style="margin-top: 10px;">
           @foreach($courses as $course)
-            <div class="col-lg-4 col-md-4" style="">
+            <div class="col-lg-4 col-md-4">
                 @php
                     $imagePath = explode('.', !is_null($course->course_image) ? $course->course_image : 'do_not_delete.png');
                 @endphp
