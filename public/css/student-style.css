@@ -252,9 +252,11 @@
     padding         : 30px;
     outline         : 12px solid #f3eded;
 }
-.posted_note span{
+
+.posted_note span {
     white-space: unset !important;
 }
+
 .portfolio {
     display         : flex;
     justify-content : space-around;
@@ -404,9 +406,35 @@ button.btn.dropdown-toggle.nav-img-btn {
         margin-bottom: 5rem;
         text-align   : center;
     }
-   
+
 }
 
+@media (max-width: 992px) {
+    .mystudent_teach{
+        display: flex;
+        justify-content: center;
+    }
+
+}
+@media (min-width: 235px) and (max-width: 465px) {
+    .mystudent_teach:before {
+        display: none;
+        content: " ";
+    }
+    
+    :after, :before {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    .mystudent_teach {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        grid-template-rows: repeat(3,1fr);
+        justify-content: center;
+    }
+
+}
 .payment-home-btn {
     padding         : 15px 50px;
     background-color: #C9C97E;
@@ -475,7 +503,7 @@ button.btn.dropdown-toggle.nav-img-btn {
     border         : none
 }
 
-.teacher_chat img{
+.teacher_chat img {
     width: 60px;
 }
 
@@ -511,6 +539,14 @@ button.btn.dropdown-toggle.nav-img-btn {
         width: 20% !important;
     }
 
+    .profile-save-btn {
+        padding: 10px 30px;
+    }
+    .profile-draft-btn{
+        padding: 10px 30px;
+
+    }
+
     .notes_resp_mrgn {
         /* margin-left: 4rem; */
     }
@@ -524,14 +560,20 @@ button.btn.dropdown-toggle.nav-img-btn {
         display: none;
     }
 
+    .create_new_btn {
+        display        : flex;
+        align-items    : center;
+        justify-content: center;
+    }
+
     .class_learn {
-        text-align    : center !important;
-        padding-left  : unset !important;
-        display       : flex !important;
-        align-items   : center !important;
-        flex-direction: column !important;
+        text-align       : center !important;
+        padding-left     : unset !important;
+        display          : flex !important;
+        align-items      : center !important;
+        flex-direction   : column !important;
         /* padding-left  : 40px !important; */
-        padding: 30px 0;
+        padding          : 30px 0;
 
     }
 
@@ -554,10 +596,21 @@ button.btn.dropdown-toggle.nav-img-btn {
         padding-left: unset !important;
     }
 
+    .add_files_teacher {
+        display              : grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        align-items          : center !important;
+        justify-content      : end !important;
+    }
+
     .dashbord_note_stu {}
 
     .pl_0 {
         padding-left: unset !important;
+    }
+
+    .pr_0 {
+        padding-right: unset !important;
     }
 
     .class_learn img {
@@ -570,6 +623,8 @@ button.btn.dropdown-toggle.nav-img-btn {
         z-index: 50000000000;
     }
 }
+
+
 
 .res_nav {
     background-color: none;

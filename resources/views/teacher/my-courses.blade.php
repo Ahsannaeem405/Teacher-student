@@ -5,11 +5,11 @@
 @section('content')
     <div class="container-fluid" style="margin-bottom: 15%;">
         <div class="row">
-            <div class="col-lg-6" style="padding-left: 80px; padding-top: 30px;">
+            <div class="col-lg-6 pl_0 text_center" style="padding-left: 80px; padding-top: 30px;">
                 <h3>DASHBOARD</h3>
             </div>
 
-            <div class="col-lg-6" style="padding-top: 50px;">
+            <div class="col-lg-6 pl_0 text_center" style="padding-top: 50px;">
                 <button type="submit" class="search-btn">
                     <img src="{{ asset('images/search-icon.png') }}" alt="no image" width="20">
                 </button>

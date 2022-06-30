@@ -5,7 +5,7 @@
 @section('content')
     <div class="container-fluid" style="margin-bottom: 15%;">
         <div class="row" style="margin-bottom: 6%;">
-            <div class="col-lg-8" style="padding-top: 30px;">
+            <div class="col-lg-8 text_center" style="padding-top: 30px;">
                 <h3>MY CLASS  / <span style="color: #C9C97E">CREATE NEW CLASS</span></h3>
             </div>
         </div>
@@ -14,13 +14,13 @@
             @csrf
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="col-12">
+                    <div class="col-12 text_center">
                         <h4><strong>Add Class Cover Image</strong></h4>
                     </div>
                 </div>
             </div>
 
-            <div class="row" style="margin-bottom: 3%;">
+            <div class="row text_center" style="margin-bottom: 3%;">
                 <div class="col-lg-12">
                     <div class="col-12">
                         <div id="cover_img">
