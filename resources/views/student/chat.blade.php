@@ -21,7 +21,7 @@
         </div>
 
         <div class="row teacher_chat">
-            <div class="col-lg-4">
+            <div class="col-lg-3">
                 <div>
                    <span>
                        <i class="fa-solid fa-magnifying-glass"

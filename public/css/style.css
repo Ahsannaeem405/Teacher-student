@@ -375,10 +375,11 @@ background: #f2f2f2;
     display: flex;
     flex-direction: column;
     margin-right: 54px;
+    text-align: center;
 }
 img.tab-img {
 border-radius: 50%;
-width: 85px;
+width: 76px;
 }
 .tab-sec h2 {
 margin: 20px 0px;

@@ -47,7 +47,7 @@
         <img src="{{ asset('images/dt1.png') }}" alt="no image" width="30">
     </div>
 @else
-    <ul class="nav-tabs tabs-left sideways" style="margin-top: 20px;">
+    <ul class="nav-tabs tabs-left sideways" style=" width:100% ; margin-top: 20px;">
         <li class="{{ request()->routeIs('teacher.dashboard') ? 'active' : ''}}">
             <a href="{{ route('teacher.dashboard') }}" style="text-decoration: none">My Class</a></li>
 
