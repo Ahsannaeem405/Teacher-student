@@ -6,12 +6,14 @@ use App\Models\User;
 use App\Models\CreateCourse;
 use App\Models\CourseLecture;
 use App\Models\cart;
+use App\Models\PurchaseCourse;
 use Illuminate\Http\Request;
 
 class StudentDashboardController extends Controller
 {
     public function index(){
-        return view('student.dashboard');
+        $course=PurchaseCourse::whereUser_id(auth()->user()->id)->get();
+        return view('student.dashboard',compact('course'));
     }
 
     public function myProfile(){

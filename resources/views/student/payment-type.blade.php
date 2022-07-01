@@ -68,7 +68,7 @@
 @endsection
 
 @section('JS')
-@include('student.layouts.footer')
+
     <script>
         $('#paypal_payment').on('click', function (){
             console.log('here');

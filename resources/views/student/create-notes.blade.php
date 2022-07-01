@@ -38,17 +38,4 @@
     </div>
 @endsection
 
-@section('JS')
-    @include('student.layouts.footer')
 
-    <script>
-        ClassicEditor
-            .create( document.querySelector( '#describe_notes' ) )
-            .then( editor => {
-                console.log( editor );
-            } )
-            .catch( error => {
-                console.error( error );
-            } );
-    </script>
-@endsection

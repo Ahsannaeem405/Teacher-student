@@ -129,6 +129,4 @@
     </div>
 @endsection
 
-@section('JS')
-    @include('student.layouts.footer')
-@endsection
+

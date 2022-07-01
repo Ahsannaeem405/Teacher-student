@@ -80,10 +80,6 @@
 @endsection
 
 @section('JS')
-@include('student.layouts.footer')
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
 <script>
     $('.userDeletenote').click(function(e) {
         e.preventDefault();
@@ -99,8 +95,7 @@
             .then((willDelete) => {
                 if (willDelete) {
                     $.ajax({
-                        url: '{{URL::to('
-                        student / delete_note ')}}',
+                        url: '{{URL::to('student/delete_note')}}',
                         type: 'get',
                         data: {
                             'user_id': user_id
