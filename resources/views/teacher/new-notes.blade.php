@@ -10,7 +10,8 @@
             </div>
         </div>
 
-        <form action="#">
+        <form action="{{ route('teacher.store-notes') }}" method="post">
+            @csrf
             <div class="row" style="margin-bottom: 3%;">
                 <div class="col-lg-6 col-md-6">
                     <label for="">Note Name</label>

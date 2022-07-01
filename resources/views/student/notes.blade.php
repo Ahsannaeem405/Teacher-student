@@ -1,7 +1,7 @@
 @extends('student.dashboard-layout')
 
 @section('title', 'Notes')
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/fontawesome.min.css" integrity="sha384-zIaWifL2YFF1qaDiAo0JFgsmasocJ/rqu7LKYH8CoBEXqGbb9eO+Xi3s6fQhgFWM" crossorigin="anonymous">
+
 @section('content')
 <div class="container-fluid" style="margin-bottom: 15%;">
     <div class="row">
@@ -11,7 +11,7 @@
                 <div class="col-lg-10" style=" padding-top: 50px;">
                     <div class="row justify_md_cen" style="display: flex; justify-content: end">
                         <div class="col-lg-1 col-md-1 add-new-btn ">
-                            <a href="{{url('student/notes/create')}}">+</a>
+                            <a href="{{ route('student.create-notes') }}">+</a>
                         </div>
 
                         <div class="col-lg-2 col-md-2">
@@ -56,26 +56,21 @@
 
     <div class="row">
         @foreach($notes as $note)
-        <div class="col-lg-4" style="margin-bottom: 20px;">
-            <div class="col-lg-12 col-md-12 notes_resp_mrgn" style="background-color: #F9C660;
-                 padding: 20px; margin-bottom: 20px;">
-                <button type="button" class="btn btn-xs btn-danger userDeletenote" userId="{{$note->id}}"> <i class='fa fa-trash'></i></button>
-                <a href="{{url('student/edit_note/'.$note->id)}}" class="btn btn-xs btn-primary"><i class="fa fa-pencil"></i> </a>
-                <h3 style="text-align: center">{{$note->title}}</h3>
-                <div class="posted_note">
-                    <p style="text-align: center; margin-top: 30px;">
-                        {!!$note->note_description!!}
-                    </p>
+            <div class="col-lg-4" style="margin-bottom: 20px;">
+                <div class="col-lg-12 col-md-12 notes_resp_mrgn" style="background-color: #F9C660;
+                     padding: 20px; margin-bottom: 20px;">
+                    <button type="button" class="btn btn-xs btn-danger userDeletenote" userId="{{$note->id}}"> <i class='fa fa-trash'></i></button>
+                    <a href="{{url('student/edit_note/'.$note->id)}}" class="btn btn-xs btn-primary"><i class="fa fa-pencil"></i> </a>
+                    <h3 style="text-align: center">{{$note->title}}</h3>
+                    <div class="posted_note">
+                        <p style="text-align: center; margin-top: 30px;">
+                            {!!$note->note_description!!}
+                        </p>
+                    </div>
                 </div>
             </div>
-
-
-        </div>
+        @endforeach
     </div>
-    @endforeach
-
-
-
 </div>
 @endsection
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\CourseLecture;
 use App\Models\CreateClass;
 use App\Models\CreateCourse;
+use App\Models\studentnote;
 use App\Models\Subscription;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -84,11 +85,84 @@ class TeacherDashboardController extends Controller
     }
 
     public function notes(){
-        return view('teacher.notes');
+        $notes = (new studentnote())->getNotes();
+        $data = [
+          'notes' => $notes
+        ];
+
+        return view('teacher.notes', $data);
     }
 
     public function createNotes(){
         return view('teacher.new-notes');
+    }
+
+    public function storeNotes(Request $request){
+        //dd($request->all());
+        $this->validate($request, [
+            'note_name' => 'required|string',
+        ]);
+
+        try{
+            $data = [
+                'student_id'  => auth()->user()->id,
+                'title'  => $request->note_name,
+                'note_description'  => $request->describe_note,
+            ];
+
+            $note = (new studentnote())->storeNotes($data);
+
+            if(!empty($note)){
+                return redirect()->route('teacher.t-notes')->with('success',"Note Create Successfully.");
+            }else{
+                return redirect()->back()->with('error',"Something went wrong.");
+            }
+        } catch (\Exception $ex){
+            return redirect()->back()->with('error', $ex->getMessage());
+        }
+    }
+
+    public function editNotes($id){
+        $note = (new studentnote())->editNote($id);
+        if(!empty($note)){
+            $data = [
+              'note' => $note
+            ];
+            return view('student.edit-note', $data);
+        }else{
+            return redirect()->back()->with('error', 'Something went wrong.');
+        }
+    }
+
+    public function updateNotes(Request $request, $id){
+        $this->validate($request, [
+            'note_name' => 'required|string',
+        ]);
+
+        try{
+            $data = [
+                'title'  => $request->notes_name,
+                'note_description'  => $request->describe_notes,
+            ];
+            
+            $note = (new studentnote())->updateNote($data, $id);
+            if($note == '1'){
+                return  redirect()->back()->with('success',"Note Updated Successfully.");
+            }else{
+                return redirect()->back()->with('error',"Something went wrong.");
+            }
+        } catch (\Exception $ex){
+            return redirect()->back()->with('error', $ex->getMessage());
+        }
+    }
+
+    public function deleteNotes(Request $request){
+        $del = (new studentnote())->delNote($request->user_id);
+        if($del == '1'){
+            return response()->json(['success'=>'Note deleted successfully!']);
+        }else{
+            return redirect()->back()->with('error', 'Something went wrong.');
+        }
     }
 
     public function createBlog(){

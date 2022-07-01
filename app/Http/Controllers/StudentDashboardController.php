@@ -32,6 +32,7 @@ class StudentDashboardController extends Controller
     public function createNotes(){
         return view('student.create-notes');
     }
+
     public function storeNotes(Request $request){
        $note=new studentnote();
        $note->student_id=\Auth::user()->id;
@@ -40,22 +41,26 @@ class StudentDashboardController extends Controller
        $note->save();
         return back()->with('success',"Note Create Successfully");
     }
+
     public function deleteNotes(Request $request){
         studentnote::find($request->user_id)->delete();
         return response()->json(['success'=>'Note deleted successfully!']);
     }
+
     public function editNotes($id){
         $note=studentnote::find($id);
         return view('student.edit-note',compact('note'));
     }
+
     public function updateNotes(Request $request,$id){
         $note=studentnote::find($id);
-       
+
         $note->title=$request->notes_name;
         $note->note_description=$request->describe_notes;
         $note->save();
          return back()->with('success',"Note Updated Successfully");
-     }
+    }
+
     public function chat(){
         return view('student.chat');
     }
@@ -71,11 +76,11 @@ class StudentDashboardController extends Controller
     public function teachercourses($id){
         $teacher=User::find($id);
         $courses=CreateCourse::whereTeacher_id($teacher->id)->whereHas('class')->get();
-       
+
         return view('student.teacher-courses',compact('teacher','courses'));
     }
     public function teachercourseDetail($id){
-        $course=CreateCourse::with('class')->find($id); 
+        $course=CreateCourse::with('class')->find($id);
         $lectures=CourseLecture::where('course_id', $id)
         ->get('course_doc');
         return view('student.teacher-coursedetail',compact('course','lectures'));
@@ -99,7 +104,7 @@ class StudentDashboardController extends Controller
 
     public function paymentType($id){
         $cart=cart::find($id);
-       
+
         return view('student.payment-type',compact('cart'));
     }
     public function addCart(Request $request){
