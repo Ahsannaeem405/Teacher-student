@@ -29,14 +29,15 @@
                 </div>
                 <div class="col-md-5 order-sum-col home2-col-pay">
                     <h3>ORDER SUMMERY</h3>
-                    <div class="row basic-sec mb-4">
-                        <div class="col-md-10">
-                            <p style="color: black; font-size: 17px;"><strong>Learn python coding for beginners </strong></p>
-                        </div>
-                        <div class="col-md-2">
-                            <p style="color: #318215"><strong>$10</strong></p>
-                        </div>
+                    @foreach($cart as $carts)
+                    <div class="col-lg-10" style="margin: 0px; padding: 0px;">
+                        <p><strong>{{$carts->course->course_name}}</strong></p>
                     </div>
+    
+                    <div class="col-lg-2">
+                        <p style="color: #318215"><strong>{{$carts->course->price}}</strong></p>
+                    </div>
+    @endforeach
                     <h3>Plane Details</h3>
                     <p style="font-size: 18px; margin-bottom: 4%;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vitae
                         purus in enim dictum congue. Lorem ipsum dolor sit amet, consectetur

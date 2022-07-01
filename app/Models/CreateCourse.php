@@ -45,4 +45,8 @@ class CreateCourse extends Model
     {
         return $this->belongsTo(CreateClass::class, 'create_class_id', 'id');
     }
+    public function cart()
+    {
+        return $this->hasOne(cart::class, 'course_id', 'id')->where('user_id',auth()->user()->id);
+    }
 }
