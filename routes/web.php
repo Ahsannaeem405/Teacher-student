@@ -147,6 +147,7 @@ Route::group(['prefix' => 'student', 'middleware' => ['auth', 'check_student'], 
         Route::get('/price/menu', [StudentDashboardController::class, 'priceMenu'])->name('price-menu');
         Route::get('/courses', [StudentDashboardController::class, 'courses'])->name('courses');
         Route::get('/course/detail', [StudentDashboardController::class, 'courseDetail'])->name('course-detail');
+        Route::get('/course/detail/{id}', [StudentDashboardController::class, 'courseDetail']);
         Route::get('/course/cart', [StudentDashboardController::class, 'courseCart'])->name('add-to-cart');
         Route::get('/payment/type/{id}', [StudentDashboardController::class, 'paymentType'])->name('payment-type');
         //teacher timeline
@@ -157,6 +158,8 @@ Route::group(['prefix' => 'student', 'middleware' => ['auth', 'check_student'], 
         Route::get('/delete_cart', [StudentDashboardController::class, 'deleteCart']);
         Route::post('subscribe/plan', [StripePaymentController::class, 'studentstripe'])->name('subscribe-plan');
         Route::post('stripe', [StripePaymentController::class, 'stripestudentPost'])->name('stripe.post');
+        Route::post('/profile/update', [MyProfileController::class, 'update'])
+        ->name('profile-update');
 });
 
 

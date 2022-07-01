@@ -12,12 +12,18 @@ use Illuminate\Http\Request;
 class StudentDashboardController extends Controller
 {
     public function index(){
-        $course=PurchaseCourse::whereUser_id(auth()->user()->id)->get();
+        $course=PurchaseCourse::whereUser_id(auth()->user()->id)->whereHas('course')->get();
+        
         return view('student.dashboard',compact('course'));
     }
 
-    public function myProfile(){
-        return view('student.my-profile');
+       public function myProfile(){
+        $res = (new User())->getTeacherData();
+        $data = [
+          'profile' => $res
+        ];
+
+        return view('student.my-profile', $data);
     }
 
     public function history(){
@@ -81,11 +87,16 @@ class StudentDashboardController extends Controller
         return view('student.teacher-coursedetail',compact('course','lectures'));
     }
     public function courses(){
-        $teachers=User::whereRole('2')->paginate('6');
-        return view('student.course',compact('teachers'));
-    }
-    public function courseDetail(){
-        return view('student.course-detail');
+    
+            $courses=CreateCourse::whereHas('class')->get();
+           
+            return view('student.teacher-courses',compact('courses'));
+        }
+     
+    public function courseDetail($id){
+        $course=CreateCourse::find($id);
+        $lectures=CourseLecture::where('course_id', $id)->get();
+        return view('student.course-detail',compact('course','lectures'));
     }
 
     public function courseCart(){
@@ -109,4 +120,5 @@ class StudentDashboardController extends Controller
       $cart->save();
         return back();
     }
+
 }

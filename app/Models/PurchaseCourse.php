@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class PurchaseCourse extends Model
 {
     use HasFactory;
+    public function course()
+    {
+        return $this->belongsTo(CreateCourse::class, 'course_id', 'id');
+    }
+    
 }
