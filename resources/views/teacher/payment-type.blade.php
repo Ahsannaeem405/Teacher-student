@@ -10,17 +10,17 @@
             <div class="row col-middle">
                 <div class="col-md-7 form-col">
                     <div class="row">
-                        <form action="{{ route('teacher.payment-submission')}}" id="payment_form" method="POST">
+                        <form action="{{ route('subscribe-plan')}}" id="payment_form" method="POST">
                             @csrf
-                            <input type="hidden" name="payment_plan" value="{{ $type }}">
+                            <input type="hidden" name="payment_plan" value="{{ $amount }}">
                             <ul class="payment-form-row">
                                 <li id="border_pay">
-                                    <input type="radio" id="paypal" name="payment_method" value="pay_pal">
+                                    <input type="radio" id="paypal_payment" name="payment_method" value="pay_pal">
                                     <label for="paypal"><img src="{{url('/images/pay.png')}}" alt="Image"/></label>
                                 </li>
 
                                 <li id="border_visa">
-                                    <input type="radio" id="visa" name="payment_method" value="Visa">
+                                    <input type="radio" id="visa_payment" name="payment_method" value="visa">
                                     <label for="visa"><img src="{{url('/images/visanew.png')}}" alt="Image"/></label>
                                 </li>
                             </ul>
@@ -41,7 +41,7 @@
                             <p style="color: black; font-size: 17px;"><strong>Learn python coding for beginners </strong></p>
                         </div>
                         <div class="col-md-2">
-                            <p style="color: #318215"><strong>{{ $type }}</strong></p>
+                            <p style="color: #318215"><strong>{{ $amount }}</strong></p>
                         </div>
                     </div>
                     <h3>Plane Details</h3>
@@ -66,24 +66,21 @@
 
 @section('JS')
     <script>
-        $('#paypal').on('click', function (){
+        $('#paypal_payment').on('click', function (){
             console.log('here');
             $('#paypal_input').removeAttr("style");
         });
 
-        $('#visa').on('click', function (){
-            console.log('here');
-            $('#paypal_input').hide();
+        $('#visa_payment').on('click', function (){
+            $('#paypal_input').attr('style', 'display:none');
         });
 
-        $("#paypal").click(function(event){
-            event.preventDefault();
-            $('#pay_btn').prop("disabled", false); // Element(s) are now enabled.
+        $("#paypal_payment").on('click',function(){
+            $('#pay_btn').prop("disabled", false);
         });
 
-        $("#visa").click(function(event){
-            event.preventDefault();
-            $('#pay_btn').prop("disabled", false); // Element(s) are now enabled.
+        $("#visa_payment").on('click',function(){
+            $('#pay_btn').prop("disabled", false);
         });
     </script>
 @endsection

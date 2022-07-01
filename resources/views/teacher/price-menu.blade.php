@@ -85,7 +85,7 @@
 
                                         <div class="row">
                                             <div class="col-lg-12">
-                                                <a href="{{ route('teacher.payment-type', ['type' => encrypt('$10')]) }}"
+                                                <a href="{{ route('teacher.payment-type', ['type' => encrypt('10')]) }}"
                                                    style="color: white; background-color: #318215; text-decoration: none;
                                                    border-radius: 10px; padding: 10px 45px;">Select Plan</a>
 {{--                                                <button type="button"--}}
@@ -121,7 +121,7 @@
 
                                         <div class="row">
                                             <div class="col-lg-12">
-                                                <a href="{{ route('teacher.payment-type', ['type' => encrypt('$25')]) }}"
+                                                <a href="{{ route('teacher.payment-type', ['type' => encrypt('25')]) }}"
                                                    style="color: white; background-color: #318215; text-decoration: none;
                                                     border-radius: 10px; padding: 10px 45px;">
                                                     Select Plan</a>

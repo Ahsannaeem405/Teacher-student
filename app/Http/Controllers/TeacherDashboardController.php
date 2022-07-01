@@ -51,9 +51,9 @@ class TeacherDashboardController extends Controller
     }
 
     public function paymentType($type){
-        $plan_type = decrypt($type);
+        $plan_amount = decrypt($type);
         $data = [
-          'type' => $plan_type
+          'amount' => $plan_amount
         ];
 
         return view('teacher.payment-type', $data);

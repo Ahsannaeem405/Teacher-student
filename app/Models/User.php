@@ -26,7 +26,8 @@ class User extends Authenticatable
         'bio',
         'linkedin_url',
         'stripe_secret_key',
-        'stripe_public_key'
+        'stripe_public_key',
+        'subscription_expiry_date'
     ];
 
     /**
@@ -101,5 +102,14 @@ class User extends Authenticatable
     public function delUser($id){
         return $this->where('id', $id)
             ->delete();
+    }
+
+    public function storeExpiry($exp){
+        $data = [
+            'subscription_expiry_date' => $exp
+        ];
+
+        return $this->where('id', auth()->user()->id)
+            ->update($data);
     }
 }

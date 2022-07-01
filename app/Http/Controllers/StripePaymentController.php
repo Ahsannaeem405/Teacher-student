@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Subscription;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Session;
 use Stripe;
@@ -13,9 +15,16 @@ class StripePaymentController extends Controller
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
-    public function stripe()
+    public function stripe(Request $request)
     {
-        return view('user/payment');
+        //dd($request->all());
+
+        $data = [
+          'payment_amount'  => $request->payment_plan,
+          'payment_method' => $request->payment_method
+        ];
+
+        return view('user/payment', $data);
     }
 
     /**
@@ -25,19 +34,40 @@ class StripePaymentController extends Controller
      */
     public function stripePost(Request $request)
     {
-        // dd($request->input());
-        dd($request->all());
+        $payment_amount = str_replace('$', '', $request->amount);
+        $payment_method = $request->payment_method;
+
         Stripe\Stripe::setApiKey(env('STRIPE_SECRET','sk_test_51Kh9uAFBFsCMdULhVtPQxp0NOArxMFzdQ6qroS5jZFettctGfyVPc5WPmT6b1hGimRW09adqa3lndHnywhsbBqYW00K8eyxFsu
         '));
-        Stripe\Charge::create ([
-                "amount" => $request->amount * 100,
+
+        $pay =Stripe\Charge::create ([
+                "amount" => $payment_amount * 100,
                 "currency" => "usd",
                 "source" => $request->stripeToken,
                 "description" => "Payment successfully"
         ]);
 
-        \Session::flash('success', 'Payment successful!');
+        if($pay->description == 'Payment successfully'){
+            $data = [
+                'user_id' => auth()->user()->id,
+                'payment_amount' => $payment_amount,
+                'payment_method' => $payment_method
+            ];
 
-        return back();
+            $start = date('Y-m-d');
+            $exp = date('Y-m-d', strtotime($start. ' + 30 days'));
+
+            $res = (new User())->storeExpiry($exp);
+            if($res == '1'){
+                $result = (new Subscription())->storeSubscription($data);
+//            if(!empty($result)){
+//
+//            }
+            }
+
+            \Session::flash('success', 'Payment successful!');
+
+            return redirect()->route('teacher.dashboard');
+        }
     }
 }
