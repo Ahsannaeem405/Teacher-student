@@ -95,8 +95,9 @@ class StudentDashboardController extends Controller
         return response()->json(['success'=>'Cart deleted successfully!']);
     }
 
-    public function paymentType(){
-        $cart=cart::where('user_id',\Auth::user()->id)->whereHas('course')->get();
+    public function paymentType($id){
+        $cart=cart::find($id);
+       
         return view('student.payment-type',compact('cart'));
     }
     public function addCart(Request $request){

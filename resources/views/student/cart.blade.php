@@ -35,7 +35,8 @@
                 <div class="col-lg-3" style="padding-top: 20px;">
                     <button type="button" class="btn btn-xs btn-danger userDeletecart" userId="{{$carts->id}}"> <i class='fa fa-trash'></i></button>
                 </div>
-                
+                <a href="{{ url('student/payment/type/'.$carts->id) }}" class="add-cart-btn"
+                style="text-decoration: none; color: white;"><strong>Pay Now</strong></a>
             </div>
             @endforeach
 
@@ -110,8 +111,8 @@
             </div>
 
             <div class="col-lg-10" style="margin-top: 10%; text-align: end">
-                <a href="{{ route('student.payment-type') }}" class="add-cart-btn"
-                   style="text-decoration: none; color: white;"><strong>Check Out</strong></a>
+                {{-- <a href="{{ route('student.payment-type') }}" class="add-cart-btn"
+                   style="text-decoration: none; color: white;"><strong>Check Out</strong></a> --}}
             </div>
         </div>
         
