@@ -54,7 +54,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-sm-6">
-                                  <a href="{{url('student/all_courses/'.$teacher->id)}}" > <h4><strong>{{$teacher->first_name}} {{$teacher->last_name}}</strong></h4></a>
+                                  <a href="{{url('student/all_courses/'.$teacher->id)}}" > <h4><strong>{{$teacher->name}} </strong></h4></a>
                                     <h5><span class="section3-span" style="color: #C9C9C9"><strong>Technology</strong></span></h5>
                                 </div>
                                 <div class="col-sm-6 text-right" style="padding-top: 8px;">
