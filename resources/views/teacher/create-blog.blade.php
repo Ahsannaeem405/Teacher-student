@@ -5,7 +5,7 @@
 @section('content')
     <div class="container-fluid" style="margin-bottom: 15%;">
         <div class="row" style="margin-bottom: 6%;">
-            <div class="col-lg-8" style="padding-top: 30px;">
+            <div class="col-lg-8 pl_0 pr_0 text_center" style="padding-top: 30px;">
                 <h3>DASHBOARD / <span style="color: #C9C97E">CREATE NEW BLOG</span></h3>
             </div>
         </div>
@@ -29,13 +29,13 @@
 
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="col-12">
+                    <div class="col-12 text_center">
                         <h4><strong>Add Blog cover Image</strong></h4>
                     </div>
                 </div>
             </div>
 
-            <div class="row" style="margin-bottom: 3%;">
+            <div class="row text_center" style="margin-bottom: 3%;">
                 <div class="col-lg-12">
                     <div class="col-12">
                         <label for="course_cover" class="course-cover-plus">

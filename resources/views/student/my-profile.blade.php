@@ -5,7 +5,7 @@
 @section('content')
     <div class="container-fluid" >
         <div class="row">
-            <div class="col-lg-6" style="padding-left: 80px;">
+            <div class="col-lg-6 text_center" style="padding-left: 80px;">
                 <h3>MY PROFILE</h3>
             </div>
         </div>

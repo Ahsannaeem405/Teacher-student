@@ -37,7 +37,7 @@
                                 <div class="col-md-6">
                                     <h1>DASHBORAD</h1>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-6 text_center">
                                     <form class="search-form" action="#">
                                         <button type="submit"><i class="fa fa-search"></i></button>
                                         <input type="text" placeholder="Python coding" name="search2">

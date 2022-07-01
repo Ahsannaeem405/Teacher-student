@@ -5,7 +5,7 @@
 @section('content')
     <div class="container-fluid" >
         <div class="row" style="margin-bottom: 2%;">
-            <div class="col-lg-8" style="padding-top: 30px;">
+            <div class="col-lg-8 pr_0 pl_0 text_center" style="padding-top: 30px;">
                 <h3>DASHBOARD / <span style="color: #C9C97E">MY PROFILE</span></h3>
             </div>
         </div>
