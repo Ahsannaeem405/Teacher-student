@@ -10,13 +10,15 @@
             <div class="row col-middle">
                 <div class="col-md-7 form-col">
                     <div class="row">
-                        <form action="{{ route('teacher.payment-submission') }}" id="payment_form" method="POST">
+                        <form action="{{ route('teacher.payment-submission')}}" id="payment_form" method="POST">
                             @csrf
+                            <input type="hidden" name="payment_plan" value="{{ $type }}">
                             <ul class="payment-form-row">
                                 <li id="border_pay">
                                     <input type="radio" id="paypal" name="payment_method" value="pay_pal">
                                     <label for="paypal"><img src="{{url('/images/pay.png')}}" alt="Image"/></label>
                                 </li>
+
                                 <li id="border_visa">
                                     <input type="radio" id="visa" name="payment_method" value="Visa">
                                     <label for="visa"><img src="{{url('/images/visanew.png')}}" alt="Image"/></label>
@@ -27,7 +29,7 @@
                                 <input type="email" id="paypal_email" class="form-control"
                                        name="paypal_email" style="margin-bottom: 60%;">
                             </div>
-                            <input type="submit" value="Pay Now" style="margin-bottom: 50%;">
+                            <input type="submit" value="Pay Now" id="pay_btn" style="margin-bottom: 50%;" disabled>
                         </form>
                         <p style="font-size: 18px;">(You will be redirected to official payment gateway page)</p>
                     </div>
@@ -72,6 +74,16 @@
         $('#visa').on('click', function (){
             console.log('here');
             $('#paypal_input').hide();
+        });
+
+        $("#paypal").click(function(event){
+            event.preventDefault();
+            $('#pay_btn').prop("disabled", false); // Element(s) are now enabled.
+        });
+
+        $("#visa").click(function(event){
+            event.preventDefault();
+            $('#pay_btn').prop("disabled", false); // Element(s) are now enabled.
         });
     </script>
 @endsection

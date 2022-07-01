@@ -10,14 +10,13 @@ use phpDocumentor\Reflection\DocBlock\Tags\Uses;
 class MyProfileController extends Controller
 {
     public function update(Request $request){
+
         $this->validate($request, [
             'name' => 'required|string|min:3',
             'bio' => 'string',
             'email' => 'required|string',
             'role' => 'required',
             'linkedIn_prof' => 'string',
-            'stripe_secret_key' => 'string',
-            'stripe_public_key' => 'string'
         ]);
 
         try{

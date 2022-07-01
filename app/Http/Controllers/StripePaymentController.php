@@ -26,6 +26,7 @@ class StripePaymentController extends Controller
     public function stripePost(Request $request)
     {
         // dd($request->input());
+        dd($request->all());
         Stripe\Stripe::setApiKey(env('STRIPE_SECRET','sk_test_51Kh9uAFBFsCMdULhVtPQxp0NOArxMFzdQ6qroS5jZFettctGfyVPc5WPmT6b1hGimRW09adqa3lndHnywhsbBqYW00K8eyxFsu
         '));
         Stripe\Charge::create ([

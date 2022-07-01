@@ -86,8 +86,20 @@ class User extends Authenticatable
         return $this->where('id', $id)
             ->delete();
     }
-    public function course()
-    {
-        return $this->belongsTo(CreateCourse::class, 'id', 'teacher_id');
+
+    public function getTeacherData(){
+        return $this->where('id', auth()->user()->id)
+            ->first();
+    }
+
+    public function updateMyProfile($data){
+
+        return $this->where('id', auth()->user()->id)
+            ->update($data);
+    }
+
+    public function delUser($id){
+        return $this->where('id', $id)
+            ->delete();
     }
 }

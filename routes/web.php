@@ -153,7 +153,7 @@ Route::group(['prefix' => 'student', 'middleware' => ['auth', 'check_student'], 
         Route::get('/all_courses/{id}', [StudentDashboardController::class, 'teachercourses'])->name('teacher-coursessssss');
         Route::get('/course_detail/{id}', [StudentDashboardController::class, 'teachercourseDetail'])->name('course-detail');
 
-      
+
 });
 
 
