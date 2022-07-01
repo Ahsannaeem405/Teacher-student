@@ -25,7 +25,7 @@
 {{--            </div>--}}
 
             <div class="col-lg-3" style="font-size: 22px;">
-                <p><strong>{{$teacher->first_name}} {{$teacher->last_name}} Courses</strong></p>
+                <p><strong>All Courses</strong></p>
             </div>
         </div>
 
