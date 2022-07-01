@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\CourseLecture;
 use App\Models\CreateClass;
 use App\Models\CreateCourse;
+use App\Models\Subscription;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,6 @@ class TeacherDashboardController extends Controller
 {
     public function index(){
         $record = (new CreateClass())->getClasses();
-
         $data = [
           'classes' => $record
         ];
@@ -51,12 +51,18 @@ class TeacherDashboardController extends Controller
     }
 
     public function paymentType($type){
-        $plan_amount = decrypt($type);
-        $data = [
-          'amount' => $plan_amount
-        ];
+        $check_sub = (new Subscription())->checkSubscription();
 
-        return view('teacher.payment-type', $data);
+        if(empty($check_sub)){
+            $plan_amount = decrypt($type);
+            $data = [
+                'amount' => $plan_amount
+            ];
+
+            return view('teacher.payment-type', $data);
+        }else{
+            return redirect()->back()->with('warning', 'You already have a subscription plan.');
+        }
     }
 
     public function paymentSubmission(){
@@ -108,5 +114,37 @@ class TeacherDashboardController extends Controller
 
     public function changePassword(){
         return view('teacher.change-password');
+    }
+
+    public function trialMenu($type){
+        $check_sub = (new Subscription())->checkSubscription();
+
+        if(empty($check_sub)){
+            $plan_type = decrypt($type);
+
+            $start = date('Y-m-d');
+            $exp = date('Y-m-d', strtotime($start. ' + 7 days'));
+
+            $sub_exp = [
+                'subscription_expiry_date' => $exp
+            ];
+
+            $sub = [
+                'user_id' => auth()->user()->id,
+                'payment_method' => $plan_type
+            ];
+
+            $res = (new User())->storeExpiry($sub_exp);
+
+            if($res == '1'){
+                $result = (new Subscription())->storeSubscription($sub);
+                if(!empty($result)){
+                    return redirect()->route('teacher.dashboard')->with('success', 'Your free trial has started now.');
+                }
+            }
+        }
+        else{
+            return redirect()->back()->with('warning', 'You already have a subscription plan.');
+        }
     }
 }

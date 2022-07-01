@@ -97,17 +97,18 @@ Route::group(['prefix' => 'teacher', 'middleware' => ['auth', 'check_teacher'], 
 
         Route::get('dashboard', [TeacherDashboardController::class, 'index'])->name('dashboard');
         Route::get('/my/profile', [TeacherDashboardController::class, 'myProfile'])->name('myProfile');
-        Route::get('/course/create', [TeacherDashboardController::class, 'createCourse'])->name('create-course');
+        Route::get('/course/create', [TeacherDashboardController::class, 'createCourse'])->name('create-course')->middleware('check_subscription');
         Route::get('/courses', [TeacherDashboardController::class, 'myCourse'])->name('my-courses');
         Route::get('/my-students', [TeacherDashboardController::class, 'myStudents'])->name('my-students');
         Route::get('/pricing/menu', [TeacherDashboardController::class, 'priceMenu'])->name('price-menu');
+        Route::get('/trial/menu/{type}', [TeacherDashboardController::class, 'trialMenu'])->name('trial-menu');
         Route::get('/payment/type/{type}', [TeacherDashboardController::class, 'paymentType'])->name('payment-type');
         Route::post('/payment/submission', [TeacherDashboardController::class, 'paymentSubmission'])->name('payment-submission');
         Route::get('/course/detail/{id}', [TeacherDashboardController::class, 'courseDetail'])->name('course-detail');
         Route::get('/notes', [TeacherDashboardController::class, 'notes'])->name('t-notes');
         Route::get('/create/notes', [TeacherDashboardController::class, 'createNotes'])->name('create-notes');
         Route::get('/create/blog', [TeacherDashboardController::class, 'createBlog'])->name('create-blog');
-        Route::get('/create/class', [TeacherDashboardController::class, 'createClass'])->name('create-class');
+        Route::get('/create/class', [TeacherDashboardController::class, 'createClass'])->name('create-class')->middleware('check_subscription');
         Route::get('/upload/profile', [TeacherDashboardController::class, 'uploadProfile'])->name('upload-profile');
         Route::get('/status', [TeacherDashboardController::class, 'status'])->name('status');
         Route::get('/change/password', [TeacherDashboardController::class, 'changePassword'])->name('change-password');

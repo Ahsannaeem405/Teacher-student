@@ -30,7 +30,7 @@ class StripePaymentController extends Controller
     /**
      * success response method.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function stripePost(Request $request)
     {
@@ -57,17 +57,16 @@ class StripePaymentController extends Controller
             $start = date('Y-m-d');
             $exp = date('Y-m-d', strtotime($start. ' + 30 days'));
 
-            $res = (new User())->storeExpiry($exp);
+            $data = [
+                'subscription_expiry_date' => $exp
+            ];
+            $res = (new User())->storeExpiry($data);
             if($res == '1'){
                 $result = (new Subscription())->storeSubscription($data);
-//            if(!empty($result)){
-//
-//            }
+                if(!empty($result)){
+                    return redirect()->route('teacher.dashboard')->with('success', 'Payment successful.');
+                }
             }
-
-            \Session::flash('success', 'Payment successful!');
-
-            return redirect()->route('teacher.dashboard');
         }
     }
 }
