@@ -9,7 +9,7 @@ use App\Models\PurchaseCourse;
 use Illuminate\Http\Request;
 use Session;
 use Stripe;
-
+use Exception;
 class StripePaymentController extends Controller
 {
     /**
@@ -87,10 +87,11 @@ $teacher=User::find($request->teacher_id);
     }
     public function stripestudentPost(Request $request)
     {
+        try{
         $payment_amount = str_replace('$', '', $request->amount);
         $teacher=User::find($request->teacher_id);
 $cart=cart::find($request->cart_id);
-        Stripe\Stripe::setApiKey($teacher->stripe_public_key);
+        Stripe\Stripe::setApiKey($teacher->stripe_secret_key);
 
         $pay =Stripe\Charge::create ([
                 "amount" => $payment_amount * 100,
@@ -103,11 +104,19 @@ $cart=cart::find($request->cart_id);
            $purchase=new PurchaseCourse();
            $purchase->user_id=\Auth::user()->id;
            $purchase->course_id=$cart->course_id;
-           $purchase->teacher_id=$cart->teacher_id;
+           $purchase->teacher_id=$teacher->id;
+ $purchase->save();
+ $cart->delete();
+         
 
-            \Session::flash('success', 'Payment successful!');
-
-            return redirect()->route('student.dashboard');
+            return redirect()->route('student.dashboard')->with('success',"Payment has submitted successfully");
         }
+       else{
+        return back()->with('error',"Transaction Failed");
+       } 
+    }
+    catch(exception $e){
+        return back()->with('error',$e->getMessage());
+    }
     }
 }

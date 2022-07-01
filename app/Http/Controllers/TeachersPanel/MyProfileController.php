@@ -13,12 +13,11 @@ class MyProfileController extends Controller
 
         $this->validate($request, [
             'name' => 'required|string|min:3',
-            'bio' => 'string',
             'email' => 'required|string',
             'role' => 'required',
-            'linkedIn_prof' => 'string',
+           
         ]);
-
+       
         try{
             $data = [
               'name' => $request->name,

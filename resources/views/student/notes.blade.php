@@ -11,7 +11,7 @@
                 <div class="col-lg-10" style=" padding-top: 50px;">
                     <div class="row justify_md_cen" style="display: flex; justify-content: end">
                         <div class="col-lg-1 col-md-1 add-new-btn ">
-                            <a href="#">+</a>
+                            <a href="{{url('student/notes/create')}}">+</a>
                         </div>
 
                         <div class="col-lg-2 col-md-2">
