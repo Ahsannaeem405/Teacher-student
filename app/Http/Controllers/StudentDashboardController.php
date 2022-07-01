@@ -92,5 +92,8 @@ class StudentDashboardController extends Controller
     public function paymentType(){
         return view('student.payment-type');
     }
-  
+    public function addCart(){
+        
+        return back();
+    }
 }

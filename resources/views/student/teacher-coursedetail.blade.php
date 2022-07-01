@@ -42,8 +42,13 @@
                     <h4>Course Fee <br><span class="span-class">{{ $course->price }}</span></h4>
                     <h4><i class="fa fa-calendar" aria-hidden="true"></i> Created Date <br><span class="span-class">{{ date('d-F-Y', strtotime($course->class->class_date)) }}</span></h4>
                     <h4><i class="fa fa-clock-o" aria-hidden="true"></i> Created Time <br> <span class="span-class">{{ $course->class->class_time }}</span>PM</h4>
-                    <a href="#" class="add-cart-btn"
-                       style="text-decoration: none; color: white;">Add to Cart</a>
+                    <form action="{{url('student/add_cart')}}" method="post">
+                        @csrf
+                <input type="hidden" name="user_id" value="{{auth()->user()->id}}">
+                <input type="hidden" name="course_id" value="{{$course->id}}">
+                   <button type="submit" class="add-cart-btn"
+                       style="text-decoration: none; color: white;border:none;">Add to Cart</button>
+                    </form>
                 </div>
             </div>
         </div>
