@@ -39,8 +39,12 @@
                 <button class="btn dropdown-toggle nav-img-btn" type="button"
                         data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false" style="background: none">
-                    <img src="{{(!empty(auth()->user()->image)) ? auth()->user()->image :
-                     url('/images/user-avatar.png')}}" class="head-user-img" alt="Image"/>
+                    @php
+                        $imagePath = explode('.', !is_null(auth()->user()->image) ? auth()->user()->image : 'user-avatar.png');
+                    @endphp
+                    <img src="{{asset('images')."/". $imagePath[0].".".$imagePath[1]}}" alt="Image" class="show_prof_img"
+                         style="color: white" class="head-user-img" alt="Image"/>
+
                     <span class="caret" style="color: white"></span>
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="about-us">
@@ -53,14 +57,9 @@
 </header>
 
 <script>
-
     function check_alarm(){
         $(".main-header").toggle();
         $(".fa1").toggle();
         $(".fa2").toggle();
     }
-
-
-
-
 </script>

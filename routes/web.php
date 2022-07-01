@@ -161,7 +161,7 @@ Route::group(['prefix' => 'student', 'middleware' => ['auth', 'check_student'], 
 Route::get('/',[FrontController::class,'index']);
 
 
-Route::get('subscribe_plan', [StripePaymentController::class, 'stripe']);
+Route::post('subscribe/plan', [StripePaymentController::class, 'stripe'])->name('subscribe-plan');
 Route::post('stripe', [StripePaymentController::class, 'stripePost'])->name('stripe.post');
 //user main view
 Route::get('/contact-us', function () {

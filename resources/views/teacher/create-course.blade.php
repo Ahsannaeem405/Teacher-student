@@ -183,7 +183,7 @@
                          padding-left: 10px; padding-right: 10px; border: none">+</a>
                             </div>
 
-                            <div class="col-lg-10">
+                            <div class="col-lg-10 pl_0 pr_0">
                                 <p style="padding-left: 6px;">Create New</p>
                             </div>
                         </div>

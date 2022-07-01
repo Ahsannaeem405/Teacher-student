@@ -50,13 +50,13 @@
     @endif
 
     <div class="tab-sec">
-        <div class="row" style="padding-top: 0px; padding-left: 20px; margin-right: 0px;">
-            <div class="col-md-3 tab-col vh-100" style="text-align: center; background: #f2f2f2;">
+        <div class="row" style="padding-top: 0px;  margin-right: 0px;">
+            <div class="col-md-3 tab-col vh-100 p_0" style="text-align: center; background: #f2f2f2;">
 
                 @include('teacher.layouts.sidebar')
 
             </div>
-            <div class="col-md-9 tab-content-col">
+            <div class="col-md-9 tab-content-col pr_0">
 
                 @include('teacher.layouts.alerts')
 

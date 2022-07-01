@@ -27,7 +27,7 @@
     <div class="banner-two" style="width: 100%;"></div>
 
     <div class=" tab-sec">
-        <div class=" row" style="padding-top: 0px; padding-left: 20px; margin-right: 0px;">
+        <div class=" row" style="padding-top: 0px; margin-right: 0px;">
 
 
                 @include('student.layouts.sidebar')

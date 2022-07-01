@@ -18,6 +18,11 @@
 
 }
 
+.p_0 {
+    padding-left : 0px !important;
+    padding-right: 0px !important;
+}
+
 .sidebar-logout>a {
     text-decoration: none;
     color          : black;
@@ -410,31 +415,35 @@ button.btn.dropdown-toggle.nav-img-btn {
 }
 
 @media (max-width: 992px) {
-    .mystudent_teach{
-        display: flex;
+    .mystudent_teach {
+        display        : flex;
         justify-content: center;
     }
 
 }
+
 @media (min-width: 235px) and (max-width: 465px) {
     .mystudent_teach:before {
         display: none;
         content: " ";
     }
-    
-    :after, :before {
+
+    :after,
+    :before {
         -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
+        -moz-box-sizing   : border-box;
+        box-sizing        : border-box;
     }
+
     .mystudent_teach {
-        display: grid !important;
+        display              : grid !important;
         grid-template-columns: 1fr 1fr !important;
-        grid-template-rows: repeat(3,1fr);
-        justify-content: center;
+        grid-template-rows   : repeat(3, 1fr);
+        justify-content      : center;
     }
 
 }
+
 .payment-home-btn {
     padding         : 15px 50px;
     background-color: #C9C97E;
@@ -542,14 +551,33 @@ button.btn.dropdown-toggle.nav-img-btn {
     .profile-save-btn {
         padding: 10px 30px;
     }
-    .profile-draft-btn{
+
+    .profile-draft-btn {
         padding: 10px 30px;
 
     }
 
-    .notes_resp_mrgn {
-        /* margin-left: 4rem; */
+    .pricing .price h2 {
+        width  : 90px;
+        height : 88px;
+        outline: 5px solid #fff;
     }
+
+    .enterprice-plan>p,
+    .basic-plan>p {
+
+        width    : 100px !important;
+        height   : 100px !important;
+        font-size: 12px !important;
+
+        border : 8px solid white !important;
+        padding: 27px !important;
+    }
+
+   .list-unstyled .plan_list img{
+    width: 16px !important;
+    height:16px !important;
+   }
 
     .add_new_stu {
         justify-content: center !important;
@@ -565,6 +593,10 @@ button.btn.dropdown-toggle.nav-img-btn {
         align-items    : center;
         justify-content: center;
     }
+
+    /* .create_new_btn p{
+        
+    } */
 
     .class_learn {
         text-align       : center !important;
@@ -603,7 +635,7 @@ button.btn.dropdown-toggle.nav-img-btn {
         justify-content      : end !important;
     }
 
-    .dashbord_note_stu {}
+    /* .dashbord_note_stu {} */
 
     .pl_0 {
         padding-left: unset !important;

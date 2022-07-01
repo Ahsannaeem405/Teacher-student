@@ -3,7 +3,7 @@
     <i class="fa-solid fa-xmark krs"></i>
 </button>
 
-<div class="side_bar_res col-md-12 tab-col vh-100">
+<div class="side_bar_res col-md-12 tab-col vh-100 p_0">
 {{--{{dd(request()->path())}}--}}
 @if(request()->path() == 'teacher/upload/profile' ||
     request()->path() == 'teacher/change/password' ||

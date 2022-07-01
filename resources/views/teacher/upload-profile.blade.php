@@ -22,11 +22,12 @@
                <div class="col-lg-6 profile-image">
                    @php
                        $imagePath = explode('.', !is_null($profile->image) ? $profile->image : 'user-avatar.png');
+
                    @endphp
-                   <img src="{{asset('images')."/". $imagePath[0].".".$imagePath[1]}}" width="60" alt="Image" id="show_prof_img"
+                   <img src="{{asset('images')."/". $imagePath[0].".".$imagePath[1]}}" width="60" alt="Image" class="show_prof_img"
                         style="border: 1px solid #dfd5d5"/>
 
-                   <img src="#" id="select_prof_image" style="display: none;" width="60">
+
                    <label for="getFile2" style="font-size: 26px; text-decoration: none; color: black">...</label>
                    <input type="file" name="prof_image" id="getFile2" style="visibility: hidden">
                </div>
@@ -94,7 +95,7 @@
            <div class="row profile-input-field">
                <div class="col-lg-6" >
                    <label for="">Stripe Public Key</label>
-                   <input type="text" class="form-control" name="stripe_secret_key"
+                   <input type="text" class="form-control" name="stripe_public_key"
                           value="{{ (!empty($profile->stripe_public_key)) ? $profile->stripe_public_key : '' }}">
                </div>
            </div>
@@ -124,10 +125,8 @@
         getFile2.onchange = evt => {
             const [file] = getFile2.files
             if (file) {
-                select_prof_image.src = URL.createObjectURL(file)
-                $('#select_prof_image').removeAttr("style");
-                $('#show_prof_img').hide();
-
+                console.log(URL.createObjectURL(file));
+                $('.show_prof_img').attr('src',URL.createObjectURL(file));
             }
         }
     </script>
