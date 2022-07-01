@@ -5,11 +5,11 @@
 @section('content')
     <div class="container-fluid" style="margin-bottom: 15%;">
         <div class="row">
-            <div class="col-lg-6" style="padding-left: 80px; padding-top: 30px;">
+            <div class="col-lg-6 pl_0 text_center" style="padding-left: 80px; padding-top: 30px;">
                 <h3>DASHBOARD</h3>
             </div>
 
-            <div class="col-lg-6" style="padding-top: 50px;">
+            <div class="col-lg-6 text_center" style="padding-top: 50px;">
                 <button type="submit" class="search-btn">
                     <img src="{{ asset('images/search-icon.png') }}" alt="no image" width="20">
                 </button>
@@ -29,7 +29,7 @@
         </div>
 
         <div class="row" style="margin-bottom: 50px;">
-            <div class="col-lg-8">
+            <div class="col-lg-8 pl_0 pr_0 text_center">
                 <h3>Choose the right payment option<br>
                     that best suits you.</h3>
             </div>

@@ -56,7 +56,7 @@
                 @include('teacher.layouts.sidebar')
 
             </div>
-            <div class="col-md-9 tab-content-col">
+            <div class="col-md-9 tab-content-col pr_0">
 
                 @include('teacher.layouts.alerts')
 
