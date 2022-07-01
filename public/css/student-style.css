@@ -17,7 +17,10 @@
     font-size : 18px;
 
 }
-
+.p_0 {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
 .sidebar-logout>a {
     text-decoration: none;
     color          : black;
@@ -547,9 +550,7 @@ button.btn.dropdown-toggle.nav-img-btn {
 
     }
 
-    .notes_resp_mrgn {
-        /* margin-left: 4rem; */
-    }
+   
 
     .add_new_stu {
         justify-content: center !important;
@@ -565,6 +566,9 @@ button.btn.dropdown-toggle.nav-img-btn {
         align-items    : center;
         justify-content: center;
     }
+    /* .create_new_btn p{
+        
+    } */
 
     .class_learn {
         text-align       : center !important;
@@ -603,7 +607,7 @@ button.btn.dropdown-toggle.nav-img-btn {
         justify-content      : end !important;
     }
 
-    .dashbord_note_stu {}
+    /* .dashbord_note_stu {} */
 
     .pl_0 {
         padding-left: unset !important;

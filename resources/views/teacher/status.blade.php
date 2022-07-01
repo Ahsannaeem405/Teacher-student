@@ -5,16 +5,16 @@
 @section('content')
     <div class="container-fluid" >
         <div class="row" >
-            <div class="col-lg-8" style="padding-top: 30px;">
+            <div class="col-lg-8 text_center" style="padding-top: 30px;">
                 <h3>YOUR STATUS</h3>
             </div>
         </div>
 
-        <div class="row status" style="">
+        <div class="row status" >
             <div class="col-lg-12" style="border: 1px solid #707070"></div>
         </div>
 
-        <div class="row">
+        <div class="row text_center">
             <div class="col-lg-10 col-md-10">
                 <div class="row">
                     <div class="col-lg-12 col-md-12">
