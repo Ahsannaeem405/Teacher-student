@@ -23,7 +23,8 @@ class CreateClass extends Model
     ];
 
     public function getClasses(){
-        return $this->all();
+        return $this->where('user_id', auth()->user()->id)
+            ->get();
     }
 
     public function createClass($data){

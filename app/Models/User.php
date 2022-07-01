@@ -104,11 +104,7 @@ class User extends Authenticatable
             ->delete();
     }
 
-    public function storeExpiry($exp){
-        $data = [
-            'subscription_expiry_date' => $exp
-        ];
-
+    public function storeExpiry($data){
         return $this->where('id', auth()->user()->id)
             ->update($data);
     }

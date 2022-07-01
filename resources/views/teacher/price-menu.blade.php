@@ -55,7 +55,7 @@
                                             <li class="list-unstyled plan_list"> <img src="{{ asset('images/tick.png') }}" width="24" height="18" alt="" srcset=""> <span class="l_p"></span> <span class="li_font">Share your videos with your social media</span></li>
                                             <li class="list-unstyled plan_list"> <img src="{{ asset('images/tick.png') }}" width="24" height="18" alt="" srcset=""> <span class="l_p"></span> <span class="li_font">Share your videos with your social media</span></li>
                                         </ul>
-                                        <a href="{{ route('teacher.payment-type', ['type' => encrypt('free')]) }}"
+                                        <a href="{{ route('teacher.trial-menu', ['type' => encrypt('free')]) }}"
                                            style="color: white; background-color: #318215; text-decoration: none;
                                                 border-radius: 10px; padding: 10px 45px;">Select Plan</a>
                                     </div>

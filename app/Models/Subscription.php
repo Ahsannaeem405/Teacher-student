@@ -14,4 +14,13 @@ class Subscription extends Model
         'payment_amount',
         'payment_method'
     ];
+
+    public function storeSubscription($data){
+        return $this->create($data);
+    }
+
+    public function checkSubscription(){
+        return $this->where('user_id', auth()->user()->id)
+            ->first();
+    }
 }

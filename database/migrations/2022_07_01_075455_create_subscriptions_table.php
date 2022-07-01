@@ -18,7 +18,7 @@ class CreateSubscriptionsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')
                 ->references('id')->on('users')->onDelete('cascade');
-            $table->tinyInteger('payment_amount');
+            $table->tinyInteger('payment_amount')->nullable();
             $table->string('payment_method', 15);
             $table->timestamps();
         });
