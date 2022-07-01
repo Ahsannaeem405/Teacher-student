@@ -12,7 +12,7 @@
             <div class="col-lg-4" style="padding-top: 40px;">
                 <div class="add-to-cart">
                     <a href="{{ route('student.add-to-cart') }}">
-                        <i class="fas fa-shopping-cart"></i>
+                        <i class="fas fa-shopping-cart">{{App\Models\cart::where('user_id',auth()->user()->id)->count()}}</i>
                         &nbsp;&nbsp;&nbsp;&nbsp;<span>Add to Cart</span>
                     </a>
 
@@ -46,8 +46,9 @@
                         @csrf
                 <input type="hidden" name="user_id" value="{{auth()->user()->id}}">
                 <input type="hidden" name="course_id" value="{{$course->id}}">
+                
                    <button type="submit" class="add-cart-btn"
-                       style="text-decoration: none; color: white;border:none;">Add to Cart</button>
+                       style="text-decoration: none; color: white;border:none;" @if(isset($course->cart)) disabled @endif>Add to Cart</button>
                     </form>
                 </div>
             </div>

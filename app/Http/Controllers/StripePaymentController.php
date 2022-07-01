@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Subscription;
 use App\Models\User;
+use App\Models\cart;
+use App\Models\PurchaseCourse;
 use Illuminate\Http\Request;
 use Session;
 use Stripe;
-
+use Exception;
 class StripePaymentController extends Controller
 {
     /**
@@ -68,5 +70,52 @@ class StripePaymentController extends Controller
                 }
             }
         }
+    }
+    public function studentstripe(Request $request)
+    {
+       
+$teacher=User::find($request->teacher_id);
+        $data = [
+          'payment_amount'  => $request->amount,
+          'teacher'=>$teacher,
+          'cart_id'=>$request->cart_id,
+          'payment_method' => $request->payment_method
+        ];
+
+        return view('student/payment', $data);
+    }
+    public function stripestudentPost(Request $request)
+    {
+        try{
+        $payment_amount = str_replace('$', '', $request->amount);
+        $teacher=User::find($request->teacher_id);
+$cart=cart::find($request->cart_id);
+        Stripe\Stripe::setApiKey($teacher->stripe_secret_key);
+
+        $pay =Stripe\Charge::create ([
+                "amount" => $payment_amount * 100,
+                "currency" => "usd",
+                "source" => $request->stripeToken,
+                "description" => "Payment successfully"
+        ]);
+
+        if($pay->description == 'Payment successfully'){
+           $purchase=new PurchaseCourse();
+           $purchase->user_id=\Auth::user()->id;
+           $purchase->course_id=$cart->course_id;
+           $purchase->teacher_id=$teacher->id;
+ $purchase->save();
+ $cart->delete();
+         
+
+            return redirect()->route('student.dashboard')->with('success',"Payment has submitted successfully");
+        }
+       else{
+        return back()->with('error',"Transaction Failed");
+       } 
+    }
+    catch(exception $e){
+        return back()->with('error',$e->getMessage());
+    }
     }
 }

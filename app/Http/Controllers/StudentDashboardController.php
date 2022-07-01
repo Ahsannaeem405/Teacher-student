@@ -5,6 +5,7 @@ use App\Models\studentnote;
 use App\Models\User;
 use App\Models\CreateCourse;
 use App\Models\CourseLecture;
+use App\Models\cart;
 use Illuminate\Http\Request;
 
 class StudentDashboardController extends Controller
@@ -86,14 +87,24 @@ class StudentDashboardController extends Controller
     }
 
     public function courseCart(){
-        return view('student.cart');
+        $cart=cart::where('user_id',\Auth::user()->id)->whereHas('course')->get();
+        return view('student.cart',compact('cart'));
+    }
+    public function deleteCart(Request $request){
+        cart::find($request->user_id)->delete();
+        return response()->json(['success'=>'Cart deleted successfully!']);
     }
 
-    public function paymentType(){
-        return view('student.payment-type');
+    public function paymentType($id){
+        $cart=cart::find($id);
+       
+        return view('student.payment-type',compact('cart'));
     }
-    public function addCart(){
-        
+    public function addCart(Request $request){
+        $cart=new cart();
+        $cart->user_id=$request->user_id;
+        $cart->course_id=$request->course_id;
+      $cart->save();
         return back();
     }
 }
