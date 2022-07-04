@@ -8,16 +8,17 @@
             <div class="col-lg-6" style="padding-left: 80px; padding-top: 30px;">
                 <h3>DASHBOARD</h3>
             </div>
-
+<form {{url('student/create')}} method="get" >
+    @csrf
             <div class="col-lg-6" style="padding-top: 50px;">
                 <button type="submit" class="search-btn">
                     <img src="{{ asset('images/search-icon.png') }}" alt="no image" width="20">
                 </button>
 
-                <input type="text" class="search-input" placeholder="python coding" name="search">
+                <input type="text" class="search-input" placeholder="python coding" name="filter">
             </div>
         </div>
-
+    </form>
 
         <div class="row" style="margin-top: 30px; display: flex; justify-content: center;">
 {{--            <div class="col-lg-1">--}}

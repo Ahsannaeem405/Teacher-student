@@ -160,6 +160,7 @@ Route::group(['prefix' => 'student', 'middleware' => ['auth', 'check_student'], 
         Route::post('stripe', [StripePaymentController::class, 'stripestudentPost'])->name('stripe.post');
         Route::post('/profile/update', [MyProfileController::class, 'update'])
         ->name('profile-update');
+        Route::get('delete_history',[StudentDashboardController::class, 'deletehistory']);
 });
 
 
