@@ -108,8 +108,22 @@ class User extends Authenticatable
         return $this->where('id', auth()->user()->id)
             ->update($data);
     }
+
     public function course()
     {
         return $this->belongsTo(CreateCourse::class, 'id', 'teacher_id');
+    }
+
+    public function getStudent($id){
+        return $this->where('id', $id)
+            ->get(['id','name', 'image']);
+    }
+
+    public function studentChats(){
+        return $this->hasMany(Chat::class, 'to_id');
+    }
+
+    public function teacherChats(){
+        return $this->hasMany(Chat::class, 'from_id');
     }
 }

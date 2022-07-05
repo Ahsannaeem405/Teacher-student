@@ -22,7 +22,6 @@
                <div class="col-lg-6 profile-image">
                    @php
                        $imagePath = explode('.', !is_null($profile->image) ? $profile->image : 'user-avatar.png');
-
                    @endphp
                    <img src="{{asset('images')."/". $imagePath[0].".".$imagePath[1]}}" width="60" alt="Image" class="show_prof_img"
                         style="border: 1px solid #dfd5d5"/>

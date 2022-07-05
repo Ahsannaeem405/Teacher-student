@@ -4,7 +4,7 @@
 </button>
 
 <div class="side_bar_res col-md-12 tab-col vh-100 p_0">
-{{--{{dd(request()->path())}}--}}
+
 @if(request()->path() == 'teacher/upload/profile' ||
     request()->path() == 'teacher/change/password' ||
     request()->path() == 'teacher/status')
@@ -72,8 +72,8 @@
         <li class="{{ request()->routeIs('teacher.t-notes') ? 'active' : ''}}">
             <a href="{{ route('teacher.t-notes') }}" style="text-decoration: none">Notes</a></li>
 
-        <li class="">
-            <a href="#" style="text-decoration: none">Chat</a></li>
+        <li class="{{ request()->routeIs('teacher.chat') ? 'active' : ''}}">
+            <a href="{{ route('chat') }}" style="text-decoration: none">Chat</a></li>
 
         <li class="{{ request()->routeIs('teacher.price-menu') ? 'active' : ''}}">
             <a href="{{ route('teacher.price-menu') }}" style="text-decoration: none">Pricing Menu</a></li>

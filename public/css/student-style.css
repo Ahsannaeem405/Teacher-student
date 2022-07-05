@@ -513,7 +513,7 @@ button.btn.dropdown-toggle.nav-img-btn {
 }
 
 .teacher_chat img {
-    width: 60px;
+    width: 30px;
 }
 
 @media (min-width: 235px) and (max-width: 992px) {
@@ -595,7 +595,7 @@ button.btn.dropdown-toggle.nav-img-btn {
     }
 
     /* .create_new_btn p{
-        
+
     } */
 
     .class_learn {
