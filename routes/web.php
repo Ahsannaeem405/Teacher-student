@@ -106,6 +106,11 @@ Route::group(['prefix' => 'teacher', 'middleware' => ['auth', 'check_teacher'], 
         Route::post('/payment/submission', [TeacherDashboardController::class, 'paymentSubmission'])->name('payment-submission');
         Route::get('/course/detail/{id}', [TeacherDashboardController::class, 'courseDetail'])->name('course-detail');
         Route::get('/notes', [TeacherDashboardController::class, 'notes'])->name('t-notes');
+        Route::get('/notes/create', [TeacherDashboardController::class, 'createNotes'])->name('create-notes');
+        Route::post('/add_note', [TeacherDashboardController::class, 'storeNotes'])->name('store-notes');
+        Route::get('/delete_note', [TeacherDashboardController::class, 'deleteNotes'])->name('delete-notes');
+        Route::get('/edit_note/{id}', [TeacherDashboardController::class, 'editNotes']);
+        Route::post('/update_note/{id}', [TeacherDashboardController::class, 'updateNotes']);
         Route::get('/create/notes', [TeacherDashboardController::class, 'createNotes'])->name('create-notes');
         Route::get('/create/blog', [TeacherDashboardController::class, 'createBlog'])->name('create-blog');
         Route::get('/create/class', [TeacherDashboardController::class, 'createClass'])->name('create-class')->middleware('check_subscription');
@@ -130,6 +135,9 @@ Route::group(['prefix' => 'teacher', 'middleware' => ['auth', 'check_teacher'], 
         ]);
         Route::post('/course/video', [CreateCourseController::class, 'courseVideo'])
             ->name('course-video');
+        Route::post('subscribe/plan', [StripePaymentController::class, 'stripe'])->name('subscribe-plan');
+        Route::post('stripe', [StripePaymentController::class, 'stripePost'])->name('stripe.post');
+
 });
 
 Route::group(['prefix' => 'student', 'middleware' => ['auth', 'check_student'], 'as' => 'student.'], function(){
@@ -167,9 +175,6 @@ Route::group(['prefix' => 'student', 'middleware' => ['auth', 'check_student'], 
 
 Route::get('/',[FrontController::class,'index']);
 
-
-Route::post('subscribe/plan', [StripePaymentController::class, 'stripe'])->name('subscribe-plan');
-Route::post('stripe', [StripePaymentController::class, 'stripePost'])->name('stripe.post');
 //user main view
 Route::get('/contact-us', function () {
     return view('contact');

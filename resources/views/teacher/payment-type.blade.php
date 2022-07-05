@@ -10,7 +10,7 @@
             <div class="row col-middle">
                 <div class="col-md-7 form-col">
                     <div class="row">
-                        <form action="{{ route('subscribe-plan')}}" id="payment_form" method="POST">
+                        <form action="{{ route('teacher.subscribe-plan')}}" id="payment_form" method="POST">
                             @csrf
                             <input type="hidden" name="payment_plan" value="{{ $amount }}">
                             <ul class="payment-form-row">
