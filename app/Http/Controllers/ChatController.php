@@ -42,16 +42,15 @@ class ChatController extends Controller
     public function storeChat(Request $request){
        // dd($request->all());
         try{
-            $id = decrypt(request()->get('id'));   
+            //$id = decrypt(request()->get('id'));
 
             $data = [
                 'message' => $request->message,
-                'to_id' => $id,
+                //'to_id' => $id,
                 'from_id' => auth()->user()->id
             ];
-
+dd($data);
             $res = (new Chat())->storeChat($data);
-
 
             if(!empty($res)){
                 return true;
