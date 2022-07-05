@@ -12,31 +12,36 @@ class ChatController extends Controller
 {
     public function chat(){
         $res = (new PurchaseCourse())->getStudentId();
-        foreach ($res as $record){
-            $std = (new User())->getStudent($record->user_id);
+        $std='';
+        if(!empty($res)){
+            foreach ($res as $record){
+                $std = (new User())->getStudent($record->user_id);
+            }
+
+            if(request()->has('id')){
+                $id = decrypt(request()->get('id'));
+
+                $chats = (new Chat())->with('student')
+                    ->whereIn('to_id',[auth()->user()->id, $id])
+                    ->whereIn('from_id',[auth()->user()->id, $id])
+                    ->orderBy("created_at")
+                    ->get();
+
+                $data = [
+                    'messages' => $chats,
+                    'users' => $std
+                ];
+            }
+            else{
+                $data = [
+                    'users' => $std
+                ];
+            }
+
+            return view('chat.chat', $data);
+        }else{
+            return redirect()->back()->with('warning', 'No user found.');
         }
-
-        if(request()->has('id')){
-            $id = decrypt(request()->get('id'));
-
-            $chats = (new Chat())->with('student')
-                ->whereIn('to_id',[auth()->user()->id, $id])
-                ->whereIn('from_id',[auth()->user()->id, $id])
-                ->orderBy("created_at")
-                ->get();
-
-            $data = [
-                'messages' => $chats,
-                'users' => $std
-            ];
-        }
-        else{
-            $data = [
-                'users' => $std
-            ];
-        }
-
-        return view('chat.chat', $data);
     }
 
     public function storeChat(Request $request){
