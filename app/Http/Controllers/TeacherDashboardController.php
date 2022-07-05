@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\CourseLecture;
 use App\Models\CreateClass;
 use App\Models\CreateCourse;
+use App\Models\PurchaseCourse;
 use App\Models\studentnote;
 use App\Models\Subscription;
 use App\Models\User;
@@ -44,7 +45,8 @@ class TeacherDashboardController extends Controller
     }
 
     public function myStudents(){
-        return view('teacher.my-students');
+        $cource=PurchaseCourse::where('teacher_id',auth()->user()->id)->whereHas('studentuser')->paginate('6')->unique('user_id');
+        return view('teacher.my-students',compact('cource'));
     }
 
     public function priceMenu(){

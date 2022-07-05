@@ -45,7 +45,7 @@
         </div>
 
         <div class="row">
-            @foreach($teachers as $teacher)
+            @foreach($purchasecourse as $purchase)
             <div class="col-sm-4 col-md-4 col-lg-4">
                 <div class="col-12">
                     <div class="card mt-5 " >
@@ -54,7 +54,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-sm-6">
-                                  <a href="{{url('student/all_courses/'.$teacher->id)}}" > <h4><strong>{{$teacher->name}} </strong></h4></a>
+                                  <a href="{{url('student/all_courses/'.$purchase->teacher->id)}}" > <h4><strong>{{$purchase->teacher->name}} </strong></h4></a>
                                     <h5><span class="section3-span" style="color: #C9C9C9"><strong>Technology</strong></span></h5>
                                 </div>
                                 <div class="col-sm-6 text-right" style="padding-top: 8px;">
@@ -91,7 +91,7 @@
                 </div>
             </div>
 @endforeach
-{{ $teachers->links() }}       
+      
         </div>
     </div>
 @endsection

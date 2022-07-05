@@ -48,7 +48,7 @@
                 <input type="hidden" name="course_id" value="{{$course->id}}">
                 
                    <button type="submit" class="add-cart-btn"
-                       style="text-decoration: none; color: white;border:none;" @if(isset($course->cart)) disabled @endif>Add to Cart</button>
+                       style="text-decoration: none; color: white;border:none;" @if(isset($course->cart)) disabled @elseif($purchases!=null) disabled @else @endif>Add to Cart</button>
                     </form>
                 </div>
             </div>

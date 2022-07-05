@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\CreateCourse;
 use App\Models\CourseLecture;
 use App\Models\cart;
+use App\Models\History;
 use App\Models\PurchaseCourse;
 use Illuminate\Http\Request;
 
@@ -27,7 +28,12 @@ class StudentDashboardController extends Controller
     }
 
     public function history(){
-        return view('student.d-history');
+        $history=History::whereUser_id(auth()->user()->id)->get();
+        return view('student.d-history',compact('history'));
+    }
+    public function deletehistory(Request $request){
+        History::find($request->user_id)->delete();
+        return response()->json(['success'=>'History deleted successfully!']);
     }
 
     public function notes(){
@@ -76,31 +82,56 @@ class StudentDashboardController extends Controller
     }
 
     public function teacherTimeline(){
-        $teachers=User::whereRole('2')->whereHas('course')->paginate('6');
-        return view('student.teacher-timeline',compact('teachers'));
+        // $teachers=User::whereRole('2')->whereHas('course')->paginate('6');
+        $purchasecourse=PurchaseCourse::where('user_id',auth()->user()->id)->whereHas('teacher')->paginate('6')->unique('teacher_id');
+      
+        return view('student.teacher-timeline',compact('purchasecourse'));
     }
-    public function teachercourses($id){
+    public function teachercourses(Request $request,$id){
         $teacher=User::find($id);
+        if($request->has( 'filter' )){
+            $search=$request->filter;
+            $courses=CreateCourse::query()->whereTeacher_id($teacher->id)
+            ->where('course_name', 'LIKE', "%{$search}%")
+            ->orWhere('course_description', 'LIKE', "%{$search}%")->whereHas('class')
+            ->get();
+            $history=new History();
+            $history->user_id=auth()->user()->id;
+            $history->history=$search;
+            $history->save();
+           }else{
         $courses=CreateCourse::whereTeacher_id($teacher->id)->whereHas('class')->get();
-
+           }
         return view('student.teacher-courses',compact('teacher','courses'));
     }
     public function teachercourseDetail($id){
         $course=CreateCourse::with('class')->find($id);
         $lectures=CourseLecture::where('course_id', $id)
         ->get('course_doc');
-        return view('student.teacher-coursedetail',compact('course','lectures'));
+        $purchases=PurchaseCourse::where('course_id',$course->id)->where('user_id',auth()->user()->id)->first();
+        return view('student.teacher-coursedetail',compact('course','lectures','purchases'));
     }
-    public function courses(){
-    
+    public function courses(Request $request){
+           if($request->has( 'filter' )){
+            $search=$request->filter;
+            $courses=CreateCourse::query()
+            ->where('course_name', 'LIKE', "%{$search}%")
+            ->orWhere('course_description', 'LIKE', "%{$search}%")->whereHas('class')
+            ->get();
+            $history=new History();
+            $history->user_id=auth()->user()->id;
+            $history->history=$search;
+            $history->save();
+           }else{
             $courses=CreateCourse::whereHas('class')->get();
-           
+           }
             return view('student.teacher-courses',compact('courses'));
         }
      
     public function courseDetail($id){
         $course=CreateCourse::find($id);
         $lectures=CourseLecture::where('course_id', $id)->get();
+  
         return view('student.course-detail',compact('course','lectures'));
     }
 
