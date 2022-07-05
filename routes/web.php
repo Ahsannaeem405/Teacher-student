@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\ChatController;
 use App\Http\Controllers\{
     Admin\AdminController,
     LogoutController,
@@ -92,6 +92,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'check_admin'], 'as'
 
 });
 
+Route::get('/chat', [ChatController::class, 'chat'])->name('chat')
+                                                    ->middleware('auth');
+Route::post('/chat/store', [ChatController::class, 'storeChat'])
+                                                ->name('store-chats')
+                                                ->middleware('auth');
 
 Route::group(['prefix' => 'teacher', 'middleware' => ['auth', 'check_teacher'], 'as' => 'teacher.'], function(){
 
@@ -108,16 +113,16 @@ Route::group(['prefix' => 'teacher', 'middleware' => ['auth', 'check_teacher'], 
         Route::get('/notes', [TeacherDashboardController::class, 'notes'])->name('t-notes');
         Route::get('/notes/create', [TeacherDashboardController::class, 'createNotes'])->name('create-notes');
         Route::post('/add_note', [TeacherDashboardController::class, 'storeNotes'])->name('store-notes');
-        Route::get('/delete_note', [TeacherDashboardController::class, 'deleteNotes'])->name('delete-notes');
+        Route::get('/delete_note/{id}', [TeacherDashboardController::class, 'deleteNotes'])->name('delete-notes');
         Route::get('/edit_note/{id}', [TeacherDashboardController::class, 'editNotes']);
-        Route::post('/update_note/{id}', [TeacherDashboardController::class, 'updateNotes']);
+        Route::post('/update/note/{id}', [TeacherDashboardController::class, 'updateNotes'])->name('update-note');
         Route::get('/create/notes', [TeacherDashboardController::class, 'createNotes'])->name('create-notes');
         Route::get('/create/blog', [TeacherDashboardController::class, 'createBlog'])->name('create-blog');
         Route::get('/create/class', [TeacherDashboardController::class, 'createClass'])->name('create-class')->middleware('check_subscription');
         Route::get('/upload/profile', [TeacherDashboardController::class, 'uploadProfile'])->name('upload-profile');
         Route::get('/status', [TeacherDashboardController::class, 'status'])->name('status');
         Route::get('/change/password', [TeacherDashboardController::class, 'changePassword'])->name('change-password');
-        //Route::post('/create/newclass', [CreateClassController::class, 'createNewClass'])->name('new-class');
+
         Route::post('/profile/update', [MyProfileController::class, 'update'])
             ->name('profile-update');
         Route::get('/profile/del/{id}', [MyProfileController::class, 'delete'])

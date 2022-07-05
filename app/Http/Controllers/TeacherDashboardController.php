@@ -100,7 +100,7 @@ class TeacherDashboardController extends Controller
     }
 
     public function storeNotes(Request $request){
-        //dd($request->all());
+
         $this->validate($request, [
             'note_name' => 'required|string',
         ]);
@@ -130,15 +130,18 @@ class TeacherDashboardController extends Controller
             $data = [
               'note' => $note
             ];
-            return view('student.edit-note', $data);
+
+            return view('teacher.edit-note', $data);
         }else{
             return redirect()->back()->with('error', 'Something went wrong.');
         }
     }
 
-    public function updateNotes(Request $request, $id){
+    public function updateNotes(Request $request, $note_id){
+        $id = decrypt($note_id);
+
         $this->validate($request, [
-            'note_name' => 'required|string',
+            'notes_name' => 'required|string',
         ]);
 
         try{
@@ -146,7 +149,7 @@ class TeacherDashboardController extends Controller
                 'title'  => $request->notes_name,
                 'note_description'  => $request->describe_notes,
             ];
-            
+
             $note = (new studentnote())->updateNote($data, $id);
             if($note == '1'){
                 return  redirect()->back()->with('success',"Note Updated Successfully.");
@@ -158,10 +161,13 @@ class TeacherDashboardController extends Controller
         }
     }
 
-    public function deleteNotes(Request $request){
-        $del = (new studentnote())->delNote($request->user_id);
+    public function deleteNotes($note_id){
+        $id = decrypt($note_id);
+
+        $del = (new studentnote())->delNote($id);
+
         if($del == '1'){
-            return response()->json(['success'=>'Note deleted successfully!']);
+            return response()->json(['success'=>'Note deleted successfully.']);
         }else{
             return redirect()->back()->with('error', 'Something went wrong.');
         }

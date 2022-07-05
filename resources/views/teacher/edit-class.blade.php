@@ -18,7 +18,6 @@
             </div>
         </div>
 
-
        <form action="{{ route('teacher.createClass.update', ['createClass' => $class->id]) }}" method="POST" enctype="multipart/form-data">
            @method('put')
            @csrf

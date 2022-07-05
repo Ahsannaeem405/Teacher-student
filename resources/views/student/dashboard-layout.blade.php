@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>@yield('title') | {{env('APP_NAME')}}</title>
 
@@ -23,7 +24,7 @@
 
 <body class="" style="width: 100%">
     @include('student.layouts.nav')
-   
+
     <div class="banner-two" style="width: 100%;"></div>
 
     <div class=" tab-sec">

@@ -30,6 +30,7 @@ class studentnote extends Model
     }
 
     public function updateNote($data, $id){
+
         return $this->where('id', $id)
             ->update($data);
     }
