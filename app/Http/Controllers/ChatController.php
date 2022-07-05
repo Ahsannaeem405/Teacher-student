@@ -42,7 +42,7 @@ class ChatController extends Controller
     public function storeChat(Request $request){
        // dd($request->all());
         try{
-            $id = decrypt(request()->get('id'));
+            $id = decrypt(request()->get('id'));   
 
             $data = [
                 'message' => $request->message,
