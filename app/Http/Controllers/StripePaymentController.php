@@ -59,10 +59,10 @@ class StripePaymentController extends Controller
             $start = date('Y-m-d');
             $exp = date('Y-m-d', strtotime($start. ' + 30 days'));
 
-            $data = [
+            $sub_exp = [
                 'subscription_expiry_date' => $exp
             ];
-            $res = (new User())->storeExpiry($data);
+            $res = (new User())->storeExpiry($sub_exp);
             if($res == '1'){
                 $result = (new Subscription())->storeSubscription($data);
                 if(!empty($result)){
@@ -73,7 +73,7 @@ class StripePaymentController extends Controller
     }
     public function studentstripe(Request $request)
     {
-       
+
 $teacher=User::find($request->teacher_id);
         $data = [
           'payment_amount'  => $request->amount,
@@ -106,13 +106,13 @@ $cart=cart::find($request->cart_id);
            $purchase->teacher_id=$teacher->id;
  $purchase->save();
  $cart->delete();
-         
+
 
             return redirect()->route('student.dashboard')->with('success',"Payment has submitted successfully");
         }
        else{
         return back()->with('error',"Transaction Failed");
-       } 
+       }
     }
     catch(exception $e){
         return back()->with('error',$e->getMessage());

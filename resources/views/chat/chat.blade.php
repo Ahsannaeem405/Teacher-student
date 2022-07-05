@@ -59,7 +59,7 @@
 
                             <div class="col-lg-5" style="padding-top: 15px;">
                                 @if(auth()->user()->id == '2')
-                                    <a href="{{ route('chat', ['id' => encrypt($user->id)]) }}">
+                                    <a href="{{ route('chat', ['id' => encrypt($user->id)]) }}" style="text-decoration: none">
                                         <p><strong>{{ $user->name }}</strong></p>
                                     </a>
                                 @else
@@ -112,7 +112,7 @@
                     @endforeach
 
                     <form enctype="multipart/form-data" id="my_form">
-{{--                        <input type="hidden" name="_token" value="{{ csrf_token() }}" />--}}
+                        <input type="hidden" name="user_id" id="user_id" value="{{ request()->get('id') }}" />
                         <div class="row chatBox">
                             <div class="col-lg-7" style="text-align: end; padding-right: 0px;">
                                 <label for="chat-file" class="clipper-btn">
@@ -148,17 +148,15 @@
 
             e.preventDefault();
             var message = tinyMCE.get('chat_msg').getContent();
-            alert(message);
+            var user_id = $('#user_id').val();
 
             $.ajax({
                url: '{{ route('store-chats') }}',
                type: 'POST',
-               data: {message: message},
+               data: {message: message, user_id: user_id},
                dataType: 'JSON',
                 success: (data) => {
-                    $('#chat_msg').reset();
-                    alert('posted');
-                    console.log(data);
+                    $('form')[0].reset();
                 },
            });
         });

@@ -12,8 +12,9 @@ class ChatController extends Controller
 {
     public function chat(){
         $res = (new PurchaseCourse())->getStudentId();
-        $std='';
-        if(!empty($res)){
+
+        if($res->count() > 0){
+            //dd('here');
             foreach ($res as $record){
                 $std = (new User())->getStudent($record->user_id);
             }
@@ -31,30 +32,29 @@ class ChatController extends Controller
                     'messages' => $chats,
                     'users' => $std
                 ];
-            }
-            else{
+
+            }else{
                 $data = [
                     'users' => $std
                 ];
             }
-
             return view('chat.chat', $data);
         }else{
-            return redirect()->back()->with('warning', 'No user found.');
+            return redirect()->back()->with('warning', 'No record found.');
         }
     }
 
     public function storeChat(Request $request){
        // dd($request->all());
         try{
-            //$id = decrypt(request()->get('id'));
+            $id = decrypt($request->user_id);
 
             $data = [
                 'message' => $request->message,
-                //'to_id' => $id,
+                'to_id' => $id,
                 'from_id' => auth()->user()->id
             ];
-dd($data);
+
             $res = (new Chat())->storeChat($data);
 
             if(!empty($res)){
