@@ -15,6 +15,10 @@ class CourseLecture extends Model
         'course_doc'
     ];
 
+    public function course(){
+        return $this->belongsTo(CreateCourse::class);
+    }
+
     public function storeLectures($course_id, $vid){
         foreach ($vid as $video){
             $lec = $this->create([
@@ -31,5 +35,11 @@ class CourseLecture extends Model
     public function getLectures($id){
         return $this->where('course_id', $id)
             ->get('course_doc');
+    }
+
+    public function getVids($id)
+    {
+        return $this->where('course_id', $id)
+            ->get();
     }
 }

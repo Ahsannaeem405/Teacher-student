@@ -4,6 +4,7 @@ namespace App\Http\Controllers\TeachersPanel;
 
 use App\Http\Controllers\Controller;
 use App\Models\CourseLecture;
+use App\Models\CreateClass;
 use App\Models\CreateCourse;
 use Illuminate\Http\Request;
 
@@ -98,18 +99,36 @@ class CreateCourseController extends Controller
      */
     public function show($id)
     {
-        dd($id);
+       //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\RedirectResponse
      */
     public function edit($id)
     {
-        //
+        $course_id = decrypt($id);
+
+        $res = (new CreateCourse())->getSingleCourse($course_id);
+
+        $vid = (new CourseLecture())->getVids($course_id);
+
+        $classes = (new CreateClass())->getAllClasses();
+
+        if(!empty($res)){
+            $data = [
+                'cour' => $res,
+                'videos' => $vid,
+                'classes' => $classes
+            ];
+
+            return view('teacher.edit-course', $data);
+        }else{
+            return redirect()->back()->with('error', 'Something went wrong.');
+        }
     }
 
     /**

@@ -13,8 +13,8 @@ use Illuminate\Http\Request;
 class StudentDashboardController extends Controller
 {
     public function index(){
-        $course=PurchaseCourse::whereUser_id(auth()->user()->id)->whereHas('course')->get();
-        
+        $course=PurchaseCourse::whereUser_id(auth()->user()->id)->whereHas('class')->get();
+      dd($course);
         return view('student.dashboard',compact('course'));
     }
 
@@ -84,7 +84,7 @@ class StudentDashboardController extends Controller
     public function teacherTimeline(){
         // $teachers=User::whereRole('2')->whereHas('course')->paginate('6');
         $purchasecourse=PurchaseCourse::where('user_id',auth()->user()->id)->whereHas('teacher')->paginate('6')->unique('teacher_id');
-      
+
         return view('student.teacher-timeline',compact('purchasecourse'));
     }
     public function teachercourses(Request $request,$id){
@@ -127,11 +127,11 @@ class StudentDashboardController extends Controller
            }
             return view('student.teacher-courses',compact('courses'));
         }
-     
+
     public function courseDetail($id){
         $course=CreateCourse::find($id);
         $lectures=CourseLecture::where('course_id', $id)->get();
-  
+
         return view('student.course-detail',compact('course','lectures'));
     }
 

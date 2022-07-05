@@ -29,7 +29,7 @@
                             <input type="file" name="class_cover"
                               class="@error('class_cover') is-invalid @enderror"
                                    autocomplete="class_cover" autofocus
-                                   id="file-upload" style="visibility:hidden; display: none">
+                                   id="file-upload" style="visibility:hidden; display: none" accept="image/jpeg, .png">
                             @error('class_cover')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -70,8 +70,9 @@
                 <button type="submit" class="course-search-btn" style="cursor: unset">
                 </button>
 
-                <input type="text" class="search-input @error('class_date') is-invalid @enderror"
-                       placeholder="DD-MM-YY" required autocomplete="class_date" autofocus
+                <input type="date" class="search-input @error('class_date') is-invalid @enderror"
+                       required autocomplete="class_date" autofocus
+                       pattern="\d{4}-\d{2}-\d{2}"
                        name="class_date">
                 @error('class_date')
                     <span class="invalid-feedback" role="alert">
@@ -88,8 +89,8 @@
                     <i class="fa-solid fa-clock"></i>
                 </button>
 
-                <input type="text" class="search-input @error('class_time') is-invalid @enderror"
-                       placeholder="01:30 PM" required autocomplete="class_time" autofocus
+                <input type="time" class="search-input @error('class_time') is-invalid @enderror"
+                       required autocomplete="class_time" autofocus
                        name="class_time">
                 @error('class_time')
                     <span class="invalid-feedback" role="alert">
@@ -129,14 +130,8 @@
             <div class="row" style="margin-bottom: 3%;">
                 <div class="col-lg-6 col-md-6">
                     <label for="">Teacher Name</label>
-                    <input type="text" class="form-control @error('teacher_name') is-invalid @enderror"
-                           name="teacher_name" required autocomplete="teacher_name" autofocus
-                           placeholder="Enter name">
-                    @error('teacher_name')
-                    <span class="invalid-feedback" role="alert">
-                           <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
+                    <input type="text" class="form-control" name="teacher_name"
+                           value="{{ auth()->user()->name }}" disabled>
                 </div>
             </div>
 

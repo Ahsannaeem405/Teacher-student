@@ -93,7 +93,8 @@
                     <label for="course_vid" style="padding-top: 25px; color: #C8C97D; font-size: 25px;">
                         <i class="fa fa-plus-circle"></i>
                     </label>
-                    <input type="file" id="course_vid" name="course_vid" style="visibility: hidden">
+                    <input type="file" id="course_vid" name="course_vid" style="visibility: hidden"
+                           accept="video/mp4, webm, ogg">
                 </form>
             </div>
         </div>

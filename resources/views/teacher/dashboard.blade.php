@@ -53,7 +53,10 @@
                                         <div class="col-lg-1" style="padding-right: 30px;">
                                             <div class="12" >
                                             <span style="padding-left: 5px;">
+                                                <a href="{{ route('teacher.createClass.edit', ['createClass' => encrypt($class->id)]) }}"
+                                                   style="text-decoration: none">
                                                 <i class="fas fa-pen" style="color: #C9C97E"></i>
+                                                </a>
                                             </span>
                                             </div>
                                             <div class="12">
@@ -66,7 +69,9 @@
                                         <div class="col-lg-1" style="padding-right: 30px;">
                                             <div class="col-12">
                                             <span style="padding-left: 5px;">
-                                                <i class="fas fa-eye" style="color: #C9C97E"></i>
+                                                <a href="{{ route('teacher.createClass.show', ['createClass' => encrypt($class->id)]) }}" style="text-decoration: none">
+                                                    <i class="fas fa-eye" style="color: #C9C97E"></i>
+                                                </a>
                                             </span>
                                             </div>
                                             <div class="col-12">
@@ -78,7 +83,10 @@
                                         <div class="col-lg-1" >
                                             <div class="col-12">
                                                 <div style="padding-left: 5px;">
-                                                    <i class="fas fa-trash" style="color: red"></i>
+                                                    <a href="{{ route('teacher.createClass-del', ['id' => encrypt($class->id)]) }}"
+                                                       style="text-decoration: none">
+                                                        <i class="fas fa-trash" style="color: red"></i>
+                                                    </a>
                                                 </div>
                                             </div>
                                             <div class="col-12">

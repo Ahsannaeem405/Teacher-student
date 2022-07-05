@@ -61,7 +61,7 @@
             </div>
 
             <div class="row" style="margin-top: 10px;">
-@foreach($course as $courses)
+            @foreach($course as $courses)
                 <div class="col-md-4 col-sm-12 class_learn" style="padding-left: 40px;">
                     <img src="{{ asset('images/sd-pic.png') }}" alt="no image" width="180">
                     <p style="margin-top: 15px; font-size: 16px; font-weight: bold;"><a href="{{ url('student/course/detail/'.$courses->course_id) }}"
@@ -71,14 +71,14 @@
 
                     <div class="row " style="margin-top: 10px;">
                         <div class="col-md-5">
-                            <p style="color: #C9C97E; font-size: 12px;">{{$courses->course->class->class_name}}</p>
+                            <p style="color: #C9C97E; font-size: 12px;">{{$courses->class->class_name}}</p>
                         </div>
                         <div class="col-md-6">
-                            <p style="font-size: 10px; font-style: italic">{{$courses->course->class->class_duration}}</p>
+                            <p style="font-size: 10px; font-style: italic">{{$courses->class->class_duration}}</p>
                         </div>
                     </div>
                 </div>
-                @endforeach
+            @endforeach
             </div>
 
 

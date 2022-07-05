@@ -12,7 +12,7 @@
 
         <div class="row mt-5 black-img-row" style="margin-bottom: 10%;">
             @php
-                $imagePath = explode('.', !is_null($class->class_image) ? $class->class_image : 'TelK7BnW63IAN6zuTTwJkqZeuM0YI5aNc7aFqOyz.jpg');
+                $imagePath = explode('.', !is_null($class->class_image) ? $class->class_image : 'do_not_delete.png');
             @endphp
             <div class="col-sm-4">
                 <img src="{{asset('images')."/". $imagePath[0].".".$imagePath[1]}}"

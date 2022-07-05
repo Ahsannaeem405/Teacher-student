@@ -18,6 +18,9 @@ class CreatePurchaseCoursesTable extends Migration
             $table->unsignedBigInteger('course_id');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('teacher_id');
+            $table->unsignedBigInteger('class_id');
+            $table->foreign('class_id')
+                ->references('id')->on('create_classes')->onDelete('cascade');
             $table->foreign('course_id')
             ->references('id')->on('create_courses')->onDelete('cascade');
             $table->foreign('user_id')

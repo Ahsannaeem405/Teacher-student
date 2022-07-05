@@ -77,6 +77,55 @@
                                 <p style="font-size: 10px; font-style: italic">Length: {{ $course->class_duration }}</p>
                             </div>
                         </div>
+
+                        <div class="row" style="display: flex; justify-content: center">
+                            <div class="col-lg-1" style="padding-right: 30px;">
+                                <div class="12" >
+                                            <span style="padding-left: 5px;">
+                                                <a href="{{ route('teacher.createCourse.edit', ['createCourse' => encrypt($course->id)]) }}"
+                                                   style="text-decoration: none">
+                                                <i class="fas fa-pen" style="color: #C9C97E"></i>
+                                                </a>
+                                            </span>
+                                </div>
+                                <div class="12">
+                                    <a href="{{ route('teacher.createCourse.edit', ['createCourse' => encrypt($course->id)]) }}"
+                                       style="text-decoration: none">
+                                        <p style="color: #C9C97E; font-weight: bold">Edit</p>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-lg-1" style="padding-right: 30px;">
+                                <div class="col-12">
+                                    <span style="padding-left: 5px;">
+                                        <a href="#" style="text-decoration: none">
+                                            <i class="fas fa-eye" style="color: #C9C97E"></i>
+                                        </a>
+                                    </span>
+                                </div>
+                                <div class="col-12">
+                                    <a href="#" style="text-decoration: none">
+                                        <p style="color: #C9C97E; font-weight: bold">View</p>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-lg-1" >
+                                <div class="col-12">
+                                    <div style="padding-left: 5px;">
+                                        <a href="#"
+                                           style="text-decoration: none">
+                                            <i class="fas fa-trash" style="color: red"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <a href="#"
+                                       style="text-decoration: none">
+                                        <p style="color: red; font-weight: bold">Delete</p>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

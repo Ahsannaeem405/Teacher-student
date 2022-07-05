@@ -49,4 +49,8 @@ class CreateClass extends Model
     public function getClassesIdName(){
         return $this->get(['id', 'class_name']);
     }
+
+    public function getAllClasses(){
+        return $this->all(['id','class_name']);
+    }
 }

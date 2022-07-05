@@ -13,14 +13,20 @@ class PurchaseCourse extends Model
     {
         return $this->belongsTo(CreateCourse::class, 'course_id', 'id');
     }
+
+    public function class()
+    {
+        return $this->hasOne(CreateClass::class, 'class_id', 'id');
+    }
+
     public function teacher()
     {
         return $this->belongsTo(User::class, 'teacher_id', 'id');
     }
-    public function class()
-    {
-        return $this->belongsTo(CreateClass::class, 'teacher_id', 'user_id');
-    }
+//    public function class()
+//    {
+//        return $this->belongsTo(CreateClass::class, 'teacher_id', 'user_id');
+//    }
     public function studentuser()
     {
         return $this->belongsTo(User::class, 'user_id', 'id');

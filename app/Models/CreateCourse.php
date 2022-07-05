@@ -34,6 +34,10 @@ class CreateCourse extends Model
             ->get();
     }
 
+    public function lectures(){
+        return $this->hasMany(CourseLecture::class, 'course_id');
+    }
+
     public function getSingleCourse($id){
         return $this->leftJoin('create_classes', 'create_courses.create_class_id', '=', 'create_classes.id')
             ->select('create_courses.*', 'create_classes.id AS class_id', 'create_classes.class_name',
@@ -49,5 +53,10 @@ class CreateCourse extends Model
     public function cart()
     {
         return $this->hasOne(cart::class, 'course_id', 'id')->where('user_id',auth()->user()->id);
+    }
+
+    public function editCourse($id){
+        return $this->where('id', $id)
+            ->first();
     }
 }

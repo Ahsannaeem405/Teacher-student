@@ -37,7 +37,6 @@ class CreateClassController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-           'teacher_name' => 'required|string|min:3|max:25',
            'class_name' => 'required|string|max:10',
            'class_date' => 'required|string|max:15',
            'class_time' => 'required|string|max:15',
@@ -50,7 +49,7 @@ class CreateClassController extends Controller
             $class_duration = $request->class_hours.' '.'hr'.' '.$request->class_mints.' '.'min';
 
             $data = [
-              'teacher_name' => $request->teacher_name,
+              'teacher_name' => auth()->user()->name,
               'user_id' => auth()->user()->id,
               'class_name' => $request->class_name,
               'class_title' => $request->class_title,
@@ -135,7 +134,6 @@ class CreateClassController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'teacher_name' => 'required|string|min:3|max:25',
             'class_name' => 'required|string|max:10',
             'class_date' => 'required|string|max:15',
             'class_time' => 'required|string|max:15',
@@ -144,7 +142,6 @@ class CreateClassController extends Controller
 
         try{
             $data = [
-                'teacher_name' => $request->teacher_name,
                 'class_name' => $request->class_name,
                 'class_title' => $request->class_title,
                 'class_date' => $request->class_date,
