@@ -42,4 +42,14 @@ class CourseLecture extends Model
         return $this->where('course_id', $id)
             ->get();
     }
+
+    public function updateLectures($course_id, $vid){
+        foreach ($vid as $video){
+            $lec = $this->where('course_id', $course_id)
+            ->update([
+                'course_doc' => $video
+            ]);
+        }
+        return $lec;
+    }
 }

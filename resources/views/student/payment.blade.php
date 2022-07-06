@@ -102,6 +102,7 @@
                         <input type="hidden" name="payment_method" value="{{ $payment_method }}">
                         <input type="hidden" name="cart_id" value="{{ $cart_id }}">
                         <input type="hidden" name="teacher_id" value="{{ $teacher->id }}">
+                        <input type="hidden" name="class_id" value="{{ $class_id }}">
                         <div class="row">
                             <div class="col-xs-12">
                                 <button class="btn btn-primary btn-lg btn-block" type="submit">Pay Now ({{ $payment_amount }})</button>

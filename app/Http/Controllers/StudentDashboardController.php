@@ -13,8 +13,8 @@ use Illuminate\Http\Request;
 class StudentDashboardController extends Controller
 {
     public function index(){
-        $course=PurchaseCourse::whereUser_id(auth()->user()->id)->whereHas('class')->get();
-      dd($course);
+        $course=PurchaseCourse::whereUser_id(auth()->user()->id)->whereHas('course')->get();
+
         return view('student.dashboard',compact('course'));
     }
 
@@ -135,25 +135,28 @@ class StudentDashboardController extends Controller
         return view('student.course-detail',compact('course','lectures'));
     }
 
-    public function courseCart(){
+    public function courseCart($id){
+        $class_id = decrypt($id);
+
         $cart=cart::where('user_id',\Auth::user()->id)->whereHas('course')->get();
-        return view('student.cart',compact('cart'));
+        return view('student.cart',compact('cart', 'class_id'));
     }
     public function deleteCart(Request $request){
         cart::find($request->user_id)->delete();
         return response()->json(['success'=>'Cart deleted successfully!']);
     }
 
-    public function paymentType($id){
-        $cart=cart::find($id);
+    public function paymentType($id, $class_id){
+        $classId = decrypt($class_id);
+        $cart = cart::find($id);
 
-        return view('student.payment-type',compact('cart'));
+        return view('student.payment-type',compact('cart', 'classId'));
     }
     public function addCart(Request $request){
         $cart=new cart();
         $cart->user_id=$request->user_id;
         $cart->course_id=$request->course_id;
-      $cart->save();
+        $cart->save();
         return back();
     }
 

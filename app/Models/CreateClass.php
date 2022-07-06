@@ -43,7 +43,7 @@ class CreateClass extends Model
 
     public function delClass($id){
         return $this->where('id', $id)
-            ->delete();
+            ->forceDelete();
     }
 
     public function getClassesIdName(){

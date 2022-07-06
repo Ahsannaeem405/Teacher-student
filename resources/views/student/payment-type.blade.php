@@ -12,6 +12,7 @@
                     <div class="row">
                         <form action="{{ route('student.subscribe-plan')}}" id="payment_form" method="POST">
                             @csrf
+                          <input type="hidden" name="class_id" value="{{ $classId }}">
                           <input type="hidden" name="amount" value="{{$cart->course->price}}">
                           <input type="hidden" name="cart_id" value="{{$cart->id}}">
                           <input type="hidden" name="teacher_id" value="{{$cart->course->teacher_id}}">
@@ -38,11 +39,11 @@
                 </div>
                 <div class="col-md-5 order-sum-col home2-col-pay">
                     <h3>ORDER SUMMERY</h3>
-                   
+
                     <div class="col-lg-10" style="margin: 0px; padding: 0px;">
                         <p><strong>{{$cart->course->course_name}}</strong></p>
                     </div>
-    
+
                     <div class="col-lg-2">
                         <p style="color: #318215"><strong>{{$cart->course->price}}</strong></p>
                     </div>

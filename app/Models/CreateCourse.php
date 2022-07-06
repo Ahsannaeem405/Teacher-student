@@ -59,4 +59,14 @@ class CreateCourse extends Model
         return $this->where('id', $id)
             ->first();
     }
+
+    public function updateCourse($data, $id){
+        return $this->where('id', $id)
+            ->update($data);
+    }
+
+    public function deleteCourse($course_id){
+        return $this->where('id', $course_id)
+            ->delete();
+    }
 }

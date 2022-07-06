@@ -62,11 +62,7 @@
                              class="img-fluid" alt="No Image" width="155">
                     </div>
                     <div class="card-body" style="text-align: center">
-                        <p style="margin-top: 15px; font-size: 16px; font-weight: bold;">
-                            <a href="{{ route('teacher.course-detail', ['id' => encrypt($course->id)]) }}" style="text-decoration: none; color: black">
-                                {{$course->course_name}}
-                            </a>
-                        </p>
+                        <p style="margin-top: 15px; font-size: 16px; font-weight: bold;">{{$course->course_name}}</p>
                     </div>
                     <div class="card-footer" style="text-align: center">
                         <div class="row" style="margin-top: 10px;">
@@ -98,13 +94,13 @@
                             <div class="col-lg-1" style="padding-right: 30px;">
                                 <div class="col-12">
                                     <span style="padding-left: 5px;">
-                                        <a href="#" style="text-decoration: none">
+                                        <a href="{{ route('teacher.course-detail', ['id' => encrypt($course->id)]) }}" style="text-decoration: none; color: black">
                                             <i class="fas fa-eye" style="color: #C9C97E"></i>
                                         </a>
                                     </span>
                                 </div>
                                 <div class="col-12">
-                                    <a href="#" style="text-decoration: none">
+                                    <a href="{{ route('teacher.course-detail', ['id' => encrypt($course->id)]) }}" style="text-decoration: none; color: black">
                                         <p style="color: #C9C97E; font-weight: bold">View</p>
                                     </a>
                                 </div>
@@ -112,14 +108,14 @@
                             <div class="col-lg-1" >
                                 <div class="col-12">
                                     <div style="padding-left: 5px;">
-                                        <a href="#"
+                                        <a href="{{ route('teacher.course-delete', ['id' => encrypt($course->id)]) }}"
                                            style="text-decoration: none">
                                             <i class="fas fa-trash" style="color: red"></i>
                                         </a>
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <a href="#"
+                                    <a href="{{ route('teacher.course-delete', ['id' => encrypt($course->id)]) }}"
                                        style="text-decoration: none">
                                         <p style="color: red; font-weight: bold">Delete</p>
                                     </a>

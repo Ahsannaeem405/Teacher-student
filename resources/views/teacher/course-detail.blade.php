@@ -31,8 +31,8 @@
                     <h4>Teacher <br><span class="span-class">{{ $course->teacher_name }}</span></h4>
                     <h4><i class="fa fa-calendar" aria-hidden="true"></i> Created Date <br><span class="span-class">{{ date('d-F-Y', strtotime($course->class_date)) }}</span></h4>
                     <h4><i class="fa fa-clock-o" aria-hidden="true"></i> Created Time <br> <span class="span-class">{{ $course->class_time }}</span>PM</h4>
-                    <a href="#" class="add-cart-btn"
-                       style="text-decoration: none; color: white;">Add to Cart</a>
+{{--                    <a href="#" class="add-cart-btn"--}}
+{{--                       style="text-decoration: none; color: white;">Add to Cart</a>--}}
                 </div>
             </div>
         </div>

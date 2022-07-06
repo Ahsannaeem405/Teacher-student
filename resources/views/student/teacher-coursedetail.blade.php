@@ -5,13 +5,13 @@
 @section('content')
     <div class="container-fluid" style="margin-bottom: 50%;">
         <div class="row" style="margin-bottom: 2%;">
-            
+
             <div class="col-lg-8" style="padding-top: 30px;">
                 <h3>DASHBOARD / <span style="color: #C9C97E">COURSE DETAILS</span></h3>
             </div>
             <div class="col-lg-4" style="padding-top: 40px;">
                 <div class="add-to-cart">
-                    <a href="{{ route('student.add-to-cart') }}">
+                    <a href="{{ route('student.add-to-cart', ['id' => encrypt($course->class->id)]) }}">
                         <i class="fas fa-shopping-cart">{{App\Models\cart::where('user_id',auth()->user()->id)->count()}}</i>
                         &nbsp;&nbsp;&nbsp;&nbsp;<span>Add to Cart</span>
                     </a>
@@ -19,7 +19,7 @@
                 </div>
             </div>
         </div>
-        
+
 
         <div class="row mt-5 black-img-row" style="margin-bottom: 10%;">
             <div class="col-sm-4">
@@ -44,11 +44,11 @@
                     <h4><i class="fa fa-clock-o" aria-hidden="true"></i> Created Time <br> <span class="span-class">{{ $course->class->class_time }}</span>PM</h4>
                     <form action="{{url('student/add_cart')}}" method="post">
                         @csrf
-                <input type="hidden" name="user_id" value="{{auth()->user()->id}}">
-                <input type="hidden" name="course_id" value="{{$course->id}}">
-                
-                   <button type="submit" class="add-cart-btn"
-                       style="text-decoration: none; color: white;border:none;" @if(isset($course->cart)) disabled @elseif($purchases!=null) disabled @else @endif>Add to Cart</button>
+                        <input type="hidden" name="user_id" value="{{auth()->user()->id}}">
+                        <input type="hidden" name="course_id" value="{{$course->id}}">
+
+                       <button type="submit" class="add-cart-btn"
+                           style="text-decoration: none; color: white;border:none;" @if(isset($course->cart)) disabled @elseif($purchases!=null) disabled @else @endif>Add to Cart</button>
                     </form>
                 </div>
             </div>
@@ -100,7 +100,7 @@
         <div class="row" style="margin-top: 30px;">
             <div class=" col-md-9 heading-1 float-text">
                 <h2 class="bottom-line"> Class session videos / documents</h2>
-                
+
             </div>
             <div class="col-md-3"></div>
         </div>

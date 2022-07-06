@@ -71,10 +71,10 @@
 
                     <div class="row " style="margin-top: 10px;">
                         <div class="col-md-5">
-                            <p style="color: #C9C97E; font-size: 12px;">{{$courses->class->class_name}}</p>
+                            <p style="color: #C9C97E; font-size: 12px;">{{$courses->course->class->class_name}}</p>
                         </div>
                         <div class="col-md-6">
-                            <p style="font-size: 10px; font-style: italic">{{$courses->class->class_duration}}</p>
+                            <p style="font-size: 10px; font-style: italic">{{$courses->course->class->class_duration}}</p>
                         </div>
                     </div>
                 </div>

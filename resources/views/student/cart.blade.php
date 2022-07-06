@@ -24,7 +24,7 @@
 
         <div class="row">
             @foreach($cart as $carts)
-         
+
             <div class="col-lg-6">
                 <div class="col-lg-6">
                     <p><strong>{{$carts->course->course_name}} </strong></p>
@@ -35,7 +35,7 @@
                 <div class="col-lg-3" style="padding-top: 20px;">
                     <button type="button" class="btn btn-xs btn-danger userDeletecart" userId="{{$carts->id}}"> <i class='fa fa-trash'></i></button>
                 </div>
-                <a href="{{ url('student/payment/type/'.$carts->id) }}" class="add-cart-btn"
+                <a href="{{ route('student.payment-type', ['id' => $carts->id, 'class_id' => encrypt($class_id)]) }}" class="add-cart-btn"
                 style="text-decoration: none; color: white;"><strong>Pay Now</strong></a>
             </div>
             @endforeach
@@ -115,7 +115,7 @@
                    style="text-decoration: none; color: white;"><strong>Check Out</strong></a> --}}
             </div>
         </div>
-        
+
     </div>
 @endsection
 

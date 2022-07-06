@@ -138,6 +138,8 @@ Route::group(['prefix' => 'teacher', 'middleware' => ['auth', 'check_teacher'], 
             'createCourse' => CreateCourseController::class
         ], ['except'=>['destroy']
         ]);
+        Route::get('/delete/course/{id}', [CreateCourseController::class, 'deleteCourse'])
+                                                         ->name('course-delete');
         Route::post('/course/video', [CreateCourseController::class, 'courseVideo'])
             ->name('course-video');
         Route::post('subscribe/plan', [StripePaymentController::class, 'stripe'])->name('subscribe-plan');
@@ -161,8 +163,8 @@ Route::group(['prefix' => 'student', 'middleware' => ['auth', 'check_student'], 
         Route::get('/courses', [StudentDashboardController::class, 'courses'])->name('courses');
         Route::get('/course/detail', [StudentDashboardController::class, 'courseDetail'])->name('course-detail');
         Route::get('/course/detail/{id}', [StudentDashboardController::class, 'courseDetail']);
-        Route::get('/course/cart', [StudentDashboardController::class, 'courseCart'])->name('add-to-cart');
-        Route::get('/payment/type/{id}', [StudentDashboardController::class, 'paymentType'])->name('payment-type');
+        Route::get('/course/cart/{id}', [StudentDashboardController::class, 'courseCart'])->name('add-to-cart');
+        Route::get('/payment/type/{id}/{class_id}', [StudentDashboardController::class, 'paymentType'])->name('payment-type');
         //teacher timeline
         Route::get('/teacher/timeline', [StudentDashboardController::class, 'teacherTimeline'])->name('teacher-timeline');
         Route::get('/all_courses/{id}', [StudentDashboardController::class, 'teachercourses'])->name('teacher-coursessssss');

@@ -36,10 +36,9 @@
             </div>
         </div>
 
-        <form action="#" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('teacher.createCourse.update', ['createCourse' => encrypt($cour->id)]) }}" method="POST" enctype="multipart/form-data">
             @csrf
-
-
+            @method('put')
                 <div class="row">
                     <div class="col-lg-12 text_center">
                         <label for="file-upload" class="course-cover-plus">
@@ -216,7 +215,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="" style="text-align: center">
-                        <button type="submit" class="profile-save-btn">Save</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button type="submit" class="profile-save-btn">Update</button>&nbsp;&nbsp;&nbsp;&nbsp;
                         <a href="#" class="profile-draft-btn">Draft</a>
                     </div>
                 </div>

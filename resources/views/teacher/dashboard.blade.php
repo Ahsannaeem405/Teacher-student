@@ -26,7 +26,7 @@
 
 
         <div class="row dashboard-searchbar-bottom-line">
-            <div class="col-lg-11" style="border: 1px solid #707070"></div>
+            <div class="col-lg-12" style="border: 1px solid #707070"></div>
         </div>
 
         <div class="row" style="margin-bottom: 8%;">
