@@ -167,7 +167,7 @@
                             <select class="form-control" name="class_name" required>
                                 <option value="" selected>Choose your own class</option>
                                 @foreach($classes as $class)
-                                    <option value="{{ $class->id }}" {{ ($class->class_name == 'physics') ? 'selected' : '' }}>{{ ucfirst($class->class_name) }}</option>
+                                    <option value="{{ $class->id }}" {{ ($cour->id == $class->id) ? 'selected' : '' }}>{{ ucfirst($class->class_name) }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -201,7 +201,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                 <textarea name="description_course" id="description_course"
-                          placeholder="Tell the user /student the course is about...."></textarea>
+                          placeholder="Tell the user /student the course is about....">{{ $cour->course_description }}</textarea>
                     </div>
                 </div>
 

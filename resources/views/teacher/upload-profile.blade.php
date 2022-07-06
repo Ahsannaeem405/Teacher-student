@@ -28,7 +28,7 @@
 
 
                    <label for="getFile2" style="font-size: 26px; text-decoration: none; color: black">...</label>
-                   <input type="file" name="prof_image" id="getFile2" style="visibility: hidden">
+                   <input type="file" name="prof_image" id="getFile2" style="visibility: hidden" accept="image/jpeg, .png">
                </div>
 
                <div class="col-lg-6" style="text-align: end;">

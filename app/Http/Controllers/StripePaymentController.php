@@ -50,18 +50,36 @@ class StripePaymentController extends Controller
         ]);
 
         if($pay->description == 'Payment successfully'){
-            $data = [
-                'user_id' => auth()->user()->id,
-                'payment_amount' => $payment_amount,
-                'payment_method' => $payment_method
-            ];
+
+            if($payment_amount == '10'){
+                $data = [
+                    'user_id' => auth()->user()->id,
+                    'payment_amount' => $payment_amount,
+                    'payment_method' => $payment_method,
+                    'subscription_type' => 'basic'
+                ];
+            }else{
+                $data = [
+                    'user_id' => auth()->user()->id,
+                    'payment_amount' => $payment_amount,
+                    'payment_method' => $payment_method,
+                    'subscription_type' => 'Enterprise'
+                ];
+            }
 
             $start = date('Y-m-d');
             $exp = date('Y-m-d', strtotime($start. ' + 30 days'));
 
-            $sub_exp = [
-                'subscription_expiry_date' => $exp
-            ];
+            if($payment_amount == '10'){
+                $sub_exp = [
+                    'subscription_expiry_date' => $exp,
+                    'remaining_vids' => '50',
+                ];
+            }else{
+                $sub_exp = [
+                    'subscription_expiry_date' => $exp,
+                ];
+            }
             $res = (new User())->storeExpiry($sub_exp);
             if($res == '1'){
                 $result = (new Subscription())->storeSubscription($data);

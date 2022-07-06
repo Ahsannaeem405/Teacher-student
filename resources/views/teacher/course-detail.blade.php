@@ -52,32 +52,18 @@
         </div>
 
         <div class="row mt-4">
-            <div class="col-md-2">
-                <div class="icon-box">
-                    <img src="{{url('/images/clock.png')}}" alt="Image"/><br>
-                    <span>Physical Class</span>
+            @foreach($classes as $class)
+                <div class="col-md-2" style="text-align: center">
+                    <div class="icon-box" style="text-align: center">
+                        @php
+                            $imagePath = !is_null($class->class_image) ? $class->class_image : 'do_not_delete.png';
+                        @endphp
+                        <img src="{{ asset('images')."/". $imagePath}}" class="img-fluid" alt="No Image" width="100">
+                        <span>{{ ucfirst($class->class_name) }} Class</span>
+                        <span>{{ strlen($class->class_title) > 15 ? substr($class->class_title,0,15)."..." : $class->class_title }}</span>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-2">
-                <div class="icon-box">
-                    <img src="{{url('/images/clock.png')}}" alt="Image"/><br>
-                    <span>Chemistry Class</span>
-                </div>
-            </div>
-            <div class="col-md-2">
-                <div class="icon-box">
-                    <img src="{{url('/images/clock.png')}}" alt="Image"/><br>
-                    <span> Geology Class</span>
-                </div>
-            </div>
-            <div class="col-md-2">
-                <div class="icon-box">
-                    <img src="{{url('/images/clock.png')}}" alt="Image"/><br>
-                    <span>Another Class</span>
-                </div>
-            </div>
-            <div class="col-md-2"></div>
-            <div class="col-md-2"></div>
+            @endforeach
         </div>
 
         <div class="row" style="margin-top: 30px;">

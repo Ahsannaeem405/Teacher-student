@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\TeachersPanel;
 
 use App\Http\Controllers\Controller;
+use App\Models\Subscription;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use phpDocumentor\Reflection\DocBlock\Tags\Uses;
 
 class MyProfileController extends Controller
@@ -15,9 +17,9 @@ class MyProfileController extends Controller
             'name' => 'required|string|min:3',
             'email' => 'required|string',
             'role' => 'required',
-           
+
         ]);
-       
+
         try{
             $data = [
               'name' => $request->name,
@@ -64,6 +66,37 @@ class MyProfileController extends Controller
                 return redirect()->route('user-login');
             }else{
                 return redirect()->back()->with('error', 'Something went wrong.');
+            }
+        } catch (\Exception $ex){
+            return redirect()->back()->with('error', $ex->getMessage());
+        }
+    }
+
+    public function resetPassword(Request $request){
+
+        $this->validate($request, [
+           'current_password' => 'required',
+           'password' => 'required|min:8|confirmed',
+           'password_confirmation' => 'required'
+        ]);
+
+        try{
+            $user = (new User())->getUserPassword();
+
+            if(Hash::check($request->current_password, $user->password)){
+                $data = [
+                  'password' => bcrypt($request->password)
+                ];
+
+                $res = (new User())->resetPassword($data);
+
+                if($res == '1'){
+                    return redirect()->back()->with('success', 'Password has changed successfully.');
+                }else{
+                    return redirect()->back()->with('error', 'Something went wrong.');
+                }
+            }else{
+                return redirect()->back()->with('error', 'Current password does not match.');
             }
         } catch (\Exception $ex){
             return redirect()->back()->with('error', $ex->getMessage());

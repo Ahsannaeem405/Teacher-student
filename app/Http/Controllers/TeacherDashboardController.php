@@ -49,7 +49,7 @@ class TeacherDashboardController extends Controller
             ->whereHas('studentuser')
             ->paginate('6')
             ->unique('user_id');
-        
+
         return view('teacher.my-students',compact('cource'));
     }
 
@@ -59,9 +59,10 @@ class TeacherDashboardController extends Controller
 
     public function paymentType($type){
         $check_sub = (new Subscription())->checkSubscription();
+        $vids = (new User())->checkVids();
+        $plan_amount = decrypt($type);
 
-        if(empty($check_sub)){
-            $plan_amount = decrypt($type);
+        if(empty($check_sub) || $vids < '1'){
             $data = [
                 'amount' => $plan_amount
             ];
@@ -81,11 +82,14 @@ class TeacherDashboardController extends Controller
         $id = decrypt($course_id);
         $res = (new CreateCourse())->getSingleCourse($id);
 
+        $class = (new CreateClass())->getRelatedClasses($res->create_class_id);
+
         $lec = (new CourseLecture())->getLectures($id);
 
         $data = [
           'course' => $res,
-          'lectures' => $lec
+          'lectures' => $lec,
+          'classes' => $class
         ];
         return view('teacher.course-detail', $data);
     }
@@ -195,7 +199,26 @@ class TeacherDashboardController extends Controller
     }
 
     public function status(){
-        return view('teacher.status');
+        $sub = (new Subscription())->with('user')->first();
+
+        if($sub->payment_amount == '10'){
+            $data = [
+              'plan' => 'Basic',
+              'expriy' => $sub->user->subscription_expiry_date
+            ];
+        }elseif ($sub->payment_amount == '25'){
+            $data = [
+                'plan' => 'Enterprise',
+                'expriy' => $sub->user->subscription_expiry_date
+            ];
+        }else{
+            $data = [
+              'plan' => 'Free',
+              'expriy' => $sub->user->subscription_expiry_date
+            ];
+        }
+
+        return view('teacher.status', $data);
     }
 
     public function changePassword(){
@@ -204,20 +227,26 @@ class TeacherDashboardController extends Controller
 
     public function trialMenu($type){
         $check_sub = (new Subscription())->checkSubscription();
+        $expiry = (new User())->getExpiry();
 
-        if(empty($check_sub)){
+        $current_date = date('Y-m-d');
+        $exp_date = date('Y-m-d', strtotime($expiry));
+
+        if(empty($check_sub) || $current_date < $exp_date){
             $plan_type = decrypt($type);
 
             $start = date('Y-m-d');
             $exp = date('Y-m-d', strtotime($start. ' + 7 days'));
 
             $sub_exp = [
-                'subscription_expiry_date' => $exp
+                'subscription_expiry_date' => $exp,
+                'remaining_vids' => '10',
             ];
 
             $sub = [
                 'user_id' => auth()->user()->id,
-                'payment_method' => $plan_type
+                'payment_method' => $plan_type,
+                'subscription_type' => 'trial',
             ];
 
             $res = (new User())->storeExpiry($sub_exp);

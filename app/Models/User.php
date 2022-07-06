@@ -27,7 +27,8 @@ class User extends Authenticatable
         'linkedin_url',
         'stripe_secret_key',
         'stripe_public_key',
-        'subscription_expiry_date'
+        'subscription_expiry_date',
+        'remaining_vids'
     ];
 
     /**
@@ -125,5 +126,36 @@ class User extends Authenticatable
 
     public function teacherChats(){
         return $this->hasMany(Chat::class, 'from_id');
+    }
+
+    public function getUserPassword(){
+        return $this->where('id', auth()->user()->id)
+            ->first('password');
+    }
+
+    public function resetPassword($data){
+        return $this->where('id', auth()->user()->id)
+            ->update($data);
+    }
+
+    public function subscription(){
+        return $this->hasOne(Subscription::class);
+    }
+
+    public function getExpiry(){
+        return $this->where('id', auth()->user()->id)
+            ->first('subscription_expiry_date');
+    }
+
+    public function checkVids(){
+        return $this->where('id', auth()->user()->id)
+            ->first('remaining_vids');
+    }
+
+    public function updateRemainingVids($vids_left){
+        return $this->where('id', auth()->user()->id)
+            ->update([
+               'remaining_vids' => $vids_left
+            ]);
     }
 }

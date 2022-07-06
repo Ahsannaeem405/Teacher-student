@@ -20,6 +20,7 @@ class CreateSubscriptionsTable extends Migration
                 ->references('id')->on('users')->onDelete('cascade');
             $table->tinyInteger('payment_amount')->nullable();
             $table->string('payment_method', 15);
+            $table->string('subscription_type', 15)->nullable();
             $table->timestamps();
         });
     }

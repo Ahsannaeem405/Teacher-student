@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\CourseLecture;
 use App\Models\CreateClass;
 use App\Models\CreateCourse;
+use App\Models\Subscription;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class CreateCourseController extends Controller
@@ -77,7 +79,44 @@ class CreateCourseController extends Controller
 
             $res = (new CreateCourse())->createCourse($data);
 
-            $result = (new CourseLecture())->storeLectures($res->id, $vid);
+            if(!empty($vid)){
+                $sub_type = (new Subscription())->subType();
+                $remaining_vid = (new User())->checkVids();
+                $remaining_vids = $remaining_vid->remaining_vids;
+
+                $count = count($vid);
+                $vids_left = $remaining_vids - $count;
+
+
+                if($sub_type->subscription_type == 'trial' && $vids_left > 0){
+                    $resul = (new CourseLecture())->storeLectures($res->id, $vid);
+                    if(!empty($resul)){
+                        $result = (new User())->updateRemainingVids($vids_left);
+                    }
+                }elseif($sub_type->subscription_type == 'basic' && $vids_left > 0){
+                    $resul = (new CourseLecture())->storeLectures($res->id, $vid);
+                    if(!empty($resul)){
+                        $result = (new User())->updateRemainingVids($vids_left);
+                    }
+                }elseif ($sub_type->subscription_type != 'basic' && $sub_type->subscription_type != 'trial'){
+                    $result = (new CourseLecture())->storeLectures($res->id, $vid);
+                }else{
+                    return redirect()->back()->with('error', 'You have remaining ' .$remaining_vid. 'videos which are less then your selected videos.');
+                }
+
+//                if($sub_type == 'basic' || $vids_left != 0){
+//                    $resul = (new CourseLecture())->storeLectures($res->id, $vid);
+//                    if(!empty($resul)){
+//                        $result = (new User())->updateRemainingVids($vids_left);
+//                    }
+//                }else{
+//                    return redirect()->back()->with('error', 'You have remaining' .$remaining_vids. 'videos which are less then your selected videos.');
+//                }
+//                if($sub_type != 'basic' || $sub_type != 'trial'){
+//                    dd('here');
+//                    $result = (new CourseLecture())->storeLectures($res->id, $vid);
+//                }
+            }
 
             if(!empty($result)){
                 return redirect()->route('teacher.my-courses')->with('success', 'Course created successfully.');

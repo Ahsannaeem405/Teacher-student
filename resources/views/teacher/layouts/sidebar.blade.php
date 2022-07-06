@@ -3,14 +3,21 @@
     <i class="fa-solid fa-xmark krs"></i>
 </button>
 
-<div class="side_bar_res col-md-12 tab-col vh-100 p_0">
+<div class="side_bar_res col-md-12 tab-col vh-100 p_0" style="padding-top: 20px;">
 
 @if(request()->path() == 'teacher/upload/profile' ||
     request()->path() == 'teacher/change/password' ||
     request()->path() == 'teacher/status')
 
 @else
-        <img src="{{url('/images/profile.png')}}" alt="Image" class="tab-img"/>
+{{--        <img src="{{url('/images/profile.png')}}" alt="Image" class="tab-img"/>--}}
+
+        @php
+            $imagePath = explode('.', !is_null(auth()->user()->image) ? auth()->user()->image : 'user-avatar.png');
+        @endphp
+        <img src="{{asset('images')."/". $imagePath[0].".".$imagePath[1]}}" alt="Image"
+             style="color: white; border-radius: 50%;" class="tab-img" />
+
         <p style="font-size: 22px; ">{{ auth()->user()->first_name }}</p>
         <h4>{{ (auth()->user()->role == 2) ? '(Teacher)' : ''}}</h4>
         <div>
@@ -79,7 +86,7 @@
             <a href="{{ route('teacher.price-menu') }}" style="text-decoration: none">Pricing Menu</a></li>
 
         <li class="{{ request()->routeIs('teacher.myProfile') ? 'active' : ''}}">
-            <a href="{{ route('teacher.myProfile') }}" style="text-decoration: none">My Profile</a></li>
+            <a href="{{ route('teacher.upload-profile') }}" style="text-decoration: none">My Profile</a></li>
 
         <li class="{{ request()->routeIs('teacher.create-blog') ? 'active' : ''}}">
             <a href="{{ route('teacher.create-blog') }}" style="text-decoration: none">Write Blog</a></li>

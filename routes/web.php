@@ -120,6 +120,8 @@ Route::group(['prefix' => 'teacher', 'middleware' => ['auth', 'check_teacher'], 
         Route::get('/create/blog', [TeacherDashboardController::class, 'createBlog'])->name('create-blog');
         Route::get('/create/class', [TeacherDashboardController::class, 'createClass'])->name('create-class')->middleware('check_subscription');
         Route::get('/upload/profile', [TeacherDashboardController::class, 'uploadProfile'])->name('upload-profile');
+        Route::post('/reset/password', [MyProfileController::class, 'resetPassword'])
+                                                          ->name('reset-password');
         Route::get('/status', [TeacherDashboardController::class, 'status'])->name('status');
         Route::get('/change/password', [TeacherDashboardController::class, 'changePassword'])->name('change-password');
 
