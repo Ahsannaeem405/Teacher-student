@@ -151,7 +151,8 @@ Route::group(['prefix' => 'teacher', 'middleware' => ['auth', 'check_teacher'], 
             'blog' => BlogController::class
         ], ['except'=>['destroy']
         ]);
-
+        Route::get('/delete/blog', [BlogController::class, 'deleteBlog'])
+                                                          ->name('blog-delete');
 });
 
 Route::group(['prefix' => 'student', 'middleware' => ['auth', 'check_student'], 'as' => 'student.'], function(){

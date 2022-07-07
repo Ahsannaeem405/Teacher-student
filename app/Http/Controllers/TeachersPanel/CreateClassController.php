@@ -5,6 +5,8 @@ namespace App\Http\Controllers\TeachersPanel;
 use App\Http\Controllers\Controller;
 use App\Models\CreateClass;
 use Illuminate\Http\Request;
+use Intervention\Image\ImageManager;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class CreateClassController extends Controller
 {
@@ -59,7 +61,7 @@ class CreateClassController extends Controller
             ];
 
             if($request->has('class_cover') && !empty($request->class_cover)){
-                $data['class_image'] = compressImagePHP( $request, 'class_cover' );
+                $data['class_image'] = $this->compressImagePHP( $request, 'class_cover' );
             }
             if(!empty($request->class_description)){
                 $data['class_description'] = $request->class_description;
@@ -149,7 +151,7 @@ class CreateClassController extends Controller
             ];
 
             if($request->has('class_cover') && !empty($request->class_cover)){
-                $data['class_image'] = compressImagePHP( $request, 'class_cover' );
+                $data['class_image'] = $this->compressImagePHP( $request, 'class_cover' );
             }
             if(!empty($request->class_description)){
                 $data['class_description'] = $request->class_description;
@@ -189,4 +191,36 @@ class CreateClassController extends Controller
             return response()->json(['error', 'Something went wrong.']);
         }
     }
+
+    public function compressImagePHP( $request, $key ) : string
+    {
+        if(is_array($request) ){
+            $image = $request[ $key ];
+
+        } else {
+            $image = $request->file( $key );
+        }
+
+        $imageHashedName = $image->hashName();
+
+        $imgExplodedName = explode( ".", $imageHashedName );
+
+        $publicPath = public_path( 'images' ) . DIRECTORY_SEPARATOR;
+
+        $img = Image::make( $image )->save( $publicPath . $imgExplodedName[ 0 ] . '.' . $imgExplodedName[ 1 ] );
+
+        $img->backup();
+
+        $img->resize( 200, null, function( $constraint ) {
+            $constraint->aspectRatio();
+            $constraint->upsize();
+        } )->save( $publicPath . $imgExplodedName[ 0 ] . '-thumbs200.' . $imgExplodedName[ 1 ] );
+        $img->reset();
+
+        $img->destroy();
+
+        return $imgExplodedName[ 0 ] . '.' . $imgExplodedName[ 1 ];
+    }
+
 }
+

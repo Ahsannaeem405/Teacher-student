@@ -9,6 +9,8 @@ use App\Models\CreateCourse;
 use App\Models\Subscription;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Intervention\Image\ImageManager;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class CreateCourseController extends Controller
 {
@@ -59,22 +61,22 @@ class CreateCourseController extends Controller
             ];
 
             if($request->has('course_cover') && !empty($request->course_cover)){
-                $data['course_image'] = compressImagePHP( $request, 'course_cover' );
+                $data['course_image'] = $this->compressImagePHP( $request, 'course_cover' );
             }
             if(!empty($request->description_course)){
                 $data['course_description'] = $request->description_course;
             }
             if($request->has('vid_1') && !empty($request->vid_1)){
-                $vid[] = uploadVid($request, 'vid_1');
+                $vid[] = $this->uploadVid($request, 'vid_1');
             }
             if($request->has('vid_2') && !empty($request->vid_2)){
-                $vid[] = uploadVid($request, 'vid_2');
+                $vid[] = $this->uploadVid($request, 'vid_2');
             }
             if($request->has('vid_3') && !empty($request->vid_3)){
-                $vid[] = uploadVid($request, 'vid_3');
+                $vid[] = $this->uploadVid($request, 'vid_3');
             }
             if($request->has('vid_4') && !empty($request->vid_4)){
-                $vid[] = uploadVid($request, 'vid_4');
+                $vid[] = $this->uploadVid($request, 'vid_4');
             }
 
             $res = (new CreateCourse())->createCourse($data);
@@ -184,22 +186,22 @@ class CreateCourseController extends Controller
             ];
 
             if($request->has('course_cover') && !empty($request->course_cover)){
-                $data['course_image'] = compressImagePHP( $request, 'course_cover' );
+                $data['course_image'] = $this->compressImagePHP( $request, 'course_cover' );
             }
             if(!empty($request->description_course)){
                 $data['course_description'] = $request->description_course;
             }
             if($request->has('vid_1') && !empty($request->vid_1)){
-                $vid[] = uploadVid($request, 'vid_1');
+                $vid[] = $this->uploadVid($request, 'vid_1');
             }
             if($request->has('vid_2') && !empty($request->vid_2)){
-                $vid[] = uploadVid($request, 'vid_2');
+                $vid[] = $this->uploadVid($request, 'vid_2');
             }
             if($request->has('vid_3') && !empty($request->vid_3)){
-                $vid[] = uploadVid($request, 'vid_3');
+                $vid[] = $this->uploadVid($request, 'vid_3');
             }
             if($request->has('vid_4') && !empty($request->vid_4)){
-                $vid[] = uploadVid($request, 'vid_4');
+                $vid[] = $this->uploadVid($request, 'vid_4');
             }
 
             $res = (new CreateCourse())->updateCourse($data, $course_id);
@@ -259,5 +261,48 @@ class CreateCourseController extends Controller
         }else{
             return response()->json(['error', 'Something went wrong.']);
         }
+    }
+
+    public function uploadVid($request, $key){
+        if(is_array($request) ){
+            $file = $request[ $key ];
+        } else {
+            $file = $request->file( $key );
+        }
+
+        $filename = $file->getClientOriginalName();
+        $path = public_path( 'videos' ) . DIRECTORY_SEPARATOR;
+        $file->move($path, $filename);
+        return $filename;
+    }
+
+    public function compressImagePHP( $request, $key ) : string
+    {
+        if(is_array($request) ){
+            $image = $request[ $key ];
+
+        } else {
+            $image = $request->file( $key );
+        }
+
+        $imageHashedName = $image->hashName();
+
+        $imgExplodedName = explode( ".", $imageHashedName );
+
+        $publicPath = public_path( 'images' ) . DIRECTORY_SEPARATOR;
+
+        $img = Image::make( $image )->save( $publicPath . $imgExplodedName[ 0 ] . '.' . $imgExplodedName[ 1 ] );
+
+        $img->backup();
+
+        $img->resize( 200, null, function( $constraint ) {
+            $constraint->aspectRatio();
+            $constraint->upsize();
+        } )->save( $publicPath . $imgExplodedName[ 0 ] . '-thumbs200.' . $imgExplodedName[ 1 ] );
+        $img->reset();
+
+        $img->destroy();
+
+        return $imgExplodedName[ 0 ] . '.' . $imgExplodedName[ 1 ];
     }
 }

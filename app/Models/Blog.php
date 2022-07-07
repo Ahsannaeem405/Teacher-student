@@ -22,4 +22,19 @@ class Blog extends Model
     public function store($data){
         return $this->create($data);
     }
+
+    public function edit($blog_id){
+        return $this->where('id', $blog_id)
+            ->first();
+    }
+
+    public function blogUpdate($data, $blog_id){
+        return $this->where('id', $blog_id)
+            ->update($data);
+    }
+
+    public function deleleBlog($blog_id){
+        return $this->where('id', $blog_id)
+            ->delete();
+    }
 }

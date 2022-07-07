@@ -52,17 +52,13 @@
                         @php
                             $imagePath = !is_null($blog->blog_cover) ? $blog->blog_cover : 'do_not_delete.png';
                         @endphp
-                        <div class="card card-style" style="height: 245px;">
+                        <div class="card card-style" style="height: 300px;">
                             <div class="card-header" style="text-align: center">
                                 <img src="{{asset('images')."/". $imagePath}}"
                                      class="img-fluid" alt="No Image" width="155">
                             </div>
                             <div class="card-body" style="text-align: center">
                                 <p style="margin-top: 15px; font-size: 16px; font-weight: bold;">{{$blog->blog_title}}</p>
-                                @php
-                                      $blog_descrip = substr($blog->blog_description,0,15)."...";
-                                @endphp
-                                <p>{!! $blog_descrip !!}</p>
                             </div>
                             <div class="card-footer" style="text-align: center">
                                 <div class="row" style="display: flex; justify-content: center">
@@ -82,33 +78,22 @@
                                             </a>
                                         </div>
                                     </div>
-                                    <div class="col-lg-1" style="padding-right: 30px;">
-                                        <div class="col-12">
-                                    <span style="padding-left: 5px;">
-                                        <a href="#" style="text-decoration: none; color: black">
-                                            <i class="fas fa-eye" style="color: #C9C97E"></i>
-                                        </a>
-                                    </span>
-                                        </div>
-                                        <div class="col-12">
-                                            <a href="#" style="text-decoration: none; color: black">
-                                                <p style="color: #C9C97E; font-weight: bold">View</p>
-                                            </a>
-                                        </div>
-                                    </div>
+
                                     <div class="col-lg-1" >
                                         <div class="col-12">
                                             <div style="padding-left: 5px;">
-                                                <a href="#" style="text-decoration: none">
+                                                <button type="button" class="userDeleteclass" style="text-decoration: none; border: none"
+                                                        blogId="{{$blog->id}}">
                                                     <i class="fas fa-trash" style="color: red"></i>
-                                                </a>
+                                                </button>
                                             </div>
                                         </div>
                                         <div class="col-12">
                                             {{--                                    <a href="{{ route('teacher.course-delete', ['id' => encrypt($course->id)]) }}"--}}
-                                            <a href="#" style="text-decoration: none">
+                                            <button type="button" class="userDeleteclass" style="text-decoration: none; border: none"
+                                                    blogId="{{$blog->id}}">
                                                 <p style="color: red; font-weight: bold">Delete</p>
-                                            </a>
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -122,4 +107,42 @@
         </div>
 
     </div>
+@endsection
+
+@section('JS')
+    <script>
+        $('.userDeleteclass').click(function(e) {
+            e.preventDefault();
+            var user_id = $(this).attr('blogId');
+            // alert(user_id);
+            swal({
+                title: "Are you sure?",
+                text: "Do you want to delete this note?",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        $.ajax({
+                            url: '{{ route('teacher.blog-delete') }}',
+                            type: 'get',
+                            data: {
+                                'user_id': user_id
+                            },
+                            success: function(result) {
+                                swal(result.success, {
+                                    icon: "success",
+                                })
+                                    .then((result) => {
+                                        location.reload();
+                                    });
+                                // window.reload();
+                            }
+                        });
+                        // admin/deleteuser
+                    }
+                });
+        });
+    </script>
 @endsection
