@@ -231,7 +231,6 @@ class CreateCourseController extends Controller
     }
 
     public function courseVideo(Request $request){
-
         try{
             if($request->has('course_vid') && !empty($request->course_vid)){
                 $vid = $this->uploadVid($request, 'course_vid');

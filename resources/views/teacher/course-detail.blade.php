@@ -91,7 +91,7 @@
                 <video width="200" height="140" controls>
                     <source src='{{asset("/videos/$lecture->course_doc")}}' type="video/mp4">
                 </video>
-                <a href="#" download class="btn btn-info">Download</a>
+                <a href="{{asset("/videos/$lecture->course_doc")}}" download class="btn btn-info">Download</a>
             </div>
           @endforeach
         </div>
