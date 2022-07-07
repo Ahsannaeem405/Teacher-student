@@ -857,8 +857,8 @@ color: white;
 .pagination {
 display: flex;
 list-style: none;
-font-size: x-large;
-padding: 20px;
+font-size: 16px;
+padding: 10px;
   display: inline-block;
 }
 .row.mt-5.download-img .col-md-3 {

@@ -63,7 +63,7 @@ class StripePaymentController extends Controller
                     'user_id' => auth()->user()->id,
                     'payment_amount' => $payment_amount,
                     'payment_method' => $payment_method,
-                    'subscription_type' => 'Enterprise'
+                    'subscription_type' => 'enterprise'
                 ];
             }
 
@@ -71,9 +71,12 @@ class StripePaymentController extends Controller
             $exp = date('Y-m-d', strtotime($start. ' + 30 days'));
 
             if($payment_amount == '10'){
+                $vids = (new User())->checkVids();
+                $vids_left = $vids->remaining_vids + 50;
+
                 $sub_exp = [
                     'subscription_expiry_date' => $exp,
-                    'remaining_vids' => '50',
+                    'remaining_vids' => $vids_left,
                 ];
             }else{
                 $sub_exp = [

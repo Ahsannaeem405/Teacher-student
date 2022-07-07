@@ -97,7 +97,7 @@ class CreateCourseController extends Controller
                     if(!empty($resul)){
                         $result = (new User())->updateRemainingVids($vids_left);
                     }
-                }elseif ($sub_type->subscription_type != 'basic' && $sub_type->subscription_type != 'trial'){
+                }elseif ($sub_type->subscription_type == 'enterprise'){
                     $result = (new CourseLecture())->storeLectures($res->id, $vid);
                 }else{
                     return redirect()->back()->with('error', 'You have remaining ' .$remaining_vid. 'videos which are less then your selected videos.');
@@ -250,14 +250,14 @@ class CreateCourseController extends Controller
         }
     }
 
-    public function deleteCourse($id){
-        $course_id = decrypt($id);
+    public function deleteCourse(Request $request){
+        $course_id = $request->user_id;
         $res = (new CreateCourse())->deleteCourse($course_id);
 
         if($res == '1'){
-            return redirect()->back()->with('success', 'Course deleted successfully.');
+            return response()->json(['success'=>'Course deleted successfully!']);
         }else{
-            return redirect()->back()->with('error', 'Something went wrong.');
+            return response()->json(['error', 'Something went wrong.']);
         }
     }
 }

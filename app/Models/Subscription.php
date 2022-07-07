@@ -17,7 +17,14 @@ class Subscription extends Model
     ];
 
     public function storeSubscription($data){
-        return $this->create($data);
+        $subscrip = (new Subscription())->checkSubscription();
+
+        if(!empty($subscrip)){
+            return $this->where('user_id', auth()->user()->id)
+                ->update($data);
+        }else{
+            return $this->create($data);
+        }
     }
 
     public function checkSubs(){

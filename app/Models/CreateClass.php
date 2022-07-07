@@ -24,7 +24,7 @@ class CreateClass extends Model
 
     public function getClasses(){
         return $this->where('user_id', auth()->user()->id)
-            ->get();
+            ->paginate(9);
     }
 
     public function createClass($data){

@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 {{--    <link rel="stylesheet" href="{{ asset('css/style4.css') }}">--}}
     <link rel="stylesheet" href="{{ asset('css/student-style.css') }}">
+{{--    <link rel="stylesheet" href="{{ asset('css/my-style.css') }}">--}}
 
     <style>
         body{
@@ -146,6 +147,7 @@
     {{--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>--}}
     <script src="{{asset('js/custom.js')}}"></script>
 
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     @yield('JS')
 
 </body>

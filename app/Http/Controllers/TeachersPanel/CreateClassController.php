@@ -179,14 +179,14 @@ class CreateClassController extends Controller
         //
     }
 
-    public function delete($class_id){
-        $id = decrypt($class_id);
-        $res = (new CreateClass())->delClass($id);
+    public function delete(Request $request){
+        $class_id = $request->user_id;
+        $res = (new CreateClass())->delClass($class_id);
 
-        if($res == 1){
-            return redirect()->back()->with('success', 'Class deleted successfully.');
+        if($res == '1'){
+            return response()->json(['success'=>'Class deleted successfully!']);
         }else{
-            return redirect()->back()->with('error', 'Something went wrong.');
+            return response()->json(['error', 'Something went wrong.']);
         }
     }
 }

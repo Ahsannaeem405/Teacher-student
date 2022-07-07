@@ -31,7 +31,7 @@ class CreateCourse extends Model
             ->select('create_courses.*', 'create_classes.id AS class_id', 'create_classes.class_name',
             'create_classes.class_duration')
             ->where('create_courses.teacher_id', auth()->user()->id)
-            ->get();
+            ->paginate(9);
     }
 
     public function lectures(){

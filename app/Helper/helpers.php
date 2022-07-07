@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Request;
 use Intervention\Image\ImageManager;
 use Intervention\Image\ImageManagerStatic as Image;
 
-if( !function_exists( 'compressImagePHP' ) ) {
+if( !function_exists( 'compressImagePHP' ) ) {   
     function compressImagePHP( $request, $key ) : string
     {
         if(is_array($request) ){

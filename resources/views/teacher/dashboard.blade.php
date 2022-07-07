@@ -83,17 +83,17 @@
                                         <div class="col-lg-1" >
                                             <div class="col-12">
                                                 <div style="padding-left: 5px;">
-                                                    <a href="{{ route('teacher.createClass-del', ['id' => encrypt($class->id)]) }}"
-                                                       style="text-decoration: none">
+                                                    <button type="button" class="userDeleteclass" style="text-decoration: none; border: none"
+                                                            userId="{{$class->id}}">
                                                         <i class="fas fa-trash" style="color: red"></i>
-                                                    </a>
+                                                    </button>
                                                 </div>
                                             </div>
                                             <div class="col-12">
-                                                <a href="{{ route('teacher.createClass-del', ['id' => encrypt($class->id)]) }}"
-                                                   style="text-decoration: none">
+                                                <button type="button" class="userDeleteclass" style="text-decoration: none; border: none"
+                                                        userId="{{$class->id}}">
                                                     <p style="color: red; font-weight: bold">Delete</p>
-                                                </a>
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -107,27 +107,68 @@
             @endif
         </div>
 
-        <div class="row" style="margin-top: 30px; margin-right: 40px; display: flex; justify-content: end;">
-            <div class="col-lg-1" style="text-align: center; margin-right: -12px;">
-                <div style="padding: 5px 5px; background-color: white;
-                    color: #C9C97E;border: 1px solid #C9C97E; border-radius: 5px;">1</div>
-            </div>
-
-            <div class="col-lg-1" style="text-align: center; margin-right: -12px;">
-                <div style="padding: 5px 5px; background-color: #C9C97E;
-                    color: white; border: 1px solid #C9C97E; border-radius: 5px;">2</div>
-            </div>
-
-            <div class="col-lg-1" style="text-align: center; margin-right: -12px;">
-                <div style="padding: 5px 5px; background-color: #C9C97E;
-                    color: white; border: 1px solid #C9C97E; border-radius: 5px;">3</div>
-            </div>
-
-            <div class="col-lg-1" style="text-align: center; margin-right: -12px;">
-                <div style="padding: 5px 5px; background-color: #C9C97E;
-                    color: white; border: 1px solid #C9C97E; border-radius: 5px;">4</div>
-            </div>
+        <div class="pagini">
+            {!! $classes->links() !!}
         </div>
+{{--        <div class="row" style="margin-top: 30px; margin-right: 40px; display: flex; justify-content: end;">--}}
+{{--            <div class="col-lg-1" style="text-align: center; margin-right: -12px;">--}}
+{{--                <div style="padding: 5px 5px; background-color: white;--}}
+{{--                    color: #C9C97E;border: 1px solid #C9C97E; border-radius: 5px;">1</div>--}}
+{{--            </div>--}}
+
+{{--            <div class="col-lg-1" style="text-align: center; margin-right: -12px;">--}}
+{{--                <div style="padding: 5px 5px; background-color: #C9C97E;--}}
+{{--                    color: white; border: 1px solid #C9C97E; border-radius: 5px;">2</div>--}}
+{{--            </div>--}}
+
+{{--            <div class="col-lg-1" style="text-align: center; margin-right: -12px;">--}}
+{{--                <div style="padding: 5px 5px; background-color: #C9C97E;--}}
+{{--                    color: white; border: 1px solid #C9C97E; border-radius: 5px;">3</div>--}}
+{{--            </div>--}}
+
+{{--            <div class="col-lg-1" style="text-align: center; margin-right: -12px;">--}}
+{{--                <div style="padding: 5px 5px; background-color: #C9C97E;--}}
+{{--                    color: white; border: 1px solid #C9C97E; border-radius: 5px;">4</div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
     </div>
+@endsection
+
+@section('JS')
+    <script>
+        $('.userDeleteclass').click(function(e) {
+            e.preventDefault();
+            var user_id = $(this).attr('userId');
+            // alert(user_id);
+            swal({
+                title: "Are you sure?",
+                text: "Do you want to delete this note?",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        $.ajax({
+                            url: '{{ route('teacher.createClass-del') }}',
+                            type: 'get',
+                            data: {
+                                'user_id': user_id
+                            },
+                            success: function(result) {
+                                swal(result.success, {
+                                    icon: "success",
+                                })
+                                    .then((result) => {
+                                        location.reload();
+                                    });
+                                // window.reload();
+                            }
+                        });
+                        // admin/deleteuser
+                    }
+                });
+        });
+    </script>
 @endsection
 

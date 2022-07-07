@@ -149,7 +149,7 @@ class User extends Authenticatable
 
     public function checkVids(){
         return $this->where('id', auth()->user()->id)
-            ->first('remaining_vids');
+            ->first(['remaining_vids', 'subscription_expiry_date']);
     }
 
     public function updateRemainingVids($vids_left){

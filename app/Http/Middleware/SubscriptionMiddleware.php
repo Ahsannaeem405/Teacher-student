@@ -30,14 +30,14 @@ class SubscriptionMiddleware
         $now = date('Y-m-d');
         $end = date('Y-m-d',strtotime($exp_date));
 
-        if(!empty($data)){
-            if($now <= $end && $vids->remaining_vids > 0){
+        if(!empty($data) && $vids->remaining_vids > 0){
+            if($now <= $end){
                 return $next($request);
             }else{
-                return redirect()->route('teacher.price-menu')->with('error', 'Your subscription has expire or your remaining videos are finish, please buy subscription again...');
+                return redirect()->route('teacher.price-menu')->with('error', 'Your subscription has expire, please buy it again...');
             }
         }else{
-            return redirect()->route('teacher.price-menu')->with('warning', 'You have to buy a subscription first...');
+            return redirect()->route('teacher.price-menu')->with('warning', "Your remaining videos are finish or you havn't buy any subscription plan yet...");
         }
 
     }

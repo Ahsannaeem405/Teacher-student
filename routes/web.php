@@ -134,13 +134,13 @@ Route::group(['prefix' => 'teacher', 'middleware' => ['auth', 'check_teacher'], 
             'createClass' => CreateClassController::class
         ], ['except'=>['destroy']
         ]);
-        Route::get('/delClass/{id}', [CreateClassController::class, 'delete'])
+        Route::get('/delClass', [CreateClassController::class, 'delete'])
             ->name('createClass-del');
         Route::resources([
             'createCourse' => CreateCourseController::class
         ], ['except'=>['destroy']
         ]);
-        Route::get('/delete/course/{id}', [CreateCourseController::class, 'deleteCourse'])
+        Route::get('/delete/course', [CreateCourseController::class, 'deleteCourse'])
                                                          ->name('course-delete');
         Route::post('/course/video', [CreateCourseController::class, 'courseVideo'])
             ->name('course-video');

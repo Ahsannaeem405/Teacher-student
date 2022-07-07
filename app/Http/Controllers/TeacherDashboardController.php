@@ -62,13 +62,22 @@ class TeacherDashboardController extends Controller
         $vids = (new User())->checkVids();
         $plan_amount = decrypt($type);
 
-        if(empty($check_sub) || $vids < '1'){
+        $now = date('Y-m-d');
+        $end = date('Y-m-d',strtotime($vids->subscription_expiry_date));
+
+        if(empty($check_sub)){
             $data = [
                 'amount' => $plan_amount
             ];
-
             return view('teacher.payment-type', $data);
-        }else{
+
+        }elseif($vids->remaining_vids < 1 || $now >= $end){
+            $data = [
+                'amount' => $plan_amount
+            ];
+            return view('teacher.payment-type', $data);
+        }
+        else{
             return redirect()->back()->with('warning', 'You already have a subscription plan.');
         }
     }
