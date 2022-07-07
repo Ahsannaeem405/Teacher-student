@@ -87,7 +87,6 @@ class CreateCourseController extends Controller
                 $count = count($vid);
                 $vids_left = $remaining_vids - $count;
 
-
                 if($sub_type->subscription_type == 'trial' && $vids_left > 0){
                     $resul = (new CourseLecture())->storeLectures($res->id, $vid);
                     if(!empty($resul)){
@@ -103,19 +102,6 @@ class CreateCourseController extends Controller
                 }else{
                     return redirect()->back()->with('error', 'You have remaining ' .$remaining_vid. 'videos which are less then your selected videos.');
                 }
-
-//                if($sub_type == 'basic' || $vids_left != 0){
-//                    $resul = (new CourseLecture())->storeLectures($res->id, $vid);
-//                    if(!empty($resul)){
-//                        $result = (new User())->updateRemainingVids($vids_left);
-//                    }
-//                }else{
-//                    return redirect()->back()->with('error', 'You have remaining' .$remaining_vids. 'videos which are less then your selected videos.');
-//                }
-//                if($sub_type != 'basic' || $sub_type != 'trial'){
-//                    dd('here');
-//                    $result = (new CourseLecture())->storeLectures($res->id, $vid);
-//                }
             }
 
             if(!empty($result)){
@@ -127,7 +113,6 @@ class CreateCourseController extends Controller
         } catch(\Exception $ex){
             return redirect()->back()->with('error', $ex->getMessage());
         }
-
     }
 
     /**
