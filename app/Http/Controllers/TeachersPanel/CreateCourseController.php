@@ -234,7 +234,7 @@ class CreateCourseController extends Controller
 
         try{
             if($request->has('course_vid') && !empty($request->course_vid)){
-                $vid = uploadVid($request, 'course_vid');
+                $vid = $this->uploadVid($request, 'course_vid');
             }
 
             $data = [

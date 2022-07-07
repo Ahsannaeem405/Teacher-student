@@ -70,7 +70,7 @@
             <div class=" col-md-9 heading-1 float-text">
                 <h2 class="bottom-line"> Class session videos / documents</h2>
                 <span class="span-class"
-                      style="padding-top: 25px;"><i class="fa fa-download" aria-hidden="true"></i> download</span>
+                      style="padding-top: 25px;"><i class="fa fa-download" aria-hidden="true"></i>Download</span>
             </div>
             <div class="col-md-3">
                 <form action="{{ route('teacher.course-video') }}" method="post" id="course_vid_form" enctype="multipart/form-data">
@@ -88,11 +88,10 @@
         <div class="row" style="margin-top: 20px;">
           @foreach($lectures as $lecture)
             <div class="col-md-3">
-                <a href="#" download>
-                    <video width="200" height="140" controls>
-                        <source src='{{asset("/videos/$lecture->course_doc")}}' type="video/mp4">
-                    </video>
-                </a>
+                <video width="200" height="140" controls>
+                    <source src='{{asset("/videos/$lecture->course_doc")}}' type="video/mp4">
+                </video>
+                <a href="#" download class="btn btn-info">Download</a>
             </div>
           @endforeach
         </div>
