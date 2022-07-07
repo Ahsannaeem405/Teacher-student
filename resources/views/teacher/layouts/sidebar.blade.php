@@ -89,7 +89,7 @@
             <a href="{{ route('teacher.upload-profile') }}" style="text-decoration: none">My Profile</a></li>
 
         <li class="{{ request()->routeIs('teacher.create-blog') ? 'active' : ''}}">
-            <a href="{{ route('teacher.create-blog') }}" style="text-decoration: none">Write Blog</a></li>
+            <a href="{{ route('teacher.blog.store') }}" style="text-decoration: none">Write Blog</a></li>
 
         <li class="{{ request()->routeIs('teacher.status') ? 'active' : ''}}">
             <a href="{{ route('teacher.status') }}" style="text-decoration: none">My Status</a></li>

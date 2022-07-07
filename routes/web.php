@@ -16,7 +16,8 @@ use App\Http\Controllers\Admin\{
 use App\Http\Controllers\TeachersPanel\{
     CreateClassController,
     CreateCourseController,
-    MyProfileController
+    MyProfileController,
+    BlogController
 };
 
 use App\Http\Controllers\FrontController;
@@ -146,6 +147,10 @@ Route::group(['prefix' => 'teacher', 'middleware' => ['auth', 'check_teacher'], 
             ->name('course-video');
         Route::post('subscribe/plan', [StripePaymentController::class, 'stripe'])->name('subscribe-plan');
         Route::post('stripe', [StripePaymentController::class, 'stripePost'])->name('stripe.post');
+        Route::resources([
+            'blog' => BlogController::class
+        ], ['except'=>['destroy']
+        ]);
 
 });
 
