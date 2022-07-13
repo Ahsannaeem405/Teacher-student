@@ -52,4 +52,9 @@ class CourseLecture extends Model
         }
         return $lec;
     }
+
+    public function getVides($user_id){
+        return $this->where('course_id', $user_id)
+            ->first('course_doc');
+    }
 }

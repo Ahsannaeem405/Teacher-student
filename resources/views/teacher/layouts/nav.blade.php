@@ -27,7 +27,7 @@
                             <li><a href="#" style="padding-top: 5px;">About Us</a></li>
                             <li><a href="#" style="padding-top: 5px;">Features</a></li>
                             <li><a href="#" style="padding-top: 5px;">Pricing</a></li>
-                            <li><a href="#" style="padding-top: 5px;">Blog</a></li>
+                            <li><a href="{{ route('my-blogs') }}" style="padding-top: 5px;">Blog</a></li>
                         </ul>
                     </div>
                 </div>

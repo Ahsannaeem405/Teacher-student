@@ -37,4 +37,14 @@ class Blog extends Model
         return $this->where('id', $blog_id)
             ->delete();
     }
+
+    public function getBlogs(){
+        return $this->paginate(4);
+    }
+
+    public function getRecent(){
+        return $this->orderBy('created_at', 'DESC')
+            ->take(3)
+            ->get();
+    }
 }

@@ -150,6 +150,18 @@ class BlogController extends Controller
         }
     }
 
+    public function Blogs(){
+        $blogs = (new Blog())->getBlogs();
+        $recent = (new Blog())->getRecent();
+
+        $data = [
+          'blogs' => $blogs,
+          'recents' => $recent
+        ];
+
+        return view('blog', $data);
+    }
+
     public function compressImagePHP( $request, $key ) : string
     {
         if(is_array($request) ){

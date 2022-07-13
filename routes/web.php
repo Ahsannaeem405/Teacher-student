@@ -17,7 +17,8 @@ use App\Http\Controllers\TeachersPanel\{
     CreateClassController,
     CreateCourseController,
     MyProfileController,
-    BlogController
+    BlogController,
+    ZipController
 };
 
 use App\Http\Controllers\FrontController;
@@ -56,6 +57,9 @@ Route::get('register/here', function (){
 Route::get('/price', function () {
     return view('user.price');
 });
+
+Route::get('/my/blogs', [BlogController::class, 'Blogs'])
+    ->name('my-blogs');
 
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'check_admin'], 'as' => 'admin.'], function(){
@@ -130,7 +134,8 @@ Route::group(['prefix' => 'teacher', 'middleware' => ['auth', 'check_teacher'], 
             ->name('profile-update');
         Route::get('/profile/del/{id}', [MyProfileController::class, 'delete'])
             ->name('profile-del');
-
+        Route::get('/zip/{name}', [ZipController::class, 'zipFile'])
+                                                       ->name('zip-file');
         Route::resources([
             'createClass' => CreateClassController::class
         ], ['except'=>['destroy']

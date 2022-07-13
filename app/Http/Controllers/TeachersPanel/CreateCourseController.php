@@ -67,16 +67,16 @@ class CreateCourseController extends Controller
                 $data['course_description'] = $request->description_course;
             }
             if($request->has('vid_1') && !empty($request->vid_1)){
-                $vid[] = $this->uploadVid($request, 'vid_1');
+                $vid[] = $this->uploadVid($request, 'vid_1', $request->course_name);
             }
             if($request->has('vid_2') && !empty($request->vid_2)){
-                $vid[] = $this->uploadVid($request, 'vid_2');
+                $vid[] = $this->uploadVid($request, 'vid_2', $request->course_name);
             }
             if($request->has('vid_3') && !empty($request->vid_3)){
-                $vid[] = $this->uploadVid($request, 'vid_3');
+                $vid[] = $this->uploadVid($request, 'vid_3', $request->course_name);
             }
             if($request->has('vid_4') && !empty($request->vid_4)){
-                $vid[] = $this->uploadVid($request, 'vid_4');
+                $vid[] = $this->uploadVid($request, 'vid_4', $request->course_name);
             }
 
             $res = (new CreateCourse())->createCourse($data);
@@ -192,16 +192,16 @@ class CreateCourseController extends Controller
                 $data['course_description'] = $request->description_course;
             }
             if($request->has('vid_1') && !empty($request->vid_1)){
-                $vid[] = $this->uploadVid($request, 'vid_1');
+                $vid[] = $this->uploadVid($request, 'vid_1', $request->course_name);
             }
             if($request->has('vid_2') && !empty($request->vid_2)){
-                $vid[] = $this->uploadVid($request, 'vid_2');
+                $vid[] = $this->uploadVid($request, 'vid_2', $request->course_name);
             }
             if($request->has('vid_3') && !empty($request->vid_3)){
-                $vid[] = $this->uploadVid($request, 'vid_3');
+                $vid[] = $this->uploadVid($request, 'vid_3', $request->course_name);
             }
             if($request->has('vid_4') && !empty($request->vid_4)){
-                $vid[] = $this->uploadVid($request, 'vid_4');
+                $vid[] = $this->uploadVid($request, 'vid_4', $request->course_name);
             }
 
             $res = (new CreateCourse())->updateCourse($data, $course_id);
@@ -233,7 +233,7 @@ class CreateCourseController extends Controller
     public function courseVideo(Request $request){
         try{
             if($request->has('course_vid') && !empty($request->course_vid)){
-                $vid = $this->uploadVid($request, 'course_vid');
+                $vid = $this->uploadVid($request, 'course_vid', $request->course_name);
             }
 
             $data = [
@@ -262,7 +262,7 @@ class CreateCourseController extends Controller
         }
     }
 
-    public function uploadVid($request, $key){
+    public function uploadVid($request, $key, $course_name){
         if(is_array($request) ){
             $file = $request[ $key ];
         } else {
@@ -270,7 +270,7 @@ class CreateCourseController extends Controller
         }
 
         $filename = $file->getClientOriginalName();
-        $path = public_path( 'videos' ) . DIRECTORY_SEPARATOR;
+        $path = public_path( 'videos/'. $course_name. auth()->user()->id) . DIRECTORY_SEPARATOR;
         $file->move($path, $filename);
         return $filename;
     }

@@ -13,11 +13,11 @@
         <div class="row mt-5 black-img-row" style="margin-bottom: 10%;">
             <div class="col-sm-4">
                 @php
-                    $imagePath = explode('.', !is_null($course->course_image) ? $course->course_image : 'do_not_delete.png');
+                    $imagePath = !is_null($course->course_image) ? $course->course_image : 'do_not_delete.png';
                 @endphp
                 <div class="card">
                     <div class="card-body" style="text-align: center">
-                        <img src="{{asset('images')."/". $imagePath[0].".".$imagePath[1]}}"
+                        <img src="{{asset('images')."/". $imagePath }}"
                              class="img-fluid" alt="No Image" width="290">
                     </div>
                 </div>
@@ -25,12 +25,14 @@
             </div>
             <div class="col-sm-8">
                 <div class="heading-1">
-                    <h3><strong>{{$course->course_name}} <span class="span-class"
+                    <h3><strong>{{$course->course_name}}<span class="course_span_class"
                                                                style="font-size: 22px;">({{ ucfirst($course->class_name) }} Class)</span></strong></h3>
                     <hr>
-                    <h4>Teacher <br><span class="span-class">{{ $course->teacher_name }}</span></h4>
-                    <h4><i class="fa fa-calendar" aria-hidden="true"></i> Created Date <br><span class="span-class">{{ date('d-F-Y', strtotime($course->class_date)) }}</span></h4>
-                    <h4><i class="fa fa-clock-o" aria-hidden="true"></i> Created Time <br> <span class="span-class">{{ $course->class_time }}</span>PM</h4>
+                    <h4>Teacher <br><span class="course_span_class">{{ $course->teacher_name }}</span></h4>
+                    <h4><i class="fa fa-calendar" aria-hidden="true"></i> Created Date <br>
+                        <span class="course_span_class">{{ date('d-F-Y', strtotime($course->class_date)) }}</span></h4>
+                    <h4><i class="fa fa-clock-o" aria-hidden="true"></i> Created Time <br>
+                        <span class="course_span_class">{{ $course->class_time }}</span>PM</h4>
 {{--                    <a href="#" class="add-cart-btn"--}}
 {{--                       style="text-decoration: none; color: white;">Add to Cart</a>--}}
                 </div>
@@ -69,13 +71,14 @@
         <div class="row" style="margin-top: 30px;">
             <div class=" col-md-9 heading-1 float-text">
                 <h2 class="bottom-line"> Class session videos / documents</h2>
-                <span class="span-class"
-                      style="padding-top: 25px;"><i class="fa fa-download" aria-hidden="true"></i>Download</span>
+                <a href="{{ route('teacher.zip-file', ['name' => encrypt($course->course_name)]) }}" class="span-class">
+                    <i class="fa fa-download" aria-hidden="true"></i>Download</a>
             </div>
             <div class="col-md-3">
                 <form action="{{ route('teacher.course-video') }}" method="post" id="course_vid_form" enctype="multipart/form-data">
                     @csrf
                     <input type="hidden" name="course_id" value="{{ $course->id }}">
+                    <input type="hidden" name="course_name" value="{{ $course->course_name }}">
                     <label for="course_vid" style="padding-top: 25px; color: #C8C97D; font-size: 25px;">
                         <i class="fa fa-plus-circle"></i>
                     </label>
