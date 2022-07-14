@@ -18,19 +18,19 @@
                 <div class="card">
                     <div class="card-body" style="text-align: center">
                         <img src="{{asset('images')."/". $imagePath[0].".".$imagePath[1]}}"
-                             class="img-fluid" alt="No Image" width="290">
+                             class="img-fluid" alt="No Image" style="width:100%">
                     </div>
                 </div>
                 <span class="img-text" style="float: right">Lenght: {{ $course->class->class_duration }}</span>
             </div>
             <div class="col-sm-8">
                 <div class="heading-1">
-                    <h3><strong>{{$course->course_name}} <span class="span-class"
+                    <h3><strong>{{$course->course_name}} <span class="span-class span_left"
                                                                style="font-size: 22px;">({{ ucfirst($course->class->class_name) }} Class)</span></strong></h3>
                     <hr>
-                    <h4>Course Fee <br><span class="span-class">{{ $course->price }}</span></h4>
+                    <h4>Course Fee <br><span class="span-class span_left">{{ $course->price }}</span></h4>
                     <h4><i class="fa fa-calendar" aria-hidden="true"></i> Created Date <br><span class="span-class">{{ date('d-F-Y', strtotime($course->class->class_date)) }}</span></h4>
-                    <h4><i class="fa fa-clock-o" aria-hidden="true"></i> Created Time <br> <span class="span-class">{{ $course->class->class_time }}</span>PM</h4>
+                    <h4><i class="fa fa-clock-o" aria-hidden="true"></i> Created Time <br> <span class="span-class span_left">{{ $course->class->class_time }}</span>PM</h4>
                     
                 </div>
             </div>

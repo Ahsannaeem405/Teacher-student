@@ -1249,6 +1249,9 @@ display: block;
     border-radius: 50%;
     border: 5px solid white;
 }
+.span_left{
+    float: unset!important;
+}
 
 /*.save-buttn{*/
 /*    margin: 5% 0px 0px;*/

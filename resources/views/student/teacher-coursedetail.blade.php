@@ -29,26 +29,34 @@
                 <div class="card">
                     <div class="card-body" style="text-align: center">
                         <img src="{{asset('images')."/". $imagePath[0].".".$imagePath[1]}}"
-                             class="img-fluid" alt="No Image" width="290">
+                             class="img-fluid" alt="No Image" style="width: 100%">
                     </div>
                 </div>
                 <span class="img-text" style="float: right">Lenght: {{ $course->class->class_duration }}</span>
             </div>
             <div class="col-sm-8">
                 <div class="heading-1">
-                    <h3><strong>{{$course->course_name}} <span class="span-class"
+                    <h3><strong>{{$course->course_name}} <span class="span-class span_left"
                                                                style="font-size: 22px;">({{ ucfirst($course->class->class_name) }} Class)</span></strong></h3>
                     <hr>
-                    <h4>Course Fee <br><span class="span-class">{{ $course->price }}</span></h4>
-                    <h4><i class="fa fa-calendar" aria-hidden="true"></i> Created Date <br><span class="span-class">{{ date('d-F-Y', strtotime($course->class->class_date)) }}</span></h4>
-                    <h4><i class="fa fa-clock-o" aria-hidden="true"></i> Created Time <br> <span class="span-class">{{ $course->class->class_time }}</span>PM</h4>
+                    <h4>Course Fee <br><span class="span-class span_left">{{ $course->price }}</span></h4>
+                    <h4><i class="fa fa-calendar" aria-hidden="true"></i> Created Date <br><span class="span-class span_left">{{ date('d-F-Y', strtotime($course->class->class_date)) }}</span></h4>
+                    <h4><i class="fa fa-clock-o" aria-hidden="true"></i> Created Time <br> <span class="span-class span_left">{{ $course->class->class_time }}</span>PM</h4>
                     <form action="{{url('student/add_cart')}}" method="post">
                         @csrf
                         <input type="hidden" name="user_id" value="{{auth()->user()->id}}">
                         <input type="hidden" name="course_id" value="{{$course->id}}">
+                        @if($ifpurchases !=true)
 
-                       <button type="submit" class="add-cart-btn"
-                           style="text-decoration: none; color: white;border:none;" @if(isset($course->cart)) disabled @elseif($purchases!=null) disabled @else @endif>Add to Cart</button>
+                            <button type="submit" class="add-cart-btn"
+                                style="text-decoration: none; color: white;border:none;" >Add to Cart</button>
+                        @else
+                            <button type="button" class="add-cart-btn"
+                                style="text-decoration: none; color: white;border:none;" >Purchased</button>
+
+                        @endif
+
+
                     </form>
                 </div>
             </div>
@@ -104,6 +112,7 @@
             </div>
             <div class="col-md-3"></div>
         </div>
+        @if($ifpurchases ==true)
 
         <div class="row" style="margin-top: 20px;">
           @foreach($lectures as $lecture)
@@ -116,6 +125,13 @@
             </div>
           @endforeach
         </div>
+        @else
+        <div class="alert alert-danger alert-dismissible" style="margin-top: 2%;">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+           Please purchase  the Course to view a lecture
+        </div>
+        
+        @endif
 
 
     </div>

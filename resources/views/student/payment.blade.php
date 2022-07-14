@@ -57,7 +57,7 @@
                             data-cc-on-file="false"
                             data-stripe-publishable-key="{{ $teacher->stripe_public_key }}"
                             id="payment-form">
-                        @csrf
+                            @csrf
 
                         <div class='form-row row'>
                             <div class='col-xs-12 form-group required'>

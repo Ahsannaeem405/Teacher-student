@@ -109,7 +109,9 @@ class StudentDashboardController extends Controller
         $lectures=CourseLecture::where('course_id', $id)
         ->get('course_doc');
         $purchases=PurchaseCourse::where('course_id',$course->id)->where('user_id',auth()->user()->id)->first();
-        return view('student.teacher-coursedetail',compact('course','lectures','purchases'));
+        $ifpurchases=PurchaseCourse::where('course_id',$course->id)->where('user_id',auth()->user()->id)->exists();
+        //dd($pur);
+        return view('student.teacher-coursedetail',compact('course','lectures','purchases','ifpurchases'));
     }
     public function courses(Request $request){
            if($request->has( 'filter' )){
@@ -148,7 +150,8 @@ class StudentDashboardController extends Controller
 
     public function paymentType($id, $class_id){
         $classId = decrypt($class_id);
-        $cart = cart::find($id);
+        $cart = cart::where('user_id',\Auth::user()->id)->get();
+        //dd($cart);
 
         return view('student.payment-type',compact('cart', 'classId'));
     }
