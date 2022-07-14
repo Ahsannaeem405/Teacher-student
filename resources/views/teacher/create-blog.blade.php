@@ -39,19 +39,19 @@
             <div class="row text_center" style="margin-bottom: 3%;">
                 <div class="col-lg-12">
                     <div class="col-12">
-                        <label for="file-upload" class="course-cover-plus">
+                        <label for="" id="" class="course-cover-plus">
                             <strong>+</strong></label>
-                        <input type="file" name="blog_cover"
-                               class="@error('blog_cover') is-invalid @enderror"
-                               autocomplete="blog_cover" autofocus accept="image/jpeg, .png"
-                               id="file-upload" style="visibility:hidden; display: none">
-                        @error('blog_cover')
-                        <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                        @enderror
-                        <label id="file-name"></label>
-                        <p>(format: JPG, PNG)</p>
+{{--                        <input type="file" name="blog_cover"--}}
+{{--                               class="@error('blog_cover') is-invalid @enderror"--}}
+{{--                               autocomplete="blog_cover" autofocus accept="image/jpeg, .png"--}}
+{{--                               id="file-upload" style="visibility:hidden; display: none">--}}
+{{--                        @error('blog_cover')--}}
+{{--                        <span class="invalid-feedback" role="alert">--}}
+{{--                                    <strong>{{ $message }}</strong>--}}
+{{--                                </span>--}}
+{{--                        @enderror--}}
+{{--                        <label id="file-name"></label>--}}
+{{--                        <p>(format: JPG, PNG)</p>--}}
                     </div>
                 </div>
             </div>

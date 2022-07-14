@@ -40,25 +40,26 @@ class CreateClassController extends Controller
     {
         $this->validate($request, [
            'class_name' => 'required|string|max:10',
-           'class_date' => 'required|string|max:15',
-           'class_time' => 'required|string|max:15',
            'class_title' => 'required|string|max:100',
-           'class_hours' => 'required|numeric',
-           'class_mints' => 'required|numeric',
         ]);
 
         try{
-            $class_duration = $request->class_hours.' '.'hr'.' '.$request->class_mints.' '.'min';
+//            $class_duration = $request->class_hours.' '.'hr'.' '.$request->class_mints.' '.'min';
 
             $data = [
               'teacher_name' => auth()->user()->name,
               'user_id' => auth()->user()->id,
               'class_name' => $request->class_name,
               'class_title' => $request->class_title,
-              'class_date' => $request->class_date,
-              'class_time' => $request->class_time,
-              'class_duration' => $class_duration,
             ];
+
+            if(empty($request->class_date) && empty($request->class_time)){
+                $data['class_date'] = date('Y-m-d');
+                $data['class_time'] = date('H:i:sa');
+            }else{
+                $data['class_date'] = $request->class_date;
+                $data['class_time'] = $request->class_time;
+            }
 
             if($request->has('class_cover') && !empty($request->class_cover)){
                 $data['class_image'] = $this->compressImagePHP( $request, 'class_cover' );
@@ -137,18 +138,24 @@ class CreateClassController extends Controller
     {
         $this->validate($request, [
             'class_name' => 'required|string|max:10',
-            'class_date' => 'required|string|max:15',
-            'class_time' => 'required|string|max:15',
             'class_title' => 'required|string|max:100',
         ]);
 
         try{
             $data = [
+                'teacher_name' => auth()->user()->name,
+                'user_id' => auth()->user()->id,
                 'class_name' => $request->class_name,
                 'class_title' => $request->class_title,
-                'class_date' => $request->class_date,
-                'class_time' => $request->class_time
             ];
+
+            if(empty($request->class_date) && empty($request->class_time)){
+                $data['class_date'] = date('Y-m-d');
+                $data['class_time'] = date('H:i:s');
+            }else{
+                $data['class_date'] = $request->class_date;
+                $data['class_time'] = $request->class_time;
+            }
 
             if($request->has('class_cover') && !empty($request->class_cover)){
                 $data['class_image'] = $this->compressImagePHP( $request, 'class_cover' );

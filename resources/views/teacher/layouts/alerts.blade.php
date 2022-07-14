@@ -1,5 +1,5 @@
 @if (session()->has('success'))
-    <div class="alert alert-success border-success" style="font-size: 20px">
+    <div class="alert alert-success border-success" style="font-size: 20px; margin-top: 15px;">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <i class="icofont icofont-close-line-circled"></i>
         </button>
@@ -7,7 +7,7 @@
     </div>
 
 @elseif (session()->has('error'))
-    <div class="alert alert-danger border-danger" style="font-size: 20px">
+    <div class="alert alert-danger border-danger" style="font-size: 20px; margin-top: 15px;">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <i class="icofont icofont-close-line-circled"></i>
         </button>
@@ -15,7 +15,7 @@
     </div>
 
 @elseif (session()->has('warning'))
-    <div class="alert alert-warning border-warning" style="font-size: 20px">
+    <div class="alert alert-warning border-warning" style="font-size: 20px; margin-top: 15px;">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <i class="icofont icofont-close-line-circled"></i>

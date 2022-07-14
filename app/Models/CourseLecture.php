@@ -12,6 +12,7 @@ class CourseLecture extends Model
     protected $table = 'course_lectures';
     protected $fillable = [
         'course_id',
+        'class_title',
         'course_doc'
     ];
 
@@ -34,7 +35,7 @@ class CourseLecture extends Model
 
     public function getLectures($id){
         return $this->where('course_id', $id)
-            ->get('course_doc');
+            ->get();
     }
 
     public function getVids($id)
@@ -56,5 +57,15 @@ class CourseLecture extends Model
     public function getVides($user_id){
         return $this->where('course_id', $user_id)
             ->first('course_doc');
+    }
+
+    public function updateSingleLectures($data, $id){
+        return $this->where('id', $id)
+            ->update($data);
+    }
+
+    public function delLecture($lec_id){
+        return $this->where('id', $lec_id)
+            ->delete();
     }
 }

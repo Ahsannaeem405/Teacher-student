@@ -83,14 +83,14 @@
                                         <div class="col-lg-1" >
                                             <div class="col-12">
                                                 <div style="padding-left: 5px;">
-                                                    <button type="button" class="userDeleteclass" style="text-decoration: none; border: none"
+                                                    <button type="button" class="userDeleteclass" style="text-decoration: none; border: none; background: white"
                                                             userId="{{$class->id}}">
                                                         <i class="fas fa-trash" style="color: red"></i>
                                                     </button>
                                                 </div>
                                             </div>
                                             <div class="col-12">
-                                                <button type="button" class="userDeleteclass" style="text-decoration: none; border: none"
+                                                <button type="button" class="userDeleteclass" style="text-decoration: none; border: none; background: white"
                                                         userId="{{$class->id}}">
                                                     <p style="color: red; font-weight: bold">Delete</p>
                                                 </button>

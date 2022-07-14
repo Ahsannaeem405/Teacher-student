@@ -172,10 +172,16 @@ Route::group(['prefix' => 'teacher', 'middleware' => ['auth', 'check_teacher'], 
         ]);
         Route::get('/delete/blog', [BlogController::class, 'deleteBlog'])
                                                           ->name('blog-delete');
+
         Route::post('/charge', [PaymentController::class, 'charge']);
 
 
                                                           
+
+        Route::post('update/lec', [CreateCourseController::class, 'updateLecture'])
+            ->name('update-lec');
+        Route::get('/delete/lecture', [CreateCourseController::class, 'deleteLecture'])
+                                                         ->name('lec-delete');
 });
 
 Route::group(['prefix' => 'student', 'middleware' => ['auth', 'check_student'], 'as' => 'student.'], function(){

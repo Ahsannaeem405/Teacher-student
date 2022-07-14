@@ -45,8 +45,6 @@ class CreateCourseController extends Controller
         $this->validate($request, [
             'class_name' => 'required',
             'course_price' => 'required|numeric',
-            'course_date' => 'required|string|max:15',
-            'course_time' => 'required|string|max:15',
             'course_name' => 'required|string|max:30',
         ]);
 
@@ -55,10 +53,16 @@ class CreateCourseController extends Controller
                 'create_class_id' => $request->class_name,
                 'teacher_id' => auth()->user()->id,
                 'price' => $request->course_price,
-                'course_date' => $request->course_date,
-                'course_time' => $request->course_time,
                 'course_name' => $request->course_name,
             ];
+
+            if(empty($request->course_date) && empty($request->course_time)){
+                $data['course_date'] = date('Y-m-d');
+                $data['course_time'] = date('H:i:s');
+            }else{
+                $data['course_date'] = $request->course_date;
+                $data['course_time'] = $request->course_time;
+            }
 
             if($request->has('course_cover') && !empty($request->course_cover)){
                 $data['course_image'] = $this->compressImagePHP( $request, 'course_cover' );
@@ -169,8 +173,6 @@ class CreateCourseController extends Controller
         $this->validate($request, [
             'class_name' => 'required',
             'course_price' => 'required|numeric',
-            'course_date' => 'required|string|max:15',
-            'course_time' => 'required|string|max:15',
             'course_name' => 'required|string|max:30',
         ]);
 
@@ -180,10 +182,18 @@ class CreateCourseController extends Controller
                 'create_class_id' => $request->class_name,
                 'teacher_id' => auth()->user()->id,
                 'price' => $request->course_price,
-                'course_date' => $request->course_date,
-                'course_time' => $request->course_time,
                 'course_name' => $request->course_name,
             ];
+
+            if(empty($request->course_date) && empty($request->course_time)){
+                $data['course_date'] = date('Y-m-d');
+                $data['course_time'] = date('H:i:s');
+            }else{
+                $data['course_date'] = $request->course_date;
+                $data['course_time'] = $request->course_time;
+            }
+
+            $vid[] = '';
 
             if($request->has('course_cover') && !empty($request->course_cover)){
                 $data['course_image'] = $this->compressImagePHP( $request, 'course_cover' );
@@ -206,10 +216,14 @@ class CreateCourseController extends Controller
 
             $res = (new CreateCourse())->updateCourse($data, $course_id);
 
-            $result = (new CourseLecture())->updateLectures($course_id, $vid);
+            if(!empty($vid)){
+                $result = (new CourseLecture())->updateLectures($course_id, $vid);
+            }
 
             if(!empty($result)){
-                return redirect()->route('teacher.my-courses')->with('success', 'Class updated successfully.');
+                return redirect()->route('teacher.my-courses')->with('success', 'Course updated successfully.');
+            }elseif(!empty($res)){
+                return redirect()->back()->with('success', 'Course updated successfully.');
             }else{
                 return redirect()->back()->with('error', 'Something went wrong.');
             }
@@ -231,6 +245,7 @@ class CreateCourseController extends Controller
     }
 
     public function courseVideo(Request $request){
+        //dd($request->all());
         try{
             if($request->has('course_vid') && !empty($request->course_vid)){
                 $vid = $this->uploadVid($request, 'course_vid', $request->course_name);
@@ -238,9 +253,34 @@ class CreateCourseController extends Controller
 
             $data = [
                 'course_id' => $request->course_id,
+                'class_title' => $request->class_title,
                 'course_doc' => $vid
             ];
+
             $result = (new CourseLecture())->storeSingleLectures($data);
+            if(!empty($result)){
+                return redirect()->back();
+            }else{
+                return redirect()->back()->with('error', 'Something went wrong');
+            }
+        } catch (\Exception $ex){
+            return redirect()->back()->with('error', $ex->getMessage());
+        }
+    }
+
+    public function updateLecture(Request $request){
+        //dd($request->all());
+        try{
+            if($request->has('course_vid') && !empty($request->course_vid)){
+                $vid = $this->uploadVid($request, 'course_vid', $request->course_name);
+            }
+
+            $data = [
+                'class_title' => $request->class_title,
+                'course_doc' => $vid
+            ];
+
+            $result = (new CourseLecture())->updateSingleLectures($data, $request->course_id);
             if(!empty($result)){
                 return redirect()->back();
             }else{
@@ -257,6 +297,17 @@ class CreateCourseController extends Controller
 
         if($res == '1'){
             return response()->json(['success'=>'Course deleted successfully!']);
+        }else{
+            return response()->json(['error', 'Something went wrong.']);
+        }
+    }
+
+    public function deleteLecture(Request $request){
+        $lec_id = $request->lec_id;
+        $res = (new CourseLecture())->delLecture($lec_id);
+
+        if($res == '1'){
+            return response()->json(['success'=>'Lecture deleted successfully!']);
         }else{
             return response()->json(['error', 'Something went wrong.']);
         }

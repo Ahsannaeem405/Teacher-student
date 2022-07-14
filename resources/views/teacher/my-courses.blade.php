@@ -37,8 +37,7 @@
                         @php
                             $imagePath = explode('.', !is_null($course->course_image) ? $course->course_image : 'do_not_delete.png');
                         @endphp
-                        <div class="card" style="box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-                    transition: 0.3s; padding: 10px;">
+                        <div class="card course_card">
                             <div class="card-header" style="text-align: center">
                                 <img src="{{asset('images')."/". $imagePath[0].".".$imagePath[1]}}"
                                      class="img-fluid" alt="No Image" width="155">
@@ -90,7 +89,7 @@
                                     <div class="col-lg-1" >
                                         <div class="col-12">
                                             <div style="padding-left: 5px;">
-                                                <button type="button" class="userDeleteclass" style="text-decoration: none; border: none"
+                                                <button type="button" class="userDeleteclass" style="text-decoration: none; border: none; background: white"
                                                         userId="{{$course->id}}">
                                                     <i class="fas fa-trash" style="color: red"></i>
                                                 </button>
@@ -98,7 +97,7 @@
                                         </div>
                                         <div class="col-12">
                                             {{--                                    <a href="{{ route('teacher.course-delete', ['id' => encrypt($course->id)]) }}"--}}
-                                            <button type="button" class="userDeleteclass" style="text-decoration: none; border: none"
+                                            <button type="button" class="userDeleteclass" style="text-decoration: none; border: none; background: white"
                                                     userId="{{$course->id}}">
                                                 <p style="color: red; font-weight: bold">Delete</p>
                                             </button>
@@ -110,7 +109,7 @@
                     </div>
                 @endforeach
             @else
-                <h4 class="text_center">No class found...</h4>
+                <h4 class="text_center">No course found...</h4>
             @endif
         </div>
 
