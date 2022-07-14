@@ -43,26 +43,34 @@
                 </div>
             </div>
 
-            <div class="row" style="margin-bottom: 3%;">
-                <div class="col-lg-6 col-md-6">
-                    <label for="">Class Name</label>
-                    <select name="class_name" class="form-control
-                        @error('class_name') is-invalid @enderror" autocomplete="class_name"
-                            autofocus required>
-                        <option selected>Select class</option>
-                        <option value="physics" {{ $class->class_name == 'physics' ? 'selected' : '' }}>Physics</option>
-                        <option value="chemistry" {{ $class->class_name == 'chemistry' ? 'selected' : '' }}>Chemistry</option>
-                        <option value="maths" {{ $class->class_name == 'maths' ? 'selected' : '' }}>Maths</option>
-                        <option value="computer" {{ $class->class_name == 'computer' ? 'selected' : '' }}>Computer</option>
-                    </select>
-                    @error('class_name')
-                    <span class="invalid-feedback" role="alert">
+           <div class="row" style="margin-bottom: 3%;">
+               <div class="col-lg-6 col-md-6">
+                   <label for="">Class Title</label>
+                   <input type="text" class="form-control @error('class_title') is-invalid @enderror"
+                          name="class_title" required autocomplete="class_title" autofocus
+                          placeholder="Enter class title" value="{{ $class->class_title }}">
+                   @error('class_title')
+                   <span class="invalid-feedback" role="alert">
                            <strong>{{ $message }}</strong>
                         </span>
-                    @enderror
-                    {{--                    <input type="text" name="note_name" class="form-control">--}}
-                </div>
-            </div>
+                   @enderror
+               </div>
+           </div>
+
+           <div class="row" style="margin-bottom: 3%;">
+               <div class="col-lg-6 col-md-6">
+                   <label for="class_name">Class Type</label>
+                   <input type="text" name="class_name" id="class_name" class="form-control
+                        @error('class_name') is-invalid @enderror" autocomplete="class_name"
+                          autofocus required placeholder="Enter class type" value="{{ $class->class_name }}">
+                   @error('class_name')
+                   <span class="invalid-feedback" role="alert">
+                           <strong>{{ $message }}</strong>
+                        </span>
+                   @enderror
+                   {{--                    <input type="text" name="note_name" class="form-control">--}}
+               </div>
+           </div>
 
             <div class="col-lg-4">
                 <div>
@@ -72,7 +80,7 @@
                 </button>
 
                 <input type="date" class="search-input @error('class_date') is-invalid @enderror"
-                       required autocomplete="class_date" autofocus
+                       autocomplete="class_date" autofocus
                        name="class_date" value="{{ $class->class_date }}" pattern="\d{4}-\d{2}-\d{2}">
                 @error('class_date')
                 <span class="invalid-feedback" role="alert">
@@ -90,7 +98,7 @@
                 </button>
 
                 <input type="time" class="search-input @error('class_time') is-invalid @enderror"
-                       required autocomplete="class_time" autofocus
+                       autocomplete="class_time" autofocus
                        name="class_time" value="{{ $class->class_time }}">
                 @error('class_time')
                 <span class="invalid-feedback" role="alert">
@@ -107,19 +115,19 @@
                </div>
            </div>
 
-            <div class="row" style="margin-bottom: 3%;">
-                <div class="col-lg-6 col-md-6">
-                    <label for="">Class Title</label>
-                    <input type="text" class="form-control @error('class_title') is-invalid @enderror"
-                           name="class_title" required autocomplete="class_title" autofocus
-                           placeholder="Enter class title" value="{{ $class->class_title }}">
-                    @error('class_title')
-                    <span class="invalid-feedback" role="alert">
-                           <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
-            </div>
+{{--            <div class="row" style="margin-bottom: 3%;">--}}
+{{--                <div class="col-lg-6 col-md-6">--}}
+{{--                    <label for="">Class Title</label>--}}
+{{--                    <input type="text" class="form-control @error('class_title') is-invalid @enderror"--}}
+{{--                           name="class_title" required autocomplete="class_title" autofocus--}}
+{{--                           placeholder="Enter class title" value="{{ $class->class_title }}">--}}
+{{--                    @error('class_title')--}}
+{{--                    <span class="invalid-feedback" role="alert">--}}
+{{--                           <strong>{{ $message }}</strong>--}}
+{{--                        </span>--}}
+{{--                    @enderror--}}
+{{--                </div>--}}
+{{--            </div>--}}
 
             <div class="row" style="margin-bottom: 3%;">
                 <div class="col-lg-12 col-md-12">

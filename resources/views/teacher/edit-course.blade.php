@@ -20,7 +20,7 @@
 
         <div class="row" style="margin-top: 30px; display: flex; justify-content: center;">
             <div class="col-lg-3" style="padding: 0px; margin: 0px; font-size: 22px;">
-                <p><strong>Create own course</strong></p>
+                <p><strong>Edit course</strong></p>
             </div>
         </div>
 
@@ -87,30 +87,30 @@
                     </div>
                 </div>
 
-                <div class="row" style="margin-bottom: 4%;">
-                    <div class="col-lg-12">
-                        <h4 class="text_center" ><strong>Add course date and time stamp</strong></h4>
-                        <div class="col-lg-4 text_center" style="padding-top: 24px;">
-                            <button type="submit" class="course-search-btn" style="cursor: unset">
-                            </button>
+{{--                <div class="row" style="margin-bottom: 4%;">--}}
+{{--                    <div class="col-lg-12">--}}
+{{--                        <h4 class="text_center" ><strong>Add course date and time stamp</strong></h4>--}}
+{{--                        <div class="col-lg-4 text_center" style="padding-top: 24px;">--}}
+{{--                            <button type="submit" class="course-search-btn" style="cursor: unset">--}}
+{{--                            </button>--}}
 
-                            <input type="date" class="search-input" value="{{ $cour->course_date }}"
-                                   pattern="\d{4}-\d{2}-\d{2}" name="course_date" required>
-                        </div>
+{{--                            <input type="date" class="search-input" value="{{ $cour->course_date }}"--}}
+{{--                                   pattern="\d{4}-\d{2}-\d{2}" name="course_date" required>--}}
+{{--                        </div>--}}
 
-                        <div class="col-lg-8 text_center">
-                            <div>
-                                <label for="">Time</label>
-                            </div>
-                            <button type="submit" class="course-time-btn" style="cursor: unset">
-                                <i class="fa-solid fa-clock"></i>
-                            </button>
+{{--                        <div class="col-lg-8 text_center">--}}
+{{--                            <div>--}}
+{{--                                <label for="">Time</label>--}}
+{{--                            </div>--}}
+{{--                            <button type="submit" class="course-time-btn" style="cursor: unset">--}}
+{{--                                <i class="fa-solid fa-clock"></i>--}}
+{{--                            </button>--}}
 
-                            <input type="time" class="search-input" value="{{ $cour->course_time }}"
-                                   name="course_time" required>
-                        </div>
-                    </div>
-                </div>
+{{--                            <input type="time" class="search-input" value="{{ $cour->course_time }}"--}}
+{{--                                   name="course_time" required>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
 
                 <div class="row">
                     <div class="col-lg-12 text_center">

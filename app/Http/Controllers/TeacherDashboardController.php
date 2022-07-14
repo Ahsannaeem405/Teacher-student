@@ -89,6 +89,7 @@ class TeacherDashboardController extends Controller
 
     public function courseDetail($course_id){
         $id = decrypt($course_id);
+
         $res = (new CreateCourse())->getSingleCourse($id);
 
         $class = (new CreateClass())->getRelatedClasses($res->create_class_id);

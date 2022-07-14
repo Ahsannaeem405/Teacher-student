@@ -44,16 +44,24 @@
 
             <div class="row" style="margin-bottom: 3%;">
                 <div class="col-lg-6 col-md-6">
-                    <label for="">Class Name</label>
-                    <select name="class_name" class="form-control
+                    <label for="">Class Title</label>
+                    <input type="text" class="form-control @error('class_title') is-invalid @enderror"
+                           name="class_title" required autocomplete="class_title" autofocus
+                           placeholder="Enter class title">
+                    @error('class_title')
+                    <span class="invalid-feedback" role="alert">
+                           <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+            </div>
+
+            <div class="row" style="margin-bottom: 3%;">
+                <div class="col-lg-6 col-md-6">
+                    <label for="class_name">Class Type</label>
+                    <input type="text" name="class_name" id="class_name" class="form-control
                         @error('class_name') is-invalid @enderror" autocomplete="class_name"
-                        autofocus required>
-                        <option selected>Select class</option>
-                        <option value="physics">Physics</option>
-                        <option value="chemistry">Chemistry</option>
-                        <option value="maths">Maths</option>
-                        <option value="computer">Computer</option>
-                    </select>
+                        autofocus required placeholder="Enter class type">
                     @error('class_name')
                         <span class="invalid-feedback" role="alert">
                            <strong>{{ $message }}</strong>
@@ -71,7 +79,7 @@
                 </button>
 
                 <input type="date" class="search-input @error('class_date') is-invalid @enderror"
-                       required autocomplete="class_date" autofocus
+                       autocomplete="class_date" autofocus
                        pattern="\d{4}-\d{2}-\d{2}"
                        name="class_date">
                 @error('class_date')
@@ -90,7 +98,7 @@
                 </button>
 
                 <input type="time" class="search-input @error('class_time') is-invalid @enderror"
-                       required autocomplete="class_time" autofocus
+                       autocomplete="class_time" autofocus
                        name="class_time">
                 @error('class_time')
                     <span class="invalid-feedback" role="alert">
@@ -99,53 +107,39 @@
                 @enderror
             </div>
 
-            <div class="row" style="margin-bottom: 3%;">
-                <div class="col-lg-6 col-md-6">
-                    <label for="">Class Duration</label>
-                    <div class="row">
-                        <div class="col-lg-3">
-                            <span>Hours</span>
-                            <select class="form-control" name="class_hours" style="width: 60%;">
-                                <option value="1" selected>1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </select>
-                        </div>
+{{--            <div class="row" style="margin-bottom: 3%;">--}}
+{{--                <div class="col-lg-6 col-md-6">--}}
+{{--                    <label for="">Class Duration</label>--}}
+{{--                    <div class="row">--}}
+{{--                        <div class="col-lg-3">--}}
+{{--                            <span>Hours</span>--}}
+{{--                            <select class="form-control" name="class_hours" style="width: 60%;">--}}
+{{--                                <option value="1" selected>1</option>--}}
+{{--                                <option value="2">2</option>--}}
+{{--                                <option value="3">3</option>--}}
+{{--                                <option value="4">4</option>--}}
+{{--                                <option value="5">5</option>--}}
+{{--                            </select>--}}
+{{--                        </div>--}}
 
-                        <div class="col-lg-3">
-                            <span>Minutes</span>
-                            <select class="form-control" name="class_mints" style="width: 70%;">
-                                <option value="00" selected>00</option>
-                                <option value="15">15</option>
-                                <option value="30">30</option>
-                                <option value="45">45</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-            </div>
+{{--                        <div class="col-lg-3">--}}
+{{--                            <span>Minutes</span>--}}
+{{--                            <select class="form-control" name="class_mints" style="width: 70%;">--}}
+{{--                                <option value="00" selected>00</option>--}}
+{{--                                <option value="15">15</option>--}}
+{{--                                <option value="30">30</option>--}}
+{{--                                <option value="45">45</option>--}}
+{{--                            </select>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
 
             <div class="row" style="margin-bottom: 3%;">
                 <div class="col-lg-6 col-md-6">
                     <label for="">Teacher Name</label>
                     <input type="text" class="form-control" name="teacher_name"
                            value="{{ auth()->user()->name }}" disabled>
-                </div>
-            </div>
-
-            <div class="row" style="margin-bottom: 3%;">
-                <div class="col-lg-6 col-md-6">
-                    <label for="">Class Title</label>
-                    <input type="text" class="form-control @error('class_title') is-invalid @enderror"
-                           name="class_title" required autocomplete="class_title" autofocus
-                           placeholder="Enter class title">
-                    @error('class_title')
-                        <span class="invalid-feedback" role="alert">
-                           <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
                 </div>
             </div>
 

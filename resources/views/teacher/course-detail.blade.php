@@ -75,16 +75,16 @@
                     <i class="fa fa-download" aria-hidden="true"></i>Download</a>
             </div>
             <div class="col-md-3">
-                <form action="{{ route('teacher.course-video') }}" method="post" id="course_vid_form" enctype="multipart/form-data">
-                    @csrf
-                    <input type="hidden" name="course_id" value="{{ $course->id }}">
-                    <input type="hidden" name="course_name" value="{{ $course->course_name }}">
-                    <label for="course_vid" style="padding-top: 25px; color: #C8C97D; font-size: 25px;">
+{{--                <form action="{{ route('teacher.course-video') }}" method="post" id="course_vid_form" enctype="multipart/form-data">--}}
+{{--                    @csrf--}}
+{{--                    <input type="hidden" name="course_id" value="{{ $course->id }}">--}}
+{{--                    <input type="hidden" name="course_name" value="{{ $course->course_name }}">--}}
+                    <label for="" data-toggle="modal" data-target="#exampleModal" style="padding-top: 25px; color: #C8C97D; font-size: 25px;">
                         <i class="fa fa-plus-circle"></i>
                     </label>
-                    <input type="file" id="course_vid" name="course_vid" style="visibility: hidden"
-                           accept="video/mp4, webm, ogg">
-                </form>
+{{--                    <input type="file" id="course_vid" name="course_vid" style="visibility: hidden"--}}
+{{--                           accept="video/mp4, webm, ogg">--}}
+{{--                </form>--}}
             </div>
         </div>
 
@@ -92,19 +92,81 @@
           @foreach($lectures as $lecture)
             <div class="col-md-3">
                 <video width="200" height="140" controls>
-                    <source src='{{asset("/videos/$lecture->course_doc")}}' type="video/mp4">
+                    <source src='{{asset("/videos/".$course->course_name.auth()->user()->id.'/'.$lecture->course_doc)}}' type="video/mp4">
                 </video>
-                <a href="{{asset("/videos/$lecture->course_doc")}}" download class="btn btn-info">Download</a>
+                <p><strong>{{ $lecture->class_title }}</strong></p>
+                <a href="{{asset("/videos/".$course->course_name.auth()->user()->id.'/'.$lecture->course_doc)}}" download class="btn btn-info">Download</a>&nbsp;&nbsp;
+
+                <a href="#" style="padding-top: 5px;" data-toggle="modal" data-target="#editVidModal"
+                   onclick="edit(this)" data-class_title="{{ $lecture->class_title }}"
+                   data-lecture_id="{{ $lecture->id }}" data-course_name="{{ $course->course_name }}">
+                    <i class="fas fa-edit" style="color: #C9C97E; font-size: 22px"></i>
+                </a>&nbsp;&nbsp;
+
+                <button class="userDeleteclass" style="padding-top: 5px; border: none; background: white;"
+                        userId="{{$lecture->id}}">
+                    <i class="fas fa-trash" style="color: red; font-size: 22px"></i>
+                </button>
             </div>
           @endforeach
         </div>
     </div>
+
+    @include('teacher.vid-upload-modal')
+
+    @include('teacher.edit-course-vid')
 @endsection
 
 @section('JS')
     <script>
-        $('#course_vid').on('change', function (){
-           $('#course_vid_form').submit();
+        $("#course_vid").change(function(){
+            $("#file-name").text(this.files[0].name);
+        });
+
+        function edit(el) {
+            var link = $(el)
+            var modal = $("#editVidModal")
+            var lecture_id = link.data('lecture_id');
+            var class_title = link.data('class_title');
+            var course_name = link.data('course_name');
+
+            modal.find('#lecture_id').val(lecture_id);
+            modal.find('#class_title').val(class_title);
+            modal.find('#course_name').val(course_name);
+        }
+
+        $('.userDeleteclass').click(function(e) {
+            e.preventDefault();
+            var lec_id = $(this).attr('userId');
+            // alert(user_id);
+            swal({
+                title: "Are you sure?",
+                text: "Do you want to delete this note?",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        $.ajax({
+                            url: '{{ route('teacher.lec-delete') }}',
+                            type: 'get',
+                            data: {
+                                'lec_id': lec_id
+                            },
+                            success: function(result) {
+                                swal(result.success, {
+                                    icon: "success",
+                                })
+                                    .then((result) => {
+                                        location.reload();
+                                    });
+                                // window.reload();
+                            }
+                        });
+                        // admin/deleteuser
+                    }
+                });
         });
     </script>
 @endsection
