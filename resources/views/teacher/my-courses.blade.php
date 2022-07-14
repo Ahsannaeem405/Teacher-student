@@ -37,8 +37,7 @@
                         @php
                             $imagePath = explode('.', !is_null($course->course_image) ? $course->course_image : 'do_not_delete.png');
                         @endphp
-                        <div class="card" style="box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-                    transition: 0.3s; padding: 10px;">
+                        <div class="card course_card">
                             <div class="card-header" style="text-align: center">
                                 <img src="{{asset('images')."/". $imagePath[0].".".$imagePath[1]}}"
                                      class="img-fluid" alt="No Image" width="155">

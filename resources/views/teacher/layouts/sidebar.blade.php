@@ -19,7 +19,7 @@
              style="color: white; border-radius: 50%;" class="tab-img" />
 
         <p style="font-size: 22px; ">{{ auth()->user()->first_name }}</p>
-        <h4>{{ (auth()->user()->role == 2) ? '(Teacher)' : ''}}</h4>
+        <h4>{{ (auth()->user()->role == 2) ? auth()->user()->name : 'Teacher'}}</h4>
         <div>
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star checked"></span>

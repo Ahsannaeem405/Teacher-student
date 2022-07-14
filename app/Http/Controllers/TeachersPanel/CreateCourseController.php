@@ -185,6 +185,8 @@ class CreateCourseController extends Controller
                 'course_name' => $request->course_name,
             ];
 
+            $vid[] = '';
+
             if($request->has('course_cover') && !empty($request->course_cover)){
                 $data['course_image'] = $this->compressImagePHP( $request, 'course_cover' );
             }
@@ -206,10 +208,14 @@ class CreateCourseController extends Controller
 
             $res = (new CreateCourse())->updateCourse($data, $course_id);
 
-            $result = (new CourseLecture())->updateLectures($course_id, $vid);
+            if(!empty($vid)){
+                $result = (new CourseLecture())->updateLectures($course_id, $vid);
+            }
 
             if(!empty($result)){
-                return redirect()->route('teacher.my-courses')->with('success', 'Class updated successfully.');
+                return redirect()->route('teacher.my-courses')->with('success', 'Course updated successfully.');
+            }elseif(!empty($res)){
+                return redirect()->back()->with('success', 'Course updated successfully.');
             }else{
                 return redirect()->back()->with('error', 'Something went wrong.');
             }
