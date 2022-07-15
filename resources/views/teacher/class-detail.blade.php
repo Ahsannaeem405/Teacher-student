@@ -20,11 +20,11 @@
             </div>
             <div class="col-sm-8">
                 <div class="heading-1">
-                    <h2><strong>{{ $class->class_title }} <span class="span-class">({{ ucfirst($class->class_name) }} Class)</span></strong></h2>
+                    <h2><strong>{{ $class->class_title }} <span class="course_span_class">({{ ucfirst($class->class_name) }} Class)</span></strong></h2>
                     <hr>
-                    <h4>Teacher <br><span class="span-class">{{ ucwords($class->teacher_name) }}</span></h4>
-                    <h4><i class="fa fa-calendar" aria-hidden="true"></i> Created Date <br><span class="span-class">{{ date('d-F-Y', strtotime($class->class_date)) }}</span></h4>
-                    <h4><i class="fa fa-clock-o" aria-hidden="true"></i> Created Time <br> <span class="span-class">{{ $class->class_time }}</span></h4>
+                    <h4>Teacher <br><span class="course_span_class">{{ ucwords($class->teacher_name) }}</span></h4>
+                    <h4><i class="fa fa-calendar" aria-hidden="true"></i> Created Date <br><span class="course_span_class">{{ date('d-F-Y', strtotime($class->class_date)) }}</span></h4>
+                    <h4><i class="fa fa-clock-o" aria-hidden="true"></i> Created Time <br> <span class="course_span_class">{{ $class->class_time }}</span></h4>
                 </div>
             </div>
         </div>
