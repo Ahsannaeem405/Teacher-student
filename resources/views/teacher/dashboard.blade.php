@@ -10,7 +10,7 @@
             </div>
 
             <div class="col-lg-4 text_center" style="padding-top: 50px; text-align: end">
-                <button type="submit" class="search-btn">
+                <button type="button" class="search-btn">
                     <img src="{{ asset('images/search-icon.png') }}" alt="no image" width="20">
                 </button>
 
@@ -35,17 +35,15 @@
                     <div class="col-lg-4">
                         <div class="col-12">
                             <div class="card tdb-card">
-                                <div class="card-header" >
+                                <div class="card-header" style="height: 224px;">
                                     @php
                                         $imagePath = explode('.', !is_null($class->class_image) ? $class->class_image : 'do_not_delete.png');
                                     @endphp
-                                    <div class="container" style="width: 80%">
-                                        <img src="{{asset('images')."/". $imagePath[0].".".$imagePath[1]}}"
-                                             class="img-fluid" alt="No Image" style="width: 100%">
-                                    </div>
+                                    <img src="{{asset('images')."/". $imagePath[0].".".$imagePath[1]}}"
+                                         class="img-fluid" alt="No Image" style=" width: 100%;height: 100%; object-fit: contain;">
                                 </div>
                                 <div class="card-body">
-                                    <h4><strong>{{ ucfirst($class->class_name) }} Class</strong></h4>
+                                    <h4><strong>{{ ucfirst($class->class_title) }} Class</strong></h4>
 
                                     <p>Created on: {{ date('d-F-Y', strtotime($class->class_date)) }}</p>
                                     <p>Time: {{ $class->class_time }}</p>
@@ -170,6 +168,25 @@
                         // admin/deleteuser
                     }
                 });
+        });
+        $(document).ready(function() {
+            $(document).on('blur', '.search-input', function() {
+                $.ajax({
+                        url: '{{ url('/update/template') }}' + '/' + temp_id,
+                        data: $('#tempForm').serialize() + "&temp_id=" + temp_id,
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr(
+                                'content')
+                        },
+                        type: 'post',
+                        success: function(result) {
+                             
+                        }
+
+                    });
+                });
+
+
         });
     </script>
 @endsection
