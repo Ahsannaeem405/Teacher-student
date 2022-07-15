@@ -39,8 +39,10 @@
                         @endphp
                         <div class="card course_card">
                             <div class="card-header" style="text-align: center">
-                                <img src="{{asset('images')."/". $imagePath[0].".".$imagePath[1]}}"
-                                     class="img-fluid" alt="No Image" width="155">
+                                <div class="container" style="width: 80%">
+                                    <img src="{{asset('images')."/". $imagePath[0].".".$imagePath[1]}}"
+                                         class="img-fluid" alt="No Image" style="width: 100%">
+                                </div>
                             </div>
                             <div class="card-body" style="text-align: center">
                                 <p style="margin-top: 15px; font-size: 16px; font-weight: bold;">{{$course->course_name}}</p>

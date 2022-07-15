@@ -39,8 +39,10 @@
                                     @php
                                         $imagePath = explode('.', !is_null($class->class_image) ? $class->class_image : 'do_not_delete.png');
                                     @endphp
-                                    <img src="{{asset('images')."/". $imagePath[0].".".$imagePath[1]}}"
-                                         class="img-fluid" alt="No Image" width="200">
+                                    <div class="container" style="width: 80%">
+                                        <img src="{{asset('images')."/". $imagePath[0].".".$imagePath[1]}}"
+                                             class="img-fluid" alt="No Image" style="width: 100%">
+                                    </div>
                                 </div>
                                 <div class="card-body">
                                     <h4><strong>{{ ucfirst($class->class_name) }} Class</strong></h4>
