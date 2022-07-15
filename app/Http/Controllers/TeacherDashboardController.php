@@ -46,10 +46,10 @@ class TeacherDashboardController extends Controller
     }
 
     public function myStudents(){
-        $cource = PurchaseCourse::where('teacher_id',auth()->user()->id)
-            ->whereHas('studentuser')
-            ->paginate('6')
-            ->unique('user_id');
+        $cource = PurchaseCourse::
+        select([\DB::raw('DISTINCT(user_id)'), 'course_id','teacher_id','class_id'])
+        -> where('teacher_id',auth()->user()->id)
+        ->paginate(50);
 
         return view('teacher.my-students',compact('cource'));
     }

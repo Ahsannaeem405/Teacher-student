@@ -110,7 +110,7 @@
         </div>
 
         <div class="pagini">
-            {!! $classes->links() !!}
+            {{ $classes->links() }}
         </div>
 {{--        <div class="row" style="margin-top: 30px; margin-right: 40px; display: flex; justify-content: end;">--}}
 {{--            <div class="col-lg-1" style="text-align: center; margin-right: -12px;">--}}
