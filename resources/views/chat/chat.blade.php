@@ -1,4 +1,12 @@
-@extends('student.dashboard-layout')
+@php
+   if(Auth::user()->role == '2') {
+      $layoutDirectory = 'teacher.dashboard-layout';
+   }else {
+      $layoutDirectory = 'student.dashboard-layout';
+   }
+@endphp
+
+@extends($layoutDirectory)
 
 @section('title', 'Chat')
 
