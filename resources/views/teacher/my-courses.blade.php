@@ -113,9 +113,8 @@
             @endif
         </div>
 
-
         <div class="pagini">
-            {!! $courses->links() !!}
+            {{ $courses->links() }}
         </div>
 {{--        <div class="row" style="margin-top: 30px; margin-right: 40px; display: flex; justify-content: end;">--}}
 
