@@ -59,9 +59,9 @@
                 @endphp
                 <div class="card" style="box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
                     transition: 0.3s; padding: 10px;">
-                    <div class="card-header" style="text-align: center">
+                    <div class="card-header" style="text-align: center;height:224px;" >
                         <img src="{{asset('images')."/". $imagePath[0].".".$imagePath[1]}}"
-                             class="img-fluid" alt="No Image" width="155">
+                             class="img-fluid" alt="No Image"  style=" width: 100%;height: 100%; object-fit: contain;">
                     </div>
                     <div class="card-body" style="text-align: center">
                         <p style="margin-top: 15px; font-size: 16px; font-weight: bold;">

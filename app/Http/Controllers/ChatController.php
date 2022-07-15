@@ -7,10 +7,14 @@ use App\Models\Chat;
 use App\Models\PurchaseCourse;
 use App\Models\User;
 use Illuminate\Http\Request;
+use URL;
+use App\Events\MyEvent;
 
 class ChatController extends Controller
 {
     public function chat(){
+        
+        
         $res = (new PurchaseCourse())->getStudentId();
 
         if($res->count() > 0){
@@ -57,7 +61,15 @@ class ChatController extends Controller
 
             $res = (new Chat())->storeChat($data);
 
+
+           // $image = !is_null(auth()->user()->image) ? auth()->user()->image : 'user-avatar.png';
+            $public=URL::to('/').'/images';
+            $msg=$request->message;
+            event(new MyEvent($msg));
+                       
+
             if(!empty($res)){
+                //return response()->json(['msg'=>$res,'name'=>auth()->user()->name,'public'=>$public]);
                 return true;
             }else{
                 return false;

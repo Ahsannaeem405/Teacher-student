@@ -31,6 +31,9 @@ class Chat extends Model
     public function teacher(){
         return $this->belongsTo(User::class, 'from_id');
     }
+    public function get_user(){
+        return $this->belongsTo(User::class, 'from_id');
+    }
 
     public function storeChat($data){
         return $this->create($data);

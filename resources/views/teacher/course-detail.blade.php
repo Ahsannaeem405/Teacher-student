@@ -60,8 +60,10 @@
                         @php
                             $imagePath = !is_null($class->class_image) ? $class->class_image : 'do_not_delete.png';
                         @endphp
-                        <img src="{{ asset('images')."/". $imagePath}}" class="img-fluid" alt="No Image" width="100">
-                        <span>{{ ucfirst($class->class_name) }} Class</span>
+                        <div style="height: 120px;">
+                        <img src="{{ asset('images')."/". $imagePath}}" class="img-fluid" alt="No Image"  style=" width: 100%;height: 100%; object-fit: contain;">
+                    </div>
+                       
                         <span>{{ strlen($class->class_title) > 15 ? substr($class->class_title,0,15)."..." : $class->class_title }}</span>
                     </div>
                 </div>

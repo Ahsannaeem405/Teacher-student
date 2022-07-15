@@ -24,6 +24,9 @@ use App\Http\Controllers\TeachersPanel\{
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\StripePaymentController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\Teacher;
+
+
 
 
 use Illuminate\Support\Facades\Route;
@@ -182,6 +185,9 @@ Route::group(['prefix' => 'teacher', 'middleware' => ['auth', 'check_teacher'], 
             ->name('update-lec');
         Route::get('/delete/lecture', [CreateCourseController::class, 'deleteLecture'])
                                                          ->name('lec-delete');
+                                                         
+        Route::post('/find_class', [Teacher::class, 'find_class']);
+
 });
 
 Route::group(['prefix' => 'student', 'middleware' => ['auth', 'check_student'], 'as' => 'student.'], function(){
