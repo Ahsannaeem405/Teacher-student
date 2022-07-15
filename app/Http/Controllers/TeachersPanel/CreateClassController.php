@@ -55,7 +55,7 @@ class CreateClassController extends Controller
 
             if(empty($request->class_date) && empty($request->class_time)){
                 $data['class_date'] = date('Y-m-d');
-                $data['class_time'] = date('H:i:sa');
+                $data['class_time'] = date('H:i');
             }else{
                 $data['class_date'] = $request->class_date;
                 $data['class_time'] = $request->class_time;
@@ -149,12 +149,20 @@ class CreateClassController extends Controller
                 'class_title' => $request->class_title,
             ];
 
-            if(empty($request->class_date) && empty($request->class_time)){
+            if(empty($request->class_date)){
+                if(empty($request->class_time)){
+                    $data['class_time'] = date('H:i');
+                }else{
+                    $data['class_time'] = $request->class_time;
+                }
                 $data['class_date'] = date('Y-m-d');
-                $data['class_time'] = date('H:i:s');
             }else{
+                if(empty($request->class_time)){
+                    $data['class_time'] = date('H:i');
+                }else{
+                    $data['class_time'] = $request->class_time;
+                }
                 $data['class_date'] = $request->class_date;
-                $data['class_time'] = $request->class_time;
             }
 
             if($request->has('class_cover') && !empty($request->class_cover)){
