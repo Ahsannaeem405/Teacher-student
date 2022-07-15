@@ -10,7 +10,7 @@
             </div>
 
             <div class="col-lg-4 text_center" style="padding-top: 50px; text-align: end">
-                <button type="submit" class="search-btn">
+                <button type="button" class="search-btn">
                     <img src="{{ asset('images/search-icon.png') }}" alt="no image" width="20">
                 </button>
 
@@ -170,7 +170,23 @@
                 });
         });
         $(document).ready(function() {
-            
+            $(document).on('blur', '.search-input', function() {
+                $.ajax({
+                        url: '{{ url('/update/template') }}' + '/' + temp_id,
+                        data: $('#tempForm').serialize() + "&temp_id=" + temp_id,
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr(
+                                'content')
+                        },
+                        type: 'post',
+                        success: function(result) {
+                             
+                        }
+
+                    });
+                });
+
+
         });
     </script>
 @endsection
