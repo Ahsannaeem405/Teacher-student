@@ -49,7 +49,7 @@ class StripePaymentController extends Controller
                 "source" => $request->stripeToken,
                 "description" => "Payment successfully"
         ]);
-dd($pay);
+
         if($pay->description == 'Payment successfully'){
 
             if($payment_amount == '10'){
