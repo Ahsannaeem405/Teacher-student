@@ -15,22 +15,31 @@
                             <input type="hidden" name="payment_plan" value="{{ $amount }}">
                             <ul class="payment-form-row">
                                 <li id="border_pay">
-                                    <input type="radio" id="paypal_payment" name="payment_method" value="pay_pal">
+                                    <input type="radio" class="payment_method"  id="paypal_payment" name="payment_method" value="pay_pal">
                                     <label for="paypal"><img src="{{url('/images/pay.png')}}" alt="Image"/></label>
                                 </li>
 
                                 <li id="border_visa">
-                                    <input type="radio" id="visa_payment" name="payment_method" value="visa">
+                                    <input type="radio" class="payment_method" id="visa_payment" name="payment_method" value="visa">
                                     <label for="visa"><img src="{{url('/images/visanew.png')}}" alt="Image"/></label>
                                 </li>
                             </ul>
-                            <div id="paypal_input" style="display: none">
-                                <label for="paypal_email" class="mt-5"><h3>PayPal E-mail </h3></label><br>
-                                <input type="email" id="paypal_email" class="form-control"
-                                       name="paypal_email" style="margin-bottom: 60%;">
-                            </div>
-                            <input type="submit" value="Pay Now" id="pay_btn" style="margin-bottom: 50%;" disabled>
+                            <input  type="submit" name="submit" class=""  value="Pay Now" id="stripe_btn" style="margin-bottom: 50%;">
+                            
                         </form>
+                        
+
+                            <div id="paypal_input" style="display: none">
+                                <form action="{{ url('teacher/charge') }}" method="post">
+                                    <input type="hidden" name="amount" value="{{ $amount }}">
+                                    {{ csrf_field() }}
+                                    <input  type="submit" name="submit"  value="Pay Now" id="pay_btn" style="margin-bottom: 50%;" 
+                                >
+                                </form>
+                               
+                                
+                            </div>
+                            
                         <p style="font-size: 18px;">(You will be redirected to official payment gateway page)</p>
                     </div>
                 </div>
@@ -66,21 +75,20 @@
 
 @section('JS')
     <script>
-        $('#paypal_payment').on('click', function (){
-            console.log('here');
-            $('#paypal_input').removeAttr("style");
-        });
+         $(".payment_method").on('click',function(){
+            var val=$('input[name="payment_method"]:checked').val();
+            if(val=='pay_pal')
+            {
+               
+               $('#paypal_input').attr('style', 'display:block'); 
+               $('#stripe_btn').attr('style', 'display:none');
 
-        $('#visa_payment').on('click', function (){
-            $('#paypal_input').attr('style', 'display:none');
-        });
+            }
+            else{
+                $('#paypal_input').attr('style', 'display:none'); 
+                $('#stripe_btn').attr('style', 'display:block');
+            }
 
-        $("#paypal_payment").on('click',function(){
-            $('#pay_btn').prop("disabled", false);
-        });
-
-        $("#visa_payment").on('click',function(){
-            $('#pay_btn').prop("disabled", false);
         });
     </script>
 @endsection

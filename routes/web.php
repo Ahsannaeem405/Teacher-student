@@ -23,6 +23,9 @@ use App\Http\Controllers\TeachersPanel\{
 
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\StripePaymentController;
+use App\Http\Controllers\PaymentController;
+
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,6 +38,17 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/cls', function() {
+        $run = Artisan::call('config:clear');
+        $run = Artisan::call('cache:clear');
+        $run = Artisan::call('config:cache');
+        $run = Artisan::call('view:clear');
+        
+        Session::flush();
+        return 'FINISHED';
+    });
+
 
 Route::get( '/images/{path}/{ext}', [ ImageController::class, 'index' ] )
     ->name( 'imagepath' );
@@ -158,6 +172,12 @@ Route::group(['prefix' => 'teacher', 'middleware' => ['auth', 'check_teacher'], 
         ]);
         Route::get('/delete/blog', [BlogController::class, 'deleteBlog'])
                                                           ->name('blog-delete');
+
+        Route::post('/charge', [PaymentController::class, 'charge']);
+
+
+                                                          
+
         Route::post('update/lec', [CreateCourseController::class, 'updateLecture'])
             ->name('update-lec');
         Route::get('/delete/lecture', [CreateCourseController::class, 'deleteLecture'])
@@ -192,7 +212,8 @@ Route::group(['prefix' => 'student', 'middleware' => ['auth', 'check_student'], 
         Route::post('stripe', [StripePaymentController::class, 'stripestudentPost'])->name('stripe.post');
         Route::post('/profile/update', [MyProfileController::class, 'update'])
         ->name('profile-update');
-        Route::get('delete_history',[StudentDashboardController::class, 'deletehistory']);
+        Route::get('delete_history',[StudentDashboardController::class, 'deletehistory']);#
+        Route::post('/charge', [PaymentController::class, 'stdcharge']);
 });
 
 
@@ -282,4 +303,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/blog_detail', function () {
     return view('blog_detail');
 });
+
+
+
+
+        Route::get('success', [PaymentController::class, 'success']);
+        Route::get('success2', [PaymentController::class, 'success2']);
+
 
