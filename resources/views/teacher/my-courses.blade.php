@@ -42,13 +42,14 @@
                                 <img src="{{asset('images')."/". $imagePath[0].".".$imagePath[1]}}"
                                      class="img-fluid" alt="No Image" style="width: 100%;height: 100%; object-fit: contain;">
                             </div>
+
                             <div class="card-body" style="text-align: center">
                                 <p style="margin-top: 15px; font-size: 16px; font-weight: bold;">{{$course->course_name}}</p>
                             </div>
                             <div class="card-footer" style="text-align: center">
                                 <div class="row" style="margin-top: 10px;">
                                     <div class="col-lg-12">
-                                        <p style="color: #C9C97E; font-size: 12px;">{{ ucfirst($course->class_name) }} Class</p>
+                                        <p style="color: #C9C97E; font-size: 12px;">{{ ucwords($course->class_title) }} Class</p>
                                     </div>
 {{--                                    <div class="col-lg-6">--}}
 {{--                                        <p style="font-size: 10px; font-style: italic">Length: {{ $course->class_duration }}</p>--}}
