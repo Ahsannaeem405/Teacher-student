@@ -34,8 +34,8 @@
         <li class="{{ request()->routeIs('student.notes') ? 'active' : '' }}">
             <a href="{{ route('student.notes') }}" style="text-decoration: none">Notes</a></li>
 
-        <li class="{{ request()->routeIs('student.chat') ? 'active' : '' }}">
-            <a href="{{ route('student.chat') }}" style="text-decoration: none">Chat</a></li>
+        <li class="{{ request()->routeIs('chat') ? 'active' : '' }}">
+            <a href="{{ route('chat') }}" style="text-decoration: none">Chat</a></li>
 
         {{-- <li class="{{ request()->routeIs('student.price-menu') ? 'active' : '' }}">
             <a href="{{ route('student.price-menu') }}" style="text-decoration: none">Pricing Menu</a></li> --}}

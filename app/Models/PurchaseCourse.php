@@ -36,4 +36,9 @@ class PurchaseCourse extends Model
             ->get()
             ->unique('user_id');
     }
+    public function getTeacherId(){
+        return $this->where('user_id', auth()->user()->id)
+            ->get()
+            ->unique('teacher_id');
+    }
 }

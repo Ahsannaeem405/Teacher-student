@@ -23,7 +23,49 @@
 
     var channel = pusher.subscribe('Techer_student');
     channel.bind('Notification', function(data) {
-      alert(JSON.stringify(data));
+        //var datay=JSON.stringify(data);
+        var role=data['role'];
+        var id = [{{Auth::user()->id}}, data['id'] ];
+      
+        if (id.includes(data['msg'].from_id)  || id.includes(data['msg'].to_id) ) {
+            if(data['role'] == '2')
+            {
+                $(".chat").append(`<div class="std-chat" style="margin-bottom: 3%">
+                
+                    <span>
+                         ${data['name']}&nbsp;&nbsp;
+                    </span>
+
+                    <img src="${data['public_img']}" alt="Image" width="40"
+                         style="border-radius: 50%"/>
+
+                    <p style="background-color: #EEEEEE;width: fit-content; padding: 1% 5%;border-radius:27px;margin-left: auto;">${data['msg'].message}</p>
+                    <i class="fa-solid fa-clock" style="color: grey"></i>${data['date']}&nbsp;&nbsp;
+                </div>`);
+
+            }
+            else{
+
+
+            
+
+
+
+               $(".chat").append(`<div class="teach-chat" style="margin-bottom: 3%">
+                                
+
+                                <img src="${data['public_img']}" alt="Image" width="40"
+                                     style="border-radius: 50%"/>
+
+                                <span>
+                                    ${data['name']} &nbsp;&nbsp;
+                                </span>
+
+                                <p style="background-color:#EEEEEE;width: fit-content; padding: 1% 5%;border-radius: 27px;">${data['msg'].message}</p>
+                                <i class="fa-solid fa-clock" style="color: grey"></i>&nbsp;&nbsp;${data['date']}
+                            </div>`);
+            }
+        }
     });
   </script>
     <div class="container-fluid" style="margin-bottom: 15%;">
@@ -75,19 +117,21 @@
                             $image = !is_null($user->image) ? $user->image : 'user-avatar.png';
                         @endphp
                         <div class="row teacher_chat">
-                            <div class="col-lg-12" style="padding-top: 10px;">
+                            <div class="col-lg-12" style="padding-top: 10px;display: flex;">
+                                <div style="margin-left: 2%;margin-right: 2%;">
                                 <img src="{{asset('images')."/". $image}}" alt="Image"
                                 style="border-radius: 50%"/>
+                            </div>  
                             
 
                                 <div>
                                 @if(auth()->user()->id == '2')
                                     <a href="{{ route('chat', ['id' => encrypt($user->id)]) }}" style="text-decoration: none">
-                                        <p><strong>{{ $user->name }}</strong></p>
+                                        <p style="margin-bottom:unset!important;"><strong>{{ $user->name }}</strong></p>
                                     </a>
                                 @else
                                     <a href="{{ route('chat', ['id' => encrypt($user->id)]) }}" style="text-decoration: none">
-                                        <p><strong>{{ $user->name }}</strong></p>
+                                        <p style="margin-bottom:unset!important;"><strong>{{ $user->name }}</strong></p>
                                     </a>
                                 @endif
                                 <p style="color: grey">Start Conv...</p>
@@ -101,7 +145,7 @@
             @if(request()->has('id'))
                 <div class="col-lg-7" style="border: 1px solid lightgrey">
                     <div class="chat" style="min-height:490px;max-height: 500px;padding-top: 2%;
-    overflow: auto;">
+                        overflow: auto;">
                     @foreach($messages as $message)
                         @if($message->student->role == '2')
                             <div class="std-chat" style="margin-bottom: 3%">
@@ -182,7 +226,7 @@
                dataType: 'JSON',
                 success: (data) => {
                     $('.chat').scrollTop($('.chat')[0].scrollHeight);
-                    //$('form')[0].reset();
+                    $('form')[0].reset();
                     //$(".get_chat").reset();
                     
                 },

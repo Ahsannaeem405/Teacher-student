@@ -20,9 +20,22 @@ class MyEvent implements ShouldBroadcast
      * @return void
      */
     public $msg;
-    public function __construct($msg)
+    public $name;
+    public $role;
+    public $public_img;
+    public $date;
+    public $id;
+    
+    
+    public function __construct($msg,$name,$role,$public_img,$date,$id)
     {
         $this->msg = $msg;
+        $this->name = $name;
+        $this->role = $role;
+        $this->public_img=$public_img;
+        $this->date=$date;
+        $this->id=$id;
+
 
     }
 
