@@ -552,15 +552,30 @@ button.btn.dropdown-toggle.nav-img-btn {
         z-index : 50000000000;
     }
 
-    .teacher_chat img {
-        width: 20% !important;
+    .tech_list img{
+        width:100%!important;
+    }
+    .teacher_chat > .col-lg-12 > .row > .col-xs-2{
+        padding-right: 0px!important;
+    }
+    .teacher_chat > .col-lg-12 > .row > .col-xs-10{
+        padding-top: 4%!important;
+    }
+    
+    .teacher_chat > .col-lg-12{
+        padding-bottom:2%!important ;
+    }
+    .teacher_chat > .right_part {
+        margin-left: 2%!important;
+        margin-right: 2%!important;
     }
 
-    .profile-save-btn {
+
+    .profile-save-btn{
         padding: 10px 30px;
     }
 
-    .profile-draft-btn {
+    .profile-draft-btn{
         padding: 10px 30px;
 
     }

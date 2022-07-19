@@ -108,23 +108,25 @@
             </div>
         </div> --}}
 
-        <div class="row teacher_chat">
-            <div class="col-lg-5">
+        <div class="row teacher_chat ">
+            <div class="col-lg-5 left_list">
                 @foreach($users as $user)
                     <div style="border: 1px solid #cfcaca;
                      ">
                         @php
                             $image = !is_null($user->image) ? $user->image : 'user-avatar.png';
                         @endphp
-                        <div class="row teacher_chat">
-                            <div class="col-lg-12" style="padding-top: 10px;display: flex;">
-                                <div style="margin-left: 2%;margin-right: 2%;">
-                                <img src="{{asset('images')."/". $image}}" alt="Image"
-                                style="border-radius: 50%"/>
-                            </div>  
-                            
+                        <div class="row teacher_chat tech_list">
+                            <div class="col-lg-12" style="padding-top: 10px;">
+                               <div class="row" style="margin-left: 0px;">
+                                <div class="col-lg-1 col-xs-2"><img src="{{asset('images')."/". $image}}" alt="Image"
+                                style="border-radius: 50%"/></div>
+                                <div class="col-lg-11 col-xs-10">
+                                   
+                               
+                                
 
-                                <div>
+                               
                                 @if(auth()->user()->id == '2')
                                     <a href="{{ route('chat', ['id' => encrypt($user->id)]) }}" style="text-decoration: none">
                                         <p style="margin-bottom:unset!important;"><strong>{{ $user->name }}</strong></p>
@@ -137,13 +139,14 @@
                                 <p style="color: grey">Start Conv...</p>
                                 </div>
                             </div>
+                            </div>
                         </div>
                     </div>
                 @endforeach
             </div>
 
             @if(request()->has('id'))
-                <div class="col-lg-7" style="border: 1px solid lightgrey">
+                <div class="col-lg-6 right_part" style="border: 1px solid lightgrey">
                     <div class="chat" style="min-height:490px;max-height: 500px;padding-top: 2%;
                         overflow: auto;">
                     @foreach($messages as $message)
@@ -186,12 +189,12 @@
                     <form enctype="multipart/form-data" id="my_form">
                         <input type="hidden" name="user_id" id="user_id" value="{{ request()->get('id') }}" />
                         
-                            <div class="col-lg-9" style="text-align: end; padding-right: 0px;">
+                            <div class="col-lg-9 col-xs-9" style="text-align: end; padding-right: 0px;">
                                
                                 <input type="text" name="chat_msg"  class="form-control get_chat" style="height: 40px;">
                             </div>
 
-                            <div class="col-lg-3" style="padding-left: 0px;">
+                            <div class="col-lg-3 col-xs-3" style="padding-left: 0px;">
                                 <button type="submit" class="chat-send-btn" id="send">
                                     <i class="fa fa-paper-plane"
                                        style="color: white; font-size: 14px;"></i>&nbsp;&nbsp;&nbsp;Send
@@ -232,6 +235,28 @@
                 },
            });
         });
+    </script>
+
+    <script>
+    <?php
+        if (isset($_GET['id'])) {
+    ?>    
+        function myFunction(x) {
+          if (x.matches) { // If media query matches
+           $(".left_list").css("display", "none");
+          }
+          else{
+            $(".left_list").css("display", "block");
+
+          } 
+        }
+
+        var x = window.matchMedia("(max-width: 990px)")
+        myFunction(x) // Call listener function at run time
+        x.addListener(myFunction) // Attach listener function on state changes
+    <?php
+        }
+    ?> 
     </script>
 @endsection
 

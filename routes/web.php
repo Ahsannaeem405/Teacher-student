@@ -67,6 +67,10 @@ Route::get('/login', function () {
 })->name('user-login');
 
 
+Route::get('/zoom', function () {
+    return view('zoom');
+})->name('zoom');
+
 Route::get('/logout', [LogoutController::class, 'logout']);
 
 Route::get('register/here', function (){
