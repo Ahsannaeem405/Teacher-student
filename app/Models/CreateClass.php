@@ -51,7 +51,7 @@ class CreateClass extends Model
     }
 
     public function getAllClasses(){
-        return $this->all(['id','class_name']);
+        return $this->all(['id','class_name', 'class_title']);
     }
 
     public function getRelatedClasses($id){

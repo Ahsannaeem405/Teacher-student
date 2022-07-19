@@ -166,8 +166,9 @@
                         <div class="col-lg-4">
                             <select class="form-control" name="class_name" required>
                                 <option value="" selected>Choose your own class</option>
+
                                 @foreach($classes as $class)
-                                    <option value="{{ $class->id }}" {{ ($cour->id == $class->id) ? 'selected' : '' }}>{{ ucfirst($class->class_name) }}</option>
+                                    <option value="{{ $class->id }}" {{ ($cour->class_id == $class->id) ? 'selected' : '' }}>{{ ucfirst($class->class_title) }}</option>
                                 @endforeach
                             </select>
                         </div>

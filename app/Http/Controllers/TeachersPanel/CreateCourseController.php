@@ -271,6 +271,8 @@ class CreateCourseController extends Controller
     public function updateLecture(Request $request){
         //dd($request->all());
         try{
+             $vid = '';
+
             if($request->has('course_vid') && !empty($request->course_vid)){
                 $vid = $this->uploadVid($request, 'course_vid', $request->course_name);
             }
@@ -282,7 +284,7 @@ class CreateCourseController extends Controller
 
             $result = (new CourseLecture())->updateSingleLectures($data, $request->course_id);
             if(!empty($result)){
-                return redirect()->back();
+                return redirect()->back()->with('success', 'Record updated successfully.');
             }else{
                 return redirect()->back()->with('error', 'Something went wrong');
             }
@@ -320,7 +322,9 @@ class CreateCourseController extends Controller
             $file = $request->file( $key );
         }
 
-        $filename = $file->getClientOriginalName();
+        // $filename = $file->getClientOriginalName();
+        $filename = $file->hashName();
+
         $path = public_path( 'videos/'. $course_name. auth()->user()->id) . DIRECTORY_SEPARATOR;
         $file->move($path, $filename);
         return $filename;

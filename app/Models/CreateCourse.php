@@ -29,7 +29,7 @@ class CreateCourse extends Model
     public function getCourses(){
         return $this->join('create_classes', 'create_courses.create_class_id', '=', 'create_classes.id')
             ->select('create_courses.*', 'create_classes.id AS class_id', 'create_classes.class_name',
-            'create_classes.class_duration')
+             'create_classes.class_title', 'create_classes.class_duration')
             ->where('create_courses.teacher_id', auth()->user()->id)
             ->paginate(9);
     }
