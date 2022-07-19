@@ -112,7 +112,7 @@
                 var data=$(".search-input").val();
                 $(this).append('<span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>');
                 $.ajax({
-                    url: '{{ url('/find_class') }}',
+                    url: '{{ url('/student/find_class') }}',
                     data: {
                         data
                     },
