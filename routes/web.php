@@ -25,6 +25,8 @@ use App\Http\Controllers\FrontController;
 use App\Http\Controllers\StripePaymentController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\Teacher;
+use App\Http\Controllers\WebrtcStreamingController;
+
 
 
 
@@ -317,3 +319,8 @@ Route::get('/blog_detail', function () {
         Route::get('success2', [PaymentController::class, 'success2']);
 
 
+
+    Route::get('/streaming', [WebrtcStreamingController::class, 'index']);
+    Route::get('/streaming/{streamId}', [WebrtcStreamingController::class, 'consumer']);
+    Route::post('/stream-offer', [WebrtcStreamingController::class, 'makeStreamOffer']);
+    Route::post('/stream-answer', [WebrtcStreamingController::class, 'makeStreamAnswer']);
