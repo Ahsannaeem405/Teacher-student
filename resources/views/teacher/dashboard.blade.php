@@ -10,8 +10,6 @@
             </div>
 
             <div class="col-lg-4 text_center" style="padding-top: 50px; text-align: end">
-               
-
                 <input type="text" class="search-input" placeholder="python coding" name="search">
                 <button type="button" class="search-btn" style="border-radius: 0px 10px 10px 0px !important">
                     <img src="{{ asset('images/search-icon.png') }}" alt="no image" width="20">
@@ -180,7 +178,7 @@
                        data: {
                             data
                         },
-                       
+
                         type: 'post',
                         success: function(result) {
                             $(".ruslt_ser").empty();
@@ -189,8 +187,6 @@
 
                     });
                 });
-
-
         });
     </script>
 @endsection

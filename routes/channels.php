@@ -19,6 +19,7 @@ Broadcast::channel('App.Models.User.{id}', function ($user, $id) {
 
 
 
+// Dynamic Presence Channel for Streaming
 Broadcast::channel('streaming-channel.{streamId}', function ($user) {
     return ['id' => $user->id, 'name' => $user->name];
 });
@@ -27,3 +28,4 @@ Broadcast::channel('streaming-channel.{streamId}', function ($user) {
 Broadcast::channel('stream-signal-channel.{userId}', function ($user, $userId) {
     return (int) $user->id === (int) $userId;
 });
+

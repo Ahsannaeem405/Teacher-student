@@ -11,7 +11,7 @@
             </div>
             <div class="col-lg-4" style="padding-top: 40px;">
                 <div class="add-to-cart">
-                    <a href="{{ route('student.add-to-cart', ['id' => encrypt($course->class->id)]) }}">
+                    <a href="{{ route('student.add-to-cart', ['id' => encrypt($course->class->id), 'teach_id' => encrypt($course->teacher_id)]) }}">
                         <i class="fas fa-shopping-cart">{{App\Models\cart::where('user_id',auth()->user()->id)->count()}}</i>
                         &nbsp;&nbsp;&nbsp;&nbsp;<span>Add to Cart</span>
                     </a>
@@ -32,12 +32,12 @@
                              class="img-fluid" alt="No Image" style="width: 100%">
                     </div>
                 </div>
-                <span class="img-text" style="float: right">Lenght: {{ $course->class->class_duration }}</span>
+{{--                <span class="img-text" style="float: right">Lenght: {{ $course->class->class_duration }}</span>--}}
             </div>
             <div class="col-sm-8">
                 <div class="heading-1">
                     <h3><strong>{{$course->course_name}} <span class="span-class span_left"
-                                                               style="font-size: 22px;">({{ ucfirst($course->class->class_name) }} Class)</span></strong></h3>
+                                                               style="font-size: 18px;">({{ ucfirst($course->class->class_name) }} Class)</span></strong></h3>
                     <hr>
                     <h4>Course Fee <br><span class="span-class span_left">{{ $course->price }}</span></h4>
                     <h4><i class="fa fa-calendar" aria-hidden="true"></i> Created Date <br><span class="span-class span_left">{{ date('d-F-Y', strtotime($course->class->class_date)) }}</span></h4>
@@ -77,60 +77,54 @@
         </div>
 
         <div class="row mt-4">
-            <div class="col-md-2">
-                <div class="icon-box">
-                    <img src="{{url('/images/clock.png')}}" alt="Image"/><br>
-                    <span>Physical Class</span>
+            @php
+                $classes = (new \App\Models\CreateClass())->orderBy('id', 'DESC')
+                            ->limit(3)->get();
+            @endphp
+
+            @foreach($classes as $class)
+                @php
+                    $imagePath = explode('.', !is_null($class->class_image) ? $class->class_image : 'do_not_delete.png');
+                @endphp
+                <div class="col-md-2">
+                    <div class="icon-box">
+                        <img src="{{asset('images')."/". $imagePath[0].".".$imagePath[1]}}"
+                             class="img-fluid" alt="No Image"  style=" width: 100%;height: 100%; object-fit: contain;">
+                        <a href="{{ route('student.courses') }}" style="text-decoration: none; color: black">
+                            <strong>{{ $class->class_name }}</strong>
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-2">
-                <div class="icon-box">
-                    <img src="{{url('/images/clock.png')}}" alt="Image"/><br>
-                    <span>Chemistry Class</span>
-                </div>
-            </div>
-            <div class="col-md-2">
-                <div class="icon-box">
-                    <img src="{{url('/images/clock.png')}}" alt="Image"/><br>
-                    <span> Geology Class</span>
-                </div>
-            </div>
-            <div class="col-md-2">
-                <div class="icon-box">
-                    <img src="{{url('/images/clock.png')}}" alt="Image"/><br>
-                    <span>Another Class</span>
-                </div>
-            </div>
-            <div class="col-md-2"></div>
-            <div class="col-md-2"></div>
+            @endforeach
         </div>
 
         <div class="row" style="margin-top: 30px;">
             <div class=" col-md-9 heading-1 float-text">
                 <h2 class="bottom-line"> Class session videos / documents</h2>
-
+                <a href="{{ route('zip-file', ['name' => encrypt($course->course_name), 'tech_id' => encrypt($course->teacher_id)]) }}" class="span-class">
+                    <i class="fa fa-download" aria-hidden="true"></i>Download</a>
             </div>
             <div class="col-md-3"></div>
         </div>
         @if($ifpurchases ==true)
 
-        <div class="row" style="margin-top: 20px;">
-          @foreach($lectures as $lecture)
-            <div class="col-md-3">
-                <a href="#" download>
-                    <video width="200" height="140" controls>
-                        <source src='{{asset("/videos/$lecture->course_doc")}}' type="video/mp4">
-                    </video>
-                </a>
+            <div class="row" style="margin-top: 20px;">
+                @foreach($lectures as $lecture)
+                    <div class="col-md-3">
+                        <video width="200" height="140" controls>
+                            <source src='{{asset("/videos/".$course->course_name.$course->teacher_id.'/'.$lecture->course_doc)}}' type="video/mp4">
+                        </video>
+                        <p><strong>{{ $lecture->class_title }}</strong></p>
+                        <a href="{{asset("/videos/".$course->course_name.$course->teacher_id.'/'.$lecture->course_doc)}}" download class="btn btn-info">Download</a>&nbsp;&nbsp;
+                    </div>
+                @endforeach
             </div>
-          @endforeach
-        </div>
         @else
         <div class="alert alert-danger alert-dismissible" style="margin-top: 2%;">
-  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+           <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
            Please purchase  the Course to view a lecture
         </div>
-        
+
         @endif
 
 

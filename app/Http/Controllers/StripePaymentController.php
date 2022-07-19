@@ -38,7 +38,7 @@ class StripePaymentController extends Controller
     {
         $payment_amount = str_replace('$', '', $request->amount);
         $payment_method = $request->payment_method;
-        
+
 
         Stripe\Stripe::setApiKey(env('STRIPE_SECRET','sk_test_51Kh9uAFBFsCMdULhVtPQxp0NOArxMFzdQ6qroS5jZFettctGfyVPc5WPmT6b1hGimRW09adqa3lndHnywhsbBqYW00K8eyxFsu
         '));
@@ -95,7 +95,7 @@ class StripePaymentController extends Controller
     }
     public function studentstripe(Request $request)
     {
-        $teacher=User::find($request->teacher_id);
+        $teacher = User::find($request->teacher_id);
 
         $data = [
           'payment_amount'  => $request->amount,
@@ -109,9 +109,11 @@ class StripePaymentController extends Controller
     }
     public function stripestudentPost(Request $request)
     {
+        //dd($request->all());
         try{
             $payment_amount = str_replace('$', '', $request->amount);
-            
+            $teacher = User::find($request->teacher_id);
+
             Stripe\Stripe::setApiKey($teacher->stripe_secret_key);
 
             $pay =Stripe\Charge::create ([
@@ -122,19 +124,19 @@ class StripePaymentController extends Controller
             ]);
 
             if($pay->description == 'Payment successfully'){
-                    $cart=cart::where('user_id',\Auth::user()->id)->get();
+
+                    $cart = cart::where('user_id', auth()->user()->id)->whereHas('course')->get();
+
                     foreach ($cart as $key => $value) {
-                        $purchase=new PurchaseCourse();
-                        $purchase->user_id = \Auth::user()->id;
+                        $purchase = new PurchaseCourse();
+                        $purchase->user_id = auth()->user()->id;
                         $purchase->course_id = $value->course_id;
-                        $purchase->teacher_id = $value->course->teacher_id;
+                        $purchase->teacher_id = $request->teacher_id;
                         $purchase->class_id = $value->course->create_class_id;
                         $purchase->save();
-                    
-                       
+                        //$value->delete();
                     }
-                    $cart->delete();
-
+                    cart::where('user_id', auth()->user()->id)->delete();
 
             return redirect()->route('student.dashboard')->with('success',"Payment has submitted successfully");
         }

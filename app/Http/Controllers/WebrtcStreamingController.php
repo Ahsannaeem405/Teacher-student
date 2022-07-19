@@ -13,6 +13,9 @@ class WebrtcStreamingController extends Controller
     public function index()
     {
         return view('video-broadcast', ['type' => 'broadcaster', 'id' => Auth::id()]);
+    public function index()
+    {
+        return view('teacher.video-broadcast', ['type' => 'broadcaster', 'id' => Auth::id()]);
     }
 
     public function consumer(Request $request, $streamId)
@@ -35,4 +38,5 @@ class WebrtcStreamingController extends Controller
         $data['answer'] = $request->answer;
         event(new StreamAnswer($data));
     }
+}
 }

@@ -63,7 +63,7 @@
                         <div style="height: 120px;">
                         <img src="{{ asset('images')."/". $imagePath}}" class="img-fluid" alt="No Image"  style=" width: 100%;height: 100%; object-fit: contain;">
                     </div>
-                       
+
                         <span>{{ strlen($class->class_title) > 15 ? substr($class->class_title,0,15)."..." : $class->class_title }}</span>
                     </div>
                 </div>
@@ -73,7 +73,7 @@
         <div class="row" style="margin-top: 30px;">
             <div class=" col-md-9 heading-1 float-text">
                 <h2 class="bottom-line"> Class session videos / documents</h2>
-                <a href="{{ route('teacher.zip-file', ['name' => encrypt($course->course_name)]) }}" class="span-class">
+                <a href="{{ route('zip-file', ['name' => encrypt($course->course_name)]) }}" class="span-class">
                     <i class="fa fa-download" aria-hidden="true"></i>Download</a>
             </div>
             <div class="col-md-3">

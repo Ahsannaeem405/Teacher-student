@@ -49,7 +49,7 @@
                             <div class="card-footer" style="text-align: center">
                                 <div class="row" style="margin-top: 10px;">
                                     <div class="col-lg-12">
-                                        <p style="color: #C9C97E; font-size: 12px;">{{ ucwords($course->class_title) }} Class</p>
+                                        <p style="color: #C9C97E; font-size: 12px;">{{ ucwords($course->class_name) }} Class</p>
                                     </div>
 {{--                                    <div class="col-lg-6">--}}
 {{--                                        <p style="font-size: 10px; font-style: italic">Length: {{ $course->class_duration }}</p>--}}

@@ -49,7 +49,7 @@ Route::get('/cls', function() {
         $run = Artisan::call('cache:clear');
         $run = Artisan::call('config:cache');
         $run = Artisan::call('view:clear');
-        
+
         Session::flush();
         return 'FINISHED';
     });
@@ -157,8 +157,7 @@ Route::group(['prefix' => 'teacher', 'middleware' => ['auth', 'check_teacher'], 
             ->name('profile-update');
         Route::get('/profile/del/{id}', [MyProfileController::class, 'delete'])
             ->name('profile-del');
-        Route::get('/zip/{name}', [ZipController::class, 'zipFile'])
-                                                       ->name('zip-file');
+
         Route::resources([
             'createClass' => CreateClassController::class
         ], ['except'=>['destroy']
@@ -185,13 +184,13 @@ Route::group(['prefix' => 'teacher', 'middleware' => ['auth', 'check_teacher'], 
         Route::post('/charge', [PaymentController::class, 'charge']);
 
 
-                                                          
+
 
         Route::post('update/lec', [CreateCourseController::class, 'updateLecture'])
             ->name('update-lec');
         Route::get('/delete/lecture', [CreateCourseController::class, 'deleteLecture'])
                                                          ->name('lec-delete');
-                                                         
+
         Route::post('/find_class', [Teacher::class, 'find_class']);
 
 });
@@ -210,10 +209,20 @@ Route::group(['prefix' => 'student', 'middleware' => ['auth', 'check_student'], 
         Route::get('/chat', [StudentDashboardController::class, 'chat'])->name('chat');
         Route::get('/price/menu', [StudentDashboardController::class, 'priceMenu'])->name('price-menu');
         Route::get('/courses', [StudentDashboardController::class, 'courses'])->name('courses');
+        Route::get('/my/courses', [StudentDashboardController::class, 'myCourses'])->name('my-courses');
         Route::get('/course/detail', [StudentDashboardController::class, 'courseDetail'])->name('course-detail');
         Route::get('/course/detail/{id}', [StudentDashboardController::class, 'courseDetail']);
-        Route::get('/course/cart/{id}', [StudentDashboardController::class, 'courseCart'])->name('add-to-cart');
-        Route::get('/payment/type/{id}/{class_id}', [StudentDashboardController::class, 'paymentType'])->name('payment-type');
+        Route::get('/course/cart/{id}/{teach_id}', [StudentDashboardController::class, 'courseCart'])->name('add-to-cart');
+        Route::get('/payment/type/{id}/{class_id}/{teach_id}', [StudentDashboardController::class, 'paymentType'])->name('payment-type');
+        Route::get('/edit/class/{id}', [StudentDashboardController::class, 'editClass'])
+                                                                ->name('edit-class');
+        Route::get('/detail/class/{id}', [StudentDashboardController::class, 'classDetail'])
+                                                                   ->name('detail-class');
+        Route::get('/delete/class', [StudentDashboardController::class, 'deleteClass'])
+                                                                    ->name('delete-class');
+
+
+
         //teacher timeline
         Route::get('/teacher/timeline', [StudentDashboardController::class, 'teacherTimeline'])->name('teacher-timeline');
         Route::get('/all_courses/{id}', [StudentDashboardController::class, 'teachercourses'])->name('teacher-coursessssss');
@@ -226,7 +235,28 @@ Route::group(['prefix' => 'student', 'middleware' => ['auth', 'check_student'], 
         ->name('profile-update');
         Route::get('delete_history',[StudentDashboardController::class, 'deletehistory']);#
         Route::post('/charge', [PaymentController::class, 'stdcharge']);
+
+        Route::post('/find_class', [Teacher::class, 'studentFindClass']);
+
 });
+
+Route::get('/zip/{name}', [ZipController::class, 'zipFile'])
+    ->name('zip-file');
+
+//broadcasting
+Route::get('/streaming', [WebrtcStreamingController::class, 'index']);
+Route::get('/streaming/{streamId}', [WebrtcStreamingController::class, 'consumer']);
+Route::post('/stream-offer', [WebrtcStreamingController::class, 'makeStreamOffer']);
+Route::post('/stream-answer', [WebrtcStreamingController::class, 'makeStreamAnswer']);
+
+
+
+
+
+
+
+
+
 
 
 

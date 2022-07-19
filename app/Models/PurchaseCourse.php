@@ -16,7 +16,7 @@ class PurchaseCourse extends Model
 
     public function class()
     {
-        return $this->belongsTo(CreateClass::class);
+        return $this->belongsTo(CreateClass::class, 'class_id');
     }
 
     public function teacher()
