@@ -23,7 +23,7 @@
         </div>
 
         <div class="row">
-            
+
 
             <div class="col-lg-6" >
                 <div class="row" style="background-color: #F6F6F6;margin-right:0%;padding-top: 2%;">
@@ -41,7 +41,7 @@
                  @endforeach
                 </div>
             </div>
-           
+
 
             <div class="col-lg-6" style="background-color: #F6F6F6">
                 <div class="col-lg-12" style="margin-bottom: 10px; padding: 0px;">
@@ -112,12 +112,12 @@
                     </p>
                 </div>
                 <div class="col-lg-11" style="padding: 0px;">
-                    <a href="{{ route('student.payment-type', ['id' => $carts->id, 'class_id' => encrypt($class_id)]) }}" class="btn btn-info"
+                    <a href="{{ route('student.payment-type', ['id' => $carts->id, 'class_id' => encrypt($class_id), 'teach_id' => encrypt($teacher_id)]) }}" class="btn btn-info"
                     style="text-decoration: none; color: white;background-color:#318215;margin-bottom: 3%;float: right;"><strong>Pay Now</strong></a>
-               
+
                 </div>
 
-            
+
         </div>
 
     </div>

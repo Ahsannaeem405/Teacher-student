@@ -13,9 +13,10 @@ use Illuminate\Http\Request;
 class StudentDashboardController extends Controller
 {
     public function index(){
-        $course=PurchaseCourse::whereUser_id(auth()->user()->id)->whereHas('course')->get();
+        $classes = PurchaseCourse::whereUser_id(auth()->user()->id)->whereHas('class')
+            ->paginate(9);
 
-        return view('student.dashboard',compact('course'));
+        return view('student.dashboard',compact('classes'));
     }
 
        public function myProfile(){
@@ -37,7 +38,8 @@ class StudentDashboardController extends Controller
     }
 
     public function notes(){
-        $notes=studentnote::whereStudent_id(\Auth::user()->id)->get();
+        $notes = studentnote::whereStudent_id(\Auth::user()->id)->paginate(9);
+
         return view('student.notes',compact('notes'));
     }
 
@@ -100,7 +102,7 @@ class StudentDashboardController extends Controller
             $history->history=$search;
             $history->save();
            }else{
-        $courses=CreateCourse::whereTeacher_id($teacher->id)->whereHas('class')->get();
+                $courses=CreateCourse::whereTeacher_id($teacher->id)->whereHas('class')->get();
            }
         return view('student.teacher-courses',compact('teacher','courses'));
     }
@@ -108,9 +110,10 @@ class StudentDashboardController extends Controller
         $course=CreateCourse::with('class')->find($id);
         $lectures=CourseLecture::where('course_id', $id)
         ->get('course_doc');
+
         $purchases=PurchaseCourse::where('course_id',$course->id)->where('user_id',auth()->user()->id)->first();
         $ifpurchases=PurchaseCourse::where('course_id',$course->id)->where('user_id',auth()->user()->id)->exists();
-        //dd($pur);
+
         return view('student.teacher-coursedetail',compact('course','lectures','purchases','ifpurchases'));
     }
     public function courses(Request $request){
@@ -125,10 +128,16 @@ class StudentDashboardController extends Controller
             $history->history=$search;
             $history->save();
            }else{
-            $courses=CreateCourse::whereHas('class')->get();
+            $courses=CreateCourse::whereHas('class')->paginate(9);
            }
             return view('student.teacher-courses',compact('courses'));
         }
+
+    public function myCourses(){
+        $courses = PurchaseCourse::whereUser_id(auth()->user()->id)->whereHas('course')
+            ->paginate(9);
+        return view('student.my-courses',compact('courses'));
+    }
 
     public function courseDetail($id){
         $course=CreateCourse::find($id);
@@ -137,23 +146,25 @@ class StudentDashboardController extends Controller
         return view('student.course-detail',compact('course','lectures'));
     }
 
-    public function courseCart($id){
+    public function courseCart($id, $teach_id){
         $class_id = decrypt($id);
+        $teacher_id = decrypt($teach_id);
 
         $cart=cart::where('user_id',\Auth::user()->id)->whereHas('course')->get();
-        return view('student.cart',compact('cart', 'class_id'));
+        return view('student.cart', compact('cart', 'class_id', 'teacher_id'));
     }
     public function deleteCart(Request $request){
         cart::find($request->user_id)->delete();
         return response()->json(['success'=>'Cart deleted successfully!']);
     }
 
-    public function paymentType($id, $class_id){
+    public function paymentType($id, $class_id, $teach_id){
         $classId = decrypt($class_id);
-        $cart = cart::where('user_id',\Auth::user()->id)->get();
-        //dd($cart);
+        $teacher_id = decrypt($teach_id);
 
-        return view('student.payment-type',compact('cart', 'classId'));
+        $cart = cart::where('user_id',\Auth::user()->id)->get();
+
+        return view('student.payment-type',compact('cart', 'classId', 'teacher_id'));
     }
     public function addCart(Request $request){
         $cart=new cart();
@@ -162,5 +173,4 @@ class StudentDashboardController extends Controller
         $cart->save();
         return back();
     }
-
 }

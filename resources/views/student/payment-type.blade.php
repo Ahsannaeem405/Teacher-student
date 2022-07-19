@@ -13,7 +13,8 @@
                         <form action="{{ route('student.subscribe-plan')}}" id="payment_form" method="POST">
                             @csrf
                           <input type="hidden" name="class_id" value="{{ $classId }}">
-                          @php 
+                          <input type="hidden" name="teacher_id" value="{{ $teacher_id }}">
+                          @php
                           $sum=0;
                           foreach($cart as $row_cart){
                             $sum=$sum+$row_cart->course->price;
@@ -21,8 +22,8 @@
                           }
                           @endphp
 
-                    
-                    
+
+
 
                           <input type="hidden" name="amount" value="{{$sum}}">
                           {{-- <input type="hidden" name="cart_id" value="{{$cart->id}}"> --}}
@@ -38,35 +39,35 @@
                                     <label for="visa"><img src="{{url('/images/visanew.png')}}" alt="Image"/></label>
                                 </li>
                             </ul>
-                            
+
                             <input type="submit" value="Pay Now" id="stripe_btn" style="margin-bottom: 50%;" >
                         </form>
                         <div id="paypal_input" style="display: none">
-                          
+
                             <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
                                 <!-- Paypal business test account email id so that you can collect the payments. -->
                                 {{ csrf_field() }}
                                 <input type='hidden' name='business'
-                                    value="info@phpzag.com"> 
+                                    value="info@phpzag.com">
                                 <input type="hidden" name="amount" value="{{ $sum }}">
                                 <!-- Buy Now button. -->
                                 <input type="hidden" name="cmd" value="_xclick">
                                 <!-- Details about the item that buyers will purchase. -->
 
-                                
+
                                 <input type="hidden" name="currency_code" value="USD">
                                 <!-- URLs -->
                                 <input type='hidden' name='return' value="{{ url('success2')}}">
                                 <input type="hidden" name="cmd" value="_xclick"> <input
                                      type="submit" name="submit"  value="Pay Now" id="pay_btn" style="margin-bottom: 50%;">
                             </form>
-                                
-                                 
 
-                               
+
+
+
                         </div>
-                        
-                                
+
+
                         <p style="font-size: 18px;">(You will be redirected to official payment gateway page)</p>
                     </div>
                 </div>
@@ -101,7 +102,7 @@
                     <div class="col-lg-3">
                         <p style="color: #318215"><strong>$ {{$sum}}</strong></p>
                     </div>
-                    
+
                 </div>
             </div>
 {{--            <div class="back-to-sec">--}}
@@ -115,24 +116,24 @@
 @section('JS')
 
     <script>
-        
+
 
         $(".payment_method").on('click',function(){
             var val=$('input[name="payment_method"]:checked').val();
             if(val=='pay_pal')
             {
-               
-               $('#paypal_input').attr('style', 'display:block'); 
+
+               $('#paypal_input').attr('style', 'display:block');
                $('#stripe_btn').attr('style', 'display:none');
 
             }
             else{
-                $('#paypal_input').attr('style', 'display:none'); 
+                $('#paypal_input').attr('style', 'display:none');
                 $('#stripe_btn').attr('style', 'display:block');
             }
 
         });
 
-        
+
     </script>
 @endsection
