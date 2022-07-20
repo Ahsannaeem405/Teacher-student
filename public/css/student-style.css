@@ -583,7 +583,10 @@ button.btn.dropdown-toggle.nav-img-btn {
         justify-content: center !important;
         align-items    : center !important;
     }
-
+    .profile-input-field {
+        padding-left : unset !important;
+        margin-bottom: 30px;
+    }
     .side_bar_res {
         display: none;
     }
@@ -613,7 +616,9 @@ button.btn.dropdown-toggle.nav-img-btn {
         font-size: 18px !important;
 
     }
-
+   .add_new_jus_cen{
+    justify-content: center !important;
+   }
     .text_center {
         text-align: center !important;
     }
