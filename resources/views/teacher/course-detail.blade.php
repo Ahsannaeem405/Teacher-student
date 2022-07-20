@@ -13,11 +13,11 @@
         <div class="row mt-5 black-img-row" style="margin-bottom: 10%;">
             <div class="col-sm-4">
                 @php
-                    $imagePath = explode('.', !is_null($course->course_image) ? $course->course_image : 'do_not_delete.png');
+                    $imagePath = !is_null($course->course_image) ? $course->course_image : 'do_not_delete.png';
                 @endphp
                 <div class="card">
                     <div class="card-body" style="text-align: center">
-                        <img src="{{asset('images')."/". $imagePath[0].".".$imagePath[1]}}"
+                        <img src="{{asset('images')."/". $imagePath }}"
                              class="img-fluid" alt="No Image" width="290">
                     </div>
                 </div>
@@ -25,14 +25,16 @@
             </div>
             <div class="col-sm-8">
                 <div class="heading-1">
-                    <h3><strong>{{$course->course_name}} <span class="span-class"
+                    <h3><strong>{{$course->course_name}}<span class="course_span_class"
                                                                style="font-size: 22px;">({{ ucfirst($course->class_name) }} Class)</span></strong></h3>
                     <hr>
-                    <h4>Teacher <br><span class="span-class">{{ $course->teacher_name }}</span></h4>
-                    <h4><i class="fa fa-calendar" aria-hidden="true"></i> Created Date <br><span class="span-class">{{ date('d-F-Y', strtotime($course->class_date)) }}</span></h4>
-                    <h4><i class="fa fa-clock-o" aria-hidden="true"></i> Created Time <br> <span class="span-class">{{ $course->class_time }}</span>PM</h4>
-                    <a href="#" class="add-cart-btn"
-                       style="text-decoration: none; color: white;">Add to Cart</a>
+                    <h4>Teacher <br><span class="course_span_class">{{ $course->teacher_name }}</span></h4>
+                    <h4><i class="fa fa-calendar" aria-hidden="true"></i> Created Date <br>
+                        <span class="course_span_class">{{ date('d-F-Y', strtotime($course->class_date)) }}</span></h4>
+                    <h4><i class="fa fa-clock-o" aria-hidden="true"></i> Created Time <br>
+                        <span class="course_span_class">{{ $course->class_time }}</span>PM</h4>
+{{--                    <a href="#" class="add-cart-btn"--}}
+{{--                       style="text-decoration: none; color: white;">Add to Cart</a>--}}
                 </div>
             </div>
         </div>
@@ -52,70 +54,121 @@
         </div>
 
         <div class="row mt-4">
-            <div class="col-md-2">
-                <div class="icon-box">
-                    <img src="{{url('/images/clock.png')}}" alt="Image"/><br>
-                    <span>Physical Class</span>
+            @foreach($classes as $class)
+                <div class="col-md-2" style="text-align: center">
+                    <div class="icon-box" style="text-align: center">
+                        @php
+                            $imagePath = !is_null($class->class_image) ? $class->class_image : 'do_not_delete.png';
+                        @endphp
+                        <div style="height: 120px;">
+                        <img src="{{ asset('images')."/". $imagePath}}" class="img-fluid" alt="No Image"  style=" width: 100%;height: 100%; object-fit: contain;">
+                    </div>
+
+                        <span>{{ strlen($class->class_title) > 15 ? substr($class->class_title,0,15)."..." : $class->class_title }}</span>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-2">
-                <div class="icon-box">
-                    <img src="{{url('/images/clock.png')}}" alt="Image"/><br>
-                    <span>Chemistry Class</span>
-                </div>
-            </div>
-            <div class="col-md-2">
-                <div class="icon-box">
-                    <img src="{{url('/images/clock.png')}}" alt="Image"/><br>
-                    <span> Geology Class</span>
-                </div>
-            </div>
-            <div class="col-md-2">
-                <div class="icon-box">
-                    <img src="{{url('/images/clock.png')}}" alt="Image"/><br>
-                    <span>Another Class</span>
-                </div>
-            </div>
-            <div class="col-md-2"></div>
-            <div class="col-md-2"></div>
+            @endforeach
         </div>
 
         <div class="row" style="margin-top: 30px;">
             <div class=" col-md-9 heading-1 float-text">
                 <h2 class="bottom-line"> Class session videos / documents</h2>
-                <span class="span-class"
-                      style="padding-top: 25px;"><i class="fa fa-download" aria-hidden="true"></i> download</span>
+                <a href="{{ route('zip-file', ['name' => encrypt($course->course_name)]) }}" class="span-class">
+                    <i class="fa fa-download" aria-hidden="true"></i>Download</a>
             </div>
             <div class="col-md-3">
-                <form action="{{ route('teacher.course-video') }}" method="post" id="course_vid_form" enctype="multipart/form-data">
-                    @csrf
-                    <input type="hidden" name="course_id" value="{{ $course->id }}">
-                    <label for="course_vid" style="padding-top: 25px; color: #C8C97D; font-size: 25px;">
+{{--                <form action="{{ route('teacher.course-video') }}" method="post" id="course_vid_form" enctype="multipart/form-data">--}}
+{{--                    @csrf--}}
+{{--                    <input type="hidden" name="course_id" value="{{ $course->id }}">--}}
+{{--                    <input type="hidden" name="course_name" value="{{ $course->course_name }}">--}}
+                    <label for="" data-toggle="modal" data-target="#exampleModal" style="padding-top: 25px; color: #C8C97D; font-size: 25px;">
                         <i class="fa fa-plus-circle"></i>
                     </label>
-                    <input type="file" id="course_vid" name="course_vid" style="visibility: hidden">
-                </form>
+{{--                    <input type="file" id="course_vid" name="course_vid" style="visibility: hidden"--}}
+{{--                           accept="video/mp4, webm, ogg">--}}
+{{--                </form>--}}
             </div>
         </div>
 
         <div class="row" style="margin-top: 20px;">
           @foreach($lectures as $lecture)
             <div class="col-md-3">
-                <a href="#" download>
-                    <video width="200" height="140" controls>
-                        <source src='{{asset("/videos/$lecture->course_doc")}}' type="video/mp4">
-                    </video>
-                </a>
+                <video width="200" height="140" controls>
+                    <source src='{{asset("/videos/".$course->course_name.auth()->user()->id.'/'.$lecture->course_doc)}}' type="video/mp4">
+                </video>
+                <p><strong>{{ $lecture->class_title }}</strong></p>
+                <a href="{{asset("/videos/".$course->course_name.auth()->user()->id.'/'.$lecture->course_doc)}}" download class="btn btn-info">Download</a>&nbsp;&nbsp;
+
+                <a href="#" style="padding-top: 5px;" data-toggle="modal" data-target="#editVidModal"
+                   onclick="edit(this)" data-class_title="{{ $lecture->class_title }}"
+                   data-lecture_id="{{ $lecture->id }}" data-course_name="{{ $course->course_name }}">
+                    <i class="fas fa-edit" style="color: #C9C97E; font-size: 22px"></i>
+                </a>&nbsp;&nbsp;
+
+                <button class="userDeleteclass" style="padding-top: 5px; border: none; background: white;"
+                        userId="{{$lecture->id}}">
+                    <i class="fas fa-trash" style="color: red; font-size: 22px"></i>
+                </button>
             </div>
           @endforeach
         </div>
     </div>
+
+    @include('teacher.vid-upload-modal')
+
+    @include('teacher.edit-course-vid')
 @endsection
 
 @section('JS')
     <script>
-        $('#course_vid').on('change', function (){
-           $('#course_vid_form').submit();
+        $("#course_vid").change(function(){
+            $("#file-name").text(this.files[0].name);
+        });
+
+        function edit(el) {
+            var link = $(el)
+            var modal = $("#editVidModal")
+            var lecture_id = link.data('lecture_id');
+            var class_title = link.data('class_title');
+            var course_name = link.data('course_name');
+
+            modal.find('#lecture_id').val(lecture_id);
+            modal.find('#class_title').val(class_title);
+            modal.find('#course_name').val(course_name);
+        }
+
+        $('.userDeleteclass').click(function(e) {
+            e.preventDefault();
+            var lec_id = $(this).attr('userId');
+            // alert(user_id);
+            swal({
+                title: "Are you sure?",
+                text: "Do you want to delete this note?",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        $.ajax({
+                            url: '{{ route('teacher.lec-delete') }}',
+                            type: 'get',
+                            data: {
+                                'lec_id': lec_id
+                            },
+                            success: function(result) {
+                                swal(result.success, {
+                                    icon: "success",
+                                })
+                                    .then((result) => {
+                                        location.reload();
+                                    });
+                                // window.reload();
+                            }
+                        });
+                        // admin/deleteuser
+                    }
+                });
         });
     </script>
 @endsection

@@ -27,7 +27,7 @@
                             <li><a href="#" style="padding-top: 5px;">About Us</a></li>
                             <li><a href="#" style="padding-top: 5px;">Features</a></li>
                             <li><a href="#" style="padding-top: 5px;">Pricing</a></li>
-                            <li><a href="#" style="padding-top: 5px;">Blog</a></li>
+                            <li><a href="{{ route('my-blogs') }}" style="padding-top: 5px;">Blog</a></li>
                         </ul>
                     </div>
                 </div>
@@ -43,7 +43,7 @@
                         $imagePath = explode('.', !is_null(auth()->user()->image) ? auth()->user()->image : 'user-avatar.png');
                     @endphp
                     <img src="{{asset('images')."/". $imagePath[0].".".$imagePath[1]}}" alt="Image" class="show_prof_img"
-                         style="color: white" class="head-user-img" alt="Image"/>
+                         style="color: white; border-radius: 50%;" class="head-user-img" />
 
                     <span class="caret" style="color: white"></span>
                 </button>

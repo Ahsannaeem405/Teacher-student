@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class cart extends Model
 {
     use HasFactory;
+    public function course()
+    {
+        return $this->belongsTo(CreateCourse::class, 'course_id', 'id');
+    }
 }

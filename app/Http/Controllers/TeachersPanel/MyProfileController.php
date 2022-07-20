@@ -3,9 +3,13 @@
 namespace App\Http\Controllers\TeachersPanel;
 
 use App\Http\Controllers\Controller;
+use App\Models\Subscription;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use phpDocumentor\Reflection\DocBlock\Tags\Uses;
+use Intervention\Image\ImageManager;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class MyProfileController extends Controller
 {
@@ -13,10 +17,9 @@ class MyProfileController extends Controller
 
         $this->validate($request, [
             'name' => 'required|string|min:3',
-            'bio' => 'string',
             'email' => 'required|string',
             'role' => 'required',
-            'linkedIn_prof' => 'string',
+
         ]);
 
         try{
@@ -26,7 +29,7 @@ class MyProfileController extends Controller
               'role' => $request->role,
             ];
             if($request->has('prof_image') && !empty($request->prof_image)){
-                $data['image'] = compressImagePHP( $request, 'prof_image' );
+                $data['image'] = $this->compressImagePHP( $request, 'prof_image' );
             }
             if(!empty($request->bio)){
                 $data['bio'] = $request->bio;
@@ -70,4 +73,66 @@ class MyProfileController extends Controller
             return redirect()->back()->with('error', $ex->getMessage());
         }
     }
+
+    public function resetPassword(Request $request){
+
+        $this->validate($request, [
+           'current_password' => 'required',
+           'password' => 'required|min:8|confirmed',
+           'password_confirmation' => 'required'
+        ]);
+
+        try{
+            $user = (new User())->getUserPassword();
+
+            if(Hash::check($request->current_password, $user->password)){
+                $data = [
+                  'password' => bcrypt($request->password)
+                ];
+
+                $res = (new User())->resetPassword($data);
+
+                if($res == '1'){
+                    return redirect()->back()->with('success', 'Password has changed successfully.');
+                }else{
+                    return redirect()->back()->with('error', 'Something went wrong.');
+                }
+            }else{
+                return redirect()->back()->with('error', 'Current password does not match.');
+            }
+        } catch (\Exception $ex){
+            return redirect()->back()->with('error', $ex->getMessage());
+        }
+    }
+
+    public function compressImagePHP( $request, $key ) : string
+    {
+    if(is_array($request) ){
+        $image = $request[ $key ];
+
+    } else {
+        $image = $request->file( $key );
+    }
+
+    $imageHashedName = $image->hashName();
+
+    $imgExplodedName = explode( ".", $imageHashedName );
+
+    $publicPath = public_path( 'images' ) . DIRECTORY_SEPARATOR;
+
+    $img = Image::make( $image )->save( $publicPath . $imgExplodedName[ 0 ] . '.' . $imgExplodedName[ 1 ] );
+
+    $img->backup();
+
+    $img->resize( 200, null, function( $constraint ) {
+        $constraint->aspectRatio();
+        $constraint->upsize();
+    } )->save( $publicPath . $imgExplodedName[ 0 ] . '-thumbs200.' . $imgExplodedName[ 1 ] );
+    $img->reset();
+
+    $img->destroy();
+
+    return $imgExplodedName[ 0 ] . '.' . $imgExplodedName[ 1 ];
+    }
+
 }

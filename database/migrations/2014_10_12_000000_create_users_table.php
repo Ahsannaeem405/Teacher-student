@@ -23,6 +23,8 @@ class CreateUsersTable extends Migration
             $table->text('bio')->nullable();
             $table->string('stripe_secret_key')->nullable();
             $table->string('stripe_public_key')->nullable();
+            $table->string('subscription_expiry_date', 15)->nullable();
+            $table->integer('remaining_vids')->nullable();
             $table->string('linkedin_url')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

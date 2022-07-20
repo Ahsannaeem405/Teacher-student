@@ -44,7 +44,7 @@
                             <strong>+</strong></label>
                         <input type="file" name="course_cover"
                                class="@error('course_cover') is-invalid @enderror"
-                               autocomplete="course_cover" autofocus
+                               autocomplete="course_cover" autofocus accept="image/jpeg, .png"
                                id="file-upload" style="visibility:hidden; display: none">
                         @error('course_cover')
                         <span class="invalid-feedback" role="alert">
@@ -54,7 +54,7 @@
                         <label id="file-name"></label>
                         <p>(format: JPG, PNG)</p>
                     </div>
-               
+
             </div>
 
             <div class="row" style="margin-bottom: 4%;">
@@ -86,30 +86,30 @@
                 </div>
             </div>
 
-            <div class="row" style="margin-bottom: 4%;">
-                <div class="col-lg-12">
-                    <h4 class="text_center" ><strong>Add course date and time stamp</strong></h4>
-                    <div class="col-lg-4 text_center" style="padding-top: 24px;">
-                        <button type="submit" class="course-search-btn" style="cursor: unset">
-                        </button>
+{{--            <div class="row" style="margin-bottom: 4%;">--}}
+{{--                <div class="col-lg-12">--}}
+{{--                    <h4 class="text_center" ><strong>Add course date and time stamp</strong></h4>--}}
+{{--                    <div class="col-lg-4 text_center" style="padding-top: 24px;">--}}
+{{--                        <button type="submit" class="course-search-btn" style="cursor: unset">--}}
+{{--                        </button>--}}
 
-                        <input type="text" class="search-input"
-                               placeholder="DD-MM-YY" name="course_date" required>
-                    </div>
+{{--                        <input type="date" class="search-input"--}}
+{{--                               pattern="\d{4}-\d{2}-\d{2}" name="course_date">--}}
+{{--                    </div>--}}
 
-                    <div class="col-lg-8 text_center">
-                        <div>
-                            <label for="">Time</label>
-                        </div>
-                        <button type="submit" class="course-time-btn" style="cursor: unset">
-                            <i class="fa-solid fa-clock"></i>
-                        </button>
+{{--                    <div class="col-lg-8 text_center">--}}
+{{--                        <div>--}}
+{{--                            <label for="">Time</label>--}}
+{{--                        </div>--}}
+{{--                        <button type="submit" class="course-time-btn" style="cursor: unset">--}}
+{{--                            <i class="fa-solid fa-clock"></i>--}}
+{{--                        </button>--}}
 
-                        <input type="text" class="search-input"
-                               placeholder="01-30 PM" name="course_time" required>
-                    </div>
-                </div>
-            </div>
+{{--                        <input type="time" class="search-input"--}}
+{{--                               name="course_time">--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
 
             <div class="row">
                 <div class="col-lg-12 text_center">
@@ -123,7 +123,7 @@
                         <label for="vid_1" class="course-cover-plus">
                             <strong>+</strong></label>
                         <input type="file" name="vid_1" id="vid_1"
-                               style="visibility:hidden;">
+                               style="visibility:hidden;" accept="video/mp4, webm, ogg">
                         <label id="name_1"></label>
                     </div>
 
@@ -131,7 +131,7 @@
                         <label for="vid_2" class="course-cover-plus">
                             <strong>+</strong></label>
                         <input type="file" name="vid_2" id="vid_2"
-                               style="visibility:hidden;">
+                               style="visibility:hidden;" accept="video/mp4, webm, ogg">
                         <label id="name_2"></label>
                     </div>
 
@@ -139,7 +139,7 @@
                         <label for="vid_3" class="course-cover-plus">
                             <strong>+</strong></label>
                         <input type="file" name="vid_3" id="vid_3"
-                               style="visibility:hidden;">
+                               style="visibility:hidden;" accept="video/mp4, webm, ogg">
                         <label id="name_3"></label>
                     </div>
 
@@ -147,7 +147,7 @@
                         <label for="vid_4" class="course-cover-plus">
                             <strong>+</strong></label>
                         <input type="file" name="vid_4" id="vid_4"
-                               style="visibility:hidden;">
+                               style="visibility:hidden;" accept="video/mp4, webm, ogg">
                         <label id="name_4"></label>
                     </div>
                 </div>
@@ -155,13 +155,13 @@
 
             <div class="row" style="margin-bottom: 4%;">
                 <div class="col-lg-4 text_center">
-                    <p>(format: JPG, PNG)</p>
+                    <p>(format: MP4, MPEG-4, WebM, Ogg)</p>
                 </div>
             </div>
 
             <div class="row" style="margin-bottom: 4%;">
                 <div class="col-lg-12">
-                    <h4><strong>Class Name</strong></h4>
+                    <h4><strong>Class Title</strong></h4>
                     <div class="col-lg-4">
                         <select class="form-control" name="class_name" required>
                             <option value="" selected>Choose your own class</option>

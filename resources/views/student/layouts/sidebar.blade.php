@@ -34,16 +34,18 @@
         <li class="{{ request()->routeIs('student.notes') ? 'active' : '' }}">
             <a href="{{ route('student.notes') }}" style="text-decoration: none">Notes</a></li>
 
-        <li class="{{ request()->routeIs('student.chat') ? 'active' : '' }}">
-            <a href="{{ route('student.chat') }}" style="text-decoration: none">Chat</a></li>
+        <li class="{{ request()->routeIs('chat') ? 'active' : '' }}">
+            <a href="{{ route('chat') }}" style="text-decoration: none">Chat</a></li>
 
         {{-- <li class="{{ request()->routeIs('student.price-menu') ? 'active' : '' }}">
             <a href="{{ route('student.price-menu') }}" style="text-decoration: none">Pricing Menu</a></li> --}}
 
         <li class="{{ request()->routeIs('student.teacher-timeline') ? 'active' : '' }}">
             <a href="{{ route('student.teacher-timeline') }}" style="text-decoration: none">Teacher Timeline</a></li>
-            <li class="{{ request()->routeIs('student.courses') ? 'active' : '' }}">
-                <a href="{{ route('student.courses') }}" style="text-decoration: none">Courses</a></li>
+        <li class="{{ request()->routeIs('student.courses') ? 'active' : '' }}">
+            <a href="{{ route('student.courses') }}" style="text-decoration: none">Courses</a></li>
+        <li class="{{ request()->routeIs('student.my-courses') ? 'active' : '' }}">
+            <a href="{{ route('student.my-courses') }}" style="text-decoration: none">My Courses</a></li>
     </ul>
 
     <div class="" style="text-align: start; margin-top: 80px;">

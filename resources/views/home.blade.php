@@ -4,7 +4,7 @@
         <div class="banner"></div>
         <div class="select-sec">
             <div class="container">
-                <h2>SELECT THE PAYMENT OPTION AND CONTINUE</h2>
+                <h2>SELECT THE PAYMENT OPTION AND CONTINUE</h2>  
                 <div class="row col-middle">
                     <div class="col-md-7 form-col">
                         <div class="row">
@@ -42,8 +42,8 @@
                             <li><i class="fa fa-check-circle-o" aria-hidden="true"></i>&nbsp; Watch your video anytime at your leisure</li>
                             <li><i class="fa fa-check-circle-o" aria-hidden="true"></i>&nbsp; Get 50 videos per month for $10 a month</li>
                             <li><i class="fa fa-check-circle-o" aria-hidden="true"></i>&nbsp; Watch videos anytime at your leisure</li>
-                            <li><i class="fa fa-check-circle-o" aria-hidden="true"></i>&nbsp; Share your videos with you social media</li> 
-                        </ul> 
+                            <li><i class="fa fa-check-circle-o" aria-hidden="true"></i>&nbsp; Share your videos with you social media</li>
+                        </ul>
                     </div>
                 </div>
                 <div class="back-to-sec">
@@ -52,7 +52,7 @@
                 </div>
             </div>
         </div>
-        <div class="next-project"> 
+        <div class="next-project">
             <div class="two-img">
                 <img src="{{url('/images/dot-shape-primary.svg')}}" alt="Image"/>
                 <img src="{{url('/images/dot-shape-white.svg')}}" alt="Image"/>

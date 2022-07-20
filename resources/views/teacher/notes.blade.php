@@ -19,22 +19,22 @@
         </div>
 
         <div class="row">
-            <div class="col-lg-8" style="padding-left: 80px; padding-top: 30px;">
+            <div class="col-lg-8 pl_0 text_center" style="padding-top: 30px; padding-left: 0px;">
                 <h3>DASHBOARD</h3>
             </div>
 
-            <div class="col-lg-4 text_center" style="padding-top: 50px;">
+            <div class="col-lg-4 text_center" style="padding-top: 50px; text-align: end">
                 <button type="submit" class="search-btn">
                     <img src="{{ asset('images/search-icon.png') }}" alt="no image" width="20">
                 </button>
 
-                <input type="text" class="search-input" placeholder="" name="search">
+                <input type="text" class="search-input" placeholder="python coding" name="search">
             </div>
         </div>
 
         <div class="row" style="display: flex; justify-content: center">
             <div class="col-lg-6" style="text-align: center">
-                <p style="font-size: 22px">My Notes</p>
+                <p style="font-size: 22px"><strong>My Notes</strong></p>
             </div>
         </div>
 
@@ -43,68 +43,59 @@
         </div>
 
         <div class="row">
-            <div class="col-lg-4" style="margin-bottom: 20px;">
-                <div class="col-lg-12 col-md-12" style="background-color: #F9C660;
-                 padding: 20px; margin-bottom: 20px;">
-                    <h3 style="text-align: center">My notes 1</h3>
-                    <p style="text-align: center; margin-top: 30px;">
-                        Lorem ipsum dolor sit<br> amet, consectetur<br> adipiscing elit.
-                    </p>
+            @foreach($notes as $note)
+                <div class="col-lg-4" style="margin-bottom: 20px;">
+                    <div class="col-lg-12 col-md-12 notes_resp_mrgn" style="background-color: #F9C660;
+                     padding: 20px; margin-bottom: 20px;">
+                        <a href="{{ route('teacher.delete-notes', ['id' => encrypt($note->id)]) }}" class="btn btn-xs btn-danger"> <i class='fa fa-trash'></i></a>
+                        <a href="{{url('teacher/edit_note/'.$note->id)}}" class="btn btn-xs btn-primary"><i class="fa fa-pencil"></i> </a>
+                        <h3 style="text-align: center">{{$note->title}}</h3>
+                        <div class="posted_note" style="background-color: #F9C660;">
+                            <p style="text-align: center; margin-top: 30px; background-color: #F9C660;">
+                                {!! $note->note_description !!}
+                            </p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-
-            <div class="col-lg-4" style="margin-bottom: 20px;">
-                <div class="col-lg-12 col-md-12" style="background-color: #F9C660;
-                 padding: 20px; margin-bottom: 20px;">
-                    <h3 style="text-align: center">My notes 1</h3>
-                    <p style="text-align: center; margin-top: 30px;">
-                        Lorem ipsum dolor sit<br> amet, consectetur<br> adipiscing elit.
-                    </p>
-                </div>
-            </div>
-
-            <div class="col-lg-4">
-                <div class="col-lg-12 col-md-12" style="background-color: #F9C660;
-                padding: 20px; margin-bottom: 20px;">
-                    <h3 style="text-align: center">My notes 1</h3>
-                    <p style="text-align: center; margin-top: 30px;">
-                        Lorem ipsum dolor sit<br> amet, consectetur<br> adipiscing elit.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-lg-4" style="margin-bottom: 20px;">
-                <div class="col-lg-12 col-md-12" style="background-color: #F9C660;
-                 padding: 20px; margin-bottom: 20px;">
-                    <h3 style="text-align: center">My notes 1</h3>
-                    <p style="text-align: center; margin-top: 30px;">
-                        Lorem ipsum dolor sit<br> amet, consectetur<br> adipiscing elit.
-                    </p>
-                </div>
-            </div>
-
-            <div class="col-lg-4" style="margin-bottom: 20px;">
-                <div class="col-lg-12 col-md-12" style="background-color: #F9C660;
-                 padding: 20px; margin-bottom: 20px;">
-                    <h3 style="text-align: center">My notes 1</h3>
-                    <p style="text-align: center; margin-top: 30px;">
-                        Lorem ipsum dolor sit<br> amet, consectetur<br> adipiscing elit.
-                    </p>
-                </div>
-            </div>
-
-            <div class="col-lg-4">
-                <div class="col-lg-12 col-md-12" style="background-color: #F9C660;
-                padding: 20px; margin-bottom: 20px;">
-                    <h3 style="text-align: center">My notes 1</h3>
-                    <p style="text-align: center; margin-top: 30px;">
-                        Lorem ipsum dolor sit<br> amet, consectetur<br> adipiscing elit.
-                    </p>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 @endsection
 
+@section('JS')
+    <script>
+        $('.userDeletenote').click(function(e) {
+            e.preventDefault();
+            var user_id = $(this).attr('userId');
+            // alert(user_id);
+            swal({
+                title: "Are you sure?",
+                text: "Do you want to delete this note?",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        $.ajax({
+                            url: '{{URL::to('teacher/delete_note')}}',
+                            type: 'get',
+                            data: {
+                                'user_id': user_id
+                            },
+                            success: function(result) {
+                                swal(result.success, {
+                                    icon: "success",
+                                })
+                                    .then((result) => {
+                                        location.reload();
+                                    });
+                                // window.reload();
+                            }
+                        });
+                        // admin/deleteuser
+                    }
+                });
+        });
+    </script>
+@endsection

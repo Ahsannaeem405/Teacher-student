@@ -23,7 +23,8 @@ class CreateClass extends Model
     ];
 
     public function getClasses(){
-        return $this->all();
+        return $this->where('user_id', auth()->user()->id)
+            ->paginate(9);
     }
 
     public function createClass($data){
@@ -42,10 +43,19 @@ class CreateClass extends Model
 
     public function delClass($id){
         return $this->where('id', $id)
-            ->delete();
+            ->forceDelete();
     }
 
     public function getClassesIdName(){
         return $this->get(['id', 'class_name']);
+    }
+
+    public function getAllClasses(){
+        return $this->all(['id','class_name', 'class_title']);
+    }
+
+    public function getRelatedClasses($id){
+        return $this->where('id', '<>', $id)
+            ->get(['id','class_name','class_name','class_title','class_image']);
     }
 }

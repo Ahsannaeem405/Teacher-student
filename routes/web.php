@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\ChatController;
 use App\Http\Controllers\{
     Admin\AdminController,
     LogoutController,
@@ -16,11 +16,21 @@ use App\Http\Controllers\Admin\{
 use App\Http\Controllers\TeachersPanel\{
     CreateClassController,
     CreateCourseController,
-    MyProfileController
+    MyProfileController,
+    BlogController,
+    ZipController
 };
 
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\StripePaymentController;
+use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\Teacher;
+use App\Http\Controllers\WebrtcStreamingController;
+
+
+
+
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,6 +44,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/cls', function() {
+        $run = Artisan::call('config:clear');
+        $run = Artisan::call('cache:clear');
+        $run = Artisan::call('config:cache');
+        $run = Artisan::call('view:clear');
+
+        Session::flush();
+        return 'FINISHED';
+    });
+
+
 Route::get( '/images/{path}/{ext}', [ ImageController::class, 'index' ] )
     ->name( 'imagepath' );
 
@@ -46,6 +67,10 @@ Route::get('/login', function () {
 })->name('user-login');
 
 
+Route::get('/zoom', function () {
+    return view('zoom');
+})->name('zoom');
+
 Route::get('/logout', [LogoutController::class, 'logout']);
 
 Route::get('register/here', function (){
@@ -55,6 +80,9 @@ Route::get('register/here', function (){
 Route::get('/price', function () {
     return view('user.price');
 });
+
+Route::get('/my/blogs', [BlogController::class, 'Blogs'])
+    ->name('my-blogs');
 
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'check_admin'], 'as' => 'admin.'], function(){
@@ -92,26 +120,39 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'check_admin'], 'as'
 
 });
 
+Route::get('/chat', [ChatController::class, 'chat'])->name('chat')
+                                                    ->middleware('auth');
+Route::post('/chat/store', [ChatController::class, 'storeChat'])
+                                                ->name('store-chats')
+                                                ->middleware('auth');
 
 Route::group(['prefix' => 'teacher', 'middleware' => ['auth', 'check_teacher'], 'as' => 'teacher.'], function(){
 
         Route::get('dashboard', [TeacherDashboardController::class, 'index'])->name('dashboard');
         Route::get('/my/profile', [TeacherDashboardController::class, 'myProfile'])->name('myProfile');
-        Route::get('/course/create', [TeacherDashboardController::class, 'createCourse'])->name('create-course');
+        Route::get('/course/create', [TeacherDashboardController::class, 'createCourse'])->name('create-course')->middleware('check_subscription');
         Route::get('/courses', [TeacherDashboardController::class, 'myCourse'])->name('my-courses');
         Route::get('/my-students', [TeacherDashboardController::class, 'myStudents'])->name('my-students');
         Route::get('/pricing/menu', [TeacherDashboardController::class, 'priceMenu'])->name('price-menu');
+        Route::get('/trial/menu/{type}', [TeacherDashboardController::class, 'trialMenu'])->name('trial-menu');
         Route::get('/payment/type/{type}', [TeacherDashboardController::class, 'paymentType'])->name('payment-type');
         Route::post('/payment/submission', [TeacherDashboardController::class, 'paymentSubmission'])->name('payment-submission');
         Route::get('/course/detail/{id}', [TeacherDashboardController::class, 'courseDetail'])->name('course-detail');
         Route::get('/notes', [TeacherDashboardController::class, 'notes'])->name('t-notes');
+        Route::get('/notes/create', [TeacherDashboardController::class, 'createNotes'])->name('create-notes');
+        Route::post('/add_note', [TeacherDashboardController::class, 'storeNotes'])->name('store-notes');
+        Route::get('/delete_note/{id}', [TeacherDashboardController::class, 'deleteNotes'])->name('delete-notes');
+        Route::get('/edit_note/{id}', [TeacherDashboardController::class, 'editNotes']);
+        Route::post('/update/note/{id}', [TeacherDashboardController::class, 'updateNotes'])->name('update-note');
         Route::get('/create/notes', [TeacherDashboardController::class, 'createNotes'])->name('create-notes');
         Route::get('/create/blog', [TeacherDashboardController::class, 'createBlog'])->name('create-blog');
-        Route::get('/create/class', [TeacherDashboardController::class, 'createClass'])->name('create-class');
+        Route::get('/create/class', [TeacherDashboardController::class, 'createClass'])->name('create-class')->middleware('check_subscription');
         Route::get('/upload/profile', [TeacherDashboardController::class, 'uploadProfile'])->name('upload-profile');
+        Route::post('/reset/password', [MyProfileController::class, 'resetPassword'])
+                                                          ->name('reset-password');
         Route::get('/status', [TeacherDashboardController::class, 'status'])->name('status');
         Route::get('/change/password', [TeacherDashboardController::class, 'changePassword'])->name('change-password');
-        //Route::post('/create/newclass', [CreateClassController::class, 'createNewClass'])->name('new-class');
+
         Route::post('/profile/update', [MyProfileController::class, 'update'])
             ->name('profile-update');
         Route::get('/profile/del/{id}', [MyProfileController::class, 'delete'])
@@ -121,14 +162,37 @@ Route::group(['prefix' => 'teacher', 'middleware' => ['auth', 'check_teacher'], 
             'createClass' => CreateClassController::class
         ], ['except'=>['destroy']
         ]);
-        Route::get('/delClass/{id}', [CreateClassController::class, 'delete'])
+        Route::get('/delClass', [CreateClassController::class, 'delete'])
             ->name('createClass-del');
         Route::resources([
             'createCourse' => CreateCourseController::class
         ], ['except'=>['destroy']
         ]);
+        Route::get('/delete/course', [CreateCourseController::class, 'deleteCourse'])
+                                                         ->name('course-delete');
         Route::post('/course/video', [CreateCourseController::class, 'courseVideo'])
             ->name('course-video');
+        Route::post('subscribe/plan', [StripePaymentController::class, 'stripe'])->name('subscribe-plan');
+        Route::post('stripe', [StripePaymentController::class, 'stripePost'])->name('stripe.post');
+        Route::resources([
+            'blog' => BlogController::class
+        ], ['except'=>['destroy']
+        ]);
+        Route::get('/delete/blog', [BlogController::class, 'deleteBlog'])
+                                                          ->name('blog-delete');
+
+        Route::post('/charge', [PaymentController::class, 'charge']);
+
+
+
+
+        Route::post('update/lec', [CreateCourseController::class, 'updateLecture'])
+            ->name('update-lec');
+        Route::get('/delete/lecture', [CreateCourseController::class, 'deleteLecture'])
+                                                         ->name('lec-delete');
+
+        Route::post('/find_class', [Teacher::class, 'find_class']);
+
 });
 
 Route::group(['prefix' => 'student', 'middleware' => ['auth', 'check_student'], 'as' => 'student.'], function(){
@@ -145,24 +209,59 @@ Route::group(['prefix' => 'student', 'middleware' => ['auth', 'check_student'], 
         Route::get('/chat', [StudentDashboardController::class, 'chat'])->name('chat');
         Route::get('/price/menu', [StudentDashboardController::class, 'priceMenu'])->name('price-menu');
         Route::get('/courses', [StudentDashboardController::class, 'courses'])->name('courses');
+        Route::get('/my/courses', [StudentDashboardController::class, 'myCourses'])->name('my-courses');
         Route::get('/course/detail', [StudentDashboardController::class, 'courseDetail'])->name('course-detail');
-        Route::get('/course/cart', [StudentDashboardController::class, 'courseCart'])->name('add-to-cart');
-        Route::get('/payment/type', [StudentDashboardController::class, 'paymentType'])->name('payment-type');
+        Route::get('/course/detail/{id}', [StudentDashboardController::class, 'courseDetail']);
+        Route::get('/course/cart/{id}/{teach_id}', [StudentDashboardController::class, 'courseCart'])->name('add-to-cart');
+        Route::get('/payment/type/{id}/{class_id}/{teach_id}', [StudentDashboardController::class, 'paymentType'])->name('payment-type');
+        Route::get('/edit/class/{id}', [StudentDashboardController::class, 'editClass'])
+                                                                ->name('edit-class');
+        Route::get('/detail/class/{id}', [StudentDashboardController::class, 'classDetail'])
+                                                                   ->name('detail-class');
+        Route::get('/delete/class', [StudentDashboardController::class, 'deleteClass'])
+                                                                    ->name('delete-class');
+
+
+
         //teacher timeline
         Route::get('/teacher/timeline', [StudentDashboardController::class, 'teacherTimeline'])->name('teacher-timeline');
         Route::get('/all_courses/{id}', [StudentDashboardController::class, 'teachercourses'])->name('teacher-coursessssss');
         Route::get('/course_detail/{id}', [StudentDashboardController::class, 'teachercourseDetail'])->name('course-detail');
-        Route::get('add_cart', [StudentDashboardController::class, 'addCart']);
-      
+        Route::post('add_cart', [StudentDashboardController::class, 'addCart']);
+        Route::get('/delete_cart', [StudentDashboardController::class, 'deleteCart']);
+        Route::post('subscribe/plan', [StripePaymentController::class, 'studentstripe'])->name('subscribe-plan');
+        Route::post('stripe', [StripePaymentController::class, 'stripestudentPost'])->name('stripe.post');
+        Route::post('/profile/update', [MyProfileController::class, 'update'])
+        ->name('profile-update');
+        Route::get('delete_history',[StudentDashboardController::class, 'deletehistory']);#
+        Route::post('/charge', [PaymentController::class, 'stdcharge']);
+
+        Route::post('/find_class', [Teacher::class, 'studentFindClass']);
+
 });
+
+Route::get('/zip/{name}', [ZipController::class, 'zipFile'])
+    ->name('zip-file');
+
+//broadcasting
+Route::get('/streaming', [WebrtcStreamingController::class, 'index']);
+Route::get('/streaming/{streamId}', [WebrtcStreamingController::class, 'consumer']);
+Route::post('/stream-offer', [WebrtcStreamingController::class, 'makeStreamOffer']);
+Route::post('/stream-answer', [WebrtcStreamingController::class, 'makeStreamAnswer']);
+
+
+
+
+
+
+
+
+
 
 
 
 Route::get('/',[FrontController::class,'index']);
 
-
-Route::get('subscribe_plan', [StripePaymentController::class, 'stripe']);
-Route::post('stripe', [StripePaymentController::class, 'stripePost'])->name('stripe.post');
 //user main view
 Route::get('/contact-us', function () {
     return view('contact');
@@ -247,3 +346,15 @@ Route::get('/blog_detail', function () {
     return view('blog_detail');
 });
 
+
+
+
+        Route::get('success', [PaymentController::class, 'success']);
+        Route::get('success2', [PaymentController::class, 'success2']);
+
+
+
+    Route::get('/streaming', [WebrtcStreamingController::class, 'index']);
+    Route::get('/streaming/{streamId}', [WebrtcStreamingController::class, 'consumer']);
+    Route::post('/stream-offer', [WebrtcStreamingController::class, 'makeStreamOffer']);
+    Route::post('/stream-answer', [WebrtcStreamingController::class, 'makeStreamAnswer']);

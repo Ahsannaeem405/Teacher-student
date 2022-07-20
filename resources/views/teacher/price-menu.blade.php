@@ -5,16 +5,16 @@
 @section('content')
     <div class="container-fluid" style="margin-bottom: 15%;">
         <div class="row">
-            <div class="col-lg-6 pl_0 text_center" style="padding-left: 80px; padding-top: 30px;">
+            <div class="col-lg-8 pl_0 text_center" style="padding-top: 30px; padding-left: 0px;">
                 <h3>DASHBOARD</h3>
             </div>
 
-            <div class="col-lg-6 text_center" style="padding-top: 50px;">
+            <div class="col-lg-4 text_center" style="padding-top: 50px; text-align: end">
                 <button type="submit" class="search-btn">
                     <img src="{{ asset('images/search-icon.png') }}" alt="no image" width="20">
                 </button>
 
-                <input type="text" class="search-input" placeholder="" name="search">
+                <input type="text" class="search-input" placeholder="python coding" name="search">
             </div>
         </div>
 
@@ -55,7 +55,7 @@
                                             <li class="list-unstyled plan_list"> <img src="{{ asset('images/tick.png') }}" width="24" height="18" alt="" srcset=""> <span class="l_p"></span> <span class="li_font">Share your videos with your social media</span></li>
                                             <li class="list-unstyled plan_list"> <img src="{{ asset('images/tick.png') }}" width="24" height="18" alt="" srcset=""> <span class="l_p"></span> <span class="li_font">Share your videos with your social media</span></li>
                                         </ul>
-                                        <a href="{{ route('teacher.payment-type', ['type' => encrypt('free')]) }}"
+                                        <a href="{{ route('teacher.trial-menu', ['type' => encrypt('free')]) }}"
                                            style="color: white; background-color: #318215; text-decoration: none;
                                                 border-radius: 10px; padding: 10px 45px;">Select Plan</a>
                                     </div>
@@ -85,7 +85,7 @@
 
                                         <div class="row">
                                             <div class="col-lg-12">
-                                                <a href="{{ route('teacher.payment-type', ['type' => encrypt('$10')]) }}"
+                                                <a href="{{ route('teacher.payment-type', ['type' => encrypt('10')]) }}"
                                                    style="color: white; background-color: #318215; text-decoration: none;
                                                    border-radius: 10px; padding: 10px 45px;">Select Plan</a>
 {{--                                                <button type="button"--}}
@@ -121,7 +121,7 @@
 
                                         <div class="row">
                                             <div class="col-lg-12">
-                                                <a href="{{ route('teacher.payment-type', ['type' => encrypt('$25')]) }}"
+                                                <a href="{{ route('teacher.payment-type', ['type' => encrypt('25')]) }}"
                                                    style="color: white; background-color: #318215; text-decoration: none;
                                                     border-radius: 10px; padding: 10px 45px;">
                                                     Select Plan</a>

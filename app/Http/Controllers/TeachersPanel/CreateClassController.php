@@ -5,6 +5,8 @@ namespace App\Http\Controllers\TeachersPanel;
 use App\Http\Controllers\Controller;
 use App\Models\CreateClass;
 use Illuminate\Http\Request;
+use Intervention\Image\ImageManager;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class CreateClassController extends Controller
 {
@@ -37,30 +39,30 @@ class CreateClassController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-           'teacher_name' => 'required|string|min:3|max:25',
            'class_name' => 'required|string|max:10',
-           'class_date' => 'required|string|max:15',
-           'class_time' => 'required|string|max:15',
            'class_title' => 'required|string|max:100',
-           'class_hours' => 'required|numeric',
-           'class_mints' => 'required|numeric',
         ]);
 
         try{
-            $class_duration = $request->class_hours.' '.'hr'.' '.$request->class_mints.' '.'min';
+//            $class_duration = $request->class_hours.' '.'hr'.' '.$request->class_mints.' '.'min';
 
             $data = [
-              'teacher_name' => $request->teacher_name,
+              'teacher_name' => auth()->user()->name,
               'user_id' => auth()->user()->id,
               'class_name' => $request->class_name,
               'class_title' => $request->class_title,
-              'class_date' => $request->class_date,
-              'class_time' => $request->class_time,
-              'class_duration' => $class_duration,
             ];
 
+            if(empty($request->class_date) && empty($request->class_time)){
+                $data['class_date'] = date('Y-m-d');
+                $data['class_time'] = date('H:i');
+            }else{
+                $data['class_date'] = $request->class_date;
+                $data['class_time'] = $request->class_time;
+            }
+
             if($request->has('class_cover') && !empty($request->class_cover)){
-                $data['class_image'] = compressImagePHP( $request, 'class_cover' );
+                $data['class_image'] = $this->compressImagePHP( $request, 'class_cover' );
             }
             if(!empty($request->class_description)){
                 $data['class_description'] = $request->class_description;
@@ -135,24 +137,36 @@ class CreateClassController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'teacher_name' => 'required|string|min:3|max:25',
             'class_name' => 'required|string|max:10',
-            'class_date' => 'required|string|max:15',
-            'class_time' => 'required|string|max:15',
             'class_title' => 'required|string|max:100',
         ]);
 
         try{
             $data = [
-                'teacher_name' => $request->teacher_name,
+                'teacher_name' => auth()->user()->name,
+                'user_id' => auth()->user()->id,
                 'class_name' => $request->class_name,
                 'class_title' => $request->class_title,
-                'class_date' => $request->class_date,
-                'class_time' => $request->class_time
             ];
 
+            if(empty($request->class_date)){
+                if(empty($request->class_time)){
+                    $data['class_time'] = date('H:i');
+                }else{
+                    $data['class_time'] = $request->class_time;
+                }
+                $data['class_date'] = date('Y-m-d');
+            }else{
+                if(empty($request->class_time)){
+                    $data['class_time'] = date('H:i');
+                }else{
+                    $data['class_time'] = $request->class_time;
+                }
+                $data['class_date'] = $request->class_date;
+            }
+
             if($request->has('class_cover') && !empty($request->class_cover)){
-                $data['class_image'] = compressImagePHP( $request, 'class_cover' );
+                $data['class_image'] = $this->compressImagePHP( $request, 'class_cover' );
             }
             if(!empty($request->class_description)){
                 $data['class_description'] = $request->class_description;
@@ -182,14 +196,46 @@ class CreateClassController extends Controller
         //
     }
 
-    public function delete($class_id){
-        $id = decrypt($class_id);
-        $res = (new CreateClass())->delClass($id);
+    public function delete(Request $request){
+        $class_id = $request->user_id;
+        $res = (new CreateClass())->delClass($class_id);
 
-        if($res == 1){
-            return redirect()->back()->with('success', 'Class deleted successfully.');
+        if($res == '1'){
+            return response()->json(['success'=>'Class deleted successfully!']);
         }else{
-            return redirect()->back()->with('error', 'Something went wrong.');
+            return response()->json(['error', 'Something went wrong.']);
         }
     }
+
+    public function compressImagePHP( $request, $key ) : string
+    {
+        if(is_array($request) ){
+            $image = $request[ $key ];
+
+        } else {
+            $image = $request->file( $key );
+        }
+
+        $imageHashedName = $image->hashName();
+
+        $imgExplodedName = explode( ".", $imageHashedName );
+
+        $publicPath = public_path( 'images' ) . DIRECTORY_SEPARATOR;
+
+        $img = Image::make( $image )->save( $publicPath . $imgExplodedName[ 0 ] . '.' . $imgExplodedName[ 1 ] );
+
+        $img->backup();
+
+        $img->resize( 200, null, function( $constraint ) {
+            $constraint->aspectRatio();
+            $constraint->upsize();
+        } )->save( $publicPath . $imgExplodedName[ 0 ] . '-thumbs200.' . $imgExplodedName[ 1 ] );
+        $img->reset();
+
+        $img->destroy();
+
+        return $imgExplodedName[ 0 ] . '.' . $imgExplodedName[ 1 ];
+    }
+
 }
+

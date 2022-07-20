@@ -1,18 +1,25 @@
-<button type="button" onclick="check_alarm2()" style="background-color: #f2f2f2;color:black" class="btn btn-primary res_nav2" id="show_nav">
+<button type="button" onclick="check_alarm2()" style="background-color: #f2f2f2;color:black;margin-left: 3%;" class="btn btn-primary res_nav2" id="show_nav">
     <i class="fas fa-bars 3_d"></i>
     <i class="fa-solid fa-xmark krs"></i>
 </button>
 
-<div class="side_bar_res col-md-12 tab-col vh-100 p_0">
-{{--{{dd(request()->path())}}--}}
+<div class="side_bar_res col-md-12 tab-col vh-100 p_0" style="padding-top: 20px;">
+
 @if(request()->path() == 'teacher/upload/profile' ||
     request()->path() == 'teacher/change/password' ||
     request()->path() == 'teacher/status')
 
 @else
-        <img src="{{url('/images/profile.png')}}" alt="Image" class="tab-img"/>
+{{--        <img src="{{url('/images/profile.png')}}" alt="Image" class="tab-img"/>--}}
+
+        @php
+            $imagePath = explode('.', !is_null(auth()->user()->image) ? auth()->user()->image : 'user-avatar.png');
+        @endphp
+        <img src="{{asset('images')."/". $imagePath[0].".".$imagePath[1]}}" alt="Image"
+             style="color: white; border-radius: 50%;" class="tab-img" />
+
         <p style="font-size: 22px; ">{{ auth()->user()->first_name }}</p>
-        <h4>{{ (auth()->user()->role == 2) ? '(Teacher)' : ''}}</h4>
+        <h4>{{ (auth()->user()->role == 2) ? auth()->user()->name : 'Teacher'}}</h4>
         <div>
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star checked"></span>
@@ -72,17 +79,17 @@
         <li class="{{ request()->routeIs('teacher.t-notes') ? 'active' : ''}}">
             <a href="{{ route('teacher.t-notes') }}" style="text-decoration: none">Notes</a></li>
 
-        <li class="">
-            <a href="#" style="text-decoration: none">Chat</a></li>
+        <li class="{{ request()->routeIs('teacher.chat') ? 'active' : ''}}">
+            <a href="{{ route('chat') }}" style="text-decoration: none">Chat</a></li>
 
         <li class="{{ request()->routeIs('teacher.price-menu') ? 'active' : ''}}">
             <a href="{{ route('teacher.price-menu') }}" style="text-decoration: none">Pricing Menu</a></li>
 
         <li class="{{ request()->routeIs('teacher.myProfile') ? 'active' : ''}}">
-            <a href="{{ route('teacher.myProfile') }}" style="text-decoration: none">My Profile</a></li>
+            <a href="{{ route('teacher.upload-profile') }}" style="text-decoration: none">My Profile</a></li>
 
         <li class="{{ request()->routeIs('teacher.create-blog') ? 'active' : ''}}">
-            <a href="{{ route('teacher.create-blog') }}" style="text-decoration: none">Write Blog</a></li>
+            <a href="{{ route('teacher.blog.store') }}" style="text-decoration: none">Write Blog</a></li>
 
         <li class="{{ request()->routeIs('teacher.status') ? 'active' : ''}}">
             <a href="{{ route('teacher.status') }}" style="text-decoration: none">My Status</a></li>
@@ -97,6 +104,7 @@
 <script>
     function check_alarm2(){
         $(".side_bar_res").toggle();
+
         $(".krs").toggle();
         $(".3_d").toggle();
     }

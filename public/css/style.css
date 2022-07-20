@@ -432,7 +432,23 @@ border: none;
 .span-class{
 color: #C8C97D;
 font-weight: 600;
+padding-top: 25px;
+text-decoration: none;
+float: right;
+border: none;
+font-size: 20px;
 }
+
+.span-class:hover{
+    text-decoration: none;
+    color: #C8C97D;
+}
+
+.course_span_class{
+    color: #C8C97D;
+    font-weight: 600;
+}
+
 .tab-pane h1 {
 color: #818497;
 font-family: system-ui;
@@ -857,8 +873,8 @@ color: white;
 .pagination {
 display: flex;
 list-style: none;
-font-size: x-large;
-padding: 20px;
+font-size: 16px;
+padding: 10px;
   display: inline-block;
 }
 .row.mt-5.download-img .col-md-3 {
@@ -1232,6 +1248,9 @@ display: block;
 .head-user-img{
     border-radius: 50%;
     border: 5px solid white;
+}
+.span_left{
+    float: unset!important;
 }
 
 /*.save-buttn{*/

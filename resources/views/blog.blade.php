@@ -84,8 +84,8 @@
             <div class="banner_text text-center">
                 <h3 class="text-heading" style="font-weight: lighter">Write and share your content</h3>
                 <h2 class="textbold">Read and extend technical knowledge</h2>
-                <button class="btn freeBtn " >Write a Blog</button><br>
-                <button class="btn freeBtn comb_btn">Post Content</button>
+                <a href="{{ (Auth()->user() == null) ? url('/login') : ''}}" class="btn freeBtn " >Write a Blog</a><br>
+                <a href="{{ (Auth()->user() == null) ? url('/login') : ''}}" class="btn freeBtn comb_btn">Post Content</a>
             </div>
 </div>
 
@@ -209,207 +209,96 @@ BLOG
 
     <section style="margin-top: 24px;" class="cardbgcolor">
         <div class="container row_width">
-    <div class="row row_width m-0">
 
+      <div class="row row_width m-0">
+        <div class="col-md-8 " >
+            <div style="position:relative">
+                <div class="pos_l">
+                    <img class="img_side" src="{{ asset('images/dot-shape-primary.svg') }}" alt="Image">
+                </div>
+            </div>
 
+            <div class="box_b p_con " style="position: relative;">
+               <div class="demo_b">Demo</div>
+            @foreach($blogs as $blog)
+                @php
+                    $imagePath = !is_null($blog->blog_cover) ? $blog->blog_cover : 'do_not_delete.png';
+                @endphp
+                    <img src="{{asset('images')."/". $imagePath }}"
+                         class="img_width" alt="No Image">
+            {{--    <img class="img_width c_w" src="{{ asset('images/33.png') }}"  alt="" srcset="">--}}
 
+                <h3 class="bLog_b_head common_blog_color">{{ $blog->blog_title }}</h3>
+                <h4 class="b_heading_b">{{ date('d-F-Y', strtotime($blog->created_at)) }}</h4>
 
+                <h3 class="r_m_space">{!! $blog->blog_description !!}</h3>
+                <div class=" r_m_space">
+                  <h4><a href="{{ url('/blog_detail') }}" class="b_heading_b">Read more</a></h4>
+                </div>
+            @endforeach
+            </div>
+        </div>
 
-            <div class="col-md-8 " >
+        <div class="col-md-4 ">
 
-                <div style="position:relative">
-                    <div class="pos_l">
-                        <img class="img_side" src="{{ asset('images/dot-shape-primary.svg') }}" alt="Image">
+            <div class="col-sm-12" style="background-color:#f2f0f0">
+                <h3 class="text-center common_blog_color" style="    font-size: 31px;font-family: sans-serif !important;">
+                    Recent articles
+                </h3>
+
+                @foreach($recents as $recent)
+                    @php
+                        $imagePath = !is_null($recent->blog_cover) ? $recent->blog_cover : 'do_not_delete.png';
+                    @endphp
+                    <div class="row pt_b">
+                    <div class="col-sm-5" style="    padding: 0;">
+                        <img class="img_blog_side" src="{{asset('images')."/". $imagePath }}" alt="No Image">
+{{--                        <img class="img_blog_side" src="{{ asset('images/34.png') }}" class="img_blog_side" alt="" srcset="">--}}
+                    </div>
+                    <div class="col-sm-7">
+                        <h4 class="b_side_he">
+                            {{ $recent->blog_title }}
+                        </h4>
+                        <p>
+                            {!! Str::words($recent->blog_description, 40, ' ...') !!}
+                        </p>
+                        <p class="b_heading_b">
+                            {{ date('d-F-Y', strtotime($recent->created_at)) }}
+                        </p>
                     </div>
                 </div>
+                @endforeach
+            </div>
+
+         </section>
 
 
-
-
-
-
-<div class="box_b p_con " style="position: relative;">
-            <div class="demo_b">
-Demo
-</div>
-<img class="img_width c_w" src="{{ asset('images/33.png') }}"  alt="" srcset="">
-
-<h3 class="bLog_b_head common_blog_color">Easy Python Course.</h3>
-<h4 class="b_heading_b">21-June-2021</h4>
-
-<h3 class="r_m_space">A great book by the author Nir Eyal called Hooked. This book is amazing. He talks
-    about building Habit Forming Products. Think about it: Habit Forming Products, hooked
-    on Instagram, Clubhouse, Gaming, and many others platforms. I just can't get enough
-    of it.</h3>
-<div class=" r_m_space">
-  <h4>  <a href="{{ url('/blog_detail') }}" class="b_heading_b">Read more</a>   </h4>
-</div>
+<div class="pagini">
+    {!! $blogs->links() !!}
 </div>
 
-<div class="box_b p_con" style="position: relative;">
-    <div class="demo_b">
-Demo
-</div>
-<img class="img_width c_w" src="{{ asset('images/33.png') }}"  alt="" srcset="">
-
-<h3 class="bLog_b_head common_blog_color">Easy Python Course.</h3>
-<h4 class="b_heading_b">21-June-2021</h4>
-
-<h3 class="r_m_space">A great book by the author Nir Eyal called Hooked. This book is amazing. He talks
-    about building Habit Forming Products. Think about it: Habit Forming Products, hooked
-    on Instagram, Clubhouse, Gaming, and many others platforms. I just can't get enough
-    of it.</h3>
-<div class=" r_m_space">
-<h4>  <a href="{{ url('/blog_detail') }}" class="b_heading_b">Read more</a>   </h4>
-</div>
-</div>
-
-
-
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="col-md-4 ">
-
-    <div class="col-sm-12" style="background-color:#f2f0f0">
-<h3 class="text-center common_blog_color" style="    font-size: 31px;font-family: sans-serif !important;">
-Recent articles
-</h3>
-        <div class="row pt_b">
-    <div class="col-sm-5" style="    padding: 0;">
-        <img class="img_blog_side" src="{{ asset('images/34.png') }}" class="img_blog_side" alt="" srcset="">
-        </div>
-        <div class="col-sm-7">
-<h4 class="b_side_he">
-    Easy Python Course
-</h4>
-<p>
-    A great book by the author Nir Eyal called Hooked.
-</p>
-<p class="b_heading_b">
-12 Sep 2022
-</p>
-        </div>
-</div>
-
-
-
-
-
-
-
-
-
-<div class="row pt_b">
-    <div class="col-sm-5" style="    padding: 0;">
-        <img class="img_blog_side" src="{{ asset('images/34.png') }}" class="img_blog_side" alt="" srcset="">
-        </div>
-        <div class="col-sm-7">
-<h4 class="b_side_he">
-    Easy Python Course
-</h4>
-<p>
-    A great book by the author Nir Eyal called Hooked.
-</p>
-<p class="b_heading_b">
-12 Sep 2022
-</p>
-        </div>
-</div>
-
-
-
-
-<div class="row pt_b">
-    <div class="col-sm-5" style="    padding: 0;">
-        <img class="img_blog_side" src="{{ asset('images/34.png') }}" class="img_blog_side" alt="" srcset="">
-        </div>
-        <div class="col-sm-7">
-<h4 class="b_side_he">
-    Easy Python Course
-</h4>
-<p>
-    A great book by the author Nir Eyal called Hooked.
-</p>
-<p class="b_heading_b">
-12 Sep 2022
-</p>
-        </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-    </div>
-
-    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div>
-
-
-
-        </div>
-        </section>
-
-<div class="pagi_mtMb">
-    <nav>
-        <ul class="pagination">
-        {{--  <li>
-        <a href="#" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-        </a>
-        </li>  --}}
-        <li class="active" style="display: none"><a href="#">1</a></li>
-        <li><a href="#" class="activate">1</a></li>
-        <li><a href="#" class="pagi_style">2</a></li>
-        <li><a href="#" class="pagi_style">3</a></li>
-        <li><a href="#" class="pagi_style">4</a></li>
-        <li class="active" style="display: none"><a href="#">1</a></li>
-        {{--  <li>
-        <a href="#" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-        </a>
-        </li>  --}}
-        </ul>
-        </nav>
-</div>
+{{--<div class="pagi_mtMb">--}}
+{{--    <nav>--}}
+{{--        <ul class="pagination">--}}
+{{--        --}}{{--  <li>--}}
+{{--        <a href="#" aria-label="Previous">--}}
+{{--        <span aria-hidden="true">&laquo;</span>--}}
+{{--        </a>--}}
+{{--        </li>  --}}
+{{--        <li class="active" style="display: none"><a href="#">1</a></li>--}}
+{{--        <li><a href="#" class="activate">1</a></li>--}}
+{{--        <li><a href="#" class="pagi_style">2</a></li>--}}
+{{--        <li><a href="#" class="pagi_style">3</a></li>--}}
+{{--        <li><a href="#" class="pagi_style">4</a></li>--}}
+{{--        <li class="active" style="display: none"><a href="#">1</a></li>--}}
+{{--        --}}{{--  <li>--}}
+{{--        <a href="#" aria-label="Next">--}}
+{{--        <span aria-hidden="true">&raquo;</span>--}}
+{{--        </a>--}}
+{{--        </li>  --}}
+{{--        </ul>--}}
+{{--        </nav>--}}
+{{--</div>--}}
 
 
 

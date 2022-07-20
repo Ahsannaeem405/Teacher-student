@@ -22,9 +22,9 @@ class CreateCreateClassesTable extends Migration
                 ->references('id')->on('users')->onDelete('cascade');
             $table->string('class_title', 100);
             $table->text('class_description')->nullable();
-            $table->string('class_date', 15);
-            $table->string('class_time', 15);
-            $table->string('class_duration', 30);
+            $table->string('class_date', 15)->nullable();
+            $table->string('class_time', 15)->nullable();
+//            $table->string('class_duration', 30);
             $table->string('class_image')->nullable();
             $table->softDeletes();
             $table->timestamps();
