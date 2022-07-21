@@ -254,6 +254,7 @@ class CreateCourseController extends Controller
             $data = [
                 'course_id' => $request->course_id,
                 'class_title' => $request->class_title,
+                'course_type' => $request->course_type,
                 'course_doc' => $vid
             ];
 
@@ -325,7 +326,7 @@ class CreateCourseController extends Controller
         // $filename = $file->getClientOriginalName();
         $filename = $file->hashName();
 
-        $path = public_path( 'videos/'. $course_name. auth()->user()->id) . DIRECTORY_SEPARATOR;
+        $path = public_path( 'videos/'. $course_name.$request->course_type. auth()->user()->id) . DIRECTORY_SEPARATOR;
         $file->move($path, $filename);
         return $filename;
     }

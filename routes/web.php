@@ -248,7 +248,7 @@ Route::group(['prefix' => 'student', 'middleware' => ['auth', 'check_student'], 
 
 });
 
-Route::get('/zip/{name}', [ZipController::class, 'zipFile'])
+Route::get('/zip/{name}/{live}', [ZipController::class, 'zipFile'])
     ->name('zip-file');
 
 //broadcasting

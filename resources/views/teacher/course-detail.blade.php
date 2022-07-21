@@ -73,25 +73,21 @@
         <div class="row" style="margin-top: 30px;">
             <div class=" col-md-9 heading-1 float-text">
                 <h2 class="bottom-line"> Class session videos / documents</h2>
-                <a href="{{ route('zip-file', ['name' => encrypt($course->course_name)]) }}" class="span-class">
+                <a href="{{ route('zip-file', ['name' => encrypt($course->course_name),'live' => "no"]) }}" class="span-class">
                     <i class="fa fa-download" aria-hidden="true"></i>Download</a>
             </div>
             <div class="col-md-3">
-{{--                <form action="{{ route('teacher.course-video') }}" method="post" id="course_vid_form" enctype="multipart/form-data">--}}
-{{--                    @csrf--}}
-{{--                    <input type="hidden" name="course_id" value="{{ $course->id }}">--}}
-{{--                    <input type="hidden" name="course_name" value="{{ $course->course_name }}">--}}
+
                     <label for="" data-toggle="modal" data-target="#exampleModal" style="padding-top: 25px; color: #C8C97D; font-size: 25px;">
                         <i class="fa fa-plus-circle"></i>
                     </label>
-{{--                    <input type="file" id="course_vid" name="course_vid" style="visibility: hidden"--}}
-{{--                           accept="video/mp4, webm, ogg">--}}
-{{--                </form>--}}
+
             </div>
         </div>
 
         <div class="row" style="margin-top: 20px;">
           @foreach($lectures as $lecture)
+            @if($lecture->course_type ==null )
             <div class="col-md-3">
                 <video width="200" height="140" controls>
                     <source src='{{asset("/videos/".$course->course_name.auth()->user()->id.'/'.$lecture->course_doc)}}' type="video/mp4">
@@ -110,8 +106,50 @@
                     <i class="fas fa-trash" style="color: red; font-size: 22px"></i>
                 </button>
             </div>
+            @endif
           @endforeach
         </div>
+        <div class="row" style="margin-top: 30px;">
+            <div class=" col-md-9 heading-1 float-text">
+                <h2 class="bottom-line"> Live  videos </h2>
+                <a href="{{ route('zip-file', ['name' => encrypt($course->course_name),'live' => "yes"]) }}" class="span-class">
+                    <i class="fa fa-download" aria-hidden="true"></i>Download</a>
+            </div>
+            <div class="col-md-3">
+
+                    <label for="" data-toggle="modal" data-target="#exampleModal2" style="padding-top: 25px; color: #C8C97D; font-size: 25px;">
+                        <i class="fa fa-plus-circle"></i>
+                    </label>
+
+            </div>
+        </div>
+        
+
+        <div class="row" style="margin-top: 20px;">
+          @foreach($lectures as $lecture)
+          @if($lecture->course_type =="live" )
+            <div class="col-md-3">
+                <video width="200" height="140" controls>
+                    <source src='{{asset("/videos/".$course->course_name.auth()->user()->id.'/'.$lecture->course_doc)}}' type="video/mp4">
+                </video>
+                <p><strong>{{ $lecture->class_title }}</strong></p>
+                <a href="{{asset("/videos/".$course->course_name.auth()->user()->id.'/'.$lecture->course_doc)}}" download class="btn btn-info">Download</a>&nbsp;&nbsp;
+
+                <a href="#" style="padding-top: 5px;" data-toggle="modal" data-target="#editVidModal"
+                   onclick="edit(this)" data-class_title="{{ $lecture->class_title }}"
+                   data-lecture_id="{{ $lecture->id }}" data-course_name="{{ $course->course_name }}">
+                    <i class="fas fa-edit" style="color: #C9C97E; font-size: 22px"></i>
+                </a>&nbsp;&nbsp;
+
+                <button class="userDeleteclass" style="padding-top: 5px; border: none; background: white;"
+                        userId="{{$lecture->id}}">
+                    <i class="fas fa-trash" style="color: red; font-size: 22px"></i>
+                </button>
+            </div>
+          @endif
+          @endforeach
+        </div>
+        
     </div>
 
     @include('teacher.vid-upload-modal')

@@ -32,7 +32,7 @@ class Teacher extends Controller
     
     public function meeting()
     {
-        $meet=meeting::where('user_id',auth()->user()->id)->get()->orderBy('id', 'DESC');;
+        $meet=meeting::where('user_id',auth()->user()->id)->orderBy('id', 'DESC')->get();;
 
         return view('/teacher/meeting',compact('meet'));
     }

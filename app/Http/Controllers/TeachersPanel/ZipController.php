@@ -11,34 +11,51 @@ use ZipArchive;
 
 class ZipController extends Controller
 {
-    public function zipFile($name, Request $request){
-
+    public function zipFile($name,$live, Request $request){
         $course_name = decrypt($name);
         if($request->has('tech_id')){
             $tech_id = decrypt($request->tech_id);
         }
+        else{
+            $tech_id=auth()->user()->id;
+        }
 
         $zip = new ZipArchive;
+        if($live=="yes")
+        {
+            $type='live';
+
+        }
+        else{
+            $type='';
+        }
 
         $fileName = 'mylectures.zip';
 
-        if ($zip->open(public_path('videos/'.$course_name.$tech_id.'/'.$fileName), ZipArchive::CREATE) === TRUE)
+        $path = public_path('videos/'.$course_name.$type.$tech_id.'/'.$fileName);
+        unlink($path);
+
+        if ($zip->open(public_path('videos/'.$course_name.$type.$tech_id.'/'.$fileName), ZipArchive::CREATE) === TRUE)
         {
             if(auth()->user()->role == '2'){
-                $files = File::files(public_path('videos/'. $course_name. auth()->user()->id));
+                $files = File::files(public_path('videos/'. $course_name.$type. auth()->user()->id));
             }else{
-                $files = File::files(public_path('videos/'. $course_name.$tech_id));
+                $files = File::files(public_path('videos/'. $course_name.$type.$tech_id));
             }
-
             foreach ($files as $key => $value) {
-                $relativeNameInZipFile = basename($value);
-                $zip->addFile($value, $relativeNameInZipFile);
+               
+                    $relativeNameInZipFile = basename($value);
+                    $zip->addFile($value, $relativeNameInZipFile);
+
+                
+                
             }
 
             $zip->close();
         }
 
-        return response()->download(public_path('videos/'.$course_name.$tech_id.'/'.$fileName));
+        return response()->download(public_path('videos/'.$course_name.$type.$tech_id.'/'.$fileName));
+
 
     }
 }
