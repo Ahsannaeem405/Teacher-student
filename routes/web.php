@@ -194,12 +194,12 @@ Route::group(['prefix' => 'teacher', 'middleware' => ['auth', 'check_teacher'], 
         Route::post('/find_student', [Teacher::class, 'teacherFindStudent']);
         Route::post('/find_notes', [Teacher::class, 'teacherFindNotes']);
         Route::get('/meeting', [Teacher::class, 'meeting']);
-        
+
         Route::get('/create_meeting', [Teacher::class, 'create_meeting']);
         Route::post('/save_meeting', [Teacher::class, 'save_meeting']);
-        
 
-        
+
+
 
 });
 
@@ -263,10 +263,10 @@ Route::post('/reset/password', [MyProfileController::class, 'resetPassword'])
 Route::get('/change/password', [TeacherDashboardController::class, 'changePassword'])
                                             ->name('change-password');
 
-Route::get('/zip/{name}', [ZipController::class, 'zipFile'])
+Route::get('/zip/{name}', [ZipController::class, 'zipFile']);
         Route::get('/meeting', [Teacher::class, 'std_meeting']);
 
-});
+
 
 Route::get('/zip/{name}/{live}', [ZipController::class, 'zipFile'])
     ->name('zip-file');

@@ -43,12 +43,9 @@ class ZipController extends Controller
                 $files = File::files(public_path('videos/'. $course_name.$type.$tech_id));
             }
             foreach ($files as $key => $value) {
-               
+
                     $relativeNameInZipFile = basename($value);
                     $zip->addFile($value, $relativeNameInZipFile);
-
-                
-                
             }
 
             $zip->close();

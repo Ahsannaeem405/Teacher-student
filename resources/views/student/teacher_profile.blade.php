@@ -180,7 +180,7 @@
                             @php
                                 $imagePath = explode('.', !is_null($rating->user->image) ? $rating->user->image : 'do_not_delete.png');
                             @endphp
-                            <div class="col-md-8" style="margin-bottom: 4%">
+                            <div class="col-md-12" style="margin-bottom: 4%; border-top: 0.5px solid grey; padding-top: 10px;">
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="col-md-3" style="padding-left: 0px;">
@@ -244,7 +244,6 @@
                                         <p>{{ date('H:i:a', strtotime($rating->created_at)) }}</p>
                                     </div>
                                 </div>
-
                             </div>
                         @endforeach
                     </div>

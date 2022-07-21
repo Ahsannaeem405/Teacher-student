@@ -88,24 +88,37 @@
         <div class="row" style="margin-top: 20px;">
           @foreach($lectures as $lecture)
             @if($lecture->course_type ==null )
-            <div class="col-md-3">
-                <video width="200" height="140" controls>
-                    <source src='{{asset("/videos/".$course->course_name.auth()->user()->id.'/'.$lecture->course_doc)}}' type="video/mp4">
-                </video>
-                <p><strong>{{ $lecture->class_title }}</strong></p>
-                <a href="{{asset("/videos/".$course->course_name.auth()->user()->id.'/'.$lecture->course_doc)}}" download class="btn btn-info">Download</a>&nbsp;&nbsp;
+                @php
+                    $filename = $lecture->course_doc;
+                    $ext = pathinfo($filename, PATHINFO_EXTENSION);
+                    $vid = ['mp4', 'webm', 'ogg', 'mkv', '3gp'];
+                @endphp
+                <div class="col-md-3">
+                    @if(in_array($ext, $vid))
+                        <video width="200" height="140" controls>
+                            <source src='{{asset("/videos/".$course->course_name.auth()->user()->id.'/'.$lecture->course_doc)}}' type="video/mp4">
+                        </video>
+                    @else
+                        <div style="padding-top: 6px;">
+                            <div class="course_doc_img">
+                                <i class="fa-solid fa-file-lines" style="color: #C8C97D"></i>
+                            </div>
+                        </div>
+                    @endif
+                    <p><strong>{{ $lecture->class_title }}</strong></p>
+                    <a href="{{asset("/videos/".$course->course_name.auth()->user()->id.'/'.$lecture->course_doc)}}" download class="btn btn-info">Download</a>&nbsp;&nbsp;
 
-                <a href="#" style="padding-top: 5px;" data-toggle="modal" data-target="#editVidModal"
-                   onclick="edit(this)" data-class_title="{{ $lecture->class_title }}"
-                   data-lecture_id="{{ $lecture->id }}" data-course_name="{{ $course->course_name }}">
-                    <i class="fas fa-edit" style="color: #C9C97E; font-size: 22px"></i>
-                </a>&nbsp;&nbsp;
+                    <a href="#" style="padding-top: 5px;" data-toggle="modal" data-target="#editVidModal"
+                       onclick="edit(this)" data-class_title="{{ $lecture->class_title }}"
+                       data-lecture_id="{{ $lecture->id }}" data-course_name="{{ $course->course_name }}">
+                        <i class="fas fa-edit" style="color: #C9C97E; font-size: 22px"></i>
+                    </a>&nbsp;&nbsp;
 
-                <button class="userDeleteclass" style="padding-top: 5px; border: none; background: white;"
-                        userId="{{$lecture->id}}">
-                    <i class="fas fa-trash" style="color: red; font-size: 22px"></i>
-                </button>
-            </div>
+                    <button class="userDeleteclass" style="padding-top: 5px; border: none; background: white;"
+                            userId="{{$lecture->id}}">
+                        <i class="fas fa-trash" style="color: red; font-size: 22px"></i>
+                    </button>
+                </div>
             @endif
           @endforeach
         </div>
@@ -123,7 +136,7 @@
 
             </div>
         </div>
-        
+
 
         <div class="row" style="margin-top: 20px;">
           @foreach($lectures as $lecture)
@@ -149,7 +162,7 @@
           @endif
           @endforeach
         </div>
-        
+
     </div>
 
     @include('teacher.vid-upload-modal')

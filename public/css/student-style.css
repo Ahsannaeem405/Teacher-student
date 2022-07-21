@@ -561,7 +561,7 @@ button.btn.dropdown-toggle.nav-img-btn {
     .teacher_chat > .col-lg-12 > .row > .col-xs-10{
         padding-top: 4%!important;
     }
-    
+
     .teacher_chat > .col-lg-12{
         padding-bottom:2%!important ;
     }
@@ -747,6 +747,7 @@ button.btn.dropdown-toggle.nav-img-btn {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
     padding-left: 15px;
+    padding-right: 15px;
     padding-top: 5px;
 }
 
@@ -781,6 +782,16 @@ button.btn.dropdown-toggle.nav-img-btn {
     border: 4px solid transparent;
     background-clip: content-box;
     border-radius: 50px;
+}
+
+.course_doc_img{
+    width: 200px;
+    height: 135px;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    border: 1px solid grey;
+    background-color: grey;
 }
 
 
