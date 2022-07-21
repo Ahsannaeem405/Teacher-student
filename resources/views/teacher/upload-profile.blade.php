@@ -5,13 +5,13 @@
 @section('content')
     <div class="container-fluid" >
         <div class="row" style="margin-bottom: 4%;">
-            <div class="col-lg-8" style="padding-top: 30px;">
+            <div class="col-lg-8 text_center" style="padding-top: 30px;">
                 <h3>MY PROFILE</h3>
             </div>
         </div>
 
         <div class="row" style="margin-bottom: 2%;">
-            <div class="col-lg-8" style="padding-top: 30px;">
+            <div class="col-lg-8 text_center" style="padding-top: 30px;">
                 <h4>Upload photo</h4>
             </div>
         </div>
@@ -19,7 +19,7 @@
        <form action="{{ route('teacher.profile-update') }}" method="post" enctype="multipart/form-data">
            @csrf
            <div class="row">
-               <div class="col-lg-6 profile-image">
+               <div class="col-lg-6 profile-image text_center">
                    @php
                        $imagePath = explode('.', !is_null($profile->image) ? $profile->image : 'user-avatar.png');
                    @endphp
@@ -40,21 +40,21 @@
                <div class="col-lg-11" style="border: 1px solid #707070"></div>
            </div>
 
-           <div class="row profile-input-field">
+           <div class="row profile-input-field pl_0">
                <div class="col-lg-6" >
                    <label for="">Name</label>
                    <input type="text" class="form-control" name="name" value="{{ ucfirst($profile->name) }}">
                </div>
            </div>
 
-           <div class="row profile-input-field">
+           <div class="row profile-input-field pl_0">
                <div class="col-lg-6">
                    <label for="">Bio</label>
                    <textarea name="bio" id="editor">{{ $profile->bio }}</textarea>
                </div>
            </div>
 
-           <div class="row profile-input-field">
+           <div class="row profile-input-field pl_0">
                <div class="col-lg-6" >
                    <label for="">E-mail</label>
                    <input type="email" class="form-control" name="email"
@@ -62,7 +62,7 @@
                </div>
            </div>
 
-           <div class="row profile-input-field">
+           <div class="row profile-input-field pl_0">
                <div class="col-lg-6">
                    <label for="">Teacher or Student</label>
                    <select class="form-control" name="role">
@@ -75,7 +75,7 @@
                </div>
            </div>
 
-           <div class="row profile-input-field">
+           <div class="row profile-input-field pl_0">
                <div class="col-lg-6" >
                    <label for="">LinkedIn Profile</label>
                    <input type="text" class="form-control" name="linkedIn_prof"
@@ -83,7 +83,7 @@
                </div>
            </div>
 
-           <div class="row profile-input-field">
+           <div class="row profile-input-field pl_0">
                <div class="col-lg-6" >
                    <label for="">Stripe Secrete Key</label>
                    <input type="text" class="form-control" name="stripe_secret_key"
@@ -91,11 +91,27 @@
                </div>
            </div>
 
-           <div class="row profile-input-field">
+           <div class="row profile-input-field pl_0">
                <div class="col-lg-6" >
                    <label for="">Stripe Public Key</label>
                    <input type="text" class="form-control" name="stripe_public_key"
                           value="{{ (!empty($profile->stripe_public_key)) ? $profile->stripe_public_key : '' }}">
+               </div>
+           </div>
+
+           <div class="row profile-input-field pl_0">
+               <div class="col-lg-6" >
+                   <label for="">Zoom Secrete Key</label>
+                   <input type="text" class="form-control" name="zoom_secret"
+                          value="{{ (!empty($profile->zoom_secret)) ? $profile->zoom_secret : '' }}">
+               </div>
+           </div>
+
+           <div class="row profile-input-field">
+               <div class="col-lg-6" >
+                   <label for="">Zoom Api Key</label>
+                   <input type="text" class="form-control" name="zoom_api"
+                          value="{{ (!empty($profile->zoom_api)) ? $profile->zoom_api : '' }}">
                </div>
            </div>
 
@@ -107,7 +123,7 @@
                </div>
            </div>
 
-           <div class="profile-input-field">
+           <div class="profile-input-field pl_0">
                <button type="submit" class="profile-save-btn">Update</button>&nbsp;&nbsp;&nbsp;&nbsp;
                <a href="#" class="profile-draft-btn">Draft</a>
            </div>

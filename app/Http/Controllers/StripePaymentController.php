@@ -112,7 +112,7 @@ class StripePaymentController extends Controller
         //dd($request->all());
         try{
             $payment_amount = str_replace('$', '', $request->amount);
-            $teacher = User::find($request->teacher_id);
+            $teacher = User::find(1);
 
             Stripe\Stripe::setApiKey($teacher->stripe_secret_key);
 
@@ -124,14 +124,14 @@ class StripePaymentController extends Controller
             ]);
 
             if($pay->description == 'Payment successfully'){
-
+                
                     $cart = cart::where('user_id', auth()->user()->id)->whereHas('course')->get();
 
                     foreach ($cart as $key => $value) {
                         $purchase = new PurchaseCourse();
                         $purchase->user_id = auth()->user()->id;
                         $purchase->course_id = $value->course_id;
-                        $purchase->teacher_id = $request->teacher_id;
+                        $purchase->teacher_id =$value->course->teacher_id;
                         $purchase->class_id = $value->course->create_class_id;
                         $purchase->save();
                         //$value->delete();

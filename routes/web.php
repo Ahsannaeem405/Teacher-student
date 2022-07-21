@@ -71,6 +71,10 @@ Route::get('/login', function () {
 })->name('user-login');
 
 
+Route::get('/zoom', function () {
+    return view('zoom');
+})->name('zoom');
+
 Route::get('/logout', [LogoutController::class, 'logout']);
 
 Route::get('register/here', function (){
@@ -189,6 +193,13 @@ Route::group(['prefix' => 'teacher', 'middleware' => ['auth', 'check_teacher'], 
         Route::post('/find_course', [Teacher::class, 'teacherFindCourse']);
         Route::post('/find_student', [Teacher::class, 'teacherFindStudent']);
         Route::post('/find_notes', [Teacher::class, 'teacherFindNotes']);
+        Route::get('/meeting', [Teacher::class, 'meeting']);
+        
+        Route::get('/create_meeting', [Teacher::class, 'create_meeting']);
+        Route::post('/save_meeting', [Teacher::class, 'save_meeting']);
+        
+
+        
 
 });
 
@@ -253,6 +264,11 @@ Route::get('/change/password', [TeacherDashboardController::class, 'changePasswo
                                             ->name('change-password');
 
 Route::get('/zip/{name}', [ZipController::class, 'zipFile'])
+        Route::get('/meeting', [Teacher::class, 'std_meeting']);
+
+});
+
+Route::get('/zip/{name}/{live}', [ZipController::class, 'zipFile'])
     ->name('zip-file');
 
 //broadcasting

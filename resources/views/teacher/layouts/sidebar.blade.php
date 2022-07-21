@@ -1,4 +1,4 @@
-<button type="button" onclick="check_alarm2()" style="background-color: #f2f2f2;color:black" class="btn btn-primary res_nav2" id="show_nav">
+<button type="button" onclick="check_alarm2()" style="background-color: #f2f2f2;color:black;margin-left: 3%;" class="btn btn-primary res_nav2" id="show_nav">
     <i class="fas fa-bars 3_d"></i>
     <i class="fa-solid fa-xmark krs"></i>
 </button>
@@ -70,8 +70,8 @@
         <li class="{{ request()->routeIs('teacher.my-students') ? 'active' : ''}}">
             <a href="{{ route('teacher.my-students') }}" style="text-decoration: none">My Students </a></li>
 
-        <li class="">
-            <a href="#" style="text-decoration: none">Join Meeting</a></li>
+        <li class="{{ (request()->is('teacher/meeting') ? 'active' : '')}}">
+            <a href="{{url('teacher/meeting')}}" style="text-decoration: none">Join Meeting</a></li>
 
         <li class="">
             <a href="#" style="text-decoration: none">History</a></li>
@@ -104,6 +104,7 @@
 <script>
     function check_alarm2(){
         $(".side_bar_res").toggle();
+
         $(".krs").toggle();
         $(".3_d").toggle();
     }

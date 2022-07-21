@@ -10,11 +10,9 @@ class CourseLecture extends Model
     use HasFactory;
 
     protected $table = 'course_lectures';
-    protected $fillable = [
-        'course_id',
-        'class_title',
-        'course_doc'
-    ];
+    
+    protected $guarded = [];
+
 
     public function course(){
         return $this->belongsTo(CreateCourse::class);

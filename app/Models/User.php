@@ -28,7 +28,9 @@ class User extends Authenticatable
         'stripe_secret_key',
         'stripe_public_key',
         'subscription_expiry_date',
-        'remaining_vids'
+        'remaining_vids',
+        'zoom_api',
+        'zoom_secret'
     ];
 
     /**
@@ -163,10 +165,7 @@ class User extends Authenticatable
                'remaining_vids' => $vids_left
             ]);
     }
-
-
-//    public function getUsers($id){
-//        return $this->where('id', $id)
-//            ->get(['id', 'name']);
-//    }
+    public function meets(){
+        return $this->hasMany(meeting::class, 'user_id');
+    }
 }

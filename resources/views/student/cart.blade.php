@@ -26,8 +26,8 @@
 
 
             <div class="col-lg-6" >
-                <div class="row" style="background-color: #F6F6F6;margin-right:0%;padding-top: 2%;">
                 @foreach($cart as $carts)
+                <div class="row" style="background-color: #F6F6F6;margin-right:0%;padding-top: 2%;">
 
                     <div class="col-lg-6">
                         <p><strong>{{$carts->course->course_name}} </strong></p>
@@ -38,8 +38,8 @@
                     <div class="col-lg-3">
                         <button type="button" class="btn btn-xs btn-danger userDeletecart" userId="{{$carts->id}}"> <i class='fa fa-trash'></i></button>
                     </div>
-                 @endforeach
                 </div>
+                 @endforeach
             </div>
 
 

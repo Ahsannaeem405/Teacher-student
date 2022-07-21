@@ -51,6 +51,8 @@
 
         {{-- <li class="{{ request()->routeIs('student.price-menu') ? 'active' : '' }}">
             <a href="{{ route('student.price-menu') }}" style="text-decoration: none">Pricing Menu</a></li> --}}
+        <li class="{{ (request()->is('student/meeting') ? 'active' : '')}}">
+            <a href="{{url('student/meeting')}}" style="text-decoration: none">Join Meeting</a></li>
 
         <li class="{{ request()->routeIs('student.teacher-timeline') ? 'active' : '' }}">
             <a href="{{ route('student.teacher-timeline') }}" style="text-decoration: none">Teacher Timeline</a></li>
