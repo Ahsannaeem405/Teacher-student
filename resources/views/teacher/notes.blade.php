@@ -6,7 +6,7 @@
     <div class="container-fluid" style="margin-bottom: 15%;">
         <div class="row">
             <div class="col-lg-10" style=" padding-top: 50px;">
-                <div class="row" style="display: flex; justify-content: end">
+                <div class="row add_new_jus_cen" style="display: flex; justify-content: end">
                     <div class="col-lg-1 col-md-1 add-new-btn">
                         <a href="{{ route('teacher.create-notes') }}">+</a>
                     </div>
