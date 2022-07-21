@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Rating;
 use App\Models\studentnote;
+use App\Models\Subscription;
 use App\Models\User;
 use App\Models\CreateCourse;
 use App\Models\CourseLecture;
@@ -9,6 +11,7 @@ use App\Models\cart;
 use App\Models\History;
 use App\Models\PurchaseCourse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class StudentDashboardController extends Controller
 {
@@ -85,27 +88,73 @@ class StudentDashboardController extends Controller
 
     public function teacherTimeline(){
         // $teachers=User::whereRole('2')->whereHas('course')->paginate('6');
-        $purchasecourse=PurchaseCourse::where('user_id',auth()->user()->id)->whereHas('teacher')->paginate('6')->unique('teacher_id');
+        $purchasecourse = PurchaseCourse::where('user_id',auth()->user()->id)
+            ->whereHas('teacher')
+            ->whereHas('class')
+            ->paginate('6')
+            ->unique('teacher_id');
 
         return view('student.teacher-timeline',compact('purchasecourse'));
     }
-    public function teachercourses(Request $request,$id){
-        $teacher=User::find($id);
+
+    public function teachercourses(Request $request, $id){
+
+        $teacher = User::find(decrypt($id));
+
         if($request->has( 'filter' )){
             $search=$request->filter;
             $courses=CreateCourse::query()->whereTeacher_id($teacher->id)
             ->where('course_name', 'LIKE', "%{$search}%")
-            ->orWhere('course_description', 'LIKE', "%{$search}%")->whereHas('class')
+            ->orWhere('course_description', 'LIKE', "%{$search}%")
+                ->whereHas('class')
             ->get();
             $history=new History();
             $history->user_id=auth()->user()->id;
             $history->history=$search;
             $history->save();
            }else{
-                $courses=CreateCourse::whereTeacher_id($teacher->id)->whereHas('class')->get();
+                $courses = CreateCourse::whereTeacher_id($teacher->id)
+                    ->whereHas('class')
+                    ->get();
+                $ratings = Rating::whereteacher_id($teacher->id)
+                    ->whereHas('user')
+                    ->get();
            }
-        return view('student.teacher-courses',compact('teacher','courses'));
+        return view('student.teacher_profile',compact('teacher','courses', 'ratings'));
     }
+
+    public function rating(Request $request){
+
+        $validator = Validator::make(request()->all(), [
+           'message' => 'string',
+           'rate' => 'required|numeric',
+        ]);
+
+        if($validator->fails()) {
+            $errors = $validator->errors();
+            return redirect()->back()->withErrors($errors);
+        }
+
+        try{
+            $data = [
+              'user_id' => $request->user_id,
+              'teacher_id' => $request->teacher_id,
+              'stars' => $request->rate,
+              'message' => $request->message
+            ];
+
+            $res = (new Rating())->storeRating($data);
+
+            if(!empty($res)){
+                return redirect()->back()->with('success', 'Your review has posted');
+            }else{
+                return redirect()->back()->with('error', 'Something went wrong.');
+            }
+        } catch (\Exception $ex){
+            return redirect()->back()->with('error', $ex->getMessage());
+        }
+    }
+
     public function teachercourseDetail($id){
         $course=CreateCourse::with('class')->find($id);
         $lectures=CourseLecture::where('course_id', $id)
@@ -173,4 +222,35 @@ class StudentDashboardController extends Controller
         $cart->save();
         return back();
     }
+
+    public function changePassword(){
+        return view('student.change-password');
+    }
+
+    public function myStatus(){
+        $sub = (new Subscription())->with('user')->first();
+
+        if($sub->payment_amount == '10'){
+            $data = [
+                'plan' => 'Basic',
+                'expriy' => $sub->user->subscription_expiry_date
+            ];
+        }elseif ($sub->payment_amount == '25'){
+            $data = [
+                'plan' => 'Enterprise',
+                'expriy' => $sub->user->subscription_expiry_date
+            ];
+        }else{
+            $data = [
+                'plan' => 'Free',
+                'expriy' => $sub->user->subscription_expiry_date
+            ];
+        }
+        return view('student.status', $data);
+    }
+
+//    public function teacherProfile(){
+//
+//        return view('student.teacher_profile');
+//    }
 }

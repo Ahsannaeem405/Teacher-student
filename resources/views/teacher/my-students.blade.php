@@ -28,23 +28,23 @@
             <div class="col-lg-12" style="border: 1px solid #707070"></div>
         </div>
 
-        <div class="row  mystudent_teach" style="margin-top: 10px;">
+        <div class="row  mystudent_teach ruslt_ser" style="margin-top: 10px;">
             @foreach($cource as $stud)
-            <div class="col-lg-3 col-md-3 col-sm-2" style="padding-left: 40px; text-align: center">
-                <div class="col-lg-12">
-                    <img src="{{ asset('images/Ellipse 36.png') }}" alt="no image" width="50">
+                <div class="col-lg-3 col-md-3 col-sm-2" style="padding-left: 40px; text-align: center">
+                    <div class="col-lg-12">
+                        <img src="{{ asset('images/Ellipse 36.png') }}" alt="no image" width="50">
+                    </div>
+                    <div class="col-lg-12">
+                        <span style="margin-top: 15px; font-size: 16px; font-weight: bold;"><a href="#"
+                                                                                            style="text-decoration: none; color: black">
+                               {{$stud->studentuser->name}}
+                            </a>
+                        </span>
+                        <span style="font-size: 12px;">
+                            <p>class: {{$stud->class->class_name}}</p>
+                        </span>
+                    </div>
                 </div>
-                <div class="col-lg-12">
-                    <span style="margin-top: 15px; font-size: 16px; font-weight: bold;"><a href="#"
-                                                                                        style="text-decoration: none; color: black">
-                           {{$stud->studentuser->name}}
-                        </a>
-                    </span>
-                    <span style="font-size: 12px;">
-                        <p>class: {{$stud->class->class_name}}</p>
-                    </span>
-                </div>
-            </div>
             @endforeach
         </div>
 
@@ -73,9 +73,28 @@
 {{--            </div>--}}
 {{--        </div>--}}
     </div>
+@endsection
 
-
-
+@section('JS')
+    <script>
+        $(document).ready(function() {
+            $(document).on('click', '.search-btn', function() {
+                var data=$(".search-input").val();
+                $(this).append('<span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>');
+                $.ajax({
+                    url: '{{ url('/teacher/find_student') }}',
+                    data: {
+                        data
+                    },
+                    type: 'post',
+                    success: function(result) {
+                        $(".ruslt_ser").empty();
+                        $(".ruslt_ser").append(result);
+                    }
+                });
+            });
+        });
+    </script>
 @endsection
 
 

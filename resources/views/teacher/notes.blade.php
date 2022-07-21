@@ -42,7 +42,7 @@
             <div class="col-lg-12" style="border: 1px solid #707070"></div>
         </div>
 
-        <div class="row">
+        <div class="row ruslt_ser">
             @foreach($notes as $note)
                 <div class="col-lg-4" style="margin-bottom: 20px;">
                     <div class="col-lg-12 col-md-12 notes_resp_mrgn" style="background-color: #F9C660;
@@ -96,6 +96,24 @@
                         // admin/deleteuser
                     }
                 });
+        });
+
+        $(document).ready(function() {
+            $(document).on('click', '.search-btn', function() {
+                var data=$(".search-input").val();
+                $(this).append('<span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>');
+                $.ajax({
+                    url: '{{ url('/teacher/find_notes') }}',
+                    data: {
+                        data
+                    },
+                    type: 'post',
+                    success: function(result) {
+                        $(".ruslt_ser").empty();
+                        $(".ruslt_ser").append(result);
+                    }
+                });
+            });
         });
     </script>
 @endsection

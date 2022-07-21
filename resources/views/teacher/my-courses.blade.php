@@ -30,7 +30,7 @@
             <div class="col-lg-12" style="border: 1px solid #707070"></div>
         </div>
 
-        <div class="row" style="margin-top: 10px;">
+        <div class="row ruslt_ser" style="margin-top: 10px;">
             @if(count($courses) > 0)
                 @foreach($courses as $course)
                     <div class="col-lg-4 col-md-4">
@@ -51,9 +51,6 @@
                                     <div class="col-lg-12">
                                         <p style="color: #C9C97E; font-size: 12px;">{{ ucwords($course->class_name) }} Class</p>
                                     </div>
-{{--                                    <div class="col-lg-6">--}}
-{{--                                        <p style="font-size: 10px; font-style: italic">Length: {{ $course->class_duration }}</p>--}}
-{{--                                    </div>--}}
                                 </div>
 
                                 <div class="row" style="display: flex; justify-content: center">
@@ -180,6 +177,24 @@
                         // admin/deleteuser
                     }
                 });
+        });
+
+        $(document).ready(function() {
+            $(document).on('click', '.search-btn', function() {
+                var data=$(".search-input").val();
+                $(this).append('<span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>');
+                $.ajax({
+                    url: '{{ url('/teacher/find_course') }}',
+                    data: {
+                        data
+                    },
+                    type: 'post',
+                    success: function(result) {
+                        $(".ruslt_ser").empty();
+                        $(".ruslt_ser").append(result);
+                    }
+                });
+            });
         });
     </script>
 @endsection

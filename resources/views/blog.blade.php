@@ -217,26 +217,25 @@ BLOG
                     <img class="img_side" src="{{ asset('images/dot-shape-primary.svg') }}" alt="Image">
                 </div>
             </div>
-
-            <div class="box_b p_con " style="position: relative;">
-               <div class="demo_b">Demo</div>
             @foreach($blogs as $blog)
-                @php
-                    $imagePath = !is_null($blog->blog_cover) ? $blog->blog_cover : 'do_not_delete.png';
-                @endphp
-                    <img src="{{asset('images')."/". $imagePath }}"
-                         class="img_width" alt="No Image">
-            {{--    <img class="img_width c_w" src="{{ asset('images/33.png') }}"  alt="" srcset="">--}}
+                <div class="box_b p_con " style="position: relative;">
+                   <div class="demo_b">Demo</div>
+                    @php
+                        $imagePath = !is_null($blog->blog_cover) ? $blog->blog_cover : 'do_not_delete.png';
+                    @endphp
+                        <img src="{{asset('images')."/". $imagePath }}"
+                             class="img_width" alt="No Image">
+                {{--    <img class="img_width c_w" src="{{ asset('images/33.png') }}"  alt="" srcset="">--}}
 
-                <h3 class="bLog_b_head common_blog_color">{{ $blog->blog_title }}</h3>
-                <h4 class="b_heading_b">{{ date('d-F-Y', strtotime($blog->created_at)) }}</h4>
+                    <h3 class="bLog_b_head common_blog_color">{{ $blog->blog_title }}</h3>
+                    <h4 class="b_heading_b">{{ date('d-F-Y', strtotime($blog->created_at)) }}</h4>
 
-                <h3 class="r_m_space">{!! $blog->blog_description !!}</h3>
-                <div class=" r_m_space">
-                  <h4><a href="{{ url('/blog_detail') }}" class="b_heading_b">Read more</a></h4>
+                    <h3 class="r_m_space">{!! $blog->blog_description !!}</h3>
+                    <div class=" r_m_space">
+                      <h4><a href="{{ url('/blog_detail') }}" class="b_heading_b">Read more</a></h4>
+                    </div>
                 </div>
             @endforeach
-            </div>
         </div>
 
         <div class="col-md-4 ">
@@ -274,7 +273,7 @@ BLOG
 
 
 <div class="pagini">
-    {!! $blogs->links() !!}
+    {{ $blogs->links() }}
 </div>
 
 {{--<div class="pagi_mtMb">--}}

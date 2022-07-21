@@ -1,4 +1,4 @@
-@extends('teacher.dashboard-layout')
+@extends('student.dashboard-layout')
 
 @section('title', 'Change Password')
 

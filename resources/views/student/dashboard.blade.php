@@ -26,17 +26,6 @@
         </div>
 
         @if($records != 0)
-{{--            <div class="row" style="margin-top: 30px; display: flex; justify-content: center;">--}}
-{{--                <div class="col-lg-1">--}}
-{{--                    <img src="{{ asset('images/search-results.png') }}" alt="no image" width="30">--}}
-{{--                </div>--}}
-
-{{--                <div class="col-lg-3 text_center" style="padding: 0px; margin: 0px;">--}}
-{{--                    <p>Search results <strong>'100'</strong></p>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-
-
             <div class="row dashboard-searchbar-bottom-line">
                 <div class="col-lg-12" style="border: 1px solid #707070"></div>
             </div>
@@ -49,18 +38,7 @@
         @endif
 
         @if($records != 0)
-{{--            <div class="row text_center" style="padding-left: 30px;">--}}
-{{--                <div class="col-lg-3">--}}
-{{--                   <div>--}}
-{{--                       <span>--}}
-{{--                           <i class="fa-solid fa-filter"></i>&nbsp;&nbsp;<strong>Filter:</strong>&nbsp;--}}
-{{--                           Popular <i class="fa-solid fa-caret-down"></i>--}}
-{{--                        </span>--}}
-{{--                   </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-
-            <div class="row" style="margin-top: 10px;">
+            <div class="row ruslt_ser" style="margin-top: 10px;">
                 @if(count($classes) > 0)
                     @foreach($classes as $class)
                     @php

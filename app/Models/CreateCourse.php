@@ -69,4 +69,12 @@ class CreateCourse extends Model
         return $this->where('id', $course_id)
             ->delete();
     }
+
+    public function ratings(){
+        return $this->belongsTo(Rating::class, 'teacher_id', 'teacher_id');
+    }
+
+    public function user(){
+        return $this->belongsTo(User::class, 'id');
+    }
 }

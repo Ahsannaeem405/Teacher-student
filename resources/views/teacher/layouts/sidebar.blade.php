@@ -6,8 +6,8 @@
 <div class="side_bar_res col-md-12 tab-col vh-100 p_0" style="padding-top: 20px;">
 
 @if(request()->path() == 'teacher/upload/profile' ||
-    request()->path() == 'teacher/change/password' ||
-    request()->path() == 'teacher/status')
+    request()->path() == 'change/password' ||
+    request()->path() == 'teacher.status')
 
 @else
 {{--        <img src="{{url('/images/profile.png')}}" alt="Image" class="tab-img"/>--}}
@@ -16,10 +16,10 @@
             $imagePath = explode('.', !is_null(auth()->user()->image) ? auth()->user()->image : 'user-avatar.png');
         @endphp
         <img src="{{asset('images')."/". $imagePath[0].".".$imagePath[1]}}" alt="Image"
-             style="color: white; border-radius: 50%;" class="tab-img" />
+             style="color: white; border-radius: 50%;" class="tab-img show_prof_img" />
 
-        <p style="font-size: 22px; ">{{ auth()->user()->first_name }}</p>
-        <h4>{{ (auth()->user()->role == 2) ? auth()->user()->name : 'Teacher'}}</h4>
+        <p style="font-size: 22px; ">{{ auth()->user()->name }}</p>
+        <h4>{{ (auth()->user()->role == 2) ? '(Teacher)' : ''}}</h4>
         <div>
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star checked"></span>
@@ -32,14 +32,14 @@
 @endif
 
 @if(request()->route()->getName() == 'teacher.upload-profile' || request()->route()->getName() == 'teacher.status' ||
-     request()->route()->getName() == 'teacher.upload-profile' || request()->route()->getName() == 'teacher.change-password')
+     request()->route()->getName() == 'teacher.upload-profile' || request()->route()->getName() == 'change-password')
     <ul class="nav-tabs tabs-left sideways"
         style="margin-top: 20px; padding-top: 80px;">
         <li class="{{ request()->routeIs('teacher.upload-profile') ? 'active' : ''}}">
             <a href="{{ route('teacher.upload-profile') }}" style="text-decoration: none">My profile</a>
         </li>
-        <li class="{{ request()->routeIs('teacher.change-password') ? 'active' : ''}}">
-            <a href="{{ route('teacher.change-password') }}" style="text-decoration: none">Password</a>
+        <li class="{{ request()->routeIs('change-password') ? 'active' : ''}}">
+            <a href="{{ route('change-password') }}" style="text-decoration: none">Password</a>
         </li>
         <li class="{{ request()->routeIs('teacher.status') ? 'active' : ''}}">
             <a href="{{ route('teacher.status') }}" style="text-decoration: none">My Status</a>

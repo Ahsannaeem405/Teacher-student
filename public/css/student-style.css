@@ -705,3 +705,62 @@ button.btn.dropdown-toggle.nav-img-btn {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s; padding: 10px;
 }
+
+.rating-btn{
+    margin-top: 20px;
+    background-color: #C9C97E;
+    color: white;
+    padding: 10px;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.rating-btn:hover{
+    color: white;
+}
+
+.rating-btn:focus{
+    color: white;
+}
+
+.card-desgn{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    padding-left: 15px;
+    padding-top: 5px;
+}
+
+.comment-scroll {
+    max-height: 390px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+::-webkit-scrollbar {
+    width: 20px;
+    height: 20px
+}
+
+::-webkit-scrollbar-track-piece:vertical {
+    background: transparent;
+}
+
+::-webkit-scrollbar-track-piece:horizontal {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: lightgrey;
+    border-radius: 50px;
+    border: 6px solid transparent;
+    background-clip: content-box;
+}
+
+::-webkit-scrollbar-corner {
+    background-color: green;
+    border: 4px solid transparent;
+    background-clip: content-box;
+    border-radius: 50px;
+}
+
+

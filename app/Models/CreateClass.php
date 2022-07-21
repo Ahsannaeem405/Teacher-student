@@ -58,4 +58,8 @@ class CreateClass extends Model
         return $this->where('id', '<>', $id)
             ->get(['id','class_name','class_name','class_title','class_image']);
     }
+
+//    public function user(){
+//        return $this->belongsTo(User::class, 'user_id');
+//    }
 }

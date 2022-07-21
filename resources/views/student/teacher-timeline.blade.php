@@ -26,9 +26,11 @@
                 <div class="col-12">
                     <select name="cars" class="form-control top-select-timeline">
                         <option value="volvo">Rating</option>
-                        <option value="saab">Saab</option>
-                        <option value="opel">Opel</option>
-                        <option value="audi">Audi</option>
+                        <option value="saab">5</option>
+                        <option value="opel">4</option>
+                        <option value="audi">3</option>
+                        <option value="audi">2</option>
+                        <option value="audi">1</option>
                     </select>
                 </div>
             </div>
@@ -46,52 +48,38 @@
 
         <div class="row">
             @foreach($purchasecourse as $purchase)
-            <div class="col-sm-4 col-md-4 col-lg-4">
-                <div class="col-12">
-                    <div class="card mt-5 " >
-                        <img src="{{url('/images/teacher-pic1.png')}}" width="260"
-                             style="background-size: cover" alt="Image"/>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-sm-6">
-                                  <a href="{{url('student/all_courses/'.$purchase->teacher->id)}}" > <h4><strong>{{$purchase->teacher->name}} </strong></h4></a>
-                                    <h5><span class="section3-span" style="color: #C9C9C9"><strong>Technology</strong></span></h5>
-                                </div>
-                                <div class="col-sm-6 text-right" style="padding-top: 8px;">
-                                    <i class="fa fa-star" style="color: #C9C97E"></i>
-                                    <span class="section3-span1">4.8</span>   <span class="section3-span2">(22)</span>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <p class="h4 card-text pt-3">I have been teaching biology for 15 years
-                                        and I have a PHD in Biology. I want to give my students a modern
-                                        approach to learning the field.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="card-footer">
-                            <div class="icon">
+                <div class="col-sm-4 col-md-4 col-lg-4">
+                    <div class="col-12">
+                        <div class="card mt-5">
+                            @php
+                                $imagePath = explode('.', !is_null($purchase->teacher->image) ? $purchase->teacher->image : 'do_not_delete.png');
+                            @endphp
+                            <img src="{{asset('images')."/". $imagePath[0].".".$imagePath[1]}}"
+                                 class="img-fluid" alt="No Image" style="width: 100%;height: 100%; object-fit: contain;">
+                            <div class="card-body">
                                 <div class="row">
-                                    <div class="col-sm-4">
-                                        <i class="fa fa-thumbs-up"></i>
-                                        <span class="heading-span3">(200)</span>
+                                    <div class="col-sm-6">
+                                      <a href="{{ route('student.teacher-profile', ['id' => encrypt($purchase->teacher->id)]) }}" style="text-decoration: none">
+                                          <h4><strong>{{$purchase->teacher->name}} </strong></h4>
+                                      </a>
+                                        <h5><span class="section3-span" style="color: #c8c97d;"><strong>{{ $purchase->class->class_name }}</strong></span></h5>
                                     </div>
-                                    <div class="col-sm-8 ">
-                                        <i class="fa fa-comment"></i>
-                                        <i class="fa fa-message-middle"></i>
-                                        <span class="heading-span3">(30)</span>
+                                    <div class="col-sm-6 text-right" style="padding-top: 8px;">
+                                        <i class="fa fa-star" style="color: #C9C97E"></i>
+                                        <span class="section3-span1">4.8</span>   <span class="section3-span2">(22)</span>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <p class="h4 card-text pt-3">{!! $purchase->teacher->bio !!}</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-@endforeach
-      
+            @endforeach
         </div>
     </div>
 @endsection

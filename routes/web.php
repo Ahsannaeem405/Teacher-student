@@ -62,6 +62,10 @@ Route::get('/test', function (){
    return view('home2');
 });
 
+Route::get('/testing', function (){
+   return view('rating');
+});
+
 Route::get('/login', function () {
     return view('auth.login');
 })->name('user-login');
@@ -144,10 +148,6 @@ Route::group(['prefix' => 'teacher', 'middleware' => ['auth', 'check_teacher'], 
         Route::get('/create/blog', [TeacherDashboardController::class, 'createBlog'])->name('create-blog');
         Route::get('/create/class', [TeacherDashboardController::class, 'createClass'])->name('create-class')->middleware('check_subscription');
         Route::get('/upload/profile', [TeacherDashboardController::class, 'uploadProfile'])->name('upload-profile');
-        Route::post('/reset/password', [MyProfileController::class, 'resetPassword'])
-                                                          ->name('reset-password');
-        Route::get('/status', [TeacherDashboardController::class, 'status'])->name('status');
-        Route::get('/change/password', [TeacherDashboardController::class, 'changePassword'])->name('change-password');
 
         Route::post('/profile/update', [MyProfileController::class, 'update'])
             ->name('profile-update');
@@ -178,16 +178,17 @@ Route::group(['prefix' => 'teacher', 'middleware' => ['auth', 'check_teacher'], 
                                                           ->name('blog-delete');
 
         Route::post('/charge', [PaymentController::class, 'charge']);
-
-
-
-
+        Route::get('/status', [TeacherDashboardController::class, 'status'])
+                                                        ->name('status');
         Route::post('update/lec', [CreateCourseController::class, 'updateLecture'])
             ->name('update-lec');
         Route::get('/delete/lecture', [CreateCourseController::class, 'deleteLecture'])
                                                          ->name('lec-delete');
 
         Route::post('/find_class', [Teacher::class, 'find_class']);
+        Route::post('/find_course', [Teacher::class, 'teacherFindCourse']);
+        Route::post('/find_student', [Teacher::class, 'teacherFindStudent']);
+        Route::post('/find_notes', [Teacher::class, 'teacherFindNotes']);
 
 });
 
@@ -216,12 +217,17 @@ Route::group(['prefix' => 'student', 'middleware' => ['auth', 'check_student'], 
                                                                    ->name('detail-class');
         Route::get('/delete/class', [StudentDashboardController::class, 'deleteClass'])
                                                                     ->name('delete-class');
-
-
+        Route::get('/change/password', [StudentDashboardController::class, 'changePassword'])
+                            ->name('change-password');
+        Route::get('/my/status', [StudentDashboardController::class, 'myStatus'])
+                                                        ->name('my-status');
 
         //teacher timeline
         Route::get('/teacher/timeline', [StudentDashboardController::class, 'teacherTimeline'])->name('teacher-timeline');
-        Route::get('/all_courses/{id}', [StudentDashboardController::class, 'teachercourses'])->name('teacher-coursessssss');
+//        Route::get('/teacher/profile', [StudentDashboardController::class, 'teacherProfile'])->name('teacher-profile');
+        Route::get('/teacher/profile/{id}', [StudentDashboardController::class, 'teachercourses'])->name('teacher-profile');
+        Route::post('/teacher/rating', [StudentDashboardController::class, 'rating'])
+                                                            ->name('rate-teacher');
         Route::get('/course_detail/{id}', [StudentDashboardController::class, 'teachercourseDetail'])->name('course-detail');
         Route::post('add_cart', [StudentDashboardController::class, 'addCart']);
         Route::get('/delete_cart', [StudentDashboardController::class, 'deleteCart']);
@@ -233,8 +239,18 @@ Route::group(['prefix' => 'student', 'middleware' => ['auth', 'check_student'], 
         Route::post('/charge', [PaymentController::class, 'stdcharge']);
 
         Route::post('/find_class', [Teacher::class, 'studentFindClass']);
+        Route::post('/find_course', [Teacher::class, 'studentFindCourses']);
+        Route::post('/find_my_course', [Teacher::class, 'studentFindMyCourses']);
+        Route::post('/find_notes', [Teacher::class, 'studentFindNotes']);
+        //Route::post('/find_teacher', [Teacher::class, 'studentFindTeacher']);
 
 });
+
+
+Route::post('/reset/password', [MyProfileController::class, 'resetPassword'])
+                                            ->name('reset-password');
+Route::get('/change/password', [TeacherDashboardController::class, 'changePassword'])
+                                            ->name('change-password');
 
 Route::get('/zip/{name}', [ZipController::class, 'zipFile'])
     ->name('zip-file');

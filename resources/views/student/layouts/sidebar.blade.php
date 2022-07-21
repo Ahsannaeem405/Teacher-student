@@ -3,17 +3,29 @@
     <i class="fa-solid fa-xmark krs"></i>
 </button>
 
-<div class="side_bar_res col-md-4 tab-col vh-100 ">
-    <div class="side_bar_profile">
-<img src="{{url('/images/profile.png')}}" alt="Image" class="tab-img"/>
-<p style="font-size: 22px; ">{{ auth()->user()->first_name }}</p>
-<h4>{{ (auth()->user()->role == 3) ? '(Student)' : ''}}</h4>
-</div>
-@if(\Request::route()->getName() == 'student.my-profile')
+<div class="side_bar_res col-md-12 tab-col vh-100 p_0" style="padding-top: 20px;">
+    <div class="side_bar_profile" style="align-items: center;">
+        @php
+            $imagePath = explode('.', !is_null(auth()->user()->image) ? auth()->user()->image : 'user-avatar.png');
+        @endphp
+        <img src="{{asset('images')."/". $imagePath[0].".".$imagePath[1]}}" alt="Image"
+             style="color: white; border-radius: 50%;" class="tab-img show_prof_img" />
+
+        <p style="font-size: 22px; ">{{ auth()->user()->name }}</p>
+        <h4>{{ (auth()->user()->role == 3) ? '(Student)' : ''}}</h4>
+    </div>
+
+@if(\Request::route()->getName() == 'student.my-profile' || request()->route()->getName() == 'student.change-password'
+        || request()->route()->getName() == 'student.my-status')
     <ul class="nav-tabs tabs-left sideways" style="margin-top: 20px;">
-        <li class="active"><a href="{{ route('student.my-profile') }}">My profile</a></li>
-        <li><a href="#" data-toggle="tab">Password</a></li>
-        <li><a href="#" data-toggle="tab">My Status</a></li>
+        <li class="{{ request()->routeIs('student.my-profile') ? 'active' : ''}}">
+            <a href="{{ route('student.my-profile') }}" style="text-decoration: none">My profile</a></li>
+        <li class="{{ request()->routeIs('student.change-password') ? 'active' : ''}}">
+            <a href="{{ route('student.change-password') }}" style="text-decoration: none">Password</a>
+        </li>
+        <li class="#">
+            <a href="#" style="text-decoration: none">My Status</a>
+        </li>
     </ul>
 
     <div class="sidebar-logout">
@@ -52,15 +64,6 @@
         <img src="{{ asset('images/dt1.png') }}" alt="no image" width="30">
     </div>
 @endif
-
-
-{{--    <li><a href="#chat" data-toggle="tab">History</a></li>--}}
-{{--    <li><a href="#payment" data-toggle="tab">Notes</a></li>--}}
-{{--    <li><a href="#chat-one" data-toggle="tab">Chat</a></li>--}}
-{{--    <li><a href="#menu" data-toggle="tab">Pricing Menu</a></li>--}}
-{{--    <li class="active"><a href="#profile" data-toggle="tab"> My Profile</a></li>--}}
-{{--    <li><a href="#block" data-toggle="tab">Write Block</a></li>--}}
-{{--    <li><a href="#status" data-toggle="tab">My Status</a></li>--}}
 
 </div>
 
