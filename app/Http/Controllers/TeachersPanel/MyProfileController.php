@@ -27,6 +27,7 @@ class MyProfileController extends Controller
               'name' => $request->name,
               'email' => $request->email,
               'role' => $request->role,
+
             ];
             if($request->has('prof_image') && !empty($request->prof_image)){
                 $data['image'] = $this->compressImagePHP( $request, 'prof_image' );
@@ -45,6 +46,13 @@ class MyProfileController extends Controller
 
             if(!empty($request->linkedIn_prof)){
                 $data['linkedin_url'] = $request->linkedIn_prof;
+            }
+            if(!empty($request->zoom_secret)){
+                $data['zoom_secret'] = $request->zoom_secret;
+            }
+
+            if(!empty($request->zoom_api)){
+                $data['zoom_api'] = $request->zoom_api;
             }
 
             $res = (new User())->updateMyProfile($data);

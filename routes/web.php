@@ -192,6 +192,13 @@ Route::group(['prefix' => 'teacher', 'middleware' => ['auth', 'check_teacher'], 
                                                          ->name('lec-delete');
 
         Route::post('/find_class', [Teacher::class, 'find_class']);
+        Route::get('/meeting', [Teacher::class, 'meeting']);
+        
+        Route::get('/create_meeting', [Teacher::class, 'create_meeting']);
+        Route::post('/save_meeting', [Teacher::class, 'save_meeting']);
+        
+
+        
 
 });
 
@@ -237,6 +244,7 @@ Route::group(['prefix' => 'student', 'middleware' => ['auth', 'check_student'], 
         Route::post('/charge', [PaymentController::class, 'stdcharge']);
 
         Route::post('/find_class', [Teacher::class, 'studentFindClass']);
+        Route::get('/meeting', [Teacher::class, 'std_meeting']);
 
 });
 

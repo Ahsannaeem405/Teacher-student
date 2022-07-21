@@ -101,6 +101,22 @@
 
            <div class="row profile-input-field">
                <div class="col-lg-6" >
+                   <label for="">Zoom Secrete Key</label>
+                   <input type="text" class="form-control" name="zoom_secret"
+                          value="{{ (!empty($profile->zoom_secret)) ? $profile->zoom_secret : '' }}">
+               </div>
+           </div>
+
+           <div class="row profile-input-field">
+               <div class="col-lg-6" >
+                   <label for="">Zoom Api Key</label>
+                   <input type="text" class="form-control" name="zoom_api"
+                          value="{{ (!empty($profile->zoom_api)) ? $profile->zoom_api : '' }}">
+               </div>
+           </div>
+
+           <div class="row profile-input-field">
+               <div class="col-lg-6" >
                    <label for="">E-mail</label>
                    <input type="email" class="form-control" name="email"
                           value="{{ $profile->email }}">

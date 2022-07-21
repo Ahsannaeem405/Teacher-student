@@ -3,15 +3,24 @@
 use \Firebase\JWT\JWT;
 use GuzzleHttp\Client;
 use  Illuminate\Support\Facades\Auth;
-use App\Models\event;
+use App\Models\meeting;
 use Illuminate\Http\Request;
 
+
  //dd($file);
-define('ZOOM_API_KEY', "KwZ1XRbwQsGRvYoeMdPBUw");
-define('ZOOM_SECRET_KEY',"fGS6KqI4HBaDodyFyUINJyTeFKq8weeffpPw");
-define('event_name', 'test');
-define('date',  date('Y-m-d'));
-define('time',  date('H:i'));
+//define('ZOOM_API_KEY', "KwZ1XRbwQsGRvYoeMdPBUw");
+//define('ZOOM_SECRET_KEY',"fGS6KqI4HBaDodyFyUINJyTeFKq8weeffpPw");
+
+define('ZOOM_API_KEY', Auth::User()->zoom_api);
+define('ZOOM_SECRET_KEY', Auth::User()->zoom_secret);
+define('topic', $req->topic);
+define('date',  $req->date);
+define('time',  $req->time);
+define('type',  $req->type);
+define('call_url',  $call_url);
+
+
+
 
 
 
@@ -26,16 +35,21 @@ function getZoomAccessToken() {
     return JWT::encode($payload,$key);    
 }
 function createZoomMeeting() {
+    try{
     $client = new Client([
         // Base URI is used with relative requests
         'base_uri' => 'https://api.zoom.us',
     ]);
  
-    $event_name= event_name;
+    $topic= topic;
+    $date= date;
+    $time= time;
+    $type= type;
+    $call_url=call_url;
   
    
 
-   
+
 
 
   
@@ -45,7 +59,7 @@ function createZoomMeeting() {
             "Authorization" => "Bearer " . getZoomAccessToken()
         ],
         'json' => [
-            "topic" => $event_name,
+            "topic" => $topic,
             "type" => 2,
             "duration" => "30", // 30 mins
            
@@ -54,7 +68,23 @@ function createZoomMeeting() {
  
     $data = json_decode($response->getBody());
     // echo "Join URL: ". $data->join_url;
-    dd($data->join_url);
+    
+
+
+       $url=$data->join_url;
+       $data=new meeting();
+       $data->type=$type;
+       $data->user_id=Auth::user()->id;
+       $data->date=$date;
+       $data->time=$time;
+       $data->topic=$topic;
+       $data->url=$url;
+       $data->save();
+       }
+    catch(Exception $e) {
+               echo "<script>window.location='http://127.0.0.1:8000/teacher/meeting?id=error'</script>";
+
+            }
    
       
     
@@ -65,20 +95,7 @@ function createZoomMeeting() {
  
 
 createZoomMeeting();
-if(Auth::user()->role=='vip')
-
-            {
-echo "<script>window.location='/vip/event'</script>";
-}
-else if(Auth::user()->role=='admin')
-
-            {
-echo "<script>window.location='/admin/event'</script>";
-}
-else
-{
- echo "<script>window.location='/user/event'</script>";
  
-}
+echo "<script>window.location='http://127.0.0.1:8000/teacher/meeting'</script>";
 
 ?>

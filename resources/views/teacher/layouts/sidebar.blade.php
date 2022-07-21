@@ -70,8 +70,8 @@
         <li class="{{ request()->routeIs('teacher.my-students') ? 'active' : ''}}">
             <a href="{{ route('teacher.my-students') }}" style="text-decoration: none">My Students </a></li>
 
-        <li class="">
-            <a href="#" style="text-decoration: none">Join Meeting</a></li>
+        <li class="{{ (request()->is('teacher/meeting') ? 'active' : '')}}">
+            <a href="{{url('teacher/meeting')}}" style="text-decoration: none">Join Meeting</a></li>
 
         <li class="">
             <a href="#" style="text-decoration: none">History</a></li>

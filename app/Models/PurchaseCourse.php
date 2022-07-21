@@ -23,6 +23,10 @@ class PurchaseCourse extends Model
     {
         return $this->belongsTo(User::class, 'teacher_id', 'id');
     }
+    public function get_meeting()
+    {
+        return $this->hasMany(meeting::class, 'user_id', 'teacher_id');
+    }
 //    public function class()
 //    {
 //        return $this->belongsTo(CreateClass::class, 'teacher_id', 'user_id');
