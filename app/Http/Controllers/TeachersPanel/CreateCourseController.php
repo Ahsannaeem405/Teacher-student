@@ -323,7 +323,9 @@ class CreateCourseController extends Controller
             $file = $request->file( $key );
         }
 
-        // $filename = $file->getClientOriginalName();
+//        $filename = $file->getClientOriginalName();
+//        $ext = pathinfo($filename, PATHINFO_EXTENSION);
+
         $filename = $file->hashName();
 
         $path = public_path( 'videos/'. $course_name.$request->course_type. auth()->user()->id) . DIRECTORY_SEPARATOR;

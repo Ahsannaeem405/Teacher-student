@@ -34,11 +34,9 @@
                         @enderror
                     </div>
 
-
                     <div class="form-group">
                         <label for="course_vid">Upload Lecture</label>
                         <input type="file" id="course_vid" name="course_vid"
-                               accept="video/mp4, webm, ogg"
                                class="form-control @error('course_vid') is-invalid @enderror"
                                autocomplete="course_vid" autofocus>
                         @error('course_vid')
@@ -47,7 +45,7 @@
                                     </span>
                         @enderror
                         <label id="file-name"></label>
-                        <p>(format: JPG, PNG)</p>
+{{--                        <p>(format: JPG, PNG)</p>--}}
                     </div>
                 </div>
 

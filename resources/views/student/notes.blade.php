@@ -52,27 +52,27 @@
         <div class="col-lg-12" style="border: 1px solid #707070"></div>
     </div>
 
-    <div class="row">
+    <div class="row ruslt_ser">
         @if(count($notes) > 0)
             @foreach($notes as $note)
-            <div class="col-lg-4" style="margin-bottom: 20px;">
-                <div class="col-lg-12 col-md-12 notes_resp_mrgn" style="background-color: #F9C660;
-                     padding: 20px; margin-bottom: 20px;">
-                    <button type="button" class="btn btn-xs btn-danger userDeletenote" userId="{{$note->id}}"> <i class='fa fa-trash'></i></button>
-                    <a href="{{url('student/edit_note/'.$note->id)}}" class="btn btn-xs btn-primary"><i class="fa fa-pencil"></i> </a>
-                    <h3 style="text-align: center">{{$note->title}}</h3>
-                    <div class="posted_note">
-                        <p style="text-align: center; margin-top: 30px;">
-                            @php
-                                $note_descrip = $note->note_description;
-                                $break = 40;
-                            @endphp
-                            {!! implode(PHP_EOL, str_split($note_descrip, $break)) !!}
-                        </p>
+                <div class="col-lg-4" style="margin-bottom: 20px;">
+                    <div class="col-lg-12 col-md-12 notes_resp_mrgn" style="background-color: #F9C660;
+                         padding: 20px; margin-bottom: 20px;">
+                        <button type="button" class="btn btn-xs btn-danger userDeletenote" userId="{{$note->id}}"> <i class='fa fa-trash'></i></button>
+                        <a href="{{url('student/edit_note/'.$note->id)}}" class="btn btn-xs btn-primary"><i class="fa fa-pencil"></i> </a>
+                        <h3 style="text-align: center">{{$note->title}}</h3>
+                        <div class="posted_note">
+                            <p style="text-align: center; margin-top: 30px;">
+                                @php
+                                    $note_descrip = $note->note_description;
+                                    $break = 40;
+                                @endphp
+                                {!! implode(PHP_EOL, str_split($note_descrip, $break)) !!}
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
-        @endforeach
+            @endforeach
         @else
             <h4>No Notes found...</h4>
         @endif
@@ -118,6 +118,25 @@
                     // admin/deleteuser
                 }
             });
+    });
+
+
+    $(document).ready(function() {
+        $(document).on('click', '.search-btn', function() {
+            var data=$(".search-input").val();
+            $(this).append('<span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>');
+            $.ajax({
+                url: '{{ url('/student/find_notes') }}',
+                data: {
+                    data
+                },
+                type: 'post',
+                success: function(result) {
+                    $(".ruslt_ser").empty();
+                    $(".ruslt_ser").append(result);
+                }
+            });
+        });
     });
 </script>
 @endsection

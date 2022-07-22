@@ -46,7 +46,7 @@
                                     </span>
                         @enderror
                         <label id="file-name"></label>
-                        <p>(format: JPG, PNG)</p>
+{{--                        <p>(format: JPG, PNG)</p>--}}
                     </div>
                 </div>
 

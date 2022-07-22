@@ -83,7 +83,7 @@ class MyProfileController extends Controller
     }
 
     public function resetPassword(Request $request){
-
+        //dd($request->all());
         $this->validate($request, [
            'current_password' => 'required',
            'password' => 'required|min:8|confirmed',

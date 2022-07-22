@@ -10,7 +10,9 @@
     <!-- Fonts -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-{{--    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>--}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="http://fonts.cdnfonts.com/css/times-new-roman" rel="stylesheet">
+    {{--    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>--}}
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 {{--    <link rel="stylesheet" href="{{ asset('css/style4.css') }}">--}}
     <link rel="stylesheet" href="{{ asset('css/student-style.css') }}">
@@ -20,6 +22,9 @@
             font-family: Circular-Loom;
         }
     </style>
+
+    @yield('css')
+
 </head>
 
 <body class="" style="width: 100%">
@@ -31,10 +36,12 @@
         <div class=" row" style="padding-top: 0px; margin-right: 0px;">
 
 
+            <div class="col-md-3 tab-col vh-100 p_0" style="text-align: center; background: #f2f2f2; height: 100%">
                 @include('student.layouts.sidebar')
+            </div>
 
 
-            <div class=" col-md-8 tab-content-col">
+            <div class=" col-md-9 tab-content-col">
                 @include('student.layouts.alert')
                 @yield('content')
 

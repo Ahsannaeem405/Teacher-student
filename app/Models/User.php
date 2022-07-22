@@ -117,6 +117,11 @@ class User extends Authenticatable
         return $this->belongsTo(CreateCourse::class, 'id', 'teacher_id');
     }
 
+    public function class()
+    {
+        return $this->belongsTo(CreateClass::class, 'id', 'user_id');
+    }
+
     public function getStudent($id){
         return $this->where('id', $id)
             ->get(['id','name', 'image']);

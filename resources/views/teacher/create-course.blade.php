@@ -123,7 +123,7 @@
                         <label for="vid_1" class="course-cover-plus">
                             <strong>+</strong></label>
                         <input type="file" name="vid_1" id="vid_1"
-                               style="visibility:hidden;" accept="video/mp4, webm, ogg">
+                               style="visibility:hidden;" >
                         <label id="name_1"></label>
                     </div>
 
@@ -131,7 +131,7 @@
                         <label for="vid_2" class="course-cover-plus">
                             <strong>+</strong></label>
                         <input type="file" name="vid_2" id="vid_2"
-                               style="visibility:hidden;" accept="video/mp4, webm, ogg">
+                               style="visibility:hidden;" >
                         <label id="name_2"></label>
                     </div>
 
@@ -139,7 +139,7 @@
                         <label for="vid_3" class="course-cover-plus">
                             <strong>+</strong></label>
                         <input type="file" name="vid_3" id="vid_3"
-                               style="visibility:hidden;" accept="video/mp4, webm, ogg">
+                               style="visibility:hidden;" >
                         <label id="name_3"></label>
                     </div>
 
@@ -147,17 +147,17 @@
                         <label for="vid_4" class="course-cover-plus">
                             <strong>+</strong></label>
                         <input type="file" name="vid_4" id="vid_4"
-                               style="visibility:hidden;" accept="video/mp4, webm, ogg">
+                               style="visibility:hidden;" >
                         <label id="name_4"></label>
                     </div>
                 </div>
             </div>
 
-            <div class="row" style="margin-bottom: 4%;">
-                <div class="col-lg-4 text_center">
-                    <p>(format: MP4, MPEG-4, WebM, Ogg)</p>
-                </div>
-            </div>
+{{--            <div class="row" style="margin-bottom: 4%;">--}}
+{{--                <div class="col-lg-4 text_center">--}}
+{{--                    <p>(format: MP4, MPEG-4, WebM, Ogg)</p>--}}
+{{--                </div>--}}
+{{--            </div>--}}
 
             <div class="row" style="margin-bottom: 4%;">
                 <div class="col-lg-12">

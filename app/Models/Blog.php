@@ -39,7 +39,7 @@ class Blog extends Model
     }
 
     public function getBlogs(){
-        return $this->paginate(4);
+        return $this->paginate(1);
     }
 
     public function getRecent(){
