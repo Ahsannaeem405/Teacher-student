@@ -377,6 +377,17 @@ background: #f2f2f2;
     margin-right: 54px;
     text-align: center;
 }
+
+.std_side_bar_profile{
+    display: flex;
+    flex-direction: column;
+    /*margin-right: 54px;*/
+    text-align: center;
+    align-items: center;
+    border-bottom: 0.5px solid #b9abab;
+    padding-bottom: 10px;
+}
+
 img.tab-img {
 border-radius: 50%;
 width: 76px;
@@ -715,6 +726,17 @@ font-size: 12px;
     box-shadow: 0px 0px 35px rgb(0 0 0 / 20%);
 }
 
+.pricing_anchor {
+    background-color: #C9C97E;
+    color: white;
+    font-size: 18px;
+    padding: 10px 45px;
+    border: none;
+    border-radius: 11px;
+    text-decoration: none;
+    box-shadow: 0px 0px 35px rgb(0 0 0 / 20%);
+}
+
 .pricing i.fa.fa-check-circle-o {
 color: #308214;
 font-size: 21px;
@@ -854,9 +876,9 @@ padding: 10px 24px 10px 24px;
 text-decoration: none;
 transition: background-color .3s;
 background-color: #C8C97D;
-margin: 15px;
+/*margin: 15px;*/
 border: 2px solid  #C8C97D;
-border-radius: 15px;
+/*border-radius: 15px;*/
 }
 .pagination a:hover
 {
@@ -1262,5 +1284,31 @@ display: block;
 /*    font-size: 22px;*/
 /*    border-radius: 8px;*/
 /*}*/
+
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover{
+    z-index: 2;
+    color: #fff;
+    cursor: default;
+    background-color: #c8c97d;
+    border-color: #c8c97d;
+}
+
+.pagination>li>a, .pagination>li>span{
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    margin-left: -1px;
+    line-height: 1.42857143;
+    color: #c8c97d;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+
+.pagination>li>a:focus, .pagination>li>a:hover, .pagination>li>span:focus, .pagination>li>span:hover{
+    color: #c8c97d;
+    background-color: #eee;
+    border-color: #ddd;
+}
 
 

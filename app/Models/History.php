@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class History extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+      'user_id',
+      'history'
+    ];
+
+    public function storeHistory($data){
+        return $this->create($data);
+    }
 }

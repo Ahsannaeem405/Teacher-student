@@ -4,7 +4,7 @@
 </button>
 
 <div class="side_bar_res col-md-12 tab-col vh-100 p_0" style="padding-top: 20px;">
-    <div class="side_bar_profile" style="align-items: center;">
+    <div class="std_side_bar_profile" style="">
         @php
             $imagePath = explode('.', !is_null(auth()->user()->image) ? auth()->user()->image : 'user-avatar.png');
         @endphp

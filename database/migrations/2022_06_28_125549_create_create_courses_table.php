@@ -19,6 +19,7 @@ class CreateCreateCoursesTable extends Migration
             $table->string('course_date', 15);
             $table->string('course_time', 15);
             $table->integer('price');
+            $table->integer('course_dowloads')->nullable();
             $table->string('course_image')->nullable();
             $table->unsignedBigInteger('create_class_id');
             $table->foreign('create_class_id')

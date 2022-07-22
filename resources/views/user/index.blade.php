@@ -1,4 +1,3 @@
-
 @extends('user.layout')
 @section('content')
 <style>
@@ -114,8 +113,8 @@ LEARNING PLUGIN
 </div>
 <div class="col-xs-9" >
     <div class="mt mb position">
-    <i class="fa-solid fa-magnifying-glass serach-icon-design"></i>
-        <input type="text" class="input-bg-color text-size" placeholder="Python...">
+    <i class="fa-solid fa-magnifying-glass serach-icon-design search-butn" style="cursor: pointer"></i>
+        <input type="text" class="input-bg-color text-size search-inputtt" placeholder="Python...">
 
       </div>
 </div>
@@ -130,70 +129,61 @@ LEARNING PLUGIN
         <section class="cardbgcolor">
 
 <div class="container ">
-    <div class="row card-margin m-0">
-        <div class="col-md-4 p_cours_padding">
-            <div class="card border box_b">
-                <img class="card-img-top card-img-radius" src="{{asset('images/a22.png')}}" alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title card_heading" >Virtual Teaching</h5>
-                  <p class="card-text">Let's Learn Python Fast.</p>
-                    <div class="row card_section m-0">
-                    <div class="col-lg-2 mar-top">
-                                <i class="fa-solid fa-message icon_prop message-ml"></i>
-                            </div>
-                        <div class="col-lg-4">
+    <div class="row card-margin m-0 ruslt_ser">
+        @php
+            $courses = (new \App\Models\CreateCourse())->withcount('purchaseCourse')
+            ->with('purchaseCourse')
+            ->orderBy('purchase_course_count','DESC')
+            ->take(3)
+            ->get();
+        @endphp
 
-                        <i class="fa-solid fa-download icon-size  icon_prop"></i></i> <span class="greyColor">14</span>
-                        </div>
-                        <div class="col-lg-6">
-                            <i class="fa-solid fa-clock icon_prop"></i> <span class="greyColor">15 minute</span>
+        @foreach($courses as $course)
+            @php
+                $imagePath = explode('.', !is_null($course->course_image) ? $course->course_image : 'do_not_delete.png');
+                $current = now();
+                $created = $course->created_at;
+                $dateDiff = date_diff($current,$created);
+                //$minutes = ($dateDiff->d * 24 * 60) + ($dateDiff->h * 60) + $dateDiff->i;
+            @endphp
+
+            @if($course->purchase_course_count > 0)
+                <div class="col-md-4 p_cours_padding">
+                    <div class="card border box_b">
+                        <img src="{{asset('images')."/". $imagePath[0].".".$imagePath[1]}}"
+                             class="card-img-top card-img-radius" alt="Card image cap">
+                        <div class="card-body" style="text-align: center; align-items: center">
+                            <h5 class="card-title card_heading" >{{ $course->course_name }}</h5>
+                            <p class="card-text">{!! $course->course_description !!}</p>
+                            <div class="row card_section m-0">
+                                <div class="col-lg-12 mar-top">
+                                    <div class="col-md-4">
+                                        <i class="fa-solid fa-message icon_prop message-ml"></i>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <i class="fa-solid fa-download icon-size  icon_prop"></i>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <i class="fa-solid fa-clock icon_prop"></i>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="col-md-4"></div>
+                                    <div class="col-md-4">
+                                        <span class="greyColor">14</span>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <span class="greyColor">{{ ($dateDiff->format('%d') > 0) ? $dateDiff->format('%d').' d' : '' }} {{ $dateDiff->format('%i') }} m</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    </div>
-              </div>
-        </div>
-            <div class="col-md-4 col-lg p_cours_padding">
-                <div class="card border box_b">
-                    <img class="card-img-top card-img-radius" src="{{asset('images/a23.png')}}" alt="Card image cap">
-                    <div class="card-body">
-                      <h5 class="card-title card_heading" >Virtual Teaching</h5>
-                      <p class="card-text">Let's Learn Python Fast.</p>
-                        <div class="row card_section m-0">
-                            <div class="col-lg-2 ">
-                                <i class="fa-solid fa-message icon_prop message-ml"></i>
-                            </div>
-                            <div class="col-lg-4">
+                </div>
+            @else
 
-                                <i class="fa-solid fa-user-group icon_prop" ></i> <span class="greyColor">14</span>
-                            </div>
-                            <div class="col-lg-6">
-                                <i class="fa-solid fa-clock icon_prop"></i> <span class="greyColor">15 minute</span>
-                            </div>
-                        </div>
-                        </div>
-                  </div>
-        </div>
-            <div class="col-md-4 col-lg p_cours_padding">
-                <div class="card border box_b">
-                    <img class="card-img-top card-img-radius" src="{{asset('images/a24.png')}}" alt="Card image cap">
-                    <div class="card-body">
-                      <h5 class="card-title card_heading" >Virtual Teaching</h5>
-                      <p class="card-text">Let's Learn Python Fast.</p>
-                        <div class="row card_section m-0">
-                            <div class="col-lg-2 ">
-                                <i class="fa-solid fa-message icon_prop message-ml"></i>
-                            </div>
-                            <div class="col-lg-4 ">
-
-                                <i class="fa-solid fa-user-group icon_prop" ></i> <span class="greyColor">14</span>
-                            </div>
-                            <div class="col-lg-6">
-                                <i class="fa-solid fa-clock icon_prop"></i> <span class="greyColor">15 minute</span>
-                            </div>
-                        </div>
-                        </div>
-                  </div>
-        </div>
+            @endif
+        @endforeach
     </div>
 </div>
 
@@ -298,79 +288,60 @@ font-family: sans-serif;">A great book by the author Nir Eyal called Hooked. Thi
 <div class="row testimonial-margin m-0">
 <img class="testimonial-dots" style="position: absolute" src="http://localhost/Teacher-student/public/images/dot-shape-primary.svg" alt="Image">
 <div class="w-100 text-center row m-0">
+    <div class="col-md-4 col-md-offset-2">
+        <div class="card border box_b">
+            <i class="fa-solid fa-comment coment-design"></i>
+            <div class="text-center" style="padding-top: 20px">
 
+                <img class="img-circle img-margin " height="110"  width="110" src="{{url('images/51.png')}}" alt="Card image cap">
 
-
-<div class="col-md-4 col-md-offset-2">
-
-
-    <div class="card border box_b">
-    <i class="fa-solid fa-comment coment-design"></i>
-    <div class="text-center" style="padding-top: 20px">
-
-    <img class="img-circle img-margin " height="110"  width="110" src="{{url('images/51.png')}}" alt="Card image cap">
-
-    <h3>tile img</h3>
-</div>
-        <div class="card-body card-body-bg" style="padding-bottom: 2px;">
-        <div class="star-icon " style="margin: 11px;">
-
-    <p class="t_para">Let's Learn Python kdfaj da dfjakd fds jda fdkal fd alkj afja
-        sdfljad fljads fljads fjds flj Fast.
-Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque est eveniet, nostrum maiores, fuga ea hic ipsam consectetur placeat natus repellendus reiciendis eligendi recusandae. Est excepturi enim facilis illum voluptatem.
-lkk jas  jaf j ad fkj adfjasd fjk
-<br>
-<div class="star-margin">
-    <i class="glyphicon glyphicon-star star_color"></i>
-<i class="glyphicon glyphicon-star star_color"></i>
-<i class="glyphicon glyphicon-star star_color"></i>
-<i class="glyphicon glyphicon-star"></i>
-<i class="glyphicon glyphicon-star"></i>
-</div>
-</p>
-
-</div>
-
-
+                <h3>tile img</h3>
             </div>
-      </div>
+            <div class="card-body card-body-bg" style="padding-bottom: 2px;">
+                <div class="star-icon " style="margin: 11px;">
+                    <p class="t_para">Let's Learn Python kdfaj da dfjakd fds jda fdkal fd alkj afja
+                        sdfljad fljads fljads fjds flj Fast.
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque est eveniet, nostrum maiores, fuga ea hic ipsam consectetur placeat natus repellendus reiciendis eligendi recusandae. Est excepturi enim facilis illum voluptatem.
+                    lkk jas  jaf j ad fkj adfjasd fjk
+                    <br>
+                        <div class="star-margin">
+                            <i class="glyphicon glyphicon-star star_color"></i>
+                        <i class="glyphicon glyphicon-star star_color"></i>
+                        <i class="glyphicon glyphicon-star star_color"></i>
+                        <i class="glyphicon glyphicon-star"></i>
+                        <i class="glyphicon glyphicon-star"></i>
+                        </div>
+                    </p>
+                </div>
+             </div>
+          </div>
+    </div>
 
-</div>
-<div class="col-md-4">
+    <div class="col-md-4">
+        <div class="card border box_b">
+            <i class="fa-solid fa-comment coment-design"></i>
+            <div class="text-center" style="padding-top: 20px">
+                <img class="img-circle img-margin " height="110"  width="110" src="{{url('images/52.png')}}" alt="Card image cap">
 
+                <h3>tile img</h3>
+            </div>
+            <div class="card-body card-body-bg" style="padding-bottom: 2px;">
+                <div class="star-icon" style="margin: 11px;">
 
-    <div class="card border box_b">
-    <i class="fa-solid fa-comment coment-design"></i>
-    <div class="text-center" style="padding-top: 20px">
-
-    <img class="img-circle img-margin " height="110"  width="110" src="{{url('images/52.png')}}" alt="Card image cap">
-
-    <h3>tile img</h3>
-</div>
-        <div class="card-body card-body-bg" style="padding-bottom: 2px;">
-        <div class="star-icon" style="margin: 11px;">
-
-    <p class="t_para">Let's Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur laudantium magni molestiae excepturi voluptatem deserunt at asperiores rerum ipsa cum dolorum autem possimus sit aspernatur nostrum commodi dolores, harum itaque. Learn Python kdfaj da dfjakd fds jda fdkal fd alkj afja sdfljad fljads fljads fjds flj Fast.
-
-
-    </p>
-    <div class="star-margin">
-    <i class="glyphicon glyphicon-star star_color"></i>
-<i class="glyphicon glyphicon-star star_color"></i>
-<i class="glyphicon glyphicon-star star_color"></i>
-<i class="glyphicon glyphicon-star"></i>
-<i class="glyphicon glyphicon-star"></i>
-</div>
-</div>
-
-
+                    <p class="t_para">
+                        Let's Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur laudantium magni molestiae excepturi voluptatem deserunt at asperiores rerum ipsa cum dolorum autem possimus sit aspernatur nostrum commodi dolores, harum itaque. Learn Python kdfaj da dfjakd fds jda fdkal fd alkj afja sdfljad fljads fljads fjds flj Fast.
+                    </p>
+                    <div class="star-margin">
+                        <i class="glyphicon glyphicon-star star_color"></i>
+                        <i class="glyphicon glyphicon-star star_color"></i>
+                        <i class="glyphicon glyphicon-star star_color"></i>
+                        <i class="glyphicon glyphicon-star"></i>
+                        <i class="glyphicon glyphicon-star"></i>
+                    </div>
+                </div>
             </div>
         </div>
-
-
-</div>
-
-
+    </div>
 </div>
 
 </div></div>
@@ -394,4 +365,25 @@ lkk jas  jaf j ad fkj adfjasd fjk
     </div>
 </div>
 
+<script>
+    $(document).ready(function() {
+        $(document).on('click', '.search-butn', function() {
+            var data=$(".search-inputtt").val();
+            $(this).append('<span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>');
+
+            $.ajax({
+                url: '{{ url('/main_find_course') }}',
+                data: {
+                    data
+                },
+                type: 'post',
+                success: function(result) {
+                    $(".ruslt_ser").empty();
+                    $(".ruslt_ser").append(result);
+                }
+            });
+        });
+    });
+</script>
 @endsection
+

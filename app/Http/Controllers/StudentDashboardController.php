@@ -32,7 +32,9 @@ class StudentDashboardController extends Controller
     }
 
     public function history(){
-        $history=History::whereUser_id(auth()->user()->id)->get();
+        $history=History::whereUser_id(auth()->user()->id)
+            ->orderBy('id', 'DESC')
+            ->get();
         return view('student.d-history',compact('history'));
     }
     public function deletehistory(Request $request){
@@ -155,7 +157,9 @@ class StudentDashboardController extends Controller
         }
     }
 
-    public function teachercourseDetail($id){
+    public function teachercourseDetail($course_id){
+        $id = decrypt($course_id);
+
         $course=CreateCourse::with('class')->find($id);
         $lectures=CourseLecture::where('course_id', $id)
         ->get('course_doc');

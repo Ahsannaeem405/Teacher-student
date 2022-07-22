@@ -266,7 +266,7 @@ Route::get('/change/password', [TeacherDashboardController::class, 'changePasswo
 Route::get('/zip/{name}', [ZipController::class, 'zipFile']);
         Route::get('/meeting', [Teacher::class, 'std_meeting']);
 
-
+Route::post('/main_find_course', [Teacher::class, 'mainFindCourse']);
 
 Route::get('/zip/{name}/{live}', [ZipController::class, 'zipFile'])
     ->name('zip-file');

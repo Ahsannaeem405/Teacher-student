@@ -5,17 +5,17 @@
 @section('content')
     <div class="container-fluid" style="margin-bottom: 15%;">
         <div class="row">
-            <div class="col-lg-6 pl_0 text_center" style="padding-top: 30px;">
-                <h3>DASHBOARD</h3>
+            <div class="col-lg-12 pl_0 text_center" style="padding-top: 30px;">
+                <h3>DASHBOARD / <span style="color: #C9C97E">CREATE NEW COURSE</span></h3>
             </div>
 
-            <div class="col-lg-6 text_center" style="padding-top: 50px;">
-                <button type="submit" class="search-btn" style="cursor: unset">
-                    <img src="{{ asset('images/search-icon.png') }}" alt="no image" width="20">
-                </button>
+{{--            <div class="col-lg-6 text_center" style="padding-top: 50px;">--}}
+{{--                <button type="submit" class="search-btn" style="cursor: unset">--}}
+{{--                    <img src="{{ asset('images/search-icon.png') }}" alt="no image" width="20">--}}
+{{--                </button>--}}
 
-                <input type="text" class="search-input" placeholder="python coding" name="search">
-            </div>
+{{--                <input type="text" class="search-input" placeholder="python coding" name="search">--}}
+{{--            </div>--}}
         </div>
 
         <div class="row" style="margin-top: 30px; display: flex; justify-content: center;">

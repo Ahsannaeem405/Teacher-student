@@ -77,4 +77,26 @@ class CreateCourse extends Model
     public function user(){
         return $this->belongsTo(User::class, 'id');
     }
+
+    public function purchaseCourse(){
+        return $this->hasMany(PurchaseCourse::class, 'course_id');
+    }
+
+    public function getCourseDownloads($id){
+        $downloads = $this->where('id', $id)
+                    ->first('course_dowloads');
+        if($downloads->course_dowloads == null){
+            $downloads = 0;
+            $new_download = $downloads + 1;
+        }else{
+            $new_download = $downloads->course_dowloads + 1;
+        }
+
+        $data = [
+          'course_dowloads' => $new_download
+        ];
+
+        return $this->where('id', $id)
+            ->update($data);
+    }
 }

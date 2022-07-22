@@ -49,7 +49,7 @@
                         </div>
                         <div class="card-body" style="text-align: center">
                             <p style="margin-top: 15px; font-size: 16px; font-weight: bold;">
-                                <a href="{{url('student/course_detail/'.$course->id)}}" style="text-decoration: none; color: black">
+                                <a href="{{url('student/course_detail/'. encrypt($course->id))}}" style="text-decoration: none; color: black">
                                     {{$course->course_name}}
                                 </a>
                             </p>

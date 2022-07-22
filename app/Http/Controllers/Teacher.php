@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\CreateCourse;
+use App\Models\History;
 use App\Models\studentnote;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -60,7 +61,14 @@ class Teacher extends Controller
 
     public function studentFindClass(Request $req)
     {
-        $data=$req->data;
+        $data = $req->data;
+
+        $history = [
+          'user_id' => auth()->user()->id,
+          'history' => $data
+        ];
+
+        (new History())->storeHistory($history);
 
         $find = CreateClass::where('class_title', 'LIKE', "%$data%")->get();
 
@@ -71,6 +79,13 @@ class Teacher extends Controller
     {
         $data=$req->data;
 
+        $history = [
+            'user_id' => auth()->user()->id,
+            'history' => $data
+        ];
+
+        (new History())->storeHistory($history);
+
         $find = CreateCourse::where('course_name', 'LIKE', "%$data%")
             ->whereHas('class')
             ->get();
@@ -80,7 +95,14 @@ class Teacher extends Controller
 
     public function studentFindMyCourses(Request $req)
     {
-        $data=$req->data;
+        $data = $req->data;
+
+        $history = [
+            'user_id' => auth()->user()->id,
+            'history' => $data
+        ];
+
+        (new History())->storeHistory($history);
 
         $find = CreateCourse::where('course_name', 'LIKE', "%$data%")
             ->whereHas('class')
@@ -91,17 +113,35 @@ class Teacher extends Controller
 
     public function studentFindNotes(Request $req)
     {
-        $data=$req->data;
+        $data = $req->data;
+
+        $history = [
+            'user_id' => auth()->user()->id,
+            'history' => $data
+        ];
+
+        (new History())->storeHistory($history);
 
         $find = studentnote::where('title', 'LIKE', "%$data%")
             ->where('student_id', auth()->user()->id)
             ->get();
 
         return view('student.find_notes', compact('find'));
-        $find = CreateClass::where('user_id',auth()->user()->id)->where('class_title', 'LIKE', "%$data%")->get();
-        return view('/teacher/find_class',compact('find'));
+        //$find = CreateClass::where('user_id',auth()->user()->id)->where('class_title', 'LIKE', "%$data%")->get();
+        //return view('/teacher/find_class',compact('find'));
     }
-    
+
+    public function mainFindCourse(Request $req)
+    {
+        $data = $req->data;
+
+        $find = CreateCourse::where('course_name', 'LIKE', "%$data%")
+            ->get();
+
+        return view('mainFindCourse', compact('find'));
+    }
+
+
     public function meeting()
     {
         $meet=meeting::where('user_id',auth()->user()->id)->orderBy('id', 'DESC')->get();;
@@ -112,12 +152,12 @@ class Teacher extends Controller
     {
         if(Auth::User()->zoom_api==Null || Auth::User()->zoom_secret==Null)
         {
-            
+
             return redirect('teacher/upload/profile')->with('error', 'Please Enter the Zoom Credentials First!');
         }
         else{
         return view('/teacher/create_meeting');
-        }   
+        }
     }
     public function save_meeting(Request $req)
     {
@@ -135,9 +175,9 @@ class Teacher extends Controller
           $meet=meeting::with(['get_meeting' => function ($query) use ($sortDirection) {
                                     $query->where('user_id', $sortDirection);
         }])->orderBy('id', 'DESC')->get();
-        
+
         return view('/student/meeting',compact('meet'));
     }
-    
-    
+
+
 }

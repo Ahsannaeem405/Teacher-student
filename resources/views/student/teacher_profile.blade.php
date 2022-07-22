@@ -54,13 +54,13 @@
                 <h3>DASHBOARD / <span style="color: #C9C97E">TEACHER PROFILE</span></h3>
             </div>
 
-            <div class="col-lg-4" style="padding-top: 50px;">
-                <button type="submit" class="search-btn">
-                    <img src="{{ asset('images/search-icon.png') }}" alt="no image" width="20">
-                </button>
+{{--            <div class="col-lg-4" style="padding-top: 50px;">--}}
+{{--                <button type="submit" class="search-btn">--}}
+{{--                    <img src="{{ asset('images/search-icon.png') }}" alt="no image" width="20">--}}
+{{--                </button>--}}
 
-                <input type="text" class="search-input" placeholder="python coding" name="filter">
-            </div>
+{{--                <input type="text" class="search-input" placeholder="python coding" name="filter">--}}
+{{--            </div>--}}
         </div>
 
         <div class="row" style="margin-top: 30px; display: flex; justify-content: center;">
@@ -149,7 +149,7 @@
                             </div>
                             <div class="card-body" style="text-align: center">
                                 <p style="margin-top: 15px; font-size: 16px; font-weight: bold;">
-                                    <a href="{{url('student/course_detail/'.$course->id)}}" style="text-decoration: none; color: black">
+                                    <a href="{{url('student/course_detail/'.encrypt($course->id))}}" style="text-decoration: none; color: black">
                                         {{$course->course_name}}
                                     </a>
                                 </p>

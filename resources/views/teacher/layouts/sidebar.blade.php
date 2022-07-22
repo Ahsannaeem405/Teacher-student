@@ -20,14 +20,50 @@
 
         <p style="font-size: 22px; ">{{ auth()->user()->name }}</p>
         <h4>{{ (auth()->user()->role == 2) ? '(Teacher)' : ''}}</h4>
+    @php
+        $ratings = \App\Models\Rating::get('stars');
+        foreach ($ratings as $rating){
+            $rate[] = $rating->stars;
+        }
+        $res = array_sum($rate);
+        $count = count($ratings);
+        $result = $res / $count;
+    @endphp
         <div>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span style="font-weight: bold">4.8</span>
-            <span style="color: #C9C9C9">(22)</span>
+            @if($result > 1 && $result < 2)
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+            @elseif($result > 2 && $result < 3)
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+            @elseif($result > 3 && $result < 4)
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+            @elseif($result > 4 && $result < 5)
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span>
+            @else
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+            @endif
+
+            <span style="font-weight: bold">{{ $result }}</span>
+            <span style="color: #C9C9C9">{{ '(' .$count. ')' }}</span>
         </div>
 @endif
 

@@ -45,4 +45,8 @@ class PurchaseCourse extends Model
             ->get()
             ->unique('teacher_id');
     }
+
+    public function createCourse(){
+        return $this->belongsTo(CreateCourse::class, 'course_id');
+    }
 }

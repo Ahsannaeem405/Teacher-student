@@ -53,7 +53,7 @@
                             <li class="list-unstyled plan_list"> <img src="{{ asset('images/tick.png') }}" width="24" height="18" alt="" srcset=""> <span class="l_p"></span> <span class="li_font">    Share your videos with your social media</span></li>
                                 <li class="list-unstyled plan_list"> <img src="{{ asset('images/tick.png') }}" width="24" height="18" alt="" srcset=""> <span class="l_p"></span> <span class="li_font">    Share your videos with your social media</span></li>
                         </ul>
-                        <button>Select Plan</button>
+                        <a href="{{ url('/login') }}" class="pricing_anchor">Select Plan</a>
                     </div>
                 </div>
             </div>
@@ -72,7 +72,7 @@
                                 <li class="list-unstyled plan_list"> <img src="{{ asset('images/tick.png') }}" width="24" height="18" alt="" srcset=""> <span class="l_p"></span> <span class="li_font"> Watch videos anytime at your leisure</span></li>
                                 <li class="list-unstyled plan_list"> <img src="{{ asset('images/tick.png') }}" width="24" height="18" alt="" srcset=""> <span class="l_p"></span> <span class="li_font"> Share your videos with your social media</span></li>
                         </ul>
-                        <a class="btn priceBtn" href="{{url('subscribe_plan')}}?price=50">Select Plan</a>
+                        <a class="btn priceBtn" href="{{ url('/login') }}">Select Plan</a>
                     </div>
                 </div>
             </div>
@@ -90,7 +90,7 @@
                             <li class="list-unstyled plan_list"> <img src="{{ asset('images/tick.png') }}" width="24" height="18" alt="" srcset=""> <span class="l_p"></span> <span class="li_font">  Watch videos anytime at your leisure</span></li>
                             <li class="list-unstyled plan_list"> <img src="{{ asset('images/tick.png') }}" width="24" height="18" alt="" srcset=""> <span class="l_p"></span> <span class="li_font"> Share your videos with your social media</span></li>
                         </ul>
-                        <a class="btn priceBtn" href="{{url('subscribe_plan')}}?price=150">Select Plan</a>
+                        <a class="btn priceBtn" href="{{ url('/login') }}">Select Plan</a>
                     </div>
                 </div>
             </div>
@@ -108,7 +108,7 @@
                             <li class="list-unstyled plan_list"> <img src="{{ asset('images/tick.png') }}" width="24" height="18" alt="" srcset=""> <span class="l_p"></span> <span class="li_font"> Watch videos anytime at your leisure</span></li>
                             <li class="list-unstyled plan_list"> <img src="{{ asset('images/tick.png') }}" width="24" height="18" alt="" srcset=""> <span class="l_p"></span> <span class="li_font"> Share your videos with your social media</span></li>
                         </ul>
-                        <a class="btn priceBtn" href="{{url('subscribe_plan')}}?price=300">Select Plan</a>
+                        <a class="btn priceBtn" href="{{ url('/login') }}">Select Plan</a>
 
                     </div>
                 </div>
