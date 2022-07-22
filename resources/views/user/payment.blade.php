@@ -48,10 +48,11 @@
                             <p>{{ Session::get('success') }}</p>
                         </div>
                     @endif
-
+                
+                     
                     <form
                             role="form"
-                            action="{{ route('teacher.stripe.post') }}"
+                            action="{{ url('teacher/tech_stripe') }}"
                             method="post"
                             class="require-validation"
                             data-cc-on-file="false"

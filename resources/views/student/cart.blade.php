@@ -8,6 +8,7 @@
             <div class="col-lg-8" style="padding-top: 30px;">
                 <h3>Cart</h3>
             </div>
+              
         </div>
 
         <div class="row dashboard-searchbar-bottom-line">

@@ -109,7 +109,7 @@ class StudentDashboardController extends Controller
     public function teachercourseDetail($id){
         $course=CreateCourse::with('class')->find($id);
         $lectures=CourseLecture::where('course_id', $id)
-        ->get('course_doc');
+        ->get();
 
         $purchases=PurchaseCourse::where('course_id',$course->id)->where('user_id',auth()->user()->id)->first();
         $ifpurchases=PurchaseCourse::where('course_id',$course->id)->where('user_id',auth()->user()->id)->exists();
@@ -167,10 +167,20 @@ class StudentDashboardController extends Controller
         return view('student.payment-type',compact('cart', 'classId', 'teacher_id'));
     }
     public function addCart(Request $request){
-        $cart=new cart();
-        $cart->user_id=$request->user_id;
-        $cart->course_id=$request->course_id;
-        $cart->save();
-        return back();
+        if(cart::where('user_id', '=', $request->user_id)->where('course_id',$request->course_id)->exists()) {
+            return back()->with('error',"Course already add in cart"); 
+        }
+        else{
+            $cart=new cart();
+            $cart->user_id=$request->user_id;
+            $cart->course_id=$request->course_id;
+            $cart->save();
+            return back();
+
+        }
+
+ 
+
+        
     }
 }
