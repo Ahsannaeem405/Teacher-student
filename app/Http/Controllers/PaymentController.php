@@ -203,6 +203,15 @@ class PaymentController extends Controller
                         $purchase->class_id = $value->course->create_class_id;
                         $purchase->save();
 
+                        $course_price=$value->course->price;
+
+                        $user=User::find($value->course->teacher_id);
+                        $current_earning=$user->coin;
+                        $new=$current_earning+$course_price;
+
+                        $user->coin=$new;
+                        $user->update();
+
 
                         $carty=cart::find($value->id);
                         $carty->delete();

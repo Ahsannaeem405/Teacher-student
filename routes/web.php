@@ -172,8 +172,8 @@ Route::group(['prefix' => 'teacher', 'middleware' => ['auth', 'check_teacher'], 
                                                          ->name('course-delete');
         Route::post('/course/video', [CreateCourseController::class, 'courseVideo'])
             ->name('course-video');
-        Route::post('subscribe/plan', [StripePaymentController::class, 'stripe'])->name('subscribe-plan');
-        Route::post('stripe', [StripePaymentController::class, 'stripePost'])->name('stripe.post');
+        Route::any('subscribe/plan', [StripePaymentController::class, 'stripe'])->name('subscribe-plan');
+        Route::post('tech_stripe', [StripePaymentController::class, 'stripePost'])->name('stripe.post');
         Route::resources([
             'blog' => BlogController::class
         ], ['except'=>['destroy']

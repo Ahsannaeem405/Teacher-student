@@ -36,12 +36,12 @@ class StripePaymentController extends Controller
      */
     public function stripePost(Request $request)
     {
+        //dd('d');
         $payment_amount = str_replace('$', '', $request->amount);
         $payment_method = $request->payment_method;
 
 
-        Stripe\Stripe::setApiKey(env('STRIPE_SECRET','sk_test_51Kh9uAFBFsCMdULhVtPQxp0NOArxMFzdQ6qroS5jZFettctGfyVPc5WPmT6b1hGimRW09adqa3lndHnywhsbBqYW00K8eyxFsu
-        '));
+        Stripe\Stripe::setApiKey(env('STRIPE_SECRET','sk_test_51Kh9uAFBFsCMdULhVtPQxp0NOArxMFzdQ6qroS5jZFettctGfyVPc5WPmT6b1hGimRW09adqa3lndHnywhsbBqYW00K8eyxFsu'));
 
         $pay =Stripe\Charge::create ([
                 "amount" => $payment_amount * 100,
@@ -51,6 +51,7 @@ class StripePaymentController extends Controller
         ]);
 
         if($pay->description == 'Payment successfully'){
+           // dd('d');
 
             if($payment_amount == '10'){
                 $data = [
@@ -95,7 +96,7 @@ class StripePaymentController extends Controller
     }
     public function studentstripe(Request $request)
     {
-        $teacher = User::find($request->teacher_id);
+        $teacher = User::find(1);
 
         $data = [
           'payment_amount'  => $request->amount,
@@ -109,11 +110,12 @@ class StripePaymentController extends Controller
     }
     public function stripestudentPost(Request $request)
     {
-        //dd($request->all());
+       
         try{
+
+
             $payment_amount = str_replace('$', '', $request->amount);
             $teacher = User::find(1);
-
             Stripe\Stripe::setApiKey($teacher->stripe_secret_key);
 
             $pay =Stripe\Charge::create ([
@@ -122,6 +124,7 @@ class StripePaymentController extends Controller
                     "source" => $request->stripeToken,
                     "description" => "Payment successfully"
             ]);
+
 
             if($pay->description == 'Payment successfully'){
                 
@@ -134,6 +137,19 @@ class StripePaymentController extends Controller
                         $purchase->teacher_id =$value->course->teacher_id;
                         $purchase->class_id = $value->course->create_class_id;
                         $purchase->save();
+
+                        $course_price=$value->course->price;
+
+                        $user=User::find($value->course->teacher_id);
+                        $current_earning=$user->coin;
+                        $new=$current_earning+$course_price;
+
+                        $user->coin=$new;
+                        $user->update();
+
+
+
+
                         //$value->delete();
                     }
                     cart::where('user_id', auth()->user()->id)->delete();
@@ -141,11 +157,31 @@ class StripePaymentController extends Controller
             return redirect()->route('student.dashboard')->with('success',"Payment has submitted successfully");
         }
        else{
-        return back()->with('error',"Transaction Failed");
+        
+
+        $teacher = User::find(1);
+
+        $data = [
+        'teacher'=>$teacher,
+          'payment_amount'  => $request->amount,
+          'payment_method' =>"visa"
+        ];
+
+        return view('student/payment', $data);
+        //return back()->with('error',"Transaction Failed");
        }
     }
     catch(exception $e){
-        return back()->with('error',$e->getMessage());
+        $teacher = User::find(1);
+
+        $data = [
+        'teacher'=>$teacher,
+          'payment_amount'  => $request->amount,
+          'payment_method' =>"visa"
+        ];
+
+        return view('student/payment', $data);
+        //return back()->with('error',$e->getMessage());
     }
     }
 }
