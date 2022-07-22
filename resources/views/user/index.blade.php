@@ -90,7 +90,7 @@ background-color:white !important;
 <div class="row row_width">
     <div class="col-lg-2 text-center"></div>
 <div class="col-lg-9 text-center">
-<h1 style="font-size: ;color:#f0f0f0;opacity:54%; font-family: sans-serif;font-weight: bold">
+<h1 style="">
 LEARNING PLUGIN
 </h1>
 </div>
@@ -144,7 +144,6 @@ LEARNING PLUGIN
                 $current = now();
                 $created = $course->created_at;
                 $dateDiff = date_diff($current,$created);
-                //$minutes = ($dateDiff->d * 24 * 60) + ($dateDiff->h * 60) + $dateDiff->i;
             @endphp
 
             @if($course->purchase_course_count > 0)
@@ -158,7 +157,9 @@ LEARNING PLUGIN
                             <div class="row card_section m-0">
                                 <div class="col-lg-12 mar-top">
                                     <div class="col-md-4">
-                                        <i class="fa-solid fa-message icon_prop message-ml"></i>
+                                        <a href="{{ url('/login') }}">
+                                            <i class="fa-solid fa-message icon_prop message-ml" style="cursor: pointer"></i>
+                                        </a>
                                     </div>
                                     <div class="col-md-4">
                                         <i class="fa-solid fa-download icon-size  icon_prop"></i>
@@ -170,7 +171,7 @@ LEARNING PLUGIN
                                 <div class="col-md-12">
                                     <div class="col-md-4"></div>
                                     <div class="col-md-4">
-                                        <span class="greyColor">14</span>
+                                        <span class="greyColor">{{ ($course->course_dowloads < 1) ? '0' : $course->course_dowloads}}</span>
                                     </div>
                                     <div class="col-md-4">
                                         <span class="greyColor">{{ ($dateDiff->format('%d') > 0) ? $dateDiff->format('%d').' d' : '' }} {{ $dateDiff->format('%i') }} m</span>
