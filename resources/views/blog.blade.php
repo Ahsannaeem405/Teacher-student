@@ -78,6 +78,10 @@
    .select-sec{
        margin-top:10%;
    }
+   .pagination a {
+    border-radius: unset!important;
+    margin: unset!important;
+   }
 </style>
 
 <div class="banner53">
