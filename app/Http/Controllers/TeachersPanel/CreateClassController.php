@@ -78,7 +78,6 @@ class CreateClassController extends Controller
         } catch(\Exception $ex){
             return redirect()->back()->with('error', $ex->getMessage());
         }
-
     }
 
     /**

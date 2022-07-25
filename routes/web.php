@@ -21,7 +21,8 @@ use App\Http\Controllers\TeachersPanel\{
     CreateCourseController,
     MyProfileController,
     BlogController,
-    ZipController
+    ZipController,
+    History
 };
 
 use App\Http\Controllers\FrontController;
@@ -207,9 +208,9 @@ Route::group(['prefix' => 'teacher', 'middleware' => ['auth', 'check_teacher'], 
 
         Route::get('/create_meeting', [Teacher::class, 'create_meeting']);
         Route::post('/save_meeting', [Teacher::class, 'save_meeting']);
-
-
-
+        Route::get('/history', [History::class, 'history'])
+            ->name('history');
+        Route::get('history/delete',[History::class, 'deletehistory']);
 
 });
 
@@ -256,7 +257,7 @@ Route::group(['prefix' => 'student', 'middleware' => ['auth', 'check_student'], 
         Route::post('stripe', [StripePaymentController::class, 'stripestudentPost'])->name('stripe.post');
         Route::post('/profile/update', [MyProfileController::class, 'update'])
         ->name('profile-update');
-        Route::get('delete_history',[StudentDashboardController::class, 'deletehistory']);#
+        Route::get('delete_history',[StudentDashboardController::class, 'deletehistory']);
         Route::post('/charge', [PaymentController::class, 'stdcharge']);
 
         Route::post('/find_class', [Teacher::class, 'studentFindClass']);

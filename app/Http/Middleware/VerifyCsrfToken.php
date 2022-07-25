@@ -22,5 +22,6 @@ class VerifyCsrfToken extends Middleware
         '/student/find_my_course',
         '/student/find_notes',
         '/main_find_course',
+        '/main_find_course',
     ];
 }

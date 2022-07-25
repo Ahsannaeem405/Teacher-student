@@ -21,7 +21,16 @@ class Teacher extends Controller
     {
         $data=$req->data;
 
-        $find=CreateClass::where('user_id',auth()->user()->id)->where('class_title', 'LIKE', "%$data%")->get();
+        $history = [
+            'user_id' => auth()->user()->id,
+            'history' => $data
+        ];
+
+        (new History())->storeHistory($history);
+
+        $find=CreateClass::where('user_id',auth()->user()->id)
+            ->where('class_title', 'LIKE', "%$data%")
+            ->get();
 
         return view('/teacher/find_class',compact('find'));
     }
@@ -29,6 +38,13 @@ class Teacher extends Controller
     public function teacherFindCourse(Request $req)
     {
         $data=$req->data;
+
+        $history = [
+            'user_id' => auth()->user()->id,
+            'history' => $data
+        ];
+
+        (new History())->storeHistory($history);
 
         $find = CreateCourse::where('course_name', 'LIKE', "%$data%")
             ->whereHas('class')
@@ -41,6 +57,13 @@ class Teacher extends Controller
     {
         $data=$req->data;
 
+        $history = [
+            'user_id' => auth()->user()->id,
+            'history' => $data
+        ];
+
+        (new History())->storeHistory($history);
+
         $find = User::where('name', 'LIKE', "%$data%")
             ->whereHas('class')
             ->get();
@@ -51,6 +74,13 @@ class Teacher extends Controller
     public function teacherFindNotes(Request $req)
     {
         $data=$req->data;
+
+        $history = [
+            'user_id' => auth()->user()->id,
+            'history' => $data
+        ];
+
+        (new History())->storeHistory($history);
 
         $find = studentnote::where('title', 'LIKE', "%$data%")
             ->where('student_id', auth()->user()->id)

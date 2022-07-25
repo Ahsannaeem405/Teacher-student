@@ -22,49 +22,62 @@
         <h4>{{ (auth()->user()->role == 2) ? '(Teacher)' : ''}}</h4>
     @php
         $ratings = \App\Models\Rating::get('stars');
-        foreach ($ratings as $rating){
-            $rate[] = $rating->stars;
-        }
-        $res = array_sum($rate);
-        $count = count($ratings);
-        $result = $res / $count;
-    @endphp
-        <div>
-            @if($result > 1 && $result < 2)
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star"></span>
-                <span class="fa fa-star"></span>
-                <span class="fa fa-star"></span>
-                <span class="fa fa-star"></span>
-            @elseif($result > 2 && $result < 3)
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star"></span>
-                <span class="fa fa-star"></span>
-                <span class="fa fa-star"></span>
-            @elseif($result > 3 && $result < 4)
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star"></span>
-                <span class="fa fa-star"></span>
-            @elseif($result > 4 && $result < 5)
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star"></span>
-            @else
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-            @endif
 
-            <span style="font-weight: bold">{{ $result }}</span>
-            <span style="color: #C9C9C9">{{ '(' .$count. ')' }}</span>
-        </div>
+        if(count($ratings) > 0){
+           foreach ($ratings as $rating){
+            $rate[] = $rating->stars;
+            }
+            $res = array_sum($rate);
+            $count = count($ratings);
+            $result = $res / $count;
+        }else{
+            $rate = '';
+        }
+    @endphp
+        @if(!empty($result))
+            <div>
+                @if($result > 1 && $result < 2)
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                @elseif($result > 2 && $result < 3)
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                @elseif($result > 3 && $result < 4)
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                @elseif($result > 4 && $result < 5)
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                @else
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                @endif
+
+                <span style="font-weight: bold">{{ $result }}</span>
+                <span style="color: #C9C9C9">{{ '(' .$count. ')' }}</span>
+            </div>
+        @else
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+        @endif
 @endif
 
 @if(request()->route()->getName() == 'teacher.upload-profile' || request()->route()->getName() == 'teacher.status' ||
@@ -109,8 +122,8 @@
         <li class="{{ (request()->is('teacher/meeting') ? 'active' : '')}}">
             <a href="{{url('teacher/meeting')}}" style="text-decoration: none">Join Meeting</a></li>
 
-        <li class="">
-            <a href="#" style="text-decoration: none">History</a></li>
+        <li class="{{ request()->routeIs('teacher.history') ? 'active' : ''}}">
+            <a href="{{ route('teacher.history') }}" style="text-decoration: none">History</a></li>
 
         <li class="{{ request()->routeIs('teacher.t-notes') ? 'active' : ''}}">
             <a href="{{ route('teacher.t-notes') }}" style="text-decoration: none">Notes</a></li>
