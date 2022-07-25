@@ -155,7 +155,7 @@ LEARNING PLUGIN
                 $dateDiff = date_diff($current,$created);
             @endphp
 
-            @if($course->purchase_course_count > 0)
+            @if(count($courses) > 0)
                 <div class="col-md-4 p_cours_padding">
                     <div class="card border box_b">
                         <img src="{{asset('images')."/". $imagePath[0].".".$imagePath[1]}}"

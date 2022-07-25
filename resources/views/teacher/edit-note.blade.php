@@ -31,7 +31,8 @@
             <div class="col-lg-6">
                 <div class="profile-input-field">
                     <button type="submit" class="profile-save-btn">Update</button>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <a href="#" class="profile-draft-btn">Cancel</a>
+                    <a href="{{ route('teacher.t-notes') }}" class="profile-draft-btn"
+                    style="text-decoration: none; color: #C9C97E">Cancel</a>
                 </div>
             </div>
         </div>
