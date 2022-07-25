@@ -18,9 +18,9 @@
                     <div class="container-fluid collapse navbar-collapse" id="myNavbar"
                          style="padding: 0px;">
                         <ul class="nav navbar-nav" style="padding-top: 5px; color: white ">
-                            <li><a href="#" style="padding-top: 5px;">About Us</a></li>
-                            <li><a href="#" style="padding-top: 5px;">Features</a></li>
-                            <li><a href="#" style="padding-top: 5px;">Pricing</a></li>
+                            <li><a href="{{ url('/about') }}" style="padding-top: 5px;">About Us</a></li>
+                            <li><a href="{{ url('/features') }}" style="padding-top: 5px;">Features</a></li>
+                            <li><a href="{{ route('student.price-menu') }}" style="padding-top: 5px;">Pricing</a></li>
                             <li><a href="{{ route('my-blogs') }}" style="padding-top: 5px;">Blog</a></li>
                         </ul>
                     </div>

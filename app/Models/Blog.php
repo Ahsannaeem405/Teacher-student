@@ -47,4 +47,9 @@ class Blog extends Model
             ->take(3)
             ->get();
     }
+
+    public function getBlogData($blog_id){
+        return $this->where('id', $blog_id)
+            ->first();
+    }
 }

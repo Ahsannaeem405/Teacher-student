@@ -63,14 +63,21 @@
             </li>
         </ul>
 
-{{--        <div class="pcoded-navigatio-lavel">Administration</div>--}}
-{{--        <ul class="pcoded-item pcoded-left-item">--}}
-{{--            <li class="">--}}
-{{--                <a href="#">--}}
-{{--                    <span class="pcoded-micon"><i class="feather icon-settings"></i></span>--}}
-{{--                    <span class="pcoded-mtext">Settings</span>--}}
-{{--                </a>--}}
-{{--            </li>--}}
-{{--        </ul>--}}
+        <div class="pcoded-navigatio-lavel">Contact</div>
+        <ul class="pcoded-item pcoded-left-item">
+            <li class="pcoded-hasmenu {{ request()->routeIs('admin.contact') ? 'active' : '' }}">
+                <a href="javascript:void(0)">
+                    <span class="pcoded-micon"><i class="feather icon-voicemail"></i></span>
+                    <span class="pcoded-mtext">Contact</span>
+                </a>
+                <ul class="pcoded-submenu">
+                    <li class="">
+                        <a href="{{ route('admin.contact') }}">
+                            <span class="pcoded-mtext">View all</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
     </div>
 </nav>

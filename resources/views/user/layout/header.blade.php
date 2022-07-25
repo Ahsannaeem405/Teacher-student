@@ -66,10 +66,10 @@
 
         <header class="main-header active-header active-header2">
             <div class="row">
-                <div class="col-md-3 logo-col">
+                <div class="col-md-2 logo-col" style="text-align: center">
                   <a href="{{url('/')}}">  <img src="{{url('/images/logo.svg')}}"  alt="Image"/></a>
                 </div>
-                <div class="col-md-6 menu-col">
+                <div class="col-md-8 menu-col">
                     <nav class="navbar navbar-expand-lg navbar-light">
                         {{-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-lable="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
@@ -81,15 +81,23 @@
                                 <li><a class="" href="{{ url('/features') }}">Features</a></li>
                                 <li><a class="" href="{{url('price')}}">Pricing</a></li>
                                 <li><a class="" href="{{ route('my-blogs') }}">Blog</a></li>
+                                <li><a class="" href="{{ url('/contact') }}">Contact</a></li>
                             </ul>
                         </div>
                     </nav>
                 </div>
 
-                <div class="col-md-3 mt-3 man-img-col text-end-btn">
-                    <a href="{{ url('/login') }}" class="btn loginbtn">Login</a>
-                    <a href="{{ url('register/here') }}" style="margin-left: 3%;" class="btn registerbtn">Sign Up</a>
-                </div>
+                @if(auth()->user())
+                    <div class="col-md-2 mt-3 man-img-col text-end-btn" style="display: none">
+                        <a href="{{ url('/login') }}" class="btn loginbtn">Login</a>
+                        <a href="{{ url('register/here') }}" style="margin-left: 3%;" class="btn registerbtn">Sign Up</a>
+                    </div>
+                @else
+                    <div class="col-md-2 mt-3 man-img-col text-end-btn" style="text-align: end">
+                        <a href="{{ url('/login') }}" class="btn loginbtn">Login</a>
+                        <a href="{{ url('register/here') }}" style="margin-left: 3%;" class="btn registerbtn">Sign Up</a>
+                    </div>
+                @endif
             </div>
         </header>
 

@@ -84,38 +84,64 @@
 </div>
 
 
-
-
-
-
-
 <img class="header-dots-img" src="http://localhost/Teacher-student/public/images/dot-shape-primary.svg" alt="Image">
 
 
-
 <div class="container">
-<div class="row w-100 m-0">
-<div class="col-md-12 box_additional" style="margin-bottom: 5%">
-<div class="text-center">
-<h1 class="heading_contact">Contact Us</h1>
-</div>
-    <div class="box_b bx">
-<div class="con">
-    <form action="#" class="profile-form">
-        <label for="fname">Subject</label><br>
-        <input type="text" id="fname" class="cont_sub_f" placeholder="Enter Your Subject" name="fname"><br>
+    <div class="row w-100 m-0">
+        <div class="col-md-12 box_additional" style="margin-bottom: 5%">
+            <div class="text-center">
+                <h1 class="heading_contact">Contact Us</h1>
+            </div>
+            <div class="box_b bx">
+                <div class="con">
+                    <form action="{{ route('contact') }}" method="POST" class="profile-form">
+                        @csrf
+                        <label for="fname">Name</label><br>
+                        <input type="text" id="fname" name="name" placeholder="Enter Your Name"
+                               class="cont_sub_f @error('name') is-invalid @enderror"
+                               autocomplete="name" autofocus>
+                                @error('name')
+                                    <span class="invalid-feedback alert alert-danger" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                        <br>
 
-        <label for="pclu-textarea">Describe Your Message</label><br>
-        <textarea name="pctextarea" id="pclu-textarea"></textarea>
-<div class="text-center btn_uper">
-    <input type="submit" value="Send">
-    <input type="submit" class="contact_cancel" value="Cancel">
-</div>
-    </form>
-</div>
-</div>
-</div>
-</div>
+                        <label for="email">Email</label><br>
+                        <input type="text" id="email" placeholder="Enter Your Email" name="email"
+                        class="cont_sub_f @error('email') is-invalid @enderror"
+                        autocomplete="email" autofocus>
+                        @error('email')
+                            <span class="invalid-feedback alert alert-danger" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                        <br>
+
+                        <label for="subject">Subject</label><br>
+                        <input type="text" id="subject" placeholder="Enter Your Subject" name="subject"
+                        class="cont_sub_f @error('subject') is-invalid @enderror"
+                        autocomplete="subject" autofocus>
+                        @error('subject')
+                            <span class="invalid-feedback alert alert-danger" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                        <br>
+
+                        <label for="pclu-textarea">Describe Your Message</label><br>
+                        <textarea name="pctextarea" id="pclu-textarea"></textarea>
+
+                        <div class="text-center btn_uper">
+                            <input type="submit" value="Send">
+                            <input type="submit" class="contact_cancel" value="Cancel">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 

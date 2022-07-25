@@ -5,13 +5,16 @@ use App\Http\Controllers\{
     LogoutController,
     StudentDashboardController,
     TeacherDashboardController,
-    ImageController
+    ImageController,
+    MainBlogController,
+    ContactController
 };
 
 use App\Http\Controllers\Admin\{
     TeacherController,
     StudentController,
-    SubscriptionController
+    SubscriptionController,
+    AdminContactController
 };
 use App\Http\Controllers\TeachersPanel\{
     CreateClassController,
@@ -63,7 +66,7 @@ Route::get('/test', function (){
 });
 
 Route::get('/testing', function (){
-   return view('rating');
+   return view('contact');
 });
 
 Route::get('/login', function () {
@@ -121,6 +124,13 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'check_admin'], 'as'
         ->name('updateSubscription');
     Route::get('/delete/{id}', [SubscriptionController::class, 'delete'])
         ->name('subscription-delete');
+
+    Route::get('/contact', [AdminContactController::class, 'index'])
+        ->name('contact');
+    Route::get('/view/request/{id}', [AdminContactController::class, 'singleRequest'])
+        ->name('view-request');
+    Route::get('/delete/request/{id}', [AdminContactController::class, 'deleteSingleRequest'])
+        ->name('delete-request');
 
 });
 
@@ -279,21 +289,14 @@ Route::post('/stream-answer', [WebrtcStreamingController::class, 'makeStreamAnsw
 
 
 
-
-
-
-
-
-
-
-
-
 Route::get('/',[FrontController::class,'index']);
+Route::get('/blog/detail/{id}',[MainBlogController::class,'blogDetail'])
+                                                        ->name('blog-detail');
 
 //user main view
-Route::get('/contact-us', function () {
-    return view('contact');
-});
+Route::get('/contact', [ContactController::class, 'index']);
+Route::post('/contact', [ContactController::class, 'storeContact'])
+                                                    ->name('contact');
 
 Route::get('/features', function () {
     return view('features');

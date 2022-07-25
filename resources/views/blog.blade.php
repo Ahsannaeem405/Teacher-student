@@ -157,7 +157,7 @@ BLOG
         <div style="row row_width" >
         <div class="col-sm-4">
         <div class="pp">
-            <a href="#" class="b_heading_b" style="
+            <a href="{{ url('/') }}" class="b_heading_b" style="
             font-size: 23px;"> < Back</a>
         </div>
         </div>
@@ -178,20 +178,20 @@ BLOG
             </div>  --}}
 
             <div style="text-align: right;">
-            @if(auth()->user())
-                @if(auth()->user()->role == '2')
-                    <a href="{{ url('/teacher/create/blog') }}" style="text-decoration: none; color: black">
+                @if(auth()->user())
+                    @if(auth()->user()->role == '2')
+                        <a href="{{ url('/teacher/create/blog') }}" style="text-decoration: none; color: black">
+                            <i class="glyphicon  glyp">+</i>
+                            <span class="b_side_he next_he box_b">Add New</span>
+                        </a>
+                    @endif
+                @else
+                    <a href="{{ url('/login') }}" style="text-decoration: none; color: black">
                         <i class="glyphicon  glyp">+</i>
                         <span class="b_side_he next_he box_b">Add New</span>
                     </a>
                 @endif
-            @else
-                <a href="{{ url('/login') }}" style="text-decoration: none; color: black">
-                    <i class="glyphicon  glyp">+</i>
-                    <span class="b_side_he next_he box_b">Add New</span>
-                </a>
-            @endif
-        </div>
+            </div>
 
     </div>
 
@@ -243,7 +243,9 @@ BLOG
                              class="img_width" alt="No Image">
                 {{--    <img class="img_width c_w" src="{{ asset('images/33.png') }}"  alt="" srcset="">--}}
 
-                    <h3 class="bLog_b_head common_blog_color">{{ $blog->blog_title }}</h3>
+                    <a href="{{ route('blog-detail', ['id' => encrypt($blog->id)]) }}" style="text-decoration: none;">
+                        <h3 class="bLog_b_head common_blog_color">{{ $blog->blog_title }}</h3>
+                    </a>
                     <h4 class="b_heading_b">{{ date('d-F-Y', strtotime($blog->created_at)) }}</h4>
 
                     <h3 class="r_m_space">{!! $blog->blog_description !!}</h3>
@@ -254,8 +256,7 @@ BLOG
             @endforeach
         </div>
 
-        <div class="col-md-4 ">
-
+        <div class="col-md-4">
             <div class="col-sm-12" style="background-color:#f2f0f0">
                 <h3 class="text-center common_blog_color" style="    font-size: 31px;font-family: sans-serif !important;">
                     Recent articles
@@ -271,9 +272,11 @@ BLOG
 {{--                        <img class="img_blog_side" src="{{ asset('images/34.png') }}" class="img_blog_side" alt="" srcset="">--}}
                     </div>
                     <div class="col-sm-7">
-                        <h4 class="b_side_he">
-                            {{ $recent->blog_title }}
-                        </h4>
+                        <a href="{{ url('/login') }}" style="text-decoration: none">
+                            <h4 class="b_side_he">
+                                {{ $recent->blog_title }}
+                            </h4>
+                        </a>
                         <p>
                             {!! Str::words($recent->blog_description, 40, ' ...') !!}
                         </p>
@@ -284,7 +287,7 @@ BLOG
                 </div>
                 @endforeach
             </div>
-
+        </div>
          </section>
 
 

@@ -84,104 +84,50 @@
             </div>
 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+@php
+    $courses = (new \App\Models\CreateCourse())
+    ->orderBy('created_at', 'DESC')
+    ->take(6)
+    ->get();
+@endphp
 
 <div class="container mt-4">
-<div class="row m-0" style="width: 100%">
-<div class="col-md-4">
+    <div class="row m-0" style="width: 100%">
+        @foreach($courses as $course)
+            @php
+                $imagePath = explode('.', !is_null($course->course_image) ? $course->course_image : 'do_not_delete.png');
+            @endphp
+            <div class="col-md-4">
+                <div class="" style="    padding: 0;">
+                    <img src="{{asset('images')."/". $imagePath[0].".".$imagePath[1]}}"
+                         class="img_blog_side img_blog_side2" alt="Card image cap">
+{{--                    <img class="img_blog_side img_blog_side2" src="{{ asset('images/42.png') }}" alt="" srcset="">--}}
+                </div>
 
-    <div class="" style="    padding: 0;">
-        <img class="img_blog_side img_blog_side2" src="{{ asset('images/42.png') }}" class="img_blog_side" alt="" srcset="">
-        </div>
-
-
-        <div class="">
-            <h4 class="mt_r b_side_he">
-            title demo
-            </h4>
-            <p class="text-design">
-            jk fa Lorem ipsum dolor sit amet consectetur adipisicing
-            </p>
-            {{--  <p class="b_heading_b">
-            12 Sep 2022
-            </p>  --}}
-                    </div>
-
-
-
+                <div class="">
+                    @if(auth()->user())
+                        @if(auth()->user()->role == '2')
+                            <a href="{{ route('teacher.dashboard') }}" style="text-decoration: none">
+                                <h4 class="mt_r b_side_he">{{ $course->course_name }}</h4>
+                            </a>
+                        @else
+                            <a href="{{ route('student.dashboard') }}" style="text-decoration: none">
+                                <h4 class="mt_r b_side_he">{{ $course->course_name }}</h4>
+                            </a>
+                        @endif
+                    @else
+                        <a href="{{ url('/login') }}" style="text-decoration: none">
+                            <h4 class="mt_r b_side_he">{{ $course->course_name }}</h4>
+                        </a>
+                    @endif
+                    <p class="text-design">
+                        {!! $course->course_description !!}
+                    </p>
+                </div>
+            </div>
+        @endforeach
+    </div>
 </div>
-
-
-
-<div class="col-md-4">
-
-    <div class="" style="    padding: 0;">
-        <img class="img_blog_side img_blog_side2" src="{{ asset('images/43.png') }}" class="img_blog_side" alt="" srcset="">
-        </div>
-
-
-        <div class="">
-            <h4 class="mt_r b_side_he">
-            title demo
-            </h4>
-            <p class='text-design'>
-            jk fa jfkdsaj fdak Lorem ipsum dolor consectetur adipisicing
-            </p>
-            {{--  <p class="b_heading_b">
-            12 Sep 2022
-            </p>  --}}
-                    </div>
-
-
-
-</div>
-
-
-
-
-<div class="col-md-4">
-
-    <div class="" style="    padding: 0;">
-        <img class="img_blog_side img_blog_side2" src="{{ asset('images/44.png') }}" class="img_blog_side" alt="" srcset="">
-        </div>
-
-
-        <div class="">
-            <h4 class="mt_r b_side_he">
-            title demo
-            </h4>
-            <p class="text-design">
-            jk fa jfkdsaj fdak Lorem ipsum dolor sit  adipisicing
-            </p>
-            {{--  <p class="b_heading_b">
-            12 Sep 2022
-            </p>  --}}
-                    </div>
-
-
-
-</div>
-
-</div>
-
-</div>
-
-
-
-
-
 
 
 <div class="next-project3 next-project2">

@@ -56,9 +56,6 @@ background-color:white !important;
         margin-bottom:20px;
         text-align: center;
         border-radius: 20px; */
-
-
-
     }
     .card-text{
         font-size: 20px;
@@ -74,6 +71,18 @@ background-color:white !important;
    .select-sec{
        margin-top:10%;
    }
+
+    .checked {
+        color: #C9C97E;
+    }
+
+    /*.star-icon .row .col-md-12>p>span{*/
+    /*    font-family: 'Open Sans', Arial, sans-serif;*/
+    /*    font-size: 14px;*/
+    /*    text-align: justify;*/
+    /*    background-color: unset;*/
+    /*    color: white;*/
+    /*}*/
 </style>
 
 <div class="banner">
@@ -277,75 +286,96 @@ font-family: sans-serif;">A great book by the author Nir Eyal called Hooked. Thi
 
 
     <div class="container">
-    <div class="row ">
-
-
-        <div class="col-md-12 text-center">
-    <h1 class="under-line">
-    Testimonial
-    </h1>
-        </div>
-    </div>
-<div class="row testimonial-margin m-0">
-<img class="testimonial-dots" style="position: absolute" src="http://localhost/Teacher-student/public/images/dot-shape-primary.svg" alt="Image">
-<div class="w-100 text-center row m-0">
-    <div class="col-md-4 col-md-offset-2">
-        <div class="card border box_b">
-            <i class="fa-solid fa-comment coment-design"></i>
-            <div class="text-center" style="padding-top: 20px">
-
-                <img class="img-circle img-margin " height="110"  width="110" src="{{url('images/51.png')}}" alt="Card image cap">
-
-                <h3>tile img</h3>
+        <div class="row ">
+            <div class="col-md-12 text-center">
+                <h1 class="under-line">
+                Testimonial
+                </h1>
             </div>
-            <div class="card-body card-body-bg" style="padding-bottom: 2px;">
-                <div class="star-icon " style="margin: 11px;">
-                    <p class="t_para">Let's Learn Python kdfaj da dfjakd fds jda fdkal fd alkj afja
-                        sdfljad fljads fljads fjds flj Fast.
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque est eveniet, nostrum maiores, fuga ea hic ipsam consectetur placeat natus repellendus reiciendis eligendi recusandae. Est excepturi enim facilis illum voluptatem.
-                    lkk jas  jaf j ad fkj adfjasd fjk
-                    <br>
-                        <div class="star-margin">
-                            <i class="glyphicon glyphicon-star star_color"></i>
-                        <i class="glyphicon glyphicon-star star_color"></i>
-                        <i class="glyphicon glyphicon-star star_color"></i>
-                        <i class="glyphicon glyphicon-star"></i>
-                        <i class="glyphicon glyphicon-star"></i>
+        </div>
+        @php
+            $ratings = \App\Models\Rating::whereHas('user')
+                    ->orderBy('created_at','DESC')
+                    ->take(2)
+                    ->get();
+        @endphp
+        <div class="row testimonial-margin m-0">
+            <img class="testimonial-dots" style="position: absolute" src="http://localhost/Teacher-student/public/images/dot-shape-primary.svg" alt="Image">
+            <div class="w-100 text-center row m-0">
+                @foreach($ratings as $rating)
+                    @php
+                        $imagePath = explode('.', !is_null($rating->user->image) ? $rating->user->image : 'do_not_delete.png');
+                    @endphp
+                    <div class="col-md-4 col-md-offset-2">
+                        <div class="card border box_b">
+                            <i class="fa-solid fa-comment coment-design"></i>
+                            <div class="text-center" style="padding-top: 20px">
+                                <img src="{{asset('images')."/". $imagePath[0].".".$imagePath[1]}}"
+                                     class="img-circle img-margin" height="110"  width="110" alt="Card image cap">
+                                <h3>{{ $rating->user->name }}</h3>
+                            </div>
+                            <div class="card-body card-body-bg" style="padding-bottom: 2px;">
+                                <div class="star-icon" style="margin: 11px; padding: 10px;">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            {!! $rating->message !!}
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="star-margin">
+                                                @if($rating->stars == '1')
+                                                    <div class="col-md-12">
+                                                        <span class="fa fa-star checked"></span>
+                                                        <span class="fa fa-star"></span>
+                                                        <span class="fa fa-star"></span>
+                                                        <span class="fa fa-star"></span>
+                                                        <span class="fa fa-star"></span>
+                                                    </div>
+                                                @elseif($rating->stars == '2')
+                                                    <div class="col-md-12">
+                                                        <span class="fa fa-star checked"></span>
+                                                        <span class="fa fa-star checked"></span>
+                                                        <span class="fa fa-star"></span>
+                                                        <span class="fa fa-star"></span>
+                                                        <span class="fa fa-star"></span>
+                                                    </div>
+                                                @elseif($rating->stars == '3')
+                                                    <div class="col-md-12">
+                                                        <span class="fa fa-star checked"></span>
+                                                        <span class="fa fa-star checked"></span>
+                                                        <span class="fa fa-star checked"></span>
+                                                        <span class="fa fa-star"></span>
+                                                        <span class="fa fa-star"></span>
+                                                    </div>
+                                                @elseif($rating->stars == '4')
+                                                    <div class="col-md-12">
+                                                        <span class="fa fa-star checked"></span>
+                                                        <span class="fa fa-star checked"></span>
+                                                        <span class="fa fa-star checked"></span>
+                                                        <span class="fa fa-star checked"></span>
+                                                        <span class="fa fa-star"></span>
+                                                    </div>
+                                                @elseif($rating->stars == '5')
+                                                    <div class="col-md-12">
+                                                        <span class="fa fa-star checked"></span>
+                                                        <span class="fa fa-star checked"></span>
+                                                        <span class="fa fa-star checked"></span>
+                                                        <span class="fa fa-star checked"></span>
+                                                        <span class="fa fa-star checked"></span>
+                                                    </div>
+                                                @endif
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </p>
-                </div>
-             </div>
-          </div>
-    </div>
-
-    <div class="col-md-4">
-        <div class="card border box_b">
-            <i class="fa-solid fa-comment coment-design"></i>
-            <div class="text-center" style="padding-top: 20px">
-                <img class="img-circle img-margin " height="110"  width="110" src="{{url('images/52.png')}}" alt="Card image cap">
-
-                <h3>tile img</h3>
-            </div>
-            <div class="card-body card-body-bg" style="padding-bottom: 2px;">
-                <div class="star-icon" style="margin: 11px;">
-
-                    <p class="t_para">
-                        Let's Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur laudantium magni molestiae excepturi voluptatem deserunt at asperiores rerum ipsa cum dolorum autem possimus sit aspernatur nostrum commodi dolores, harum itaque. Learn Python kdfaj da dfjakd fds jda fdkal fd alkj afja sdfljad fljads fljads fjds flj Fast.
-                    </p>
-                    <div class="star-margin">
-                        <i class="glyphicon glyphicon-star star_color"></i>
-                        <i class="glyphicon glyphicon-star star_color"></i>
-                        <i class="glyphicon glyphicon-star star_color"></i>
-                        <i class="glyphicon glyphicon-star"></i>
-                        <i class="glyphicon glyphicon-star"></i>
                     </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
-</div>
-
-</div></div>
 
 <div class="next-project">
     <div class="two-img">
