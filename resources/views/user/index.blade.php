@@ -159,7 +159,7 @@ LEARNING PLUGIN
                 <div class="col-md-4 p_cours_padding">
                     <div class="card border box_b">
                         <img src="{{asset('images')."/". $imagePath[0].".".$imagePath[1]}}"
-                             class="card-img-top card-img-radius" alt="Card image cap">
+                             class="card-img-top card-img-radius" >
                         <div class="card-body" style="text-align: center; align-items: center">
                             <h5 class="card-title card_heading" >{{ $course->course_name }}</h5>
                             <p class="card-text">{!! $course->course_description !!}</p>
