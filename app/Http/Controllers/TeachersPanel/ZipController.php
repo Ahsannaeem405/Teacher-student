@@ -51,8 +51,10 @@ class ZipController extends Controller
             $zip->close();
         }
 
-        $course_id = decrypt($request->course_id);
-        (new CreateCourse())->getCourseDownloads($course_id);
+        if($request->has('course_id')){
+            $course_id = decrypt($request->course_id);
+            (new CreateCourse())->getCourseDownloads($course_id);
+        }
 
         return response()->download(public_path('videos/'.$course_name.$type.$tech_id.'/'.$fileName));
     }

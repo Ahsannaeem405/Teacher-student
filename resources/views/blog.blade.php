@@ -178,7 +178,19 @@ BLOG
             </div>  --}}
 
             <div style="text-align: right;">
-            <i class="glyphicon  glyp" >+</i><span class="b_side_he next_he box_b">Add New</span>
+            @if(auth()->user())
+                @if(auth()->user()->role == '2')
+                    <a href="{{ url('/teacher/create/blog') }}" style="text-decoration: none; color: black">
+                        <i class="glyphicon  glyp">+</i>
+                        <span class="b_side_he next_he box_b">Add New</span>
+                    </a>
+                @endif
+            @else
+                <a href="{{ url('/login') }}" style="text-decoration: none; color: black">
+                    <i class="glyphicon  glyp">+</i>
+                    <span class="b_side_he next_he box_b">Add New</span>
+                </a>
+            @endif
         </div>
 
     </div>
