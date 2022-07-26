@@ -165,8 +165,18 @@ BLOG
         <div style="row row_width" >
         <div class="col-sm-4">
         <div class="pp">
-            <a href="{{ url('/') }}" class="b_heading_b" style="
+            @if(auth()->user())
+                @if(auth()->user()->role == '2')
+                    <a href="{{ url('teacher/dashboard') }}" class="b_heading_b" style="
             font-size: 23px;"> < Back</a>
+                @else
+                    <a href="{{ url('student/dashboard') }}" class="b_heading_b" style="
+            font-size: 23px;">
+                @endif
+            @else
+                <a href="{{ url('/') }}" class="b_heading_b" style="
+            font-size: 23px;"> < Back</a>
+            @endif
         </div>
         </div>
         <div class="col-sm-5">

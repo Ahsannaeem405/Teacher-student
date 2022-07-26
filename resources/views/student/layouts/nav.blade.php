@@ -11,7 +11,7 @@
                 style="width: 100px; height: auto"/>
             </a>
         </div>
-        <div class="col-md-7 menu-col" style="padding: 0px; margin: 0px;">
+        <div class="col-md-7 menu-col" style="padding-top: 25px;">
             <nav class="navbar navbar-default navbar-expand-lg navbar-light"
                  style="background-color: unset; border: 0px">
                 <div class="container-fluid">
@@ -29,7 +29,7 @@
             </nav>
         </div>
 
-        <div class="col-md-2 " style="padding-top: 15px;">
+        <div class="col-md-2 " style="padding-top: 35px;">
             <div class="dropdown">
                 <button class="btn dropdown-toggle nav-img-btn" type="button"
                 data-toggle="dropdown" aria-haspopup="true"
