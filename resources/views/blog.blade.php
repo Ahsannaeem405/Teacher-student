@@ -194,13 +194,12 @@ BLOG
                         </a>
                     @endif
                 @else
-                    <a href="{{ url('/login') }}" style="text-decoration: none; color: black">
-                        <i class="glyphicon  glyp">+</i>
-                        <span class="b_side_he next_he box_b">Add New</span>
-                    </a>
+{{--                    <a href="{{ url('/login') }}" style="text-decoration: none; color: black">--}}
+{{--                        <i class="glyphicon  glyp">+</i>--}}
+{{--                        <span class="b_side_he next_he box_b">Add New</span>--}}
+{{--                    </a>--}}
                 @endif
             </div>
-
     </div>
 
 

@@ -40,7 +40,8 @@ class Blog extends Model
     }
 
     public function getBlogs(){
-        return $this->paginate(1);
+        return $this->orderBy('created_at', 'DESC')
+            ->paginate(1);
     }
 
     public function getRecent(){
