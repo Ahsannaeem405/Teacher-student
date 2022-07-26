@@ -17,9 +17,7 @@ class ChatController extends Controller
         {
             $res = (new PurchaseCourse())->getStudentId();
 
-
             if($res->count() > 0){
-                //dd('here');
                 foreach ($res as $record){
                     $std = (new User())->getStudent($record->user_id);
                 }
@@ -45,7 +43,7 @@ class ChatController extends Controller
                 }
                 return view('chat.chat', $data);
             }else{
-                return redirect()->back()->with('warning', 'No record found.');
+                return view('chat.chat');
             }
 
         }
@@ -53,14 +51,10 @@ class ChatController extends Controller
         {
             $res = (new PurchaseCourse())->getTeacherId();
 
-
             if($res->count() > 0){
-                //dd('here');
                 foreach ($res as $record){
                     $std = (new User())->getStudent($record->teacher_id);
                 }
-
-                
 
                 if(request()->has('id')){
                     $id = decrypt(request()->get('id'));
@@ -83,14 +77,10 @@ class ChatController extends Controller
                 }
                 return view('chat.chat', $data);
             }else{
-                return redirect()->back()->with('warning', 'No record found.');
+                return view('chat.chat');
             }
-
         }
-        
-        
-        
-    }
+  }
 
     public function storeChat(Request $request){
        // dd($request->all());
@@ -106,7 +96,7 @@ class ChatController extends Controller
             $res = (new Chat())->storeChat($data);
 
 
-           
+
             $msg=$res;
             $name=$msg->get_user->name;
             $role=$msg->student->role;
@@ -114,7 +104,7 @@ class ChatController extends Controller
             $public_img=URL::to('/').'/images/'.$image;
             $date=date('Y-m-d H:i A', strtotime($msg->created_at));
             event(new MyEvent($res,$name,$role,$public_img,$date,$id));
-                       
+
 
             if(!empty($res)){
                 //return response()->json(['msg'=>$res,'name'=>auth()->user()->name,'public'=>$public]);

@@ -1,15 +1,15 @@
 <div class="footer">
     <div class="container">
-        <div class="row row_width">
-            <div class="col-md-4 padding_4_col2 footer-first-col">
+        <div class="row">
+            <div class="col-md-4 footer-first-col">
                 <img src="{{url('/images/logo-main.svg')}}" alt="Image"/>
                 <p>Virtual teaching is a marketplace filled with qualified teachers that will provide excellent teaching resources. We are happy to work with you in your learning journey.</p>
                 <h4 class="m_right">Follow Us:</h4>
                 <ul class="footer-icon">
-                    <li><i class="fa-brands fa-linkedin-in"></i></li>
-                    <li><i class="fa-brands fa-facebook-f"></i></li>
-                    <li><i class="fa-brands fa-twitter"></i></li>
-                    <li><i class="fa-brands fa-instagram"></i></li>
+                    <li><i class="fa fa-linkedin"></i></li>
+                    <li><i class="fa fa-facebook"></i></li>
+                    <li><i class="fa fa-twitter"></i></li>
+                    <li><i class="fa fa-instagram"></i></li>
                 </ul>
             </div>
             <div class="col-md-2">
@@ -50,6 +50,7 @@
 <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 <script src="{{asset('js/custom.js')}}"></script>
 
+@yield('JS')
 
 </body>
-</html
+</html>

@@ -22,7 +22,7 @@
                             <h4 style="color: #585858"><strong>Current Plan:</strong></h4>
                         </div>
                         <div class="col-md-3">
-                            <h4><strong>{{ $plan }}</strong></h4>
+                            <h4><strong>{{ (!empty($plan)) ? $plan : '' }}</strong></h4>
                         </div>
                         <div class="col-md-1">
                             <a href="#" style="text-decoration: none">
@@ -39,7 +39,7 @@
                             <h4 style="color: #585858"><strong>Valid till:</strong></h4>
                         </div>
                         <div class="col-md-3">
-                            <h4><strong>{{ date('F-m-Y', strtotime($expriy)) }}</strong></h4>
+                            <h4><strong>{{ date('F-m-Y', strtotime((!empty($expriy)) ? $expriy : '')) }}</strong></h4>
                         </div>
                         <div class="col-md-1">
                             <a href="#" style="text-decoration: none">

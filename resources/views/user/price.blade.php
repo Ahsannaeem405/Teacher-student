@@ -53,7 +53,7 @@
                             <li class="list-unstyled plan_list"> <img src="{{ asset('images/tick.png') }}" width="24" height="18" alt="" srcset=""> <span class="l_p"></span> <span class="li_font">    Share your videos with your social media</span></li>
                                 <li class="list-unstyled plan_list"> <img src="{{ asset('images/tick.png') }}" width="24" height="18" alt="" srcset=""> <span class="l_p"></span> <span class="li_font">    Share your videos with your social media</span></li>
                         </ul>
-                        <a href="{{ url('/register/here') }}" class="pricing_anchor">Select Plan</a>
+                        <a href="{{ url('/login') }}" class="pricing_anchor">Select Plan</a>
                     </div>
                 </div>
             </div>
@@ -123,11 +123,7 @@
 </div>
 </div>
 <br>
-<div class="container pricing">
-
-
-</div>
-
+<div class="container pricing"></div>
       <br>
       <br>
 <!-- last blue section start -->
