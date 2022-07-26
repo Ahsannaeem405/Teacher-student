@@ -5,13 +5,13 @@
 
 <header class="main-header active-header" style="padding: 0px; margin: 0px;">
     <div class="row " style="padding: 0px; margin: 0px;">
-        <div class="col-md-3 logo-col" style="padding-top: 15px;">
+        <div class="col-md-3 logo-col" style="padding-top: 10px;">
             <a href="{{ route('teacher.dashboard') }}" style="text-decoration: none">
                 <img src="{{url('/images/full-logo.png')}}" alt="Image"
                      style="width: 100px; height: auto"/>
             </a>
         </div>
-        <div class="col-md-7 menu-col" style="padding-top: 25px;">
+        <div class="col-md-7 menu-col" style="padding-top: 10px; display: flex; justify-content: center">
             <nav class="navbar navbar-default navbar-expand-lg navbar-light"
                  style="background-color: unset; border: 0px">
                 <div class="container-fluid">
@@ -28,7 +28,7 @@
             </nav>
         </div>
 
-        <div class="col-md-2 " style="padding-top: 35px;">
+        <div class="col-md-2 " style="padding-top: 15px;">
             <div class="dropdown">
                 <button class="btn dropdown-toggle nav-img-btn" type="button"
                         data-toggle="dropdown" aria-haspopup="true"

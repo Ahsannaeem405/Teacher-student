@@ -66,7 +66,7 @@
 
         <header class="main-header active-header active-header2">
             <div class="row">
-                <div class="col-md-2 logo-col" style="text-align: center; padding-bottom: 35px;">
+                <div class="col-md-3 logo-col" style="text-align: center; padding-bottom: 10px; padding-top: 10px;">
                   @if(auth()->user())
                       @if(auth()->user()->role == '2')
                         <a href="{{url('/teacher/dashboard')}}">
@@ -85,7 +85,7 @@
                     </a>
                   @endif
                 </div>
-                <div class="col-md-8 menu-col" style="padding-top: 25px;">
+                <div class="col-md-7 menu-col" style="padding-top: 27px;">
                     <nav class="navbar navbar-expand-lg navbar-light">
                         {{-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-lable="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
@@ -109,7 +109,7 @@
                         <a href="{{ url('register/here') }}" style="margin-left: 3%;" class="btn registerbtn">Sign Up</a>
                     </div>
                 @else
-                    <div class="col-md-2 mt-3 man-img-col text-end-btn" style="text-align: end; padding-top: 22px;">
+                    <div class="col-md-2 mt-3 man-img-col text-end-btn" style="text-align: end; padding-top: 24px;">
                         <a href="{{ url('/login') }}" class="btn loginbtn">Login</a>
                         <a href="{{ url('register/here') }}" style="margin-left: 3%;" class="btn registerbtn">Sign Up</a>
                     </div>

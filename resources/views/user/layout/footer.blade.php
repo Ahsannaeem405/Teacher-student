@@ -16,7 +16,7 @@
                 <h4>Product</h4>
                 <ul class="footer-link">
 
-                    <li><i class="fa fa-angle-right"></i>&nbsp;  <a class="" href="{{ url('/features') }}">Features</a></li>
+{{--                    <li><i class="fa fa-angle-right"></i>&nbsp;  <a class="" href="{{ url('/features') }}">Features</a></li>--}}
                     <li><i class="fa fa-angle-right"></i>&nbsp;  <a class="" href="{{ url('/price') }}">Pricing</a></li>
                     <li><i class="fa fa-angle-right"></i>&nbsp;  <a class="" href="{{ url('/sign-in') }}">Log in</a></li>
                 </ul>
