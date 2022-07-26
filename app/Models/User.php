@@ -168,4 +168,9 @@ class User extends Authenticatable
     public function meets(){
         return $this->hasMany(meeting::class, 'user_id');
     }
+
+    public function getRemainVids(){
+        return $this->where('id', auth()->user()->id)
+            ->first('remaining_vids');
+    }
 }

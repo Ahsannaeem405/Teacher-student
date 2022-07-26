@@ -211,22 +211,28 @@ class TeacherDashboardController extends Controller
 
     public function status(){
         $sub = (new Subscription())->with('user')->first();
-
-        if($sub->payment_amount == '10'){
+        $user = (new User())->getRemainVids();
+        if(!empty($sub) && $sub->payment_amount == '10'){
             $data = [
               'plan' => 'Basic',
-              'expriy' => $sub->user->subscription_expiry_date
+              'expriy' => $sub->user->subscription_expiry_date,
+              'remain_vids' => $user
             ];
-        }elseif ($sub->payment_amount == '25'){
+        }elseif (!empty($sub) && $sub->payment_amount == '25'){
             $data = [
                 'plan' => 'Enterprise',
                 'expriy' => $sub->user->subscription_expiry_date
             ];
         }else{
-            $data = [
-              'plan' => 'Free',
-              'expriy' => $sub->user->subscription_expiry_date
-            ];
+            if(!empty($sub)){
+                $data = [
+                    'plan' => 'Free',
+                    'expriy' => $sub->user->subscription_expiry_date,
+                    'remain_vids' => $user
+                ];
+            }else{
+                return view('teacher.status');
+            }
         }
 
         return view('teacher.status', $data);
