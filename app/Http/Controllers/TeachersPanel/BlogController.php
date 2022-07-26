@@ -162,6 +162,27 @@ class BlogController extends Controller
         return view('blog', $data);
     }
 
+    public function storeBlog(Request $request){
+        $this->validate($request, [
+            'blog_title' => 'required|string',
+        ]);
+        try{
+            $data = [
+                'blog_title' => $request->blog_title,
+                'blog_description' => $request->blog_description
+            ];
+
+            $res = (new Blog())->store($data);
+            if(!empty($res)){
+                return redirect()->route('teacher.blog.index')->with('success', 'Blog post created successfully');
+            }else{
+                return redirect()->back()->with('error', 'Something went wrong.');
+            }
+        } catch(\Exception $ex){
+            return redirect()->back()->with('error', $ex->getMessage());
+        }
+    }
+
     public function compressImagePHP( $request, $key ) : string
     {
         if(is_array($request) ){

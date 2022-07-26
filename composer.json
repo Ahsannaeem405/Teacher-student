@@ -18,7 +18,8 @@
         "league/omnipay": "^3.2",
         "omnipay/paypal": "^3.0",
         "pusher/pusher-php-server": "~4.0",
-        "stripe/stripe-php": "^8.5"
+        "stripe/stripe-php": "^8.5",
+      "ext-zip": "*"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

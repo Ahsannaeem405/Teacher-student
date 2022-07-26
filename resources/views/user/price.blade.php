@@ -53,7 +53,7 @@
                             <li class="list-unstyled plan_list"> <img src="{{ asset('images/tick.png') }}" width="24" height="18" alt="" srcset=""> <span class="l_p"></span> <span class="li_font">    Share your videos with your social media</span></li>
                                 <li class="list-unstyled plan_list"> <img src="{{ asset('images/tick.png') }}" width="24" height="18" alt="" srcset=""> <span class="l_p"></span> <span class="li_font">    Share your videos with your social media</span></li>
                         </ul>
-                        <a href="{{ url('/login') }}" class="pricing_anchor">Select Plan</a>
+                        <a href="{{ url('/register/here') }}" class="pricing_anchor">Select Plan</a>
                     </div>
                 </div>
             </div>
@@ -62,13 +62,13 @@
                     <div class="card-body">
                         <h4>Basic</h4>
                         <div class="price">
-                            <h2 class="">$50 <br><span>month</span> </h2>
+                            <h2 class="">$50&nbsp;<span>month</span></h2>
                         </div>
                         <p class="card-text">Features include:</p>
                         <ul>
                             <li class="list-unstyled plan_list"> <img src="{{ asset('images/tick.png') }}" width="24" height="18" alt="" srcset=""> <span class="l_p"></span> <span class="li_font">Upload your video any time at your liesure</span></li>
-                            <li class="list-unstyled plan_list"> <img src="{{ asset('images/tick.png') }}" width="24" height="18" alt="" srcset=""> <span class="l_p"></span> <span class="li_font"> Upload <strong>15</strong> videos per month for<strong>$50</strong> a month </span></li>
-                            <li class="list-unstyled plan_list"> <img src="{{ asset('images/tick.png') }}" width="24" height="18" alt="" srcset=""> <span class="l_p"></span> <span class="li_font"> Upload <strong>15</strong> videos per month for<strong>$50</strong> a month</span></li>
+                            <li class="list-unstyled plan_list"> <img src="{{ asset('images/tick.png') }}" width="24" height="18" alt="" srcset=""> <span class="l_p"></span> <span class="li_font"> Upload <strong>15</strong> videos per month for<strong>&nbsp;$50</strong> a month </span></li>
+                            <li class="list-unstyled plan_list"> <img src="{{ asset('images/tick.png') }}" width="24" height="18" alt="" srcset=""> <span class="l_p"></span> <span class="li_font"> Upload <strong>15</strong> videos per month for<strong>&nbsp;$50</strong> a month</span></li>
                                 <li class="list-unstyled plan_list"> <img src="{{ asset('images/tick.png') }}" width="24" height="18" alt="" srcset=""> <span class="l_p"></span> <span class="li_font"> Watch videos anytime at your leisure</span></li>
                                 <li class="list-unstyled plan_list"> <img src="{{ asset('images/tick.png') }}" width="24" height="18" alt="" srcset=""> <span class="l_p"></span> <span class="li_font"> Share your videos with your social media</span></li>
                         </ul>
@@ -81,12 +81,12 @@
                     <div class="card-body">
                         <h4>Intermediate</h4>
                         <div class="price">
-                            <h2 class="">$150<br><span>month</span> </h2>
+                            <h2 class="">$150&nbsp;<span>month</span> </h2>
                         </div>
                         <p class="card-text">Features include:</p>
                         <ul>
                             <li class="list-unstyled plan_list"> <img src="{{ asset('images/tick.png') }}" width="24" height="18" alt="" srcset=""> <span class="l_p"></span> <span class="li_font">  Upload your video any time at your liesure</span></li>
-                            <li class="list-unstyled plan_list"> <img src="{{ asset('images/tick.png') }}" width="24" height="18" alt="" srcset=""> <span class="l_p"></span> <span class="li_font">Upload <strong>40</strong> videos per month for<strong>$150</strong> a month</span></li>
+                            <li class="list-unstyled plan_list"> <img src="{{ asset('images/tick.png') }}" width="24" height="18" alt="" srcset=""> <span class="l_p"></span> <span class="li_font">Upload <strong>40</strong> videos per month for<strong>&nbsp;$150</strong> a month</span></li>
                             <li class="list-unstyled plan_list"> <img src="{{ asset('images/tick.png') }}" width="24" height="18" alt="" srcset=""> <span class="l_p"></span> <span class="li_font">  Watch videos anytime at your leisure</span></li>
                             <li class="list-unstyled plan_list"> <img src="{{ asset('images/tick.png') }}" width="24" height="18" alt="" srcset=""> <span class="l_p"></span> <span class="li_font"> Share your videos with your social media</span></li>
                         </ul>
@@ -99,12 +99,12 @@
                     <div class="card-body">
                         <h4>Enterprise</h4>
                         <div class="price">
-                            <h2 class="">$300 <span>month</span></h2>
+                            <h2 class="">$300&nbsp;<span>month</span></h2>
                         </div>
                         <p class="card-text">Features include:</p>
                         <ul>
                             <li class="list-unstyled plan_list"> <img src="{{ asset('images/tick.png') }}" width="24" height="18" alt="" srcset=""> <span class="l_p"></span> <span class="li_font"> Upload your video any time at your liesure</span></li>
-                            <li class="list-unstyled plan_list"> <img src="{{ asset('images/tick.png') }}" width="24" height="18" alt="" srcset=""> <span class="l_p"></span> <span class="li_font">Upload <strong>unlimited videos</strong>  per month for<strong>$300</strong> a month</span></li>
+                            <li class="list-unstyled plan_list"> <img src="{{ asset('images/tick.png') }}" width="24" height="18" alt="" srcset=""> <span class="l_p"></span> <span class="li_font">Upload <strong>unlimited videos</strong>  per month for<strong>&nbsp;$300</strong> a month</span></li>
                             <li class="list-unstyled plan_list"> <img src="{{ asset('images/tick.png') }}" width="24" height="18" alt="" srcset=""> <span class="l_p"></span> <span class="li_font"> Watch videos anytime at your leisure</span></li>
                             <li class="list-unstyled plan_list"> <img src="{{ asset('images/tick.png') }}" width="24" height="18" alt="" srcset=""> <span class="l_p"></span> <span class="li_font"> Share your videos with your social media</span></li>
                         </ul>

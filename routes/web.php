@@ -176,7 +176,8 @@ Route::group(['prefix' => 'teacher', 'middleware' => ['auth', 'check_teacher'], 
         Route::get('/delClass', [CreateClassController::class, 'delete'])
             ->name('createClass-del');
         Route::resources([
-            'createCourse' => CreateCourseController::class
+            'createCourse' => CreateCourseController::class,
+            'blog' => BlogController::class
         ], ['except'=>['destroy']
         ]);
         Route::get('/delete/course', [CreateCourseController::class, 'deleteCourse'])
@@ -185,10 +186,10 @@ Route::group(['prefix' => 'teacher', 'middleware' => ['auth', 'check_teacher'], 
             ->name('course-video');
         Route::any('subscribe/plan', [StripePaymentController::class, 'stripe'])->name('subscribe-plan');
         Route::post('tech_stripe', [StripePaymentController::class, 'stripePost'])->name('stripe.post');
-        Route::resources([
-            'blog' => BlogController::class
-        ], ['except'=>['destroy']
-        ]);
+//        Route::resources([
+//
+//        ], ['except'=>['destroy']
+//        ]);
         Route::get('/delete/blog', [BlogController::class, 'deleteBlog'])
                                                           ->name('blog-delete');
 
@@ -268,7 +269,7 @@ Route::group(['prefix' => 'student', 'middleware' => ['auth', 'check_student'], 
 
 });
 
-
+Route::post('create/blog/post', [BlogController::class, 'storeBlog'])->name('blog-create');
 Route::post('/reset/password', [MyProfileController::class, 'resetPassword'])
                                             ->name('reset-password');
 Route::get('/change/password', [TeacherDashboardController::class, 'changePassword'])

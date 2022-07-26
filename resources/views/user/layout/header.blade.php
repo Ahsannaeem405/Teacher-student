@@ -66,8 +66,24 @@
 
         <header class="main-header active-header active-header2">
             <div class="row">
-                <div class="col-md-2 logo-col" style="text-align: center">
-                  <a href="{{url('/')}}">  <img src="{{url('/images/logo.svg')}}"  alt="Image"/></a>
+                <div class="col-md-2 logo-col" style="text-align: center; padding-bottom: 35px;">
+                  @if(auth()->user())
+                      @if(auth()->user()->role == '2')
+                        <a href="{{url('/teacher/dashboard')}}">
+                            <img src="{{url('/images/full-logo.png')}}"  alt="Image" style="width: 100px; height: auto"/>
+                        </a>
+                      @endif
+                  @elseif(auth()->user())
+                    @if(auth()->user()->role == '3')
+                        <a href="{{url('/student/dashboard')}}">
+                            <img src="{{url('/images/full-logo.png')}}"  alt="Image" style="width: 100px; height: auto"/>
+                        </a>
+                    @endif
+                  @else
+                    <a href="{{url('/')}}">
+                        <img src="{{url('/images/full-logo.png')}}"  alt="Image" style="width: 100px; height: auto"/>
+                    </a>
+                  @endif
                 </div>
                 <div class="col-md-8 menu-col">
                     <nav class="navbar navbar-expand-lg navbar-light">
@@ -78,7 +94,7 @@
                             <ul class="nav navbar-nav">
                                 <li><a class="" href="{{ url('/') }}">Home</a></li>
                                 <li><a class="" href="{{ url('/about') }}">About Us</a></li>
-                                <li><a class="" href="{{ url('/features') }}">Features</a></li>
+{{--                                <li><a class="" href="{{ url('/features') }}">Features</a></li>--}}
                                 <li><a class="" href="{{url('price')}}">Pricing</a></li>
                                 <li><a class="" href="{{ route('my-blogs') }}">Blog</a></li>
                                 <li><a class="" href="{{ url('/contact') }}">Contact</a></li>

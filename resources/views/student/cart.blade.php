@@ -8,7 +8,7 @@
             <div class="col-lg-8" style="padding-top: 30px;">
                 <h3>Cart</h3>
             </div>
-              
+
         </div>
 
         <div class="row dashboard-searchbar-bottom-line">
@@ -24,8 +24,6 @@
         </div>
 
         <div class="row">
-
-
             <div class="col-lg-6" >
                 @foreach($cart as $carts)
                 <div class="row" style="background-color: #F6F6F6;margin-right:0%;padding-top: 2%;">
@@ -42,7 +40,6 @@
                 </div>
                  @endforeach
             </div>
-
 
             <div class="col-lg-6" style="background-color: #F6F6F6">
                 <div class="col-lg-12" style="margin-bottom: 10px; padding: 0px;">

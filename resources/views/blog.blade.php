@@ -88,7 +88,14 @@
             <div class="banner_text text-center">
                 <h3 class="text-heading" style="font-weight: lighter">Write and share your content</h3>
                 <h2 class="textbold">Read and extend technical knowledge</h2>
-                <a href="{{ (Auth()->user() == null) ? url('/login') : ''}}" class="btn freeBtn " >Write a Blog</a><br>
+
+                @if(auth()->user())
+                    <a href="#" data-toggle="modal" data-target="#exampleModal"
+                       class="btn freeBtn " >Write a Blog</a><br>
+                @else
+                    <a href="{{ url('/login') }}" class="btn freeBtn " >Write a Blog</a><br>
+                @endif
+
                 <a href="{{ (Auth()->user() == null) ? url('/login') : ''}}" class="btn freeBtn comb_btn">Post Content</a>
             </div>
 </div>
@@ -344,5 +351,5 @@ BLOG
             </div>
         </div>
 
-
+@include('write-blog-model')
 @endsection

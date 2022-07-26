@@ -203,7 +203,7 @@ class StudentDashboardController extends Controller
         $class_id = decrypt($id);
         $teacher_id = decrypt($teach_id);
 
-        $cart=cart::where('user_id',\Auth::user()->id)->whereHas('course')->get();
+        $cart = cart::where('user_id',\Auth::user()->id)->whereHas('course')->get();
         return view('student.cart', compact('cart', 'class_id', 'teacher_id'));
     }
     public function deleteCart(Request $request){
@@ -221,20 +221,22 @@ class StudentDashboardController extends Controller
     }
     public function addCart(Request $request){
         if(cart::where('user_id', '=', $request->user_id)->where('course_id',$request->course_id)->exists()) {
-            return back()->with('error',"Course already add in cart"); 
+
+            return back()->with('error',"Course already add in cart");
         }
         else{
             $cart=new cart();
             $cart->user_id=$request->user_id;
             $cart->course_id=$request->course_id;
             $cart->save();
+
             return back();
 
         }
 
- 
 
-        
+
+
     }
 
     public function changePassword(){

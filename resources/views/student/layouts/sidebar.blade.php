@@ -11,7 +11,7 @@
         <img src="{{asset('images')."/". $imagePath[0].".".$imagePath[1]}}" alt="Image"
              style="color: white; border-radius: 50%;" class="tab-img show_prof_img" />
 
-        <p style="font-size: 22px; ">{{ auth()->user()->name }}</p>
+        <p style="font-size: 22px; ">{{ ucwords(auth()->user()->name) }}</p>
         <h4>{{ (auth()->user()->role == 3) ? '(Student)' : ''}}</h4>
     </div>
 

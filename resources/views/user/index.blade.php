@@ -96,17 +96,16 @@ background-color:white !important;
         </div>
 
 <div style="background-color: #FAFAFA;">
-<div class="row row_width">
-    <div class="col-lg-2 text-center"></div>
-<div class="col-lg-9 text-center">
-<h1 style="">
-LEARNING PLUGIN
-</h1>
-</div>
-<div class="col-xs-1" style="text-align: right;padding-right: 0;">
-    <img class="header-dots-img" style="opacity: 50%;" src="{{ asset('/images/dt1.png') }}" alt="Image">
-</div>
-</div>
+
+    <div class="row row_width">
+        <div class="col-lg-2 text-center"></div>
+        <div class="col-lg-9 text-center">
+{{--          <h1 style="">LEARNING PLUGIN</h1>--}}
+        </div>
+        <div class="col-xs-1" style="text-align: right;padding-right: 0;">
+            <img class="header-dots-img" style="opacity: 50%;" src="{{ asset('/images/dt1.png') }}" alt="Image">
+        </div>
+    </div>
 
         <section style="margin-top: 15px;" class="cardbgcolor">
 <div class="container box_b">
@@ -232,9 +231,15 @@ With Virtually Teaching You Can
             <div class='col-md-6'>
                 <h2 class="margin-virtual-card">Flexible and Convienient</h2>
         <p class="text-design">
-            It’s easy to schedule sessions with our tutors. Our tutors will meet with you at the nearest library to your home. Absolutely no need for long journeys. For students at farther locations, we can easily schedule a live video session. With this, students can revise and study at their own pace, pausing, rewinding, testing and exploring until they fully understand the course.
+            Our goal is to bring together a community of future thought leaders, so that they can learn new
+            skills that can change the trajectory of their lives. Having access to a system that will provide
+            you with a significant amount of various subject titles to learn from at any time is key. The future
+            of learning is online and we are excited to embark on this journey with our great students
+            garnering new skills, and wonderful teachers providing profound knowledge based on
+            experience
         </p>
-<div class="btn_cs">        <a href="#" class="btn btn-bg-color common_blog_color btn_ad_style learn-ml">Learn More</a></div>
+    <div class="btn_cs">
+    <a href="{{ url('register/here') }}" class="btn btn-bg-color common_blog_color btn_ad_style learn-ml">Learn More</a></div>
             </div>
             <div class='col-md-6'>
                 <img src="{{ asset('images/aa27.png') }}" class="img_width-virtual" alt="" srcset="">
@@ -251,34 +256,51 @@ With Virtually Teaching You Can
 
 
     <div class="next-project4 ">
-
-        <div class="two-img">
+        <div class="two-img" style="position: absolute; left: 0; margin-top: -20px;">
             <img src="{{url('/images/dot-shape-primary.svg')}}" alt="Image"/>
             <img src="{{url('/images/dot-shape-white.svg')}}" alt="Image"/>
         </div>
-        <div class="container text-center ">
-<div class="row">
-<div class="col-xs-9 col-centered" style="margin-top: -105px;">
-            <h1 style="font-size:38px;margin-top: 12rem;margin-bottom:3rem; color: white;font-weight: bold;
-            font-family: sans-serif;">When you're determined to learn you will find a balance.</h1>
-<p style="font-size: 23px;
-color: white;
-font-family: sans-serif;">A great book by the author Nir Eyal called Hooked. This book is amazing. He talks
-    about building Habit Forming Products. Think about it: Habit Forming Products, hooked
-    on Instagram, Clubhouse, Gaming, and many others platforms. I just can't get enough
-    of it. Why is it that my subconscious is telling me that if I don’t get on it “I’m missing
-    something” part of that needing to be in the know!! This tactic of building a product that
-    users can’t get enough of is dangerous in a sense so make sure you build something
-    great with integrity. Make sure you build something that has a daily purpose!! User
-    experience is important because that's one of the first things users, or potential
-    customers talk about. People have a short attention span and they want to do things
-    fast without any hold up. So figure out a way to give the customer an easy way to
-    navigate through your app or website or sass product.</p>
-</div>
-</div>
-        </div>
-        <div class="one-img">
+
+        <div class="one-img" style="position: absolute; left: 96%; margin-top: 19%;">
             <img src="{{url('/images/dot-shape-white.svg')}}" alt="Image"/>
+        </div>
+
+        <img src="{{ asset('images/29.png') }}" style="width: 100%; object-fit: cover">
+
+        <div class="container text-center ">
+            <div class="row">
+                <div class="col-xs-9 col-centered" style="margin-top: -105px;">
+
+{{--            <h1 --}}
+{{--                style="font-size:38px;margin-top: 12rem;--}}
+{{--                    margin-bottom:3rem; color: white;font-weight: bold;--}}
+{{--                    font-family: sans-serif;">--}}
+{{--                When you're determined to learn you will find a balance.--}}
+{{--            </h1>--}}
+
+            <h1
+                style="font-size:38px;margin-top: 12rem;
+                            margin-bottom:3rem; color: white;font-weight: bold;
+                            font-family: sans-serif;">
+            </h1>
+
+{{--            <p style="font-size: 23px;color: white;font-family: sans-serif;">--}}
+{{--                A great book by the author Nir Eyal called Hooked. This book is amazing. He talks--}}
+{{--                about building Habit Forming Products. Think about it: Habit Forming Products, hooked--}}
+{{--                on Instagram, Clubhouse, Gaming, and many others platforms. I just can't get enough--}}
+{{--                of it. Why is it that my subconscious is telling me that if I don’t get on it “I’m missing--}}
+{{--                something” part of that needing to be in the know!! This tactic of building a product that--}}
+{{--                users can’t get enough of is dangerous in a sense so make sure you build something--}}
+{{--                great with integrity. Make sure you build something that has a daily purpose!! User--}}
+{{--                experience is important because that's one of the first things users, or potential--}}
+{{--                customers talk about. People have a short attention span and they want to do things--}}
+{{--                fast without any hold up. So figure out a way to give the customer an easy way to--}}
+{{--                navigate through your app or website or sass product.--}}
+{{--            </p>--}}
+
+                    <p style="font-size: 23px;color: white;font-family: sans-serif;"></p>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -286,102 +308,84 @@ font-family: sans-serif;">A great book by the author Nir Eyal called Hooked. Thi
 
 
     <div class="container">
-        <div class="row ">
-            <div class="col-md-12 text-center">
-                <h1 class="under-line">
-                Testimonial
-                </h1>
-            </div>
+    <div class="row ">
+
+
+        <div class="col-md-12 text-center">
+    <h1 class="under-line">
+    Testimonial
+    </h1>
         </div>
-        @php
-            $ratings = \App\Models\Rating::whereHas('user')
-                    ->orderBy('created_at','DESC')
-                    ->take(2)
-                    ->get();
-        @endphp
-        <div class="row testimonial-margin m-0">
-            <img class="testimonial-dots" style="position: absolute" src="http://localhost/Teacher-student/public/images/dot-shape-primary.svg" alt="Image">
-            <div class="w-100 text-center row m-0">
-                @foreach($ratings as $rating)
-                    @php
-                        $imagePath = explode('.', !is_null($rating->user->image) ? $rating->user->image : 'do_not_delete.png');
-                    @endphp
-                    <div class="col-md-4 col-md-offset-2">
-                        <div class="card border box_b">
-                            <i class="fa-solid fa-comment coment-design"></i>
-                            <div class="text-center" style="padding-top: 20px">
-                                <img src="{{asset('images')."/". $imagePath[0].".".$imagePath[1]}}"
-                                     class="img-circle img-margin" height="110"  width="110" alt="Card image cap">
-                                <h3>{{ $rating->user->name }}</h3>
-                            </div>
-                            <div class="card-body card-body-bg" style="padding-bottom: 2px;">
-                                <div class="star-icon" style="margin: 11px; padding: 10px;">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            {!! $rating->message !!}
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="star-margin">
-                                                @if($rating->stars == '1')
-                                                    <div class="col-md-12">
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star"></span>
-                                                        <span class="fa fa-star"></span>
-                                                        <span class="fa fa-star"></span>
-                                                        <span class="fa fa-star"></span>
-                                                    </div>
-                                                @elseif($rating->stars == '2')
-                                                    <div class="col-md-12">
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star"></span>
-                                                        <span class="fa fa-star"></span>
-                                                        <span class="fa fa-star"></span>
-                                                    </div>
-                                                @elseif($rating->stars == '3')
-                                                    <div class="col-md-12">
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star"></span>
-                                                        <span class="fa fa-star"></span>
-                                                    </div>
-                                                @elseif($rating->stars == '4')
-                                                    <div class="col-md-12">
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star"></span>
-                                                    </div>
-                                                @elseif($rating->stars == '5')
-                                                    <div class="col-md-12">
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star checked"></span>
-                                                        <span class="fa fa-star checked"></span>
-                                                    </div>
-                                                @endif
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+    </div>
+<div class="row testimonial-margin m-0">
+<img class="testimonial-dots" style="position: absolute" src="http://localhost/Teacher-student/public/images/dot-shape-primary.svg" alt="Image">
+<div class="w-100 text-center row m-0">
+    <div class="col-md-4 col-md-offset-2">
+        <div class="card border box_b">
+            <i class="fa-solid fa-comment coment-design"></i>
+            <div class="text-center" style="padding-top: 20px">
+
+                <img class="img-circle img-margin " height="110"  width="110"
+                     src="{{asset('images/Krystle.jpg')}}" alt="Card image cap">
+
+                <h3>Krystle</h3>
+            </div>
+            <div class="card-body card-body-bg" style="padding-bottom: 2px;">
+                <div class="star-icon " style="margin: 11px;">
+                    <p class="t_para">I used this tutoring service for my 2 girls, and the results were amazing!
+                        The Tutor was patient, punctual, and taught my daughters how to read. I would refer them to everyone!
+                    <br>
+                        <div class="star-margin">
+                            <i class="glyphicon glyphicon-star star_color"></i>
+                        <i class="glyphicon glyphicon-star star_color"></i>
+                        <i class="glyphicon glyphicon-star star_color"></i>
+                        <i class="glyphicon glyphicon-star star_color"></i>
+                        <i class="glyphicon glyphicon-star star_color"></i>
                         </div>
+                    </p>
+                </div>
+             </div>
+          </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card border box_b">
+            <i class="fa-solid fa-comment coment-design"></i>
+            <div class="text-center" style="padding-top: 20px">
+                <img class="img-circle img-margin " height="110"  width="110"
+                     src="{{ asset('images/Bre.jpg') }}" alt="Card image cap">
+
+                <h3>Bre</h3>
+            </div>
+            <div class="card-body card-body-bg" style="padding-bottom: 2px;">
+                <div class="star-icon" style="margin: 11px;">
+
+                    <p class="t_para">
+                        This tutoring service has made it easier for my two children to
+                        understand modern learning materials used in the current school’s
+                        curriculum.
+                    </p>
+                    <div class="star-margin">
+                        <i class="glyphicon glyphicon-star star_color"></i>
+                        <i class="glyphicon glyphicon-star star_color"></i>
+                        <i class="glyphicon glyphicon-star star_color"></i>
+                        <i class="glyphicon glyphicon-star star_color"></i>
+                        <i class="glyphicon glyphicon-star"></i>
                     </div>
-                @endforeach
+                </div>
             </div>
         </div>
     </div>
+</div>
 
 <div class="next-project">
     <div class="two-img">
         <img src="{{url('/images/dot-shape-primary.svg')}}" alt="Image"/>
         <img src="{{url('/images/dot-shape-white.svg')}}" alt="Image"/>
     </div>
+
+{{--    <img src="{{ asset('images/back_blue.png') }}" style="width: 100%; object-fit: cover">--}}
+
     <div class="container">
         <h1>Have A Vision For Your</h1>
         <h1>Next Project? Let's Get Your</h1>

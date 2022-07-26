@@ -7,7 +7,8 @@
     <div class="row " style="padding: 0px; margin: 0px;">
         <div class="col-md-3 logo-col" style="padding-top: 15px;">
             <a href="{{ route('student.dashboard') }}" style="text-decoration: none">
-                <img src="{{url('/images/logo.svg')}}" alt="Image"/>
+                <img src="{{url('/images/full-logo.png')}}" alt="Image"
+                style="width: 100px; height: auto"/>
             </a>
         </div>
         <div class="col-md-7 menu-col" style="padding: 0px; margin: 0px;">

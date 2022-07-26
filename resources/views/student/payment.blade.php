@@ -27,13 +27,13 @@
     <div class="banner-two"></div>
 <div class="container my-5">
 
-        
+
 
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
 
             <div class="panel panel-default credit-card-box">
-                
+
                 <div class="panel-heading display-table" >
                     <div class="row display-tr" >
                         <h3 class="panel-title display-td" >Payment Details</h3>

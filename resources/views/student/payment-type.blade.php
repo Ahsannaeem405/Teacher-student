@@ -12,8 +12,8 @@
                     <div class="row">
                         <form action="{{ route('student.subscribe-plan')}}" id="payment_form" method="POST">
                             @csrf
-                          {{-- <input type="hidden" name="class_id" value="{{ $classId }}">
-                          <input type="hidden" name="teacher_id" value="{{ $teacher_id }}"> --}}
+                          {{-- <input type="hidden" name="class_id" value="{{ $classId }}"> --}}
+{{--                          <input type="hidden" name="teacher_id" value="{{ $teacher_id }}">--}}
                           @php
                           $sum=0;
                           foreach($cart as $row_cart){

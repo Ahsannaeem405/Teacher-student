@@ -96,6 +96,8 @@ class StripePaymentController extends Controller
     }
     public function studentstripe(Request $request)
     {
+        //dd($request->all());
+//        $teacher = User::find($request->teacher_id);
         $teacher = User::find(1);
 
         $data = [
@@ -110,12 +112,11 @@ class StripePaymentController extends Controller
     }
     public function stripestudentPost(Request $request)
     {
-       
+        //dd($request->all());
         try{
-
-
             $payment_amount = str_replace('$', '', $request->amount);
             $teacher = User::find(1);
+
             Stripe\Stripe::setApiKey($teacher->stripe_secret_key);
 
             $pay =Stripe\Charge::create ([
@@ -125,9 +126,9 @@ class StripePaymentController extends Controller
                     "description" => "Payment successfully"
             ]);
 
-
+//dd($pay->description);
             if($pay->description == 'Payment successfully'){
-                
+
                     $cart = cart::where('user_id', auth()->user()->id)->whereHas('course')->get();
 
                     foreach ($cart as $key => $value) {
@@ -147,9 +148,6 @@ class StripePaymentController extends Controller
                         $user->coin=$new;
                         $user->update();
 
-
-
-
                         //$value->delete();
                     }
                     cart::where('user_id', auth()->user()->id)->delete();
@@ -157,8 +155,6 @@ class StripePaymentController extends Controller
             return redirect()->route('student.dashboard')->with('success',"Payment has submitted successfully");
         }
        else{
-        
-
         $teacher = User::find(1);
 
         $data = [
