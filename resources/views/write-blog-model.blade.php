@@ -24,6 +24,20 @@
             <form action="{{ route('blog-create') }}" method="POST">
                 @csrf
                 <div class="modal-body" style="margin-top: 40px;">
+                    @if(!auth()->user())
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" name="email" id="email"
+                                   class="form-control @error('email') is-invalid @enderror"
+                                   autocomplete="email" autofocus required>
+                            @error('email')
+                            <span class="invalid-feedback" role="alert">
+                               <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                    @endif
+
                     <div class="form-group">
                         <label for="blog_title">Blog Title</label>
                         <input type="text" name="blog_title" id="blog_title"

@@ -163,18 +163,36 @@ class BlogController extends Controller
     }
 
     public function storeBlog(Request $request){
+        //dd($request->all());
         $this->validate($request, [
             'blog_title' => 'required|string',
         ]);
         try{
-            $data = [
-                'blog_title' => $request->blog_title,
-                'blog_description' => $request->blog_description
-            ];
+            if($request->has('email')){
+                $data = [
+                    'email' => $request->email,
+                    'blog_title' => $request->blog_title,
+                    'blog_description' => $request->blog_description
+                ];
+            }else{
+                $data = [
+                    'blog_title' => $request->blog_title,
+                    'blog_description' => $request->blog_description
+                ];
+            }
 
             $res = (new Blog())->store($data);
+
             if(!empty($res)){
-                return redirect()->route('teacher.blog.index')->with('success', 'Blog post created successfully');
+                if(auth()->user()){
+                    if(auth()->user()->role == '2'){
+                        return redirect()->route('teacher.blog.index')->with('success', 'Blog post created successfully');
+                    } else{
+                        return redirect()->back()->with('success', 'Blog post created successfully');
+                    }
+                }else{
+                    return redirect()->back()->with('success', 'Blog post created successfully');
+                }
             }else{
                 return redirect()->back()->with('error', 'Something went wrong.');
             }

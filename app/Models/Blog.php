@@ -13,6 +13,7 @@ class Blog extends Model
       'blog_title',
       'blog_description',
       'blog_cover',
+      'email'
     ];
 
     public function getBlog(){
