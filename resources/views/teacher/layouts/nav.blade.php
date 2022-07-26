@@ -28,7 +28,7 @@
             </nav>
         </div>
 
-        <div class="col-md-2 " style="padding-top: 15px;">
+        <div class="col-md-2 " style="padding-top: 20px;">
             <div class="dropdown">
                 <button class="btn dropdown-toggle nav-img-btn" type="button"
                         data-toggle="dropdown" aria-haspopup="true"
