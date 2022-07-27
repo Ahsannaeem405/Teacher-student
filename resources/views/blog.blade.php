@@ -164,29 +164,26 @@ BLOG
             <div class="container row_width">
         <div style="row row_width" >
         <div class="col-sm-4">
-        <div class="pp">
-            @if(auth()->user())
-                @if(auth()->user()->role == '2')
-                    <a href="{{ url('teacher/dashboard') }}" class="b_heading_b" style="
-            font-size: 23px;"> < Back</a>
+            <div class="pp">
+                @if(auth()->user())
+                    @if(auth()->user()->role == '2')
+                        <a href="{{ url('teacher/dashboard') }}" class="b_heading_b" style="
+                font-size: 23px;"> < Back</a>
+                    @else
+                        <a href="{{ url('student/dashboard') }}" class="b_heading_b" style="
+                font-size: 23px;">
+                    @endif
                 @else
-                    <a href="{{ url('student/dashboard') }}" class="b_heading_b" style="
-            font-size: 23px;">
+                    <a href="{{ url('/') }}" class="b_heading_b" style="
+                font-size: 23px;"> < Back</a>
                 @endif
-            @else
-                <a href="{{ url('/') }}" class="b_heading_b" style="
-            font-size: 23px;"> < Back</a>
-            @endif
-        </div>
+            </div>
         </div>
         <div class="col-sm-5">
-        <div class="text-center">    <h1 class="text-heading blog_heading common_blog_color">Latest News & Articles</h1>
-<img src="{{ asset('images/Lin22.png') }}" style="height: 5px;" alt="" srcset="">
-<img src="{{ asset('images/Lin22.png') }}" style="height: 5px;" alt="" srcset="">
-
-        </div>
-
-
+            <div class="text-center">    <h1 class="text-heading blog_heading common_blog_color">Latest News & Articles</h1>
+                <img src="{{ asset('images/Lin22.png') }}" style="height: 5px;" alt="" srcset="">
+                <img src="{{ asset('images/Lin22.png') }}" style="height: 5px;" alt="" srcset="">
+            </div>
         </div>
         <div class="col-sm-3 " style="position: relative;padding-top: 16px;">
 

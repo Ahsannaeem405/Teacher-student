@@ -42,7 +42,7 @@
                                          class="img-fluid" alt="No Image" style=" width: 100%;height: 100%; object-fit: contain;">
                                 </div>
                                 <div class="card-body">
-                                    <h4><strong>{{ ucfirst($class->class_title) }} Class</strong></h4>
+                                    <h4><strong>{{ ucfirst($class->class_title) }}</strong></h4>
 
                                     <p>Created on: {{ date('d-F-Y', strtotime($class->class_date)) }}</p>
                                     <p>Time: {{ $class->class_time }}</p>
