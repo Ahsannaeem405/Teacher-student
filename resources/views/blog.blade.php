@@ -247,66 +247,73 @@ BLOG
                     <img class="img_side" src="{{ asset('images/dot-shape-primary.svg') }}" alt="Image">
                 </div>
             </div>
-            @foreach($blogs as $blog)
-                <div class="box_b p_con " style="position: relative;">
-                   <div class="demo_b">Demo</div>
-                    @php
-                        $imagePath = !is_null($blog->blog_cover) ? $blog->blog_cover : 'do_not_delete.png';
-                    @endphp
+            @if(isset($blogs) && count($blogs) > 0)
+                @foreach($blogs as $blog)
+                    <div class="box_b p_con " style="position: relative;">
+                        <div class="demo_b">Demo</div>
+                        @php
+                            $imagePath = !is_null($blog->blog_cover) ? $blog->blog_cover : 'do_not_delete.png';
+                        @endphp
                         <img src="{{asset('images')."/". $imagePath }}"
                              class="img_width" alt="No Image">
-                {{--    <img class="img_width c_w" src="{{ asset('images/33.png') }}"  alt="" srcset="">--}}
+                        {{--    <img class="img_width c_w" src="{{ asset('images/33.png') }}"  alt="" srcset="">--}}
 
-                    <a href="{{ route('blog-detail', ['id' => encrypt($blog->id)]) }}" style="text-decoration: none;">
-                        <h3 class="bLog_b_head common_blog_color">{{ $blog->blog_title }}</h3>
-                    </a>
-                    <h4 class="b_heading_b">{{ date('d-F-Y', strtotime($blog->created_at)) }}</h4>
+                        <a href="{{ route('blog-detail', ['id' => encrypt($blog->id)]) }}" style="text-decoration: none;">
+                            <h3 class="bLog_b_head common_blog_color">{{ $blog->blog_title }}</h3>
+                        </a>
+                        <h4 class="b_heading_b">{{ date('d-F-Y', strtotime($blog->created_at)) }}</h4>
 
-                    <h3 class="r_m_space">{!! $blog->blog_description !!}</h3>
-                    <div class=" r_m_space">
-                      <h4><a href="{{ url('/blog_detail') }}" class="b_heading_b">Read more</a></h4>
+                        <h3 class="r_m_space">{!! $blog->blog_description !!}</h3>
+                        <div class=" r_m_space">
+                            <h4><a href="{{ url('/blog_detail') }}" class="b_heading_b">Read more</a></h4>
+                        </div>
                     </div>
-                </div>
-            @endforeach
+                @endforeach
         </div>
 
-        <div class="col-md-4">
-            <div class="col-sm-12" style="background-color:#f2f0f0">
-                <h3 class="text-center common_blog_color" style="    font-size: 31px;font-family: sans-serif !important;">
-                    Recent articles
-                </h3>
+          <div class="col-md-4">
+              <div class="col-sm-12" style="background-color:#f2f0f0">
+                  <h3 class="text-center common_blog_color" style="    font-size: 31px;font-family: sans-serif !important;">
+                      Recent articles
+                  </h3>
 
-                @foreach($recents as $recent)
-                    @php
-                        $imagePath = !is_null($recent->blog_cover) ? $recent->blog_cover : 'do_not_delete.png';
-                    @endphp
-                    <div class="row pt_b">
-                    <div class="col-sm-5" style="    padding: 0;">
-                        <img class="img_blog_side" src="{{asset('images')."/". $imagePath }}" alt="No Image">
-{{--                        <img class="img_blog_side" src="{{ asset('images/34.png') }}" class="img_blog_side" alt="" srcset="">--}}
-                    </div>
-                    <div class="col-sm-7">
-                        <a href="{{ url('/login') }}" style="text-decoration: none">
-                            <h4 class="b_side_he">
-                                {{ $recent->blog_title }}
-                            </h4>
-                        </a>
-                        <p>
-                            {!! Str::words($recent->blog_description, 40, ' ...') !!}
-                        </p>
-                        <p class="b_heading_b">
-                            {{ date('d-F-Y', strtotime($recent->created_at)) }}
-                        </p>
-                    </div>
-                </div>
-                @endforeach
+                  @foreach($recents as $recent)
+                      @php
+                          $imagePath = !is_null($recent->blog_cover) ? $recent->blog_cover : 'do_not_delete.png';
+                      @endphp
+                      <div class="row pt_b">
+                          <div class="col-sm-5" style="    padding: 0;">
+                              <img class="img_blog_side" src="{{asset('images')."/". $imagePath }}" alt="No Image">
+                              {{--                        <img class="img_blog_side" src="{{ asset('images/34.png') }}" class="img_blog_side" alt="" srcset="">--}}
+                          </div>
+                          <div class="col-sm-7">
+                              <a href="{{ url('/login') }}" style="text-decoration: none">
+                                  <h4 class="b_side_he">
+                                      {{ $recent->blog_title }}
+                                  </h4>
+                              </a>
+                              <p>
+                                  {!! Str::words($recent->blog_description, 40, ' ...') !!}
+                              </p>
+                              <p class="b_heading_b">
+                                  {{ date('d-F-Y', strtotime($recent->created_at)) }}
+                              </p>
+                          </div>
+                      </div>
+                  @endforeach
+            @else
+                  <div style="padding-right: 70px; margin-bottom: 20%">
+                      <p style="text-align: end; font-size: 22px;">
+                          <strong>No record found...</strong></p>
+                  </div>
+            @endif
             </div>
         </div>
          </section>
 
 
 <div class="pagini">
-    {{ $blogs->links() }}
+    {{ (isset($blogs) && count($blogs) > 0) ? $blogs->links() : '' }}
 </div>
 
 {{--<div class="pagi_mtMb">--}}
@@ -349,8 +356,8 @@ BLOG
                 <h1>Next Project? Let's Get Your</h1>
                 <h1>14 Day Trial Started Now!</h1>
                 <div class="btn-sec mt-5">
-                    <button>Learn More <img src="{{url('/images/arrow.png')}}" alt="Image"/></button>
-                    <button>Join With Us!</button>
+                    <a href="{{ url('register/here') }}" class="footer-bannar-learn-more">Learn More <img src="{{url('/images/arrow.png')}}" alt="Image"/></a>
+                    <a href="{{ url('register/here') }}" class="footer-bannar-join-us">Join With Us!</a>
                 </div>
             </div>
             <div class="one-img">

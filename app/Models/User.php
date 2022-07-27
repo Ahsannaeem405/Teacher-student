@@ -175,7 +175,14 @@ class User extends Authenticatable
     }
 
     public function balance($teacher_id, $payment_amount){
+        $balnc = $this->where('id', $teacher_id)
+            ->first('balance');
+        if(!empty($balnc)){
+           $my_balnc = $balnc->balance + $payment_amount;
+        }else{
+            $my_balnc = $payment_amount;
+        }
         return $this->where('id', $teacher_id)
-            ->update(['balance' => $payment_amount]);
+            ->update(['balance' => $my_balnc]);
     }
 }

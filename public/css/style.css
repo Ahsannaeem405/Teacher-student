@@ -1311,4 +1311,33 @@ display: block;
     border-color: #ddd;
 }
 
+.footer-bannar-learn-more{
+    background: #fff;
+    color: #2c3250;
+    padding: 10px 20px;
+    font-size: 20px;
+    font-family: system-ui;
+    font-weight: 400;
+    border: none;
+    border-radius: 50px;
+    width: 170px;
+    margin-right: 20px;
+    text-decoration: none;
+}
+
+.footer-bannar-join-us{
+    color: #2c3250;
+    padding: 10px 20px;
+    font-size: 20px;
+    font-family: system-ui;
+    font-weight: 400;
+    border: none;
+    border-radius: 50px;
+    width: 170px;
+    margin-right: 20px;
+    background: #c9c97e;
+    text-decoration: none;
+}
+
+
 

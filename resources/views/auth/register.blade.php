@@ -76,9 +76,8 @@
                                 <label for="role" class="field_label fw-bolder">Role Type:</label>
                                 <select name="role" id="role"
                                         class="form-control input-field-reg @error('role') is-invalid @enderror"
-                                        required autocomplete="role" autofocus>
-                                    <option selected>Select Role</option>
-{{--                                    <option value="1">Admin</option>--}}
+                                        autocomplete="role" autofocus required>
+                                    <option value="">Select Role</option>
                                     <option value="2">Teacher</option>
                                     <option value="3">Student</option>
                                 </select>
@@ -90,7 +89,7 @@
                             </div>
 
                             <div class="form-group mb-4 text-center">
-                                <span>Already Register?&nbsp;<a href="{{ url('/sign-in') }}"
+                                <span>Already Register?&nbsp;<a href="{{ url('/login') }}"
                                                                 class="text-decoration-none">Login</a></span>
                             </div>
 

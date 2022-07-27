@@ -138,15 +138,15 @@ background-color:white !important;
                     ->get();
                 @endphp
 
-                @foreach($courses as $course)
-                    @php
-                        $imagePath = !is_null($course->course_image) ? $course->course_image : 'do_not_delete.png';
-                        $current = now();
-                        $created = $course->created_at;
-                        $dateDiff = date_diff($current,$created);
-                    @endphp
+                @if(count($courses) > 0)
+                    @foreach($courses as $course)
+                        @php
+                            $imagePath = !is_null($course->course_image) ? $course->course_image : 'do_not_delete.png';
+                            $current = now();
+                            $created = $course->created_at;
+                            $dateDiff = date_diff($current,$created);
+                        @endphp
 
-                    @if(count($courses) > 0)
                         <div class="col-md-4 p_cours_padding">
                             <div class="card border box_b">
                                 <img src="{{asset('images')."/". $imagePath}}"
@@ -181,10 +181,10 @@ background-color:white !important;
                                 </div>
                             </div>
                         </div>
-                    @else
-
-                    @endif
-                @endforeach
+                    @endforeach
+                @else
+                    <p><strong>No record found...</strong></p>
+                @endif
             </div>
         </div>
     </section>
@@ -372,8 +372,8 @@ background-color:white !important;
             <h1>Next Project? Let's Get Your</h1>
             <h1>14 Day Trial Started Now!</h1>
             <div class="btn-sec mt-5">
-                <button>Learn More <img src="{{url('/images/arrow.png')}}" alt="Image"/></button>
-                <button>Join With Us!</button>
+                <a href="{{ url('register/here') }}" class="footer-bannar-learn-more">Learn More <img src="{{url('/images/arrow.png')}}" alt="Image"/></a>
+                <a href="{{ url('register/here') }}" class="footer-bannar-join-us">Join With Us!</a>
             </div>
         </div>
         <div class="one-img">

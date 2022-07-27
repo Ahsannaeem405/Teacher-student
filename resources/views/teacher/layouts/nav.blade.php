@@ -29,12 +29,16 @@
         </div>
 
         <div class="col-md-2 " style="padding-top: 20px;">
-            <div class="col-md-2" style="text-align: end; padding-top: 14px; font-size: 22px;">
+            <div class="col-md-2" style="text-align: center; padding-top: 14px; font-size: 22px;">
                 @php
                     $balance = (new App\Models\User())->where('id', auth()->user()->id)
                     ->first('balance');
                 @endphp
-                <p style="color: white">{{ '$'.$balance->balance }}</p>
+                <a class="btn btn-secondary"
+                        style="color: grey; padding: 5px; cursor: unset;
+                        text-align: center; background-color: whitesmoke">
+                    {{ '$'.$balance->balance }}
+                </a>
             </div>
             <div class="col-md-10">
                 <div class="dropdown">

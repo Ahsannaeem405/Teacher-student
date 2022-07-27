@@ -18,7 +18,7 @@
 
 {{--                    <li><i class="fa fa-angle-right"></i>&nbsp;  <a class="" href="{{ url('/features') }}">Features</a></li>--}}
                     <li><i class="fa fa-angle-right"></i>&nbsp;  <a class="" href="{{ url('/price') }}">Pricing</a></li>
-                    <li><i class="fa fa-angle-right"></i>&nbsp;  <a class="" href="{{ url('/sign-in') }}">Log in</a></li>
+                    <li><i class="fa fa-angle-right"></i>&nbsp;  <a class="" href="{{ url('/login') }}">Log in</a></li>
                 </ul>
             </div>
             <div class="col-md-2">
@@ -38,9 +38,9 @@
             </div>
         </div>
     </div>
-    <div class="footer-float-right">
-        <img src="{{url('/images/dot-shape-primary.svg')}}" alt="Image"/>
-    </div>
+{{--    <div class="footer-float-right">--}}
+{{--        <img src="{{url('/images/dot-shape-primary.svg')}}" alt="Image"/>--}}
+{{--    </div>--}}
 </div>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins)   Order is important -->
