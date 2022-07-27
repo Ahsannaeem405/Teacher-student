@@ -102,6 +102,7 @@
                         </div>
                         <input type="hidden" name="amount" value="{{ $payment_amount }}">
                         <input type="hidden" name="payment_method" value="{{ $payment_method }}">
+                        <input type="hidden" name="teacher_id" value="{{ $teacher_id }}">
                         {{-- <input type="hidden" name="cart_id" value="{{ $cart_id }}">
                         <input type="hidden" name="teacher_id" value="{{ $teacher->id }}">
                         <input type="hidden" name="class_id" value="{{ $class_id }}"> --}}

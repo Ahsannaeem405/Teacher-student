@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Subscription;
+use App\Models\Transaction;
 use App\Models\User;
 use App\Models\cart;
 use App\Models\PurchaseCourse;
@@ -96,8 +97,8 @@ class StripePaymentController extends Controller
     }
     public function studentstripe(Request $request)
     {
-        //dd($request->all());
-//        $teacher = User::find($request->teacher_id);
+       //dd($request->all());
+        //$teacher_id = User::find($request->teacher_id);
         $teacher = User::find(1);
 
         $data = [
@@ -105,7 +106,8 @@ class StripePaymentController extends Controller
           'teacher'=>$teacher,
           'cart_id'=>$request->cart_id,
           'payment_method' => $request->payment_method,
-          'class_id' => $request->class_id
+          'class_id' => $request->class_id,
+          'teacher_id' => $request->teacher_id,
         ];
 
         return view('student/payment', $data);
@@ -126,35 +128,39 @@ class StripePaymentController extends Controller
                     "description" => "Payment successfully"
             ]);
 
-//dd($pay->description);
             if($pay->description == 'Payment successfully'){
+                $data = [
+                  'user_id' => auth()->user()->id,
+                  't_amount' => $payment_amount
+                ];
 
-                    $cart = cart::where('user_id', auth()->user()->id)->whereHas('course')->get();
+                (new Transaction())->transaction($data);
+                (new User())->balance($request->teacher_id, $payment_amount);
 
-                    foreach ($cart as $key => $value) {
-                        $purchase = new PurchaseCourse();
-                        $purchase->user_id = auth()->user()->id;
-                        $purchase->course_id = $value->course_id;
-                        $purchase->teacher_id =$value->course->teacher_id;
-                        $purchase->class_id = $value->course->create_class_id;
-                        $purchase->save();
+                $cart = cart::where('user_id', auth()->user()->id)->whereHas('course')->get();
 
-                        $course_price=$value->course->price;
+                foreach ($cart as $key => $value) {
+                    $purchase = new PurchaseCourse();
+                    $purchase->user_id = auth()->user()->id;
+                    $purchase->course_id = $value->course_id;
+                    $purchase->teacher_id =$value->course->teacher_id;
+                    $purchase->class_id = $value->course->create_class_id;
+                    $purchase->save();
 
-                        $user=User::find($value->course->teacher_id);
-                        $current_earning=$user->coin;
-                        $new=$current_earning+$course_price;
+                    $course_price=$value->course->price;
 
-                        $user->coin=$new;
-                        $user->update();
+                    $user=User::find($value->course->teacher_id);
+                    $current_earning=$user->coin;
+                    $new=$current_earning+$course_price;
 
-                        //$value->delete();
-                    }
-                    cart::where('user_id', auth()->user()->id)->delete();
+                    $user->coin=$new;
+                    $user->update();
+                    //$value->delete();
+                }
+                cart::where('user_id', auth()->user()->id)->delete();
 
             return redirect()->route('student.dashboard')->with('success',"Payment has submitted successfully");
-        }
-       else{
+        } else{
         $teacher = User::find(1);
 
         $data = [
@@ -166,8 +172,7 @@ class StripePaymentController extends Controller
         return view('student/payment', $data);
         //return back()->with('error',"Transaction Failed");
        }
-    }
-    catch(exception $e){
+    }catch(exception $e){
         $teacher = User::find(1);
 
         $data = [

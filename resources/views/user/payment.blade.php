@@ -48,8 +48,8 @@
                             <p>{{ Session::get('success') }}</p>
                         </div>
                     @endif
-                
-                     
+
+
                     <form
                             role="form"
                             action="{{ url('teacher/tech_stripe') }}"
@@ -101,12 +101,12 @@
                         </div>
                         <input type="hidden" name="amount" value="{{ $payment_amount }}">
                         <input type="hidden" name="payment_method" value="{{ $payment_method }}">
+{{--                        <input type="hidden" name="payment_method" value="{{ $payment_method }}">--}}
                         <div class="row">
                             <div class="col-xs-12">
                                 <button class="btn btn-primary btn-lg btn-block" type="submit">Pay Now ({{ $payment_amount }})</button>
                             </div>
                         </div>
-
                     </form>
                 </div>
             </div>

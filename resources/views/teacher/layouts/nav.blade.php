@@ -29,22 +29,31 @@
         </div>
 
         <div class="col-md-2 " style="padding-top: 20px;">
-            <div class="dropdown">
-                <button class="btn dropdown-toggle nav-img-btn" type="button"
-                        data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false" style="background: none">
-                    @php
-                        $imagePath = explode('.', !is_null(auth()->user()->image) ? auth()->user()->image : 'user-avatar.png');
-                    @endphp
-                    <img src="{{asset('images')."/". $imagePath[0].".".$imagePath[1]}}" alt="Image" class="show_prof_img"
-                         style="color: white; border-radius: 50%;" class="head-user-img" />
+            <div class="col-md-2" style="text-align: end; padding-top: 14px; font-size: 22px;">
+                @php
+                    $balance = (new App\Models\User())->where('id', auth()->user()->id)
+                    ->first('balance');
+                @endphp
+                <p style="color: white">{{ '$'.$balance->balance }}</p>
+            </div>
+            <div class="col-md-10">
+                <div class="dropdown">
+                    <button class="btn dropdown-toggle nav-img-btn" type="button"
+                            data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false" style="background: none">
+                        @php
+                            $imagePath = explode('.', !is_null(auth()->user()->image) ? auth()->user()->image : 'user-avatar.png');
+                        @endphp
+                        <img src="{{asset('images')."/". $imagePath[0].".".$imagePath[1]}}" alt="Image" class="show_prof_img"
+                             style="color: white; border-radius: 50%;" class="head-user-img" />
 
-                    <span class="caret" style="color: white"></span>
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="about-us">
-                    <li><a href="{{ route('teacher.upload-profile') }}">My Profile</a></li>
-                    <li><a href="{{ url('logout') }}">Logout</a></li>
-                </ul>
+                        <span class="caret" style="color: white"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="about-us">
+                        <li><a href="{{ route('teacher.upload-profile') }}">My Profile</a></li>
+                        <li><a href="{{ url('logout') }}">Logout</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>

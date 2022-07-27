@@ -173,4 +173,9 @@ class User extends Authenticatable
         return $this->where('id', auth()->user()->id)
             ->first('remaining_vids');
     }
+
+    public function balance($teacher_id, $payment_amount){
+        return $this->where('id', $teacher_id)
+            ->update(['balance' => $payment_amount]);
+    }
 }
