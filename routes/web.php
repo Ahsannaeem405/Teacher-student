@@ -22,7 +22,8 @@ use App\Http\Controllers\TeachersPanel\{
     MyProfileController,
     BlogController,
     ZipController,
-    History
+    History,
+    Withdraw
 };
 
 use App\Http\Controllers\FrontController;
@@ -132,7 +133,12 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'check_admin'], 'as'
         ->name('view-request');
     Route::get('/delete/request/{id}', [AdminContactController::class, 'deleteSingleRequest'])
         ->name('delete-request');
-
+    Route::get('/withdraw/requests', [AdminController::class, 'withdrawRequests'])
+        ->name('withdraw-requests');
+    Route::get('/request/status/{status}/{id}', [AdminController::class, 'withdrawRequestStatus'])
+        ->name('request-status');
+    Route::post('/payment/withdraw', [AdminController::class, 'paymentWithdraw'])
+        ->name('payment-withdraw');
 });
 
 Route::get('/chat', [ChatController::class, 'chat'])->name('chat')
@@ -169,13 +175,13 @@ Route::group(['prefix' => 'teacher', 'middleware' => ['auth', 'check_teacher'], 
         Route::get('/profile/del/{id}', [MyProfileController::class, 'delete'])
             ->name('profile-del');
 
-        Route::resources([
-            'createClass' => CreateClassController::class
-        ], ['except'=>['destroy']
-        ]);
+//        Route::resources([
+//        ], ['except'=>['destroy']
+//        ]);
         Route::get('/delClass', [CreateClassController::class, 'delete'])
             ->name('createClass-del');
         Route::resources([
+            'createClass' => CreateClassController::class,
             'createCourse' => CreateCourseController::class,
             'blog' => BlogController::class
         ], ['except'=>['destroy']
@@ -212,6 +218,9 @@ Route::group(['prefix' => 'teacher', 'middleware' => ['auth', 'check_teacher'], 
         Route::get('/history', [History::class, 'history'])
             ->name('history');
         Route::get('history/delete',[History::class, 'deletehistory']);
+        Route::get('/withdraw', [Withdraw::class, 'index'])->name('withdraw');
+        Route::post('/withdraw/payment', [Withdraw::class, 'withdrawPayment'])
+                                                       ->name('withdraw-payment');
 
 });
 

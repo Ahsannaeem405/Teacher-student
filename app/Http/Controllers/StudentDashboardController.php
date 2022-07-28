@@ -231,12 +231,7 @@ class StudentDashboardController extends Controller
             $cart->save();
 
             return back();
-
         }
-
-
-
-
     }
 
     public function changePassword(){

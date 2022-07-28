@@ -79,5 +79,22 @@
                 </ul>
             </li>
         </ul>
+
+        <div class="pcoded-navigatio-lavel">Withdraw Requests</div>
+        <ul class="pcoded-item pcoded-left-item">
+            <li class="pcoded-hasmenu {{ request()->routeIs('admin.withdraw-requests') ? 'active' : '' }}">
+                <a href="javascript:void(0)">
+                    <span class="pcoded-micon"><i class="feather icon-layers"></i></span>
+                    <span class="pcoded-mtext">Withdraw Requests</span>
+                </a>
+                <ul class="pcoded-submenu">
+                    <li class="">
+                        <a href="{{ route('admin.withdraw-requests') }}">
+                            <span class="pcoded-mtext">View all</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
     </div>
 </nav>

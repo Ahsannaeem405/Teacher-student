@@ -185,4 +185,14 @@ class User extends Authenticatable
         return $this->where('id', $teacher_id)
             ->update(['balance' => $my_balnc]);
     }
+
+//    public function getBalnc($id){
+//        return $this->where('id', $id)
+//            ->first('balance');
+//    }
+
+    public function updateBalnc($new_balnc){
+        return $this->where('id', auth()->user()->id)
+            ->update(['balance' => $new_balnc]);
+    }
 }

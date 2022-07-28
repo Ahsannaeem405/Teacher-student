@@ -142,6 +142,9 @@
 
         <li class="{{ request()->routeIs('teacher.status') ? 'active' : ''}}">
             <a href="{{ route('teacher.status') }}" style="text-decoration: none">My Status</a></li>
+
+        <li class="{{ request()->routeIs('teacher.withdraw') ? 'active' : ''}}">
+            <a href="{{ route('teacher.withdraw') }}" style="text-decoration: none">Withdraw</a></li>
     </ul>
 
     <div class="" style="text-align: start; margin-top: 80px;">

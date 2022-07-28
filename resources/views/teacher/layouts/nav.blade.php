@@ -37,7 +37,7 @@
                 <a class="btn btn-secondary"
                         style="color: grey; padding: 5px; cursor: unset;
                         text-align: center; background-color: whitesmoke">
-                    {{ '$'.$balance->balance }}
+                    {{ '$'.(!empty($balance->balance) ? $balance->balance : ' 0') }}
                 </a>
             </div>
             <div class="col-md-10">

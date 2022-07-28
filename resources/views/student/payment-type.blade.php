@@ -42,8 +42,8 @@
 
                             <input type="submit" value="Pay Now" id="stripe_btn" style="margin-bottom: 50%;" >
                         </form>
-                        <div id="paypal_input" style="display: none">
 
+                        <div id="paypal_input" style="display: none">
                             <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
                                 <!-- Paypal business test account email id so that you can collect the payments. -->
                                 {{ csrf_field() }}
@@ -58,19 +58,16 @@
                                 <input type="hidden" name="currency_code" value="USD">
                                 <!-- URLs -->
                                 <input type='hidden' name='return' value="{{ url('success2')}}">
-                                <input type="hidden" name="cmd" value="_xclick"> <input
-                                     type="submit" name="submit"  value="Pay Now" id="pay_btn" style="margin-bottom: 50%;">
+                                <input type="hidden" name="cmd" value="_xclick">
+                                <input type="submit" name="submit"  value="Pay Now" id="pay_btn" style="margin-bottom: 50%;">
                             </form>
-
-
-
-
                         </div>
 
 
                         <p style="font-size: 18px;">(You will be redirected to official payment gateway page)</p>
                     </div>
                 </div>
+
                 <div class="col-md-5 order-sum-col home2-col-pay">
                     <h3>ORDER SUMMERY</h3>
                     @foreach($cart as $cart)
@@ -114,26 +111,18 @@
 @endsection
 
 @section('JS')
-
     <script>
-
-
         $(".payment_method").on('click',function(){
             var val=$('input[name="payment_method"]:checked').val();
             if(val=='pay_pal')
             {
-
                $('#paypal_input').attr('style', 'display:block');
                $('#stripe_btn').attr('style', 'display:none');
-
             }
             else{
                 $('#paypal_input').attr('style', 'display:none');
                 $('#stripe_btn').attr('style', 'display:block');
             }
-
         });
-
-
     </script>
 @endsection
