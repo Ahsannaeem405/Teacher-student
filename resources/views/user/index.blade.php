@@ -49,7 +49,8 @@ background-color:white !important;
         margin-left: 20px;
     }
     .greyColor{
-        color: rgb(165, 163, 163);font-size: 17px;
+        color: rgb(165, 163, 163);
+        font-size: 14px;
     }
     .card_section{
         /* margin-top:20px;
@@ -174,7 +175,7 @@ background-color:white !important;
                                                 <span class="greyColor">{{ ($course->course_dowloads < 1) ? '0' : $course->course_dowloads}}</span>
                                             </div>
                                             <div class="col-md-4">
-                                                <span class="greyColor">{{ ($dateDiff->format('%d') > 0) ? $dateDiff->format('%d').' d' : '' }} {{ $dateDiff->format('%i') }} m</span>
+                                                <span class="greyColor">{{ ($dateDiff->d > 0) ? $dateDiff->d.' d' : $dateDiff->h.' h' }} {{ $dateDiff->i }} m</span>
                                             </div>
                                         </div>
                                     </div>
