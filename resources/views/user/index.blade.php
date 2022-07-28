@@ -383,24 +383,24 @@ background-color:white !important;
 @endsection
 
 @section('JS')
-            <script>
-                $(document).ready(function() {
-                    $(document).on('click', '.search-butn', function() {
-                        var data=$(".search-inputtt").val();
-                        $(this).append('<span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>');
+        <script>
+            $(document).ready(function() {
+                $(document).on('keyup', '.search-inputtt', function() {
+                    var data=$(".search-inputtt").val();
+                    $(this).append('<span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>');
 
-                        $.ajax({
-                            url: '{{ url('/main_find_course') }}',
-                            data: {
-                                data
-                            },
-                            type: 'post',
-                            success: function(result) {
-                                $(".ruslt_ser").empty();
-                                $(".ruslt_ser").append(result);
-                            }
-                        });
+                    $.ajax({
+                        url: '{{ url('/main_find_course') }}',
+                        data: {
+                            data
+                        },
+                        type: 'post',
+                        success: function(result) {
+                            $(".ruslt_ser").empty();
+                            $(".ruslt_ser").append(result);
+                        }
                     });
                 });
-            </script>
+            });
+        </script>
 @endsection
