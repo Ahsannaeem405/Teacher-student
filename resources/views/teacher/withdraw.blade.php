@@ -10,6 +10,8 @@
             </div>
         </div>
 
+
+
         <div class="card course_card">
             <div class="card-header">
                 <div class="row">
@@ -58,7 +60,46 @@
                 </div>
             </div>
         </div>
+
+        <div class="row" >
+            <div class="col-lg-12 text_center" style="padding-top: 30px; text-align: center">
+                <h3>Withdraw Requests</h3>
+            </div>
+        </div>
+
+        <div class="card-block table-border-style">
+            <div class="table-responsive">
+                <table class="table table-hover text-center" id="requests">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+{{--                        <th>Teacher Name</th>--}}
+                        <th>Payment Type</th>
+                        <th>Request Amount</th>
+                        <th>Status</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @php
+                        $count = 1;
+
+                    @endphp
+                    @forelse ( $withdraws as $withdraw )
+                        <tr>
+                            <td style="text-align: start !important;">{{ $count++ }}</td>
+                            <td style="text-align: start !important;">{{ (!empty($withdraw->paypal_email) ? 'Paypal' : 'Stripe') }}</td>
+                            <td style="text-align: start !important;">${{ $withdraw->withdraw_amount }}</td>
+                            <td style="text-align: start !important;">{{ ucfirst($withdraw->status) }}</td>
+                        </tr>
+                    @empty
+
+                    @endforelse
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
+
 
     @include('teacher.withdraw-modal')
 @endsection

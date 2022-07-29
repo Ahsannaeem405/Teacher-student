@@ -37,9 +37,37 @@
                         @else
                             <input type="text" name="paypal_email" id="paypal_email"
                                    class="form-control @error('paypal_email') is-invalid @enderror"
-                                   autocomplete="paypal_email" autofocus required>
+                                   autocomplete="paypal_email" autofocus>
                         @endif
                         @error('paypal_email')
+                            <span class="invalid-feedback" role="alert">
+                               <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+
+                    <div>
+                        <h4 style="color: grey; text-align: center">OR</h4>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="stripe_pk" style="color: #585858"><strong>Stripe Public Key</strong></label>
+                        <input type="text" name="stripe_pk" id="stripe_pk"
+                         class="form-control @error('stripe_pk') is-invalid @enderror"
+                         autocomplete="stripe_pk" autofocus>
+                        @error('stripe_pk')
+                            <span class="invalid-feedback" role="alert">
+                               <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label for="stripe_sk" style="color: #585858"><strong>Stripe Secrete Key</strong></label>
+                        <input type="text" name="stripe_sk" id="stripe_sk"
+                               class="form-control @error('stripe_sk') is-invalid @enderror"
+                               autocomplete="stripe_sk" autofocus>
+                        @error('stripe_sk')
                             <span class="invalid-feedback" role="alert">
                                <strong>{{ $message }}</strong>
                             </span>

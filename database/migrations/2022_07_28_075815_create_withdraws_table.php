@@ -18,7 +18,9 @@ class CreateWithdrawsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')
                 ->references('id')->on('users')->onDelete('cascade');
-            $table->string('paypal_email', 100);
+            $table->string('paypal_email', 100)->nullable();
+            $table->string('stripe_pk')->nullable();
+            $table->string('stripe_sk')->nullable();
             $table->integer('withdraw_amount');
             $table->string('status', 20);
             $table->timestamps();

@@ -11,8 +11,10 @@ class Withdraw extends Model
 
     protected $fillable = [
       'paypal_email',
-      'teacher_id',
+      'user_id',
       'withdraw_amount',
+      'stripe_pk',
+      'stripe_sk',
       'status'
     ];
 
@@ -32,5 +34,10 @@ class Withdraw extends Model
     public function updateStatus($req_status, $req_id){
         return $this->where('id', $req_id)
             ->update(['status' => $req_status]);
+    }
+
+    public function getWithdrawRequests(){
+        return $this->where('user_id', auth()->user()->id)
+            ->get();
     }
 }

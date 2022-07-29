@@ -20,6 +20,8 @@
                                 <th>#</th>
                                 <th>Teacher Name</th>
                                 <th>Paypal Email</th>
+                                <th>Stripe Public Key</th>
+                                <th>Stripe Secrete Key</th>
                                 <th>Request Amount</th>
                                 <th>Status</th>
                                 <th>Action</th>
@@ -35,7 +37,9 @@
                                 <tr>
                                     <td style="vertical-align: middle !important;">{{ $count++ }}</td>
                                     <td style="vertical-align: middle !important;">{{ ucwords($request->user->name) }}</td>
-                                    <td style="vertical-align: middle !important;">{{ $request->paypal_email }}</td>
+                                    <td style="vertical-align: middle !important;">{{ (!empty($request->paypal_email) ? $request->paypal_email : '---') }}</td>
+                                    <td style="vertical-align: middle !important;">{{ (!empty($request->stripe_pk) ? $request->stripe_pk : '---') }}</td>
+                                    <td style="vertical-align: middle !important;">{{ (!empty($request->stripe_sk) ? $request->stripe_sk : '---') }}</td>
                                     <td style="vertical-align: middle !important;">${{ $request->withdraw_amount }}</td>
                                     <td style="vertical-align: middle !important;">
                                         <div class="dropdown">
