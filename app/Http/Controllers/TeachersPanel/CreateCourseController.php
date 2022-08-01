@@ -11,6 +11,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Intervention\Image\ImageManager;
 use Intervention\Image\ImageManagerStatic as Image;
+use Session;
 
 class CreateCourseController extends Controller
 {
@@ -42,8 +43,9 @@ class CreateCourseController extends Controller
      */
     public function store(Request $request)
     {
+        dd(Session::get('files'));
         $this->validate($request, [
-            'class_name' => 'required',
+            //'class_name' => 'required',
             'course_price' => 'required|numeric',
             'course_name' => 'required|string|max:30',
         ]);
@@ -331,6 +333,23 @@ class CreateCourseController extends Controller
 
         $path = public_path( 'videos/'. $course_name.$request->course_type. auth()->user()->id) . DIRECTORY_SEPARATOR;
         $file->move($path, $filename);
+        return $filename;
+    }
+
+    public function uploadTeachVids(Request $request){
+
+        if($request->hasFile('file') ){
+            $file = $request;
+        }
+
+//        $filename = $file->getClientOriginalName();
+//        $ext = pathinfo($filename, PATHINFO_EXTENSION);
+
+        $filename = $file->hashName();
+
+        $path = public_path( 'videos/'. auth()->user()->id) . DIRECTORY_SEPARATOR;
+        $file->move($path, $filename);
+        session(['files' => $filename]);
         return $filename;
     }
 

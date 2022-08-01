@@ -36,7 +36,7 @@
             </div>
         </div>
 
-        <form action="{{ route('teacher.createCourse.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('teacher.createCourse.store') }}" method="POST" id="my_form">
             @csrf
             <div class="row">
                     <div class="col-lg-12 text_center">
@@ -118,38 +118,63 @@
             </div>
 
             <div class="row">
-            <div class="col-lg-12  text_center">
-                    <div class="col-lg-2 col-md-6 col-sm-5 text_center">
-                        <label for="vid_1" class="course-cover-plus">
-                            <strong>+</strong></label>
-                        <input type="file" name="vid_1" id="vid_1"
-                               style="visibility:hidden;" >
-                        <label id="name_1"></label>
-                    </div>
+            <div class="col-lg-12 text_center">
+                <div class="">
+                    <form action="{{ route('teacher.vids-upload') }}" method="post"
+                     enctype="multipart/form-data" class="dropzone" id='vid_0'>
+                        @csrf
+                    </form>
+                </div>
 
-                    <div class="col-lg-2 col-md-6 col-sm-5 text_center ">
-                        <label for="vid_2" class="course-cover-plus">
-                            <strong>+</strong></label>
-                        <input type="file" name="vid_2" id="vid_2"
-                               style="visibility:hidden;" >
-                        <label id="name_2"></label>
-                    </div>
+                <div class="col-lg-3 col-md-3 col-sm-5">
+                    <form action="{{ route('teacher.vids-upload') }}" method="post"
+                          enctype="multipart/form-data" class="dropzone" id='vid_1'>
+{{--                        @csrf--}}
 
-                    <div class="col-lg-2 col-md-6 col-sm-5 ">
-                        <label for="vid_3" class="course-cover-plus">
-                            <strong>+</strong></label>
-                        <input type="file" name="vid_3" id="vid_3"
-                               style="visibility:hidden;" >
-                        <label id="name_3"></label>
-                    </div>
+                        {{--                            <label for="vid_1" class="course-cover-plus">--}}
+                        {{--                                <strong>+</strong></label>--}}
+                        {{--                            <input type="file" name="vid_1" id="vid_1"--}}
+                        {{--                                   style="visibility:hidden;" >--}}
+                        {{--                            <label id="name_1"></label>--}}
+                    </form>
+                </div>
 
-                    <div class="col-lg-2 col-md-6 col-sm-5 ">
-                        <label for="vid_4" class="course-cover-plus">
-                            <strong>+</strong></label>
-                        <input type="file" name="vid_4" id="vid_4"
-                               style="visibility:hidden;" >
-                        <label id="name_4"></label>
-                    </div>
+                <div class="col-lg-3 col-md-3 col-sm-5">
+                    <form action="{{ route('teacher.vids-upload') }}" method="post"
+                          enctype="multipart/form-data" class="dropzone" id='vid_2'>
+
+    {{--                            <label for="vid_2" class="course-cover-plus">--}}
+    {{--                                <strong>+</strong></label>--}}
+    {{--                            <input type="file" name="vid_2" id="vid_2"--}}
+    {{--                                   style="visibility:hidden;" >--}}
+    {{--                            <label id="name_2"></label>--}}
+                    </form>
+                </div>
+
+                <div class="col-lg-3 col-md-3 col-sm-5 ">
+                    <form action="{{ route('teacher.vids-upload') }}" method="post"
+                          enctype="multipart/form-data" class="dropzone" id='vid_3'>
+
+    {{--                            <label for="vid_3" class="course-cover-plus">--}}
+    {{--                                <strong>+</strong></label>--}}
+    {{--                            <input type="file" name="vid_3" id="vid_3"--}}
+    {{--                                   style="visibility:hidden;" >--}}
+    {{--                            <label id="name_3"></label>--}}
+                    </form>
+                </div>
+
+                <div class="col-lg-3 col-md-3 col-sm-5 ">
+                    <form action="{{ route('teacher.vids-upload') }}" method="post"
+                          enctype="multipart/form-data" class="dropzone" id='vid_4'>
+
+    {{--                            <label for="vid_4" class="course-cover-plus">--}}
+    {{--                                <strong>+</strong></label>--}}
+    {{--                            <input type="file" name="vid_4" id="vid_4"--}}
+    {{--                                   style="visibility:hidden;" >--}}
+    {{--                            <label id="name_4"></label>--}}
+                    </form>
+                </div>
+
                 </div>
             </div>
 
@@ -213,7 +238,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="" style="text-align: center">
-                        <button type="submit" class="profile-save-btn">Save</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button type="submit" id="form_sub" class="profile-save-btn">Save</button>&nbsp;&nbsp;&nbsp;&nbsp;
                         <a href="#" class="profile-draft-btn">Draft</a>
                     </div>
                 </div>
@@ -240,5 +265,71 @@
         $("#vid_4").change(function(){
             $("#name_4").text(this.files[0].name);
         });
+
+
+        var myDropzoneTheFirst = new Dropzone(
+            '#vid_1', {
+                maxFilesize:1,
+                // acceptedFiles: ".jpeg,.jpg,.png,.gif",
+                success: function(file, response)
+                {
+                    console.log(response);
+                },
+                error: function(file, response)
+                {
+                    return false;
+                }
+            }
+        );
+
+        var myDropzoneTheSecond = new Dropzone(
+            '#vid_2', {
+                maxFilesize:1,
+                // acceptedFiles: ".jpeg,.jpg,.png,.gif",
+                success: function(file, response)
+                {
+                    console.log(response);
+                },
+                error: function(file, response)
+                {
+                    return false;
+                }
+            }
+        );
+
+        var myDropzoneTheThird = new Dropzone(
+            '#vid_3', {
+                maxFilesize:1,
+                // acceptedFiles: ".jpeg,.jpg,.png,.gif",
+                success: function(file, response)
+                {
+                    console.log(response);
+                },
+                error: function(file, response)
+                {
+                    return false;
+                }
+            }
+        );
+
+        var myDropzoneTheFour = new Dropzone(
+            '#vid_4', {
+                maxFilesize:1,
+                // acceptedFiles: ".jpeg,.jpg,.png,.gif",
+                success: function(file, response)
+                {
+                    console.log(response);
+                },
+                error: function(file, response)
+                {
+                    return false;
+                }
+            }
+        );
+
+        $("#form_sub").click(function(){
+            $('#my_form').submit();
+        });
+
     </script>
 @endsection

@@ -175,9 +175,6 @@ Route::group(['prefix' => 'teacher', 'middleware' => ['auth', 'check_teacher'], 
         Route::get('/profile/del/{id}', [MyProfileController::class, 'delete'])
             ->name('profile-del');
 
-//        Route::resources([
-//        ], ['except'=>['destroy']
-//        ]);
         Route::get('/delClass', [CreateClassController::class, 'delete'])
             ->name('createClass-del');
         Route::resources([
@@ -192,10 +189,6 @@ Route::group(['prefix' => 'teacher', 'middleware' => ['auth', 'check_teacher'], 
             ->name('course-video');
         Route::any('subscribe/plan', [StripePaymentController::class, 'stripe'])->name('subscribe-plan');
         Route::post('tech_stripe', [StripePaymentController::class, 'stripePost'])->name('stripe.post');
-//        Route::resources([
-//
-//        ], ['except'=>['destroy']
-//        ]);
         Route::get('/delete/blog', [BlogController::class, 'deleteBlog'])
                                                           ->name('blog-delete');
 
@@ -221,7 +214,8 @@ Route::group(['prefix' => 'teacher', 'middleware' => ['auth', 'check_teacher'], 
         Route::get('/withdraw', [Withdraw::class, 'index'])->name('withdraw');
         Route::post('/withdraw/payment', [Withdraw::class, 'withdrawPayment'])
                                                        ->name('withdraw-payment');
-
+        Route::post('/upload/vids', [CreateCourseController::class, 'uploadTeachVids'])
+            ->name('vids-upload');
 });
 
 Route::group(['prefix' => 'student', 'middleware' => ['auth', 'check_student'], 'as' => 'student.'], function(){

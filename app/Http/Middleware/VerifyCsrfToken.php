@@ -17,6 +17,7 @@ class VerifyCsrfToken extends Middleware
         '/teacher/find_course',
         '/teacher/find_student',
         '/teacher/find_notes',
+        '/teacher/upload/vids',
         '/student/find_class',
         '/student/find_course',
         '/student/find_my_course',
