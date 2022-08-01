@@ -54,47 +54,57 @@
                             @php
                                 $imagePath = explode('.', !is_null($purchase->teacher->image) ? $purchase->teacher->image : 'do_not_delete.png');
                                 $ratings = \App\Models\Rating::get('stars');
-                                foreach ($ratings as $rating){
-                                    $rate[] = $rating->stars;
+                                if(count($ratings) > 0){
+                                    foreach ($ratings as $rating){
+                                        $rate[] = $rating->stars;
+                                    }
+                                    $res = array_sum($rate);
+                                    $count = count($ratings);
+                                    $result = $res / $count;
                                 }
-                                $res = array_sum($rate);
-                                $count = count($ratings);
-                                $result = $res / $count;
                             @endphp
                             <img src="{{asset('images')."/". $imagePath[0].".".$imagePath[1]}}"
                                  class="img-fluid" alt="No Image" style="width: 100%;height: 100%; object-fit: contain;">
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col-sm-6">
+                                    <div class="col-md-12 col-sm-6">
                                       <a href="{{ route('student.teacher-profile', ['id' => encrypt($purchase->teacher->id)]) }}" style="text-decoration: none">
                                           <h4><strong>{{$purchase->teacher->name}} </strong></h4>
                                       </a>
                                         <h5><span class="section3-span" style="color: #c8c97d;"><strong>{{ $purchase->class->class_name }}</strong></span></h5>
                                     </div>
-                                    <div class="col-sm-6 text-right" style="padding-top: 8px;">
-                                        @if($result > 1 && $result < 2)
-                                            <span class="fa fa-star checked"></span>
-                                        @elseif($result > 2 && $result < 3)
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                        @elseif($result > 3 && $result < 4)
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                        @elseif($result > 4 && $result < 5)
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                        @else
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                        @endif
-                                        <span class="section3-span1">{{ $result }}</span>   <span class="section3-span2">{{ '(' .$count. ')'}}</span>
-                                    </div>
+                                    @if(count($ratings) > 0)
+                                        <div class="col-md-12 col-sm-6 text-right" style="padding-top: 8px;">
+                                            @if($result > 1 && $result < 2)
+                                                <span class="fa fa-star checked"></span>
+                                            @elseif($result > 2 && $result < 3)
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                            @elseif($result > 3 && $result < 4)
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                            @elseif($result > 4 && $result < 5)
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                            @else
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                            @endif
+                                            <span class="section3-span1">{{ $result }}</span>   <span class="section3-span2">{{ '(' .$count. ')'}}</span>
+                                        </div>
+                                    @else
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                    @endif
                                 </div>
 
                                 <div class="row">

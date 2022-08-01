@@ -184,7 +184,10 @@ background-color:white !important;
                         </div>
                     @endforeach
                 @else
-                    <p><strong>No record found...</strong></p>
+{{--                    <div style="text-align: center; font-size: 24px">--}}
+{{--                        <i class="fa-solid fa-folder-open"></i>--}}
+{{--                        <p>No notes found...</p>--}}
+{{--                    </div>--}}
                 @endif
             </div>
         </div>

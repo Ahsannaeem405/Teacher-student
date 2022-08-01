@@ -15,9 +15,10 @@
                     </div>
                 </div>
             </div>
-            <form action="{{ route('teacher.course-video') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('teacher.course-video') }}" method="POST" enctype="multipart/form-data"
+                  class="dropzone" id='image-upload'>
                 @csrf
-                <input type="hidden" name="course_type" value="">
+{{--                <input type="hidden" name="course_type" value="">--}}
                 <input type="hidden" name="course_id" value="{{ $course->id }}">
                 <input type="hidden" name="course_name" value="{{ $course->course_name }}">
 
@@ -34,24 +35,28 @@
                         @enderror
                     </div>
 
-                    <div class="form-group">
-                        <label for="course_vid">Upload Lecture</label>
-                        <input type="file" id="course_vid" name="course_vid"
-                               class="form-control @error('course_vid') is-invalid @enderror"
-                               autocomplete="course_vid" autofocus>
-                        @error('course_vid')
-                        <span class="invalid-feedback" role="alert">
-                                       <strong>{{ $message }}</strong>
-                                    </span>
-                        @enderror
-                        <label id="file-name"></label>
+{{--                    <div class="form-group">--}}
+{{--                        <div class="dropzone-inputt" id="drop-div" style="display: none">--}}
+{{--                            <label for="course_vid">Drop file here/click to upload</label>--}}
+{{--                        </div>--}}
+{{--                        <input type="file" id="course_vid" name="course_vid"--}}
+{{--                           class="form-control dz-default dz-message--}}
+{{--                           @error('course_vid') is-invalid @enderror"--}}
+{{--                           autocomplete="course_vid" autofocus--}}
+{{--                           style="visibility: hidden; pointer-events: none">--}}
+{{--                        @error('course_vid')--}}
+{{--                        <span class="invalid-feedback" role="alert">--}}
+{{--                           <strong>{{ $message }}</strong>--}}
+{{--                        </span>--}}
+{{--                        @enderror--}}
+{{--                        <label id="file-name"></label>--}}
 {{--                        <p>(format: JPG, PNG)</p>--}}
-                    </div>
+{{--                    </div>--}}
                 </div>
 
-                <div class="modal-footer">
-                    <button type="submit"  class="btn" style="background: #C8C97D; color: white">Save</button>
-                </div>
+{{--                <div class="modal-footer">--}}
+{{--                    <button type="submit"  class="btn" style="background: #C8C97D; color: white">Save</button>--}}
+{{--                </div>--}}
             </form>
         </div>
     </div>
@@ -76,7 +81,8 @@
                     </div>
                 </div>
             </div>
-            <form action="{{ route('teacher.course-video') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('teacher.course-video') }}" method="POST" enctype="multipart/form-data"
+                  class="dropzone dz-clickable">
                 @csrf
                 <input type="hidden" name="course_id" value="{{ $course->id }}">
                 <input type="hidden" name="course_type" value="live">
@@ -84,10 +90,11 @@
 
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="class_title">Lecture Title</label>
-                        <input type="text" name="class_title" id="class_title"
+                        <label for="live_class_title">Lecture Title</label>
+                        <input type="text" name="class_title" id="live_class_title"
                                class="form-control @error('class_title') is-invalid @enderror"
-                               autocomplete="class_title" autofocus>
+                               autocomplete="class_title" autofocus
+                               >
                         @error('class_title')
                         <span class="invalid-feedback" role="alert">
                                    <strong>{{ $message }}</strong>
@@ -96,25 +103,29 @@
                     </div>
 
 
-                    <div class="form-group">
-                        <label for="course_vid">Upload Lecture</label>
-                        <input type="file" id="course_vid" name="course_vid"
-                               accept="video/mp4, webm, ogg"
-                               class="form-control @error('course_vid') is-invalid @enderror"
-                               autocomplete="course_vid" autofocus required>
-                        @error('course_vid')
-                        <span class="invalid-feedback" role="alert">
-                                       <strong>{{ $message }}</strong>
-                                    </span>
-                        @enderror
-                        <label id="file-name"></label>
-                        <p>(format: JPG, PNG)</p>
-                    </div>
+{{--                    <div class="form-group">--}}
+{{--                        <div class="dropzone-inputt" id="live_vid" style="display: none">--}}
+{{--                            <label for="course_vid">Drop file here/click to upload</label>--}}
+{{--                        </div>--}}
+{{--                        <input type="file" id="course_vid" name="course_vid"--}}
+{{--                               accept="video/mp4, webm, ogg"--}}
+{{--                               class="form-control dz-default dz-message--}}
+{{--                               @error('course_vid') is-invalid @enderror"--}}
+{{--                               autocomplete="course_vid" autofocus--}}
+{{--                               style="visibility: hidden; pointer-events: none">--}}
+{{--                        @error('course_vid')--}}
+{{--                        <span class="invalid-feedback" role="alert">--}}
+{{--                                       <strong>{{ $message }}</strong>--}}
+{{--                                    </span>--}}
+{{--                        @enderror--}}
+{{--                        <label id="file-name"></label>--}}
+{{--                        <p>(format: JPG, PNG)</p>--}}
+{{--                    </div>--}}
                 </div>
 
-                <div class="modal-footer">
-                    <button type="submit"  class="btn" style="background: #C8C97D; color: white">Save</button>
-                </div>
+{{--                <div class="modal-footer">--}}
+{{--                    <button type="submit"  class="btn" style="background: #C8C97D; color: white">Save</button>--}}
+{{--                </div>--}}
             </form>
         </div>
     </div>

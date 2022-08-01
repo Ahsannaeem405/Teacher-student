@@ -16,7 +16,10 @@ use Illuminate\Support\Facades\Validator;
 class StudentDashboardController extends Controller
 {
     public function index(){
-        $classes = PurchaseCourse::whereUser_id(auth()->user()->id)->whereHas('class')
+        $classes = PurchaseCourse::
+            select([\DB::raw('DISTINCT(class_id)')])
+            ->whereUser_id(auth()->user()->id)
+            ->whereHas('class')
             ->paginate(9);
 
         return view('student.dashboard',compact('classes'));
@@ -207,7 +210,9 @@ class StudentDashboardController extends Controller
         return view('student.cart', compact('cart', 'class_id', 'teacher_id'));
     }
     public function deleteCart(Request $request){
+        //dd($request->all());
         cart::find($request->user_id)->delete();
+
         return response()->json(['success'=>'Cart deleted successfully!']);
     }
 

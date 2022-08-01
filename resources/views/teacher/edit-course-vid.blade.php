@@ -15,7 +15,8 @@
                     </div>
                 </div>
             </div>
-            <form action="{{ route('teacher.update-lec') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('teacher.update-lec') }}" method="POST" enctype="multipart/form-data"
+                  class="dropzone" id='image-upload'>
                 @csrf
                 <input type="hidden" name="course_id" id="lecture_id">
                 <input type="hidden" name="course_name" id="course_name">
@@ -34,25 +35,26 @@
                     </div>
 
 
-                    <div class="form-group">
-                        <label for="course_vid">Upload Lecture</label>
-                        <input type="file" id="course_vid" name="course_vid"
-                               accept="video/mp4, webm, ogg"
-                               class="form-control @error('course_vid') is-invalid @enderror"
-                               autocomplete="course_vid" autofocus>
-                        @error('course_vid')
-                        <span class="invalid-feedback" role="alert">
-                                       <strong>{{ $message }}</strong>
-                                    </span>
-                        @enderror
-                        <label id="file-name"></label>
+{{--                    <div class="form-group">--}}
+{{--                        <label for="course_vid">Upload Lecture</label>--}}
+
+{{--                        <input type="file" id="course_vid" name="course_vid"--}}
+{{--                               accept="video/mp4, webm, ogg"--}}
+{{--                               class="form-control @error('course_vid') is-invalid @enderror"--}}
+{{--                               autocomplete="course_vid" autofocus>--}}
+{{--                        @error('course_vid')--}}
+{{--                        <span class="invalid-feedback" role="alert">--}}
+{{--                                       <strong>{{ $message }}</strong>--}}
+{{--                                    </span>--}}
+{{--                        @enderror--}}
+{{--                        <label id="file-name"></label>--}}
 {{--                        <p>(format: JPG, PNG)</p>--}}
-                    </div>
+{{--                    </div>--}}
                 </div>
 
-                <div class="modal-footer">
-                    <button type="submit"  class="btn" style="background: #C8C97D; color: white">Update</button>
-                </div>
+{{--                <div class="modal-footer">--}}
+{{--                    <button type="submit"  class="btn" style="background: #C8C97D; color: white">Update</button>--}}
+{{--                </div>--}}
             </form>
         </div>
     </div>

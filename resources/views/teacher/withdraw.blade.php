@@ -103,3 +103,17 @@
 
     @include('teacher.withdraw-modal')
 @endsection
+
+@section('JS')
+    <script>
+        $('#payment_type').on('change', function (){
+            if($(this).val() === 'paypal'){
+                $('#paypal').removeAttr("style");
+                $('#stripe').attr("style", "display:none");
+            }else{
+                $('#stripe').removeAttr("style");
+                $('#paypal').attr("style", "display:none");
+            }
+        });
+    </script>
+@endsection

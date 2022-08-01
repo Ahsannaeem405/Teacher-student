@@ -255,7 +255,8 @@ BLOG
                             $imagePath = !is_null($blog->blog_cover) ? $blog->blog_cover : 'do_not_delete.png';
                         @endphp
                         <img src="{{asset('images')."/". $imagePath }}"
-                             class="img_width" alt="No Image">
+                             class="img_width" alt="No Image"
+                             style="width: 180px; border-top-left-radius: 5px; border-top-right-radius: 5px;">
                         {{--    <img class="img_width c_w" src="{{ asset('images/33.png') }}"  alt="" srcset="">--}}
 
                         <a href="{{ route('blog-detail', ['id' => encrypt($blog->id)]) }}" style="text-decoration: none;">
@@ -264,9 +265,9 @@ BLOG
                         <h4 class="b_heading_b">{{ date('d-F-Y', strtotime($blog->created_at)) }}</h4>
 
                         <h3 class="r_m_space">{!! $blog->blog_description !!}</h3>
-                        <div class=" r_m_space">
-                            <h4><a href="{{ url('/blog_detail') }}" class="b_heading_b">Read more</a></h4>
-                        </div>
+{{--                        <div class=" r_m_space">--}}
+{{--                            <h4><a href="{{ url('/blog_detail') }}" class="b_heading_b">Read more</a></h4>--}}
+{{--                        </div>--}}
                     </div>
                 @endforeach
         </div>

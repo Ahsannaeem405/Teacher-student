@@ -176,7 +176,11 @@ class Teacher extends Controller
     {
         $meet=meeting::where('user_id',auth()->user()->id)->orderBy('id', 'DESC')->get();;
 
-        return view('/teacher/meeting',compact('meet'));
+        if(request()->path() == 'student/meeting'){
+            return view('/student/meeting',compact('meet'));
+        }else{
+            return view('/teacher/meeting',compact('meet'));
+        }
     }
     public function create_meeting()
     {

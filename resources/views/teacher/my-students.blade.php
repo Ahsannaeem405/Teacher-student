@@ -9,15 +9,14 @@
                 <h3>DASHBOARD</h3>
             </div>
 
-            <div class="col-lg-4 text_center" style="padding-top: 50px; text-align: end">
-                <button type="submit" class="search-btn">
-                    <img src="{{ asset('images/search-icon.png') }}" alt="no image" width="20">
-                </button>
+{{--            <div class="col-lg-4 text_center" style="padding-top: 50px; text-align: end">--}}
+{{--                <button type="submit" class="search-btn">--}}
+{{--                    <img src="{{ asset('images/search-icon.png') }}" alt="no image" width="20">--}}
+{{--                </button>--}}
 
-                <input type="text" class="search-input" placeholder="python coding" name="search">
-            </div>
+{{--                <input type="text" class="search-input" placeholder="python coding" name="search">--}}
+{{--            </div>--}}
         </div>
-
 
         <div class="text_center" style="padding-top: 20px; text-align: center">
             <h3>My Students</h3>

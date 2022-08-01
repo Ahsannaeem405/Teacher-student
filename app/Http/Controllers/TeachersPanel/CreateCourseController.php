@@ -245,9 +245,10 @@ class CreateCourseController extends Controller
     }
 
     public function courseVideo(Request $request){
+
         try{
-            if($request->has('course_vid') && !empty($request->course_vid)){
-                $vid = $this->uploadVid($request, 'course_vid', $request->course_name);
+            if($request->file('file') && !empty($request->file)){
+                $vid = $this->uploadVid($request, 'file', $request->course_name);
             }
 
             $data = [
@@ -258,6 +259,7 @@ class CreateCourseController extends Controller
             ];
 
             $result = (new CourseLecture())->storeSingleLectures($data);
+
             if(!empty($result)){
                 return redirect()->back();
             }else{

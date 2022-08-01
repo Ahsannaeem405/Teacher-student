@@ -31,13 +31,29 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="payment_type" style="color: #585858"><strong>Payment Type</strong></label>
+                        <select name="payment_type" id="payment_type"
+                         class="form-control @error('payment_type') is-invalid @enderror"
+                         autocomplete="payment_type" autofocus>
+                            <option>Select Payment Type</option>
+                            <option value="paypal">Paypal</option>
+                            <option value="stripe">Stripe</option>
+                        </select>
+                        @error('payment_type')
+                        <span class="invalid-feedback" role="alert">
+                               <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+
+                    <div class="form-group" id="paypal" style="display: none">
                         <label for="paypal_email" style="color: #585858"><strong>Paypal Email</strong></label>
                         @if((empty(auth()->user()->balance)))
                             <input type="text" id="paypal_email" class="form-control" disabled>
                         @else
-                            <input type="text" name="paypal_email" id="paypal_email"
+                            <input type="text" name="paypal_email" id="paypal_email" value="{{ (!empty(auth()->user()->paypal_email)) }}"
                                    class="form-control @error('paypal_email') is-invalid @enderror"
-                                   autocomplete="paypal_email" autofocus>
+                                   autocomplete="paypal_email" autofocus style="pointer-events: none">
                         @endif
                         @error('paypal_email')
                             <span class="invalid-feedback" role="alert">
@@ -46,32 +62,30 @@
                         @enderror
                     </div>
 
-                    <div>
-                        <h4 style="color: grey; text-align: center">OR</h4>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="stripe_pk" style="color: #585858"><strong>Stripe Public Key</strong></label>
-                        <input type="text" name="stripe_pk" id="stripe_pk"
-                         class="form-control @error('stripe_pk') is-invalid @enderror"
-                         autocomplete="stripe_pk" autofocus>
-                        @error('stripe_pk')
+                    <div id="stripe" style="display: none">
+                        <div class="form-group">
+                            <label for="stripe_pk" style="color: #585858"><strong>Stripe Public Key</strong></label>
+                            <input type="text" name="stripe_pk" id="stripe_pk" value="{{ auth()->user()->stripe_public_key }}"
+                                   class="form-control @error('stripe_pk') is-invalid @enderror"
+                                   autocomplete="stripe_pk" autofocus style="pointer-events: none">
+                            @error('stripe_pk')
                             <span class="invalid-feedback" role="alert">
                                <strong>{{ $message }}</strong>
                             </span>
-                        @enderror
-                    </div>
+                            @enderror
+                        </div>
 
-                    <div class="form-group">
-                        <label for="stripe_sk" style="color: #585858"><strong>Stripe Secrete Key</strong></label>
-                        <input type="text" name="stripe_sk" id="stripe_sk"
-                               class="form-control @error('stripe_sk') is-invalid @enderror"
-                               autocomplete="stripe_sk" autofocus>
-                        @error('stripe_sk')
+                        <div class="form-group">
+                            <label for="stripe_sk" style="color: #585858"><strong>Stripe Secrete Key</strong></label>
+                            <input type="text" name="stripe_sk" id="stripe_sk" value="{{ auth()->user()->stripe_secret_key }}"
+                                   class="form-control @error('stripe_sk') is-invalid @enderror"
+                                   autocomplete="stripe_sk" autofocus style="pointer-events: none">
+                            @error('stripe_sk')
                             <span class="invalid-feedback" role="alert">
                                <strong>{{ $message }}</strong>
                             </span>
-                        @enderror
+                            @enderror
+                        </div>
                     </div>
 
                     <div class="form-group">

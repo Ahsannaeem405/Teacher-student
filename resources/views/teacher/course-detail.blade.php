@@ -130,7 +130,7 @@
             </div>
             <div class="col-md-3">
 
-                    <label for="" data-toggle="modal" data-target="#exampleModal2" style="padding-top: 25px; color: #C8C97D; font-size: 25px;">
+                    <label for="" data-toggle="modal" data-target="#exampleModal2"  style="padding-top: 25px; color: #C8C97D; font-size: 25px;">
                         <i class="fa fa-plus-circle"></i>
                     </label>
 
@@ -221,5 +221,51 @@
                     }
                 });
         });
+
+
+        $('#class_title').on('keyup', function(){
+            $('#drop-div').removeAttr('style');
+        });
+
+        $('#live_class_title').on('keyup', function(){
+            $('#live_vid').removeAttr('style');
+        });
+
+        Dropzone.options.imageUpload ={
+            maxFilesize:10,
+            // acceptedFiles: ".jpeg,.jpg,.png,.gif",
+            success: function(file, response)
+                    {
+                        $('.modal').each(function(){
+                            $(this).modal('hide');
+                        });
+                        console.log(response);
+                    },
+                    error: function(file, response)
+                    {
+                        return false;
+                    }
+        };
+
+        // Dropzone.options.dropzone =
+        //     {
+        //         maxFilesize: 300,
+        //         renameFile: function(file) {
+        //             var dt = new Date();
+        //             var time = dt.getTime();
+        //             return time+file.name;
+        //         },
+        //         // acceptedFiles: ".jpeg,.jpg,.png,.gif",
+        //         addRemoveLinks: true,
+        //         timeout: 5000,
+        //         success: function(file, response)
+        //         {
+        //             console.log(response);
+        //         },
+        //         error: function(file, response)
+        //         {
+        //             return false;
+        //         }
+        //     };
     </script>
 @endsection

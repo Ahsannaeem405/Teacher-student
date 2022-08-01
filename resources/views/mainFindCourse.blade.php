@@ -43,7 +43,8 @@
         </div>
     @endforeach
 @else
-    <p style="font-size: 22px; text-align: center; margin-top: 10%; margin-bottom: 10%;">
-        <strong>No recod found...</strong>
-    </p>
+    <div style="text-align: center; font-size: 24px">
+        <i class="fa-solid fa-folder-open"></i>
+        <p>No record found...</p>
+    </div>
 @endif

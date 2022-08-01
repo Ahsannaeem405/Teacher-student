@@ -47,16 +47,12 @@
                         <input type="hidden" name="user_id" value="{{auth()->user()->id}}">
                         <input type="hidden" name="course_id" value="{{$course->id}}">
                         @if($ifpurchases !=true)
-
                             <button type="submit" class="add-cart-btn"
                                 style="text-decoration: none; color: white;border:none;" >Add to Cart</button>
                         @else
                             <button type="button" class="add-cart-btn"
                                 style="text-decoration: none; color: white;border:none;" >Purchased</button>
-
                         @endif
-
-
                     </form>
                 </div>
             </div>

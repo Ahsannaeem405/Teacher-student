@@ -128,7 +128,7 @@
         <li class="{{ request()->routeIs('teacher.t-notes') ? 'active' : ''}}">
             <a href="{{ route('teacher.t-notes') }}" style="text-decoration: none">Notes</a></li>
 
-        <li class="{{ request()->routeIs('teacher.chat') ? 'active' : ''}}">
+        <li class="{{ request()->routeIs('chat') ? 'active' : ''}}">
             <a href="{{ route('chat') }}" style="text-decoration: none">Chat</a></li>
 
         <li class="{{ request()->routeIs('teacher.price-menu') ? 'active' : ''}}">

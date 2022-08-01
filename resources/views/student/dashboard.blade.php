@@ -18,7 +18,7 @@
                 </button>
 
                 @if($records == 0)
-                    <input type="text" class="search-input search-margin" placeholder="" name="search">
+{{--                    <input type="text" class="search-input search-margin" placeholder="" name="search">--}}
                 @else
                     <input type="text" class="search-input" placeholder="python coding" name="search">
                 @endif
@@ -36,7 +36,7 @@
                 <h3>My Classes</h3>
             </div>
         @endif
-
+{{--{{dd($classes)}}--}}
         @if($records != 0)
             <div class="row ruslt_ser" style="margin-top: 10px;">
                 @if(count($classes) > 0)
@@ -71,7 +71,10 @@
                     </div>
                 @endforeach
                 @else
-                    <h4 class="text_center">No class found...</h4>
+                    <div style="text-align: center; font-size: 24px">
+                        <i class="fa-solid fa-folder-open"></i>
+                        <p>No record found...</p>
+                    </div>
                 @endif
             </div>
         @endif
@@ -86,7 +89,7 @@
 @section('JS')
     <script>
         $(document).ready(function() {
-            $(document).on('click', '.search-btn', function() {
+            $(document).on('keyup', '.search-input', function() {
                 var data=$(".search-input").val();
                 $(this).append('<span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>');
                 $.ajax({

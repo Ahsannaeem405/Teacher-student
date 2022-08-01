@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('image')->nullable();
             $table->text('bio')->nullable();
             $table->integer('balance')->nullable();
+            $table->string('paypal_email', 100)->nullable();
             $table->string('stripe_secret_key')->nullable();
             $table->string('stripe_public_key')->nullable();
             $table->string('subscription_expiry_date', 15)->nullable();

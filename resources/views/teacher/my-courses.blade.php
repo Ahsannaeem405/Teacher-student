@@ -107,7 +107,10 @@
                     </div>
                 @endforeach
             @else
-                <h4 class="text_center">No course found...</h4>
+                <div style="text-align: center; font-size: 24px">
+                    {{--                <i class="fa-solid fa-folder-open"></i>--}}
+                    <p>No notes found...</p>
+                </div>
             @endif
         </div>
 
@@ -180,7 +183,7 @@
         });
 
         $(document).ready(function() {
-            $(document).on('click', '.search-btn', function() {
+            $(document).on('keyup', '.search-input', function() {
                 var data=$(".search-input").val();
                 $(this).append('<span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>');
                 $.ajax({

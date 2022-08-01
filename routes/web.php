@@ -274,6 +274,10 @@ Route::group(['prefix' => 'student', 'middleware' => ['auth', 'check_student'], 
         Route::post('/find_course', [Teacher::class, 'studentFindCourses']);
         Route::post('/find_my_course', [Teacher::class, 'studentFindMyCourses']);
         Route::post('/find_notes', [Teacher::class, 'studentFindNotes']);
+        Route::get('/meeting', [Teacher::class, 'meeting']);
+
+        Route::get('/create_meeting', [Teacher::class, 'create_meeting']);
+        Route::post('/save_meeting', [Teacher::class, 'save_meeting']);
         //Route::post('/find_teacher', [Teacher::class, 'studentFindTeacher']);
 
 });

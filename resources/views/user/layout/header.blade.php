@@ -92,7 +92,17 @@
                         </button> --}}
                         <div class="" id="navbarNavDropdown">
                             <ul class="nav navbar-nav">
-                                <li><a class="" href="{{ url('/') }}">Home</a></li>
+                                @if(auth()->user())
+                                    @if(auth()->user()->role == '2')
+                                        <li><a class="" href="{{ url('/teacher/dashboard') }}">Home</a></li>
+                                    @endif
+                                @elseif(auth()->user())
+                                    @if(auth()->user()->role == '3')
+                                        <li><a class="" href="{{ url('/student/dashboard') }}">Home</a></li>
+                                    @endif
+                                @else
+                                    <li><a class="" href="{{ url('/') }}">Home</a></li>
+                                @endif
                                 <li><a class="" href="{{ url('/about') }}">About Us</a></li>
 {{--                                <li><a class="" href="{{ url('/features') }}">Features</a></li>--}}
                                 <li><a class="" href="{{url('price')}}">Pricing</a></li>

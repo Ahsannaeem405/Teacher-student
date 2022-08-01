@@ -52,6 +52,7 @@ class Blog extends Model
 
     public function getBlogData($blog_id){
         return $this->where('id', $blog_id)
-            ->first();
+            ->orderBy('created_at', 'DESC')
+            ->paginate(5);
     }
 }

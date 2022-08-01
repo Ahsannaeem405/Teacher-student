@@ -794,4 +794,11 @@ button.btn.dropdown-toggle.nav-img-btn {
     background-color: grey;
 }
 
+.dropzone-inputt{
+    border: 0.5px solid #cdc4c4;
+    border-radius: 2%;
+    padding: 20px;
+    text-align: center;
+}
+
 

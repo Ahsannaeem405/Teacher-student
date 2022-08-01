@@ -190,8 +190,7 @@
                         <input type="hidden" name="user_id" id="user_id" value="{{ request()->get('id') }}" />
 
                             <div class="col-lg-9 col-xs-9" style="text-align: end; padding-right: 0px;">
-
-                                <input type="text" name="chat_msg"  class="form-control get_chat" style="height: 40px;">
+                                <input type="text" id="chat_msg" name="chat_msg"  class="form-control get_chat" style="height: 40px;">
                             </div>
 
                             <div class="col-lg-3 col-xs-3" style="padding-left: 0px;">
@@ -285,7 +284,7 @@
 
                                 <div class="col-lg-9 col-xs-9" style="text-align: end; padding-right: 0px;">
 
-                                    <input type="text" name="chat_msg"  class="form-control get_chat" style="height: 40px;">
+                                    <input type="text" name="chat_msg" id="chat_msg" class="form-control get_chat" style="height: 40px;">
                                 </div>
 
                                 <div class="col-lg-3 col-xs-3" style="padding-left: 0px;">
@@ -307,27 +306,30 @@
 
 @section('JS')
     <script>
+
         $('.chat').scrollTop($('.chat')[0].scrollHeight);
 
         $('#my_form').submit(function(e){
-
-
             e.preventDefault();
             var message = $(".get_chat").val();
+
             var user_id = $('#user_id').val();
 
-            $.ajax({
-               url: '{{ route('store-chats') }}',
-               type: 'POST',
-               data: {message: message, user_id: user_id},
-               dataType: 'JSON',
-                success: (data) => {
-                    $('.chat').scrollTop($('.chat')[0].scrollHeight);
-                    $('form')[0].reset();
-                    //$(".get_chat").reset();
+            var chat_message = $('#chat_msg').val();
 
-                },
-           });
+            if(chat_message){
+                $.ajax({
+                    url: '{{ route('store-chats') }}',
+                    type: 'POST',
+                    data: {message: message, user_id: user_id},
+                    dataType: 'JSON',
+                    success: (data) => {
+                        $('.chat').scrollTop($('.chat')[0].scrollHeight);
+                        $('form')[0].reset();
+                        //$(".get_chat").reset();
+                    },
+                });
+            }
         });
     </script>
 
