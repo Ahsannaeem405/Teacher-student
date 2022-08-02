@@ -123,35 +123,32 @@
             <div class="row">
                 <div class="col-lg-12 text_center">
                     <div class="">
-                        <form action="{{ route('teacher.vids-upload') }}" method="post"
-                         enctype="multipart/form-data" class="dropzone" id='vid_0'>
-                            @csrf
-                        </form>
+                        <form action="#"></form>
                     </div>
 
-                    <div class="col-lg-3 col-md-3 col-sm-5">
+                    <div class="col-lg-12 col-md-12 col-sm-5">
                         <form action="{{ route('teacher.vids-upload') }}" method="post"
                               enctype="multipart/form-data" class="dropzone" id='vid_1'>
                         </form>
                     </div>
 
-                    <div class="col-lg-3 col-md-3 col-sm-5">
-                        <form action="{{ route('teacher.vids-upload') }}" method="post"
-                              enctype="multipart/form-data" class="dropzone" id='vid_2'>
-                        </form>
-                    </div>
+{{--                    <div class="col-lg-3 col-md-3 col-sm-5">--}}
+{{--                        <form action="{{ route('teacher.vids-upload') }}" method="post"--}}
+{{--                              enctype="multipart/form-data" class="dropzone" id='vid_2'>--}}
+{{--                        </form>--}}
+{{--                    </div>--}}
 
-                    <div class="col-lg-3 col-md-3 col-sm-5 ">
-                        <form action="{{ route('teacher.vids-upload') }}" method="post"
-                              enctype="multipart/form-data" class="dropzone" id='vid_3'>
-                        </form>
-                    </div>
+{{--                    <div class="col-lg-3 col-md-3 col-sm-5 ">--}}
+{{--                        <form action="{{ route('teacher.vids-upload') }}" method="post"--}}
+{{--                              enctype="multipart/form-data" class="dropzone" id='vid_3'>--}}
+{{--                        </form>--}}
+{{--                    </div>--}}
 
-                    <div class="col-lg-3 col-md-3 col-sm-5 ">
-                        <form action="{{ route('teacher.vids-upload') }}" method="post"
-                              enctype="multipart/form-data" class="dropzone" id='vid_4'>
-                        </form>
-                    </div>
+{{--                    <div class="col-lg-3 col-md-3 col-sm-5 ">--}}
+{{--                        <form action="{{ route('teacher.vids-upload') }}" method="post"--}}
+{{--                              enctype="multipart/form-data" class="dropzone" id='vid_4'>--}}
+{{--                        </form>--}}
+{{--                    </div>--}}
                 </div>
             </div>
 
@@ -260,7 +257,7 @@
 
         var myDropzoneTheFirst = new Dropzone(
             '#vid_1', {
-                maxFilesize:1,
+                maxFilesize:20,
                 // acceptedFiles: ".jpeg,.jpg,.png,.gif",
                 success: function(file, response)
                 {
@@ -273,50 +270,50 @@
             }
         );
 
-        var myDropzoneTheSecond = new Dropzone(
-            '#vid_2', {
-                maxFilesize:1,
-                // acceptedFiles: ".jpeg,.jpg,.png,.gif",
-                success: function(file, response)
-                {
-                    console.log(response);
-                },
-                error: function(file, response)
-                {
-                    return false;
-                }
-            }
-        );
-
-        var myDropzoneTheThird = new Dropzone(
-            '#vid_3', {
-                maxFilesize:1,
-                // acceptedFiles: ".jpeg,.jpg,.png,.gif",
-                success: function(file, response)
-                {
-                    console.log(response);
-                },
-                error: function(file, response)
-                {
-                    return false;
-                }
-            }
-        );
-
-        var myDropzoneTheFour = new Dropzone(
-            '#vid_4', {
-                maxFilesize:1,
-                // acceptedFiles: ".jpeg,.jpg,.png,.gif",
-                success: function(file, response)
-                {
-                    console.log(response);
-                },
-                error: function(file, response)
-                {
-                    return false;
-                }
-            }
-        );
+        // var myDropzoneTheSecond = new Dropzone(
+        //     '#vid_2', {
+        //         maxFilesize:1,
+        //         // acceptedFiles: ".jpeg,.jpg,.png,.gif",
+        //         success: function(file, response)
+        //         {
+        //             console.log(response);
+        //         },
+        //         error: function(file, response)
+        //         {
+        //             return false;
+        //         }
+        //     }
+        // );
+        //
+        // var myDropzoneTheThird = new Dropzone(
+        //     '#vid_3', {
+        //         maxFilesize:1,
+        //         // acceptedFiles: ".jpeg,.jpg,.png,.gif",
+        //         success: function(file, response)
+        //         {
+        //             console.log(response);
+        //         },
+        //         error: function(file, response)
+        //         {
+        //             return false;
+        //         }
+        //     }
+        // );
+        //
+        // var myDropzoneTheFour = new Dropzone(
+        //     '#vid_4', {
+        //         maxFilesize:1,
+        //         // acceptedFiles: ".jpeg,.jpg,.png,.gif",
+        //         success: function(file, response)
+        //         {
+        //             console.log(response);
+        //         },
+        //         error: function(file, response)
+        //         {
+        //             return false;
+        //         }
+        //     }
+        // );
 
         $("#form_sub").click(function(){
             var description = tinymce.get("description_course").getContent();

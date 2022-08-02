@@ -109,9 +109,9 @@
                     <h4>Product</h4>
                     <ul class="footer-link">
 
-                        <li><i class="fa fa-angle-right"></i>&nbsp;  <a class="" href="{{ url('/features') }}">Features</a></li>
+{{--                        <li><i class="fa fa-angle-right"></i>&nbsp;  <a class="" href="{{ url('/features') }}">Features</a></li>--}}
                         <li><i class="fa fa-angle-right"></i>&nbsp;  <a class="" href="{{ url('/price') }}">Pricing</a></li>
-                        <li><i class="fa fa-angle-right"></i>&nbsp;  <a class="" href="{{ url('/sign-in') }}">Log in</a></li>
+                        <li><i class="fa fa-angle-right"></i>&nbsp;  <a class="" href="{{ (auth()->user()) ? route('teacher.dashboard') : url('/login') }}">Log in</a></li>
                     </ul>
                 </div>
                 <div class="col-md-2">
@@ -124,7 +124,7 @@
                 <div class="col-md-4 forth-col">
                     <h4>Help</h4>
                     <ul class="footer-link">
-                        <li><i class="fa fa-angle-right"></i>&nbsp;  <a class="" href="{{ url('/contact-us') }}">Contact Us</a></li>
+                        <li><i class="fa fa-angle-right"></i>&nbsp;  <a class="" href="{{ url('/contact') }}">Contact Us</a></li>
                         <li><i class="fa fa-angle-right"></i>&nbsp;  <a class="" href="{{ url('/term') }}">Terms Of Service</a></li>
                         <li><i class="fa fa-angle-right"></i>&nbsp;  <a class="" href="{{ url('/policy') }}">Privacy Policy</a></li>
                     </ul>

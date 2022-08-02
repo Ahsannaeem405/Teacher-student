@@ -31,7 +31,7 @@
             <div class="col-md-4 forth-col">
                 <h4>Help</h4>
                 <ul class="footer-link">
-                    <li><i class="fa fa-angle-right"></i>&nbsp;  <a class="" href="{{ url('/contact-us') }}">Contact Us</a></li>
+                    <li><i class="fa fa-angle-right"></i>&nbsp;  <a class="" href="{{ url('/contact') }}">Contact Us</a></li>
                     <li><i class="fa fa-angle-right"></i>&nbsp;  <a class="" href="{{ url('/term') }}">Terms Of Service</a></li>
                     <li><i class="fa fa-angle-right"></i>&nbsp;  <a class="" href="{{ url('/policy') }}">Privacy Policy</a></li>
                 </ul>

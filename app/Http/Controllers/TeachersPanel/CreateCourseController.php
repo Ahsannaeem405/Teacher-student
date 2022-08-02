@@ -58,7 +58,6 @@ class CreateCourseController extends Controller
                 'price' => $request->course_price,
                 'course_name' => $request->course_name,
             ];
-            $vid[] = '';
             if(empty($request->course_date) && empty($request->course_time)){
                 $data['course_date'] = date('Y-m-d');
                 $data['course_time'] = date('H:i:s');
@@ -73,6 +72,7 @@ class CreateCourseController extends Controller
             if(!empty($request->description_course)){
                 $data['course_description'] = $request->description_course;
             }
+
             if(\Session::has('names')){
                 foreach(\Session::get('names') as $name){
                     $vid[] = $name;
@@ -262,7 +262,6 @@ class CreateCourseController extends Controller
     }
 
     public function courseVideo(Request $request){
-
         try{
 //            if($request->file('file') && !empty($request->file)){
 //                $vid = $this->uploadVid($request, 'file', $request->course_name);
