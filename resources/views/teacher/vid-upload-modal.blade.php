@@ -15,8 +15,8 @@
                     </div>
                 </div>
             </div>
-            <form action="{{ route('teacher.course-video') }}" method="POST" enctype="multipart/form-data"
-                  class="dropzone" id='image-upload'>
+            <form action="{{ route('teacher.course-video') }}" method="POST" id="my_form" enctype="multipart/form-data"
+                  >
                 @csrf
 {{--                <input type="hidden" name="course_type" value="">--}}
                 <input type="hidden" name="course_id" value="{{ $course->id }}">
@@ -54,9 +54,12 @@
 {{--                    </div>--}}
                 </div>
 
-{{--                <div class="modal-footer">--}}
-{{--                    <button type="submit"  class="btn" style="background: #C8C97D; color: white">Save</button>--}}
-{{--                </div>--}}
+                <div class="modal-footer">
+                    <button type="submit" id="form_sub"  class="btn" style="background: #C8C97D; color: white">Save</button>
+                </div>
+            </form>
+            <form action="{{ route('teacher.vids-upload') }}" method="post"
+                  enctype="multipart/form-data" class="dropzone" id='vid'>
             </form>
         </div>
     </div>
@@ -81,8 +84,7 @@
                     </div>
                 </div>
             </div>
-            <form action="{{ route('teacher.course-video') }}" method="POST" enctype="multipart/form-data"
-                  class="dropzone dz-clickable">
+            <form action="{{ route('teacher.course-video') }}" method="POST" id="my_form" enctype="multipart/form-data">
                 @csrf
                 <input type="hidden" name="course_id" value="{{ $course->id }}">
                 <input type="hidden" name="course_type" value="live">
@@ -101,8 +103,6 @@
                                 </span>
                         @enderror
                     </div>
-
-
 {{--                    <div class="form-group">--}}
 {{--                        <div class="dropzone-inputt" id="live_vid" style="display: none">--}}
 {{--                            <label for="course_vid">Drop file here/click to upload</label>--}}
@@ -123,9 +123,13 @@
 {{--                    </div>--}}
                 </div>
 
-{{--                <div class="modal-footer">--}}
-{{--                    <button type="submit"  class="btn" style="background: #C8C97D; color: white">Save</button>--}}
-{{--                </div>--}}
+                <div class="modal-footer">
+                    <button type="submit" id="form_sub" class="btn" style="background: #C8C97D; color: white">Save</button>
+                </div>
+            </form>
+
+            <form action="{{ route('teacher.vids-upload') }}" method="post"
+                  enctype="multipart/form-data" class="dropzone" id='vid_2'>
             </form>
         </div>
     </div>

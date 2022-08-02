@@ -25,20 +25,37 @@
                 <div class="col-lg-12">
                     <div class="col-12">
                         <div id="cover_img">
-                            <label for="file-upload" class="course-cover-plus">
-                                <strong>+</strong></label>
-                            <label id="file-name"></label>
-                            <p>(format: JPG, PNG)</p>
-                            <input type="file" name="class_cover"
-                                   class="@error('class_cover') is-invalid @enderror"
-                                   autocomplete="class_cover" autofocus
-                                   id="file-upload" style="visibility:hidden;" accept="image/jpeg, .png">
-                            @error('class_cover')
+                            <img src="{{ asset('images'. '/'. $class->class_image) }}" alt="No image" width="80">
+                            <input type="file" name="course_cover" value=""
+                                   class="@error('course_cover') is-invalid @enderror"
+                                   autocomplete="course_cover" autofocus accept="image/jpeg, .png"
+                                   id="file-upload" style="visibility:hidden; display: none">
+                            @error('course_cover')
                             <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
+
+{{--                            <label for="file-upload" class="course-cover-plus">--}}
+{{--                                <strong>+</strong></label>--}}
+{{--                            <label id="file-name"></label>--}}
+{{--                            <p>(format: JPG, PNG)</p>--}}
+{{--                            <input type="file" name="class_cover"--}}
+{{--                                   class="@error('class_cover') is-invalid @enderror"--}}
+{{--                                   autocomplete="class_cover" autofocus--}}
+{{--                                   id="file-upload" style="visibility:hidden;" accept="image/jpeg, .png">--}}
+{{--                            @error('class_cover')--}}
+{{--                            <span class="invalid-feedback" role="alert">--}}
+{{--                                    <strong>{{ $message }}</strong>--}}
+{{--                                </span>--}}
+{{--                            @enderror--}}
                         </div>
+                        <div style="">
+                            <label for="file-upload" class="" style="text-decoration: underline;">
+                                <strong>Change image</strong></label>
+                        </div>
+                        <p>(format: JPG, PNG)</p>
+                        <label id="file-name"></label>
                     </div>
                 </div>
             </div>

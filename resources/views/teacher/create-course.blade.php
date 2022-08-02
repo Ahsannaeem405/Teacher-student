@@ -36,8 +36,11 @@
             </div>
         </div>
 
-        <form action="{{ route('teacher.createCourse.store') }}" method="POST" id="my_form">
+        <form action="{{ route('teacher.createCourse.store') }}" method="POST" id="my_form" enctype="multipart/form-data">
             @csrf
+
+            <input type="hidden" id="class_id" name="class_name">
+            <input type="hidden" id="description" name="description_course">
             <div class="row">
                     <div class="col-lg-12 text_center">
                         <label for="file-upload" class="course-cover-plus">
@@ -118,63 +121,37 @@
             </div>
 
             <div class="row">
-            <div class="col-lg-12 text_center">
-                <div class="">
-                    <form action="{{ route('teacher.vids-upload') }}" method="post"
-                     enctype="multipart/form-data" class="dropzone" id='vid_0'>
-                        @csrf
-                    </form>
-                </div>
+                <div class="col-lg-12 text_center">
+                    <div class="">
+                        <form action="{{ route('teacher.vids-upload') }}" method="post"
+                         enctype="multipart/form-data" class="dropzone" id='vid_0'>
+                            @csrf
+                        </form>
+                    </div>
 
-                <div class="col-lg-3 col-md-3 col-sm-5">
-                    <form action="{{ route('teacher.vids-upload') }}" method="post"
-                          enctype="multipart/form-data" class="dropzone" id='vid_1'>
-{{--                        @csrf--}}
+                    <div class="col-lg-3 col-md-3 col-sm-5">
+                        <form action="{{ route('teacher.vids-upload') }}" method="post"
+                              enctype="multipart/form-data" class="dropzone" id='vid_1'>
+                        </form>
+                    </div>
 
-                        {{--                            <label for="vid_1" class="course-cover-plus">--}}
-                        {{--                                <strong>+</strong></label>--}}
-                        {{--                            <input type="file" name="vid_1" id="vid_1"--}}
-                        {{--                                   style="visibility:hidden;" >--}}
-                        {{--                            <label id="name_1"></label>--}}
-                    </form>
-                </div>
+                    <div class="col-lg-3 col-md-3 col-sm-5">
+                        <form action="{{ route('teacher.vids-upload') }}" method="post"
+                              enctype="multipart/form-data" class="dropzone" id='vid_2'>
+                        </form>
+                    </div>
 
-                <div class="col-lg-3 col-md-3 col-sm-5">
-                    <form action="{{ route('teacher.vids-upload') }}" method="post"
-                          enctype="multipart/form-data" class="dropzone" id='vid_2'>
+                    <div class="col-lg-3 col-md-3 col-sm-5 ">
+                        <form action="{{ route('teacher.vids-upload') }}" method="post"
+                              enctype="multipart/form-data" class="dropzone" id='vid_3'>
+                        </form>
+                    </div>
 
-    {{--                            <label for="vid_2" class="course-cover-plus">--}}
-    {{--                                <strong>+</strong></label>--}}
-    {{--                            <input type="file" name="vid_2" id="vid_2"--}}
-    {{--                                   style="visibility:hidden;" >--}}
-    {{--                            <label id="name_2"></label>--}}
-                    </form>
-                </div>
-
-                <div class="col-lg-3 col-md-3 col-sm-5 ">
-                    <form action="{{ route('teacher.vids-upload') }}" method="post"
-                          enctype="multipart/form-data" class="dropzone" id='vid_3'>
-
-    {{--                            <label for="vid_3" class="course-cover-plus">--}}
-    {{--                                <strong>+</strong></label>--}}
-    {{--                            <input type="file" name="vid_3" id="vid_3"--}}
-    {{--                                   style="visibility:hidden;" >--}}
-    {{--                            <label id="name_3"></label>--}}
-                    </form>
-                </div>
-
-                <div class="col-lg-3 col-md-3 col-sm-5 ">
-                    <form action="{{ route('teacher.vids-upload') }}" method="post"
-                          enctype="multipart/form-data" class="dropzone" id='vid_4'>
-
-    {{--                            <label for="vid_4" class="course-cover-plus">--}}
-    {{--                                <strong>+</strong></label>--}}
-    {{--                            <input type="file" name="vid_4" id="vid_4"--}}
-    {{--                                   style="visibility:hidden;" >--}}
-    {{--                            <label id="name_4"></label>--}}
-                    </form>
-                </div>
-
+                    <div class="col-lg-3 col-md-3 col-sm-5 ">
+                        <form action="{{ route('teacher.vids-upload') }}" method="post"
+                              enctype="multipart/form-data" class="dropzone" id='vid_4'>
+                        </form>
+                    </div>
                 </div>
             </div>
 
@@ -188,7 +165,7 @@
                 <div class="col-lg-12">
                     <h4><strong>Class Title</strong></h4>
                     <div class="col-lg-4">
-                        <select class="form-control" name="class_name" required>
+                        <select class="form-control" name="class_name" id="class_name" required>
                             <option value="" selected>Choose your own class</option>
                             @foreach($classes as $class)
                                 <option value="{{ $class->id }}">{{ ucfirst($class->class_name) }}</option>
@@ -204,8 +181,8 @@
                             <div class="col-lg-1 pl_0 pr_0">
                                 <a href="{{ route('teacher.create-class') }}"
                                    style="background-color: #C9C97E; color: black; border-radius: 3px;
-                         padding-top: 5px; padding-bottom: 5px; text-decoration: none;
-                         padding-left: 10px; padding-right: 10px; border: none">+</a>
+                                    padding-top: 5px; padding-bottom: 5px; text-decoration: none;
+                                    padding-left: 10px; padding-right: 10px; border: none">+</a>
                             </div>
 
                             <div class="col-lg-10 pl_0 pr_0">
@@ -221,6 +198,7 @@
                     <h4><strong>Describe course</strong></h4>
                 </div>
             </div>
+
 
             <div class="row">
                 <div class="col-lg-12">
@@ -239,7 +217,7 @@
                 <div class="col-lg-12">
                     <div class="" style="text-align: center">
                         <button type="submit" id="form_sub" class="profile-save-btn">Save</button>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="#" class="profile-draft-btn">Draft</a>
+{{--                        <a href="#" class="profile-draft-btn">Draft</a>--}}
                     </div>
                 </div>
             </div>
@@ -249,6 +227,13 @@
 
 @section('JS')
     <script>
+
+        // $(document).ready(function(){
+        //
+        //
+        //
+        // });
+
         $("#file-upload").change(function(){
             $("#file-name").text(this.files[0].name);
         });
@@ -264,6 +249,12 @@
         });
         $("#vid_4").change(function(){
             $("#name_4").text(this.files[0].name);
+        });
+
+        $('#class_name').on('change', function (){
+            var classs = $('#class_name').val();
+            $('#class_id').val(classs);
+            console.log(classs);
         });
 
 
@@ -328,8 +319,14 @@
         );
 
         $("#form_sub").click(function(){
+            var description = tinymce.get("description_course").getContent();
+            $('#description').val(description);
             $('#my_form').submit();
+            //alert(description);
+            console.log(description);
         });
+
+
 
     </script>
 @endsection

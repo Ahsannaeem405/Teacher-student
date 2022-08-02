@@ -265,9 +265,9 @@ BLOG
                         <h4 class="b_heading_b">{{ date('d-F-Y', strtotime($blog->created_at)) }}</h4>
 
                         <h3 class="r_m_space">{!! $blog->blog_description !!}</h3>
-{{--                        <div class=" r_m_space">--}}
-{{--                            <h4><a href="{{ url('/blog_detail') }}" class="b_heading_b">Read more</a></h4>--}}
-{{--                        </div>--}}
+                        <div class=" r_m_space">
+                            <h4><a href="{{ route('blog-detail', ['id' => encrypt($blog->id)]) }}" class="b_heading_b">Read more</a></h4>
+                        </div>
                     </div>
                 @endforeach
         </div>

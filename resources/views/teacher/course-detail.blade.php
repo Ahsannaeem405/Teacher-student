@@ -96,7 +96,7 @@
                 <div class="col-md-3">
                     @if(in_array($ext, $vid))
                         <video width="200" height="140" controls>
-                            <source src='{{asset("/videos/".$course->course_name.auth()->user()->id.'/'.$lecture->course_doc)}}' type="video/mp4">
+                            <source src='{{asset("/videos/".auth()->user()->id.'/'.$lecture->course_doc)}}' type="video/mp4">
                         </video>
                     @else
                         <div style="padding-top: 6px;">
@@ -106,7 +106,7 @@
                         </div>
                     @endif
                     <p><strong>{{ $lecture->class_title }}</strong></p>
-                    <a href="{{asset("/videos/".$course->course_name.auth()->user()->id.'/'.$lecture->course_doc)}}" download class="btn btn-info">Download</a>&nbsp;&nbsp;
+                    <a href="{{asset("/videos/".auth()->user()->id.'/'.$lecture->course_doc)}}" download class="btn btn-info">Download</a>&nbsp;&nbsp;
 
                     <a href="#" style="padding-top: 5px;" data-toggle="modal" data-target="#editVidModal"
                        onclick="edit(this)" data-class_title="{{ $lecture->class_title }}"
@@ -143,10 +143,10 @@
           @if($lecture->course_type =="live" )
             <div class="col-md-3">
                 <video width="200" height="140" controls>
-                    <source src='{{asset("/videos/".$course->course_name.auth()->user()->id.'/'.$lecture->course_doc)}}' type="video/mp4">
+                    <source src='{{asset("videos/".auth()->user()->id.'/'.$lecture->course_doc)}}' type="video/mp4">
                 </video>
                 <p><strong>{{ $lecture->class_title }}</strong></p>
-                <a href="{{asset("/videos/".$course->course_name.auth()->user()->id.'/'.$lecture->course_doc)}}" download class="btn btn-info">Download</a>&nbsp;&nbsp;
+                <a href="{{asset("videos/".auth()->user()->id.'/'.$lecture->course_doc)}}" download class="btn btn-info">Download</a>&nbsp;&nbsp;
 
                 <a href="#" style="padding-top: 5px;" data-toggle="modal" data-target="#editVidModal"
                    onclick="edit(this)" data-class_title="{{ $lecture->class_title }}"
@@ -231,21 +231,55 @@
             $('#live_vid').removeAttr('style');
         });
 
-        Dropzone.options.imageUpload ={
-            maxFilesize:10,
-            // acceptedFiles: ".jpeg,.jpg,.png,.gif",
-            success: function(file, response)
-                    {
-                        $('.modal').each(function(){
-                            $(this).modal('hide');
-                        });
-                        console.log(response);
-                    },
-                    error: function(file, response)
-                    {
-                        return false;
-                    }
-        };
+        var myDropzoneTheThird = new Dropzone(
+            '#vid', {
+                maxFilesize:1,
+                // acceptedFiles: ".jpeg,.jpg,.png,.gif",
+                success: function(file, response)
+                {
+                    console.log(response);
+                },
+                error: function(file, response)
+                {
+                    return false;
+                }
+            }
+        );
+
+        var myDropzoneTheThird = new Dropzone(
+            '#vid_2', {
+                maxFilesize:1,
+                // acceptedFiles: ".jpeg,.jpg,.png,.gif",
+                success: function(file, response)
+                {
+                    console.log(response);
+                },
+                error: function(file, response)
+                {
+                    return false;
+                }
+            }
+        );
+
+        $("#form_sub").click(function(){
+            $('#my_form').submit();
+        });
+
+        // Dropzone.options.imageUpload ={
+        //     maxFilesize:10,
+        //     // acceptedFiles: ".jpeg,.jpg,.png,.gif",
+        //     success: function(file, response)
+        //             {
+        //                 $('.modal').each(function(){
+        //                     $(this).modal('hide');
+        //                 });
+        //                 console.log(response);
+        //             },
+        //             error: function(file, response)
+        //             {
+        //                 return false;
+        //             }
+        // };
 
         // Dropzone.options.dropzone =
         //     {

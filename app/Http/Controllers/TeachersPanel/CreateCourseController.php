@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use Intervention\Image\ImageManager;
 use Intervention\Image\ImageManagerStatic as Image;
 use Session;
+use function GuzzleHttp\Promise\all;
 
 class CreateCourseController extends Controller
 {
@@ -43,9 +44,9 @@ class CreateCourseController extends Controller
      */
     public function store(Request $request)
     {
-        dd(Session::get('files'));
+       dd($request->all());
         $this->validate($request, [
-            //'class_name' => 'required',
+            'class_name' => 'required',
             'course_price' => 'required|numeric',
             'course_name' => 'required|string|max:30',
         ]);
@@ -57,7 +58,7 @@ class CreateCourseController extends Controller
                 'price' => $request->course_price,
                 'course_name' => $request->course_name,
             ];
-
+            $vid[] = '';
             if(empty($request->course_date) && empty($request->course_time)){
                 $data['course_date'] = date('Y-m-d');
                 $data['course_time'] = date('H:i:s');
@@ -72,18 +73,23 @@ class CreateCourseController extends Controller
             if(!empty($request->description_course)){
                 $data['course_description'] = $request->description_course;
             }
-            if($request->has('vid_1') && !empty($request->vid_1)){
-                $vid[] = $this->uploadVid($request, 'vid_1', $request->course_name);
+            if(\Session::has('names')){
+                foreach(\Session::get('names') as $name){
+                    $vid[] = $name;
+                }
+                \Session::forget('names');
+                //$vid[] = $this->uploadVid($request, 'vid_1', $request->course_name);
             }
-            if($request->has('vid_2') && !empty($request->vid_2)){
-                $vid[] = $this->uploadVid($request, 'vid_2', $request->course_name);
-            }
-            if($request->has('vid_3') && !empty($request->vid_3)){
-                $vid[] = $this->uploadVid($request, 'vid_3', $request->course_name);
-            }
-            if($request->has('vid_4') && !empty($request->vid_4)){
-                $vid[] = $this->uploadVid($request, 'vid_4', $request->course_name);
-            }
+
+//            if($request->has('vid_2') && !empty($request->vid_2)){
+//                $vid[] = $this->uploadVid($request, 'vid_2', $request->course_name);
+//            }
+//            if($request->has('vid_3') && !empty($request->vid_3)){
+//                $vid[] = $this->uploadVid($request, 'vid_3', $request->course_name);
+//            }
+//            if($request->has('vid_4') && !empty($request->vid_4)){
+//                $vid[] = $this->uploadVid($request, 'vid_4', $request->course_name);
+//            }
 
             $res = (new CreateCourse())->createCourse($data);
 
@@ -172,8 +178,10 @@ class CreateCourseController extends Controller
      */
     public function update(Request $request, $id)
     {
+//        echo $id;
+//        dd($request->all());
         $this->validate($request, [
-            'class_name' => 'required',
+            //'class_name' => 'required',
             'course_price' => 'required|numeric',
             'course_name' => 'required|string|max:30',
         ]);
@@ -203,18 +211,25 @@ class CreateCourseController extends Controller
             if(!empty($request->description_course)){
                 $data['course_description'] = $request->description_course;
             }
-            if($request->has('vid_1') && !empty($request->vid_1)){
-                $vid[] = $this->uploadVid($request, 'vid_1', $request->course_name);
+            if(\Session::has('names')){
+                foreach(\Session::get('names') as $name){
+                    $vid[] = $name;
+                }
+                \Session::forget('names');
+                //$vid[] = $this->uploadVid($request, 'vid_1', $request->course_name);
             }
-            if($request->has('vid_2') && !empty($request->vid_2)){
-                $vid[] = $this->uploadVid($request, 'vid_2', $request->course_name);
-            }
-            if($request->has('vid_3') && !empty($request->vid_3)){
-                $vid[] = $this->uploadVid($request, 'vid_3', $request->course_name);
-            }
-            if($request->has('vid_4') && !empty($request->vid_4)){
-                $vid[] = $this->uploadVid($request, 'vid_4', $request->course_name);
-            }
+//            if($request->has('vid_1') && !empty($request->vid_1)){
+//                $vid[] = $this->uploadVid($request, 'vid_1', $request->course_name);
+//            }
+//            if($request->has('vid_2') && !empty($request->vid_2)){
+//                $vid[] = $this->uploadVid($request, 'vid_2', $request->course_name);
+//            }
+//            if($request->has('vid_3') && !empty($request->vid_3)){
+//                $vid[] = $this->uploadVid($request, 'vid_3', $request->course_name);
+//            }
+//            if($request->has('vid_4') && !empty($request->vid_4)){
+//                $vid[] = $this->uploadVid($request, 'vid_4', $request->course_name);
+//            }
 
             $res = (new CreateCourse())->updateCourse($data, $course_id);
 
@@ -249,8 +264,15 @@ class CreateCourseController extends Controller
     public function courseVideo(Request $request){
 
         try{
-            if($request->file('file') && !empty($request->file)){
-                $vid = $this->uploadVid($request, 'file', $request->course_name);
+//            if($request->file('file') && !empty($request->file)){
+//                $vid = $this->uploadVid($request, 'file', $request->course_name);
+//            }
+            if(\Session::has('names')){
+                foreach(\Session::get('names') as $name){
+                    $vid = $name;
+                }
+                \Session::forget('names');
+                //$vid[] = $this->uploadVid($request, 'vid_1', $request->course_name);
             }
 
             $data = [
@@ -331,7 +353,7 @@ class CreateCourseController extends Controller
 
         $filename = $file->hashName();
 
-        $path = public_path( 'videos/'. $course_name.$request->course_type. auth()->user()->id) . DIRECTORY_SEPARATOR;
+        $path = public_path( 'videos/'. auth()->user()->id) . DIRECTORY_SEPARATOR;
         $file->move($path, $filename);
         return $filename;
     }
@@ -341,15 +363,23 @@ class CreateCourseController extends Controller
         if($request->hasFile('file') ){
             $file = $request;
         }
-
+        $file = $request->file('file');
 //        $filename = $file->getClientOriginalName();
 //        $ext = pathinfo($filename, PATHINFO_EXTENSION);
 
         $filename = $file->hashName();
-
+       // dd($filename);
         $path = public_path( 'videos/'. auth()->user()->id) . DIRECTORY_SEPARATOR;
+
         $file->move($path, $filename);
-        session(['files' => $filename]);
+
+        if(\Session::has('names')){
+            \Session::push('names', $filename);
+
+        }else{
+            \Session::put('names', [$filename]);
+        }
+
         return $filename;
     }
 

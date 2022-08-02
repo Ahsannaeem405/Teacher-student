@@ -36,13 +36,15 @@
             </div>
         </div>
 
-        <form action="{{ route('teacher.createCourse.update', ['createCourse' => encrypt($cour->id)]) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('teacher.createCourse.update', ['createCourse' => encrypt($cour->id)]) }}" method="POST" id="my_form" enctype="multipart/form-data">
             @csrf
             @method('put')
+
+            <input type="hidden" id="class_id" name="class_name">
+            <input type="hidden" id="description" name="description_course">
                 <div class="row">
                     <div class="col-lg-12 text_center">
-                        <label for="file-upload" class="course-cover-plus">
-                            <strong>+</strong></label>
+                        <img src="{{ asset('images'. '/'. $cour->course_image) }}" alt="No image" width="80">
                         <input type="file" name="course_cover" value=""
                                class="@error('course_cover') is-invalid @enderror"
                                autocomplete="course_cover" autofocus accept="image/jpeg, .png"
@@ -52,18 +54,21 @@
                                     <strong>{{ $message }}</strong>
                                 </span>
                         @enderror
-                        <label id="file-name"></label>
-                        <p>(format: JPG, PNG)</p>
                     </div>
-
+                    <div style="padding-left: 14px">
+                        <label for="file-upload" class="" style="text-decoration: underline;">
+                            <strong>Change image</strong></label>
+                    </div>
+                    <p>(format: JPG, PNG)</p>
+                    <label id="file-name"></label>
                 </div>
 
                 <div class="row" style="margin-bottom: 4%;">
                     <div class="col-lg-6">
                         <h4><strong>Course Name</strong></h4>
                         <input type="text" name="course_name" required class="form-control
-                    @error('course_price') is-invalid @enderror" value="{{ $cour->course_name }}">
-
+                        @error('course_price') is-invalid @enderror"
+                        value="{{ $cour->course_name }}">
                         @error('course_name')
                         <span class="invalid feedback alert-danger" role="alert">
                                 <strong>{{ $message }}.</strong>
@@ -118,53 +123,56 @@
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="col-lg-12  text_center">
-                        <div class="col-lg-2 col-md-6 col-sm-5 text_center">
-                            <label for="vid_1" class="course-cover-plus">
-                                <strong>+</strong></label>
-                            <input type="file" name="vid_1" id="vid_1" value=""
-                                   style="visibility:hidden;" accept="video/mp4, webm, ogg">
-                            <label id="name_1"></label>
-                        </div>
-
-                        <div class="col-lg-2 col-md-6 col-sm-5 text_center ">
-                            <label for="vid_2" class="course-cover-plus">
-                                <strong>+</strong></label>
-                            <input type="file" name="vid_2" id="vid_2"
-                                   style="visibility:hidden;" accept="video/mp4, webm, ogg">
-                            <label id="name_2"></label>
-                        </div>
-
-                        <div class="col-lg-2 col-md-6 col-sm-5 ">
-                            <label for="vid_3" class="course-cover-plus">
-                                <strong>+</strong></label>
-                            <input type="file" name="vid_3" id="vid_3"
-                                   style="visibility:hidden;" accept="video/mp4, webm, ogg">
-                            <label id="name_3"></label>
-                        </div>
-
-                        <div class="col-lg-2 col-md-6 col-sm-5 ">
-                            <label for="vid_4" class="course-cover-plus">
-                                <strong>+</strong></label>
-                            <input type="file" name="vid_4" id="vid_4"
-                                   style="visibility:hidden;" accept="video/mp4, webm, ogg">
-                            <label id="name_4"></label>
-                        </div>
+            <div class="row">
+                <div class="col-lg-12 text_center">
+                    <div class="">
+                        <form action="{{ route('teacher.vids-upload') }}" method="post"
+                              enctype="multipart/form-data" class="dropzone" id='vid_0'>
+                        </form>
                     </div>
-                </div>
 
-                <div class="row" style="margin-bottom: 4%;">
-                    <div class="col-lg-4 text_center">
-                        <p>(format: MP4, MPEG-4, WebM, Ogg)</p>
-                    </div>
+{{--                    <div class="col-lg-3 col-md-3 col-sm-5">--}}
+{{--                        <form action="{{ route('teacher.vids-upload') }}" method="post"--}}
+{{--                              enctype="multipart/form-data" class="dropzone" id='vid_1'>--}}
+{{--                        </form>--}}
+{{--                    </div>--}}
+
+                    @foreach($videos as $video)
+                        <div class="col-lg-3 col-md-3 col-sm-5">
+                            <form action="{{ route('teacher.vids-upload') }}" method="post"
+                                  enctype="multipart/form-data" class="dropzone" id='vid_2'>
+                                <video width="170" height="140" controls>
+                                    <source src='{{asset("videos/".auth()->user()->id.'/'.$video->course_doc)}}' type="video/mp4">
+                                </video>
+                            </form>
+                        </div>
+                    @endforeach
+
+{{--                    <div class="col-lg-3 col-md-3 col-sm-5 ">--}}
+{{--                        <form action="{{ route('teacher.vids-upload') }}" method="post"--}}
+{{--                              enctype="multipart/form-data" class="dropzone" id='vid_3'>--}}
+{{--                        </form>--}}
+{{--                    </div>--}}
+
+{{--                    <div class="col-lg-3 col-md-3 col-sm-5 ">--}}
+{{--                        <form action="{{ route('teacher.vids-upload') }}" method="post"--}}
+{{--                              enctype="multipart/form-data" class="dropzone" id='vid_4'>--}}
+{{--                        </form>--}}
+{{--                    </div>--}}
                 </div>
+            </div>
+
+{{--                <div class="row" style="margin-bottom: 4%;">--}}
+{{--                    <div class="col-lg-4 text_center">--}}
+{{--                        <p>(format: MP4, MPEG-4, WebM, Ogg)</p>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
 
                 <div class="row" style="margin-bottom: 4%;">
                     <div class="col-lg-12">
                         <h4><strong>Class Name</strong></h4>
                         <div class="col-lg-4">
-                            <select class="form-control" name="class_name" required>
+                            <select class="form-control" name="class_name" id="class_name" required>
                                 <option value="" selected>Choose your own class</option>
 
                                 @foreach($classes as $class)
@@ -216,8 +224,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="" style="text-align: center">
-                        <button type="submit" class="profile-save-btn">Update</button>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="#" class="profile-draft-btn">Draft</a>
+                        <button type="submit" id="form_sub" class="profile-save-btn">Update</button>&nbsp;&nbsp;&nbsp;&nbsp;
+{{--                        <a href="#" class="profile-draft-btn">Draft</a>--}}
                     </div>
                 </div>
             </div>
@@ -227,6 +235,14 @@
 
 @section('JS')
     <script>
+        $("#form_sub").click(function(){
+            var description = tinymce.get("description_course").getContent();
+            $('#description').val(description);
+            $('#my_form').submit();
+            //alert(description);
+            console.log(description);
+        });
+
         $("#file-upload").change(function(){
             $("#file-name").text(this.files[0].name);
         });
@@ -243,5 +259,73 @@
         $("#vid_4").change(function(){
             $("#name_4").text(this.files[0].name);
         });
+
+        $('#class_name').on('change', function (){
+            var classs = $('#class_name').val();
+            $('#class_id').val(classs);
+            console.log(classs);
+        });
+
+        var myDropzoneTheFirst = new Dropzone(
+            '#vid_1', {
+                maxFilesize:1,
+                // acceptedFiles: ".jpeg,.jpg,.png,.gif",
+                success: function(file, response)
+                {
+                    console.log(response);
+                },
+                error: function(file, response)
+                {
+                    return false;
+                }
+            }
+        );
+
+        var myDropzoneTheSecond = new Dropzone(
+            '#vid_2', {
+                maxFilesize:1,
+                // acceptedFiles: ".jpeg,.jpg,.png,.gif",
+                success: function(file, response)
+                {
+                    console.log(response);
+                },
+                error: function(file, response)
+                {
+                    return false;
+                }
+            }
+        );
+
+        var myDropzoneTheThird = new Dropzone(
+            '#vid_3', {
+                maxFilesize:1,
+                // acceptedFiles: ".jpeg,.jpg,.png,.gif",
+                success: function(file, response)
+                {
+                    console.log(response);
+                },
+                error: function(file, response)
+                {
+                    return false;
+                }
+            }
+        );
+
+        var myDropzoneTheFour = new Dropzone(
+            '#vid_4', {
+                maxFilesize:1,
+                // acceptedFiles: ".jpeg,.jpg,.png,.gif",
+                success: function(file, response)
+                {
+                    console.log(response);
+                },
+                error: function(file, response)
+                {
+                    return false;
+                }
+            }
+        );
+
+
     </script>
 @endsection
