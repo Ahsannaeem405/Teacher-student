@@ -44,7 +44,7 @@ class CreateCourseController extends Controller
      */
     public function store(Request $request)
     {
-       dd($request->all());
+       //dd($request->all());
         $this->validate($request, [
             'class_name' => 'required',
             'course_price' => 'required|numeric',
