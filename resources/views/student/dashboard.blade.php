@@ -105,8 +105,8 @@
                 });
             });
         });
-        // var a = $(".search-input").val();
-        // console.log(a);
+        var a = $(".search-input").val();
+        console.log(a);
     </script>
 @endsection
 
