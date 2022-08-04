@@ -137,7 +137,6 @@
             </div>
         </div>
 
-
         <div class="row" style="margin-top: 20px;">
           @foreach($lectures as $lecture)
           @if($lecture->course_type =="live" )
@@ -172,6 +171,10 @@
 
 @section('JS')
     <script>
+        $("#form_sub").click(function(){
+            $('#my_form').submit();
+        });
+
         $("#course_vid").change(function(){
             $("#file-name").text(this.files[0].name);
         });
@@ -231,9 +234,9 @@
             $('#live_vid').removeAttr('style');
         });
 
-        var myDropzoneTheThird = new Dropzone(
-            '#vid', {
-                maxFilesize:1,
+        var myDropzoneTheFirst = new Dropzone(
+            '#vid_1', {
+                maxFilesize:20,
                 // acceptedFiles: ".jpeg,.jpg,.png,.gif",
                 success: function(file, response)
                 {
@@ -246,24 +249,7 @@
             }
         );
 
-        var myDropzoneTheThird = new Dropzone(
-            '#vid_2', {
-                maxFilesize:1,
-                // acceptedFiles: ".jpeg,.jpg,.png,.gif",
-                success: function(file, response)
-                {
-                    console.log(response);
-                },
-                error: function(file, response)
-                {
-                    return false;
-                }
-            }
-        );
 
-        $("#form_sub").click(function(){
-            $('#my_form').submit();
-        });
 
         // Dropzone.options.imageUpload ={
         //     maxFilesize:10,

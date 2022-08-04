@@ -37,12 +37,11 @@ class StripePaymentController extends Controller
      */
     public function stripePost(Request $request)
     {
-        //dd('d');
         $payment_amount = str_replace('$', '', $request->amount);
         $payment_method = $request->payment_method;
+        $admin = User::find(1);
 
-
-        Stripe\Stripe::setApiKey(env('STRIPE_SECRET','sk_test_51Kh9uAFBFsCMdULhVtPQxp0NOArxMFzdQ6qroS5jZFettctGfyVPc5WPmT6b1hGimRW09adqa3lndHnywhsbBqYW00K8eyxFsu'));
+        Stripe\Stripe::setApiKey($admin->stripe_secret_key);
 
         $pay =Stripe\Charge::create ([
                 "amount" => $payment_amount * 100,
@@ -52,7 +51,6 @@ class StripePaymentController extends Controller
         ]);
 
         if($pay->description == 'Payment successfully'){
-           // dd('d');
 
             if($payment_amount == '10'){
                 $data = [

@@ -39,7 +39,7 @@
                     <h3><strong>{{$course->course_name}} <span class="span-class span_left"
                                                                style="font-size: 18px;">({{ ucfirst($course->class->class_name) }} Class)</span></strong></h3>
                     <hr>
-                    <h4>Course Fee <br><span class="span-class span_left">{{ $course->price }}</span></h4>
+                    <h4>Course Fee <br><span class="span-class span_left">${{ $course->price }}</span></h4>
                     <h4><i class="fa fa-calendar" aria-hidden="true"></i> Created Date <br><span class="span-class span_left">{{ date('d-F-Y', strtotime($course->class->class_date)) }}</span></h4>
                     <h4><i class="fa fa-clock-o" aria-hidden="true"></i> Created Time <br> <span class="span-class span_left">{{ $course->class->class_time }}</span>PM</h4>
                     <form action="{{url('student/add_cart')}}" method="post">

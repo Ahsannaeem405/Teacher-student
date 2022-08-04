@@ -75,6 +75,10 @@ Route::get('/login', function () {
     return view('auth.login');
 })->name('user-login');
 
+Route::get('/forgot/password', function (){
+   return view('auth.passwords.email');
+})->name('forgot-password');
+
 
 Route::get('/zoom', function () {
     return view('zoom');

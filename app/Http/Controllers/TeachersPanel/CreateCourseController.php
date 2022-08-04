@@ -178,10 +178,8 @@ class CreateCourseController extends Controller
      */
     public function update(Request $request, $id)
     {
-//        echo $id;
-//        dd($request->all());
         $this->validate($request, [
-            //'class_name' => 'required',
+            'class_name' => 'required',
             'course_price' => 'required|numeric',
             'course_name' => 'required|string|max:30',
         ]);
@@ -203,8 +201,6 @@ class CreateCourseController extends Controller
                 $data['course_time'] = $request->course_time;
             }
 
-            $vid[] = '';
-
             if($request->has('course_cover') && !empty($request->course_cover)){
                 $data['course_image'] = $this->compressImagePHP( $request, 'course_cover' );
             }
@@ -218,6 +214,7 @@ class CreateCourseController extends Controller
                 \Session::forget('names');
                 //$vid[] = $this->uploadVid($request, 'vid_1', $request->course_name);
             }
+
 //            if($request->has('vid_1') && !empty($request->vid_1)){
 //                $vid[] = $this->uploadVid($request, 'vid_1', $request->course_name);
 //            }
@@ -294,12 +291,17 @@ class CreateCourseController extends Controller
     }
 
     public function updateLecture(Request $request){
-        //dd($request->all());
         try{
-             $vid = '';
 
-            if($request->has('course_vid') && !empty($request->course_vid)){
-                $vid = $this->uploadVid($request, 'course_vid', $request->course_name);
+//            if($request->has('course_vid') && !empty($request->course_vid)){
+//                $vid = $this->uploadVid($request, 'course_vid', $request->course_name);
+//            }
+            if(\Session::has('names')){
+                foreach(\Session::get('names') as $name){
+                    $vid = $name;
+                }
+                \Session::forget('names');
+                //$vid[] = $this->uploadVid($request, 'vid_1', $request->course_name);
             }
 
             $data = [

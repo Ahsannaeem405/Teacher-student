@@ -41,24 +41,24 @@
             <div class="row ruslt_ser" style="margin-top: 10px;">
                 @if(count($classes) > 0)
                     @foreach($classes as $class)
-                    @php
-                        $imagePath = explode('.', !is_null($class->class->class_image) ? $class->class->class_image : 'do_not_delete.png');
-                    @endphp
+{{--                    @php--}}
+{{--                        $imagePath = !is_null($class->class->class_image) ? $class->class->class_image : 'do_not_delete.png';--}}
+{{--                    @endphp--}}
                     <div class="col-lg-4">
                         <div class="col-12">
                             <div class="card tdb-card">
                                 <div class="card-header" style="height: 224px;">
                                     @php
-                                        $imagePath = explode('.', !is_null($class->class->class_image) ? $class->class->class_image : 'do_not_delete.png');
+                                        $imagePath = !is_null($class->class->class_image) ? $class->class->class_image : 'do_not_delete.png';
                                     @endphp
-                                    <img src="{{asset('images')."/". $imagePath[0].".".$imagePath[1]}}"
+                                    <img src="{{asset('images')."/". $imagePath }}"
                                          class="img-fluid" alt="No Image" style=" width: 100%;height: 100%; object-fit: contain;">
                                 </div>
                                 <div class="card-body">
                                     <p style="margin-top: 15px; font-size: 16px; font-weight: bold;">
                                         <a href="{{ route('student.my-courses') }}"
                                            style="text-decoration: none; color: black">
-                                            {{$class->class->class_title}}
+                                            {{$class->class->class_name}}
                                         </a>
                                     </p>
 {{--                                    <h4><strong>{{ ucfirst($class->class_title) }} Class</strong></h4>--}}
@@ -105,6 +105,8 @@
                 });
             });
         });
+        // var a = $(".search-input").val();
+        // console.log(a);
     </script>
 @endsection
 

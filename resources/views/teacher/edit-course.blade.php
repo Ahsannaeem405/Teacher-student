@@ -137,16 +137,17 @@
 {{--                        </form>--}}
 {{--                    </div>--}}
 
-                    @foreach($videos as $video)
-                        <div class="col-lg-3 col-md-3 col-sm-5">
-                            <form action="{{ route('teacher.vids-upload') }}" method="post"
-                                  enctype="multipart/form-data" class="dropzone" id='vid_2'>
-                                <video width="170" height="140" controls>
-                                    <source src='{{asset("videos/".auth()->user()->id.'/'.$video->course_doc)}}' type="video/mp4">
+                    <div class="col-lg-12 col-md-12 col-sm-5">
+                        <form action="{{ route('teacher.vids-upload') }}" method="post"
+                              enctype="multipart/form-data" class="dropzone" id='vid_1'>
+                            @foreach($videos as $video)
+                                <video width="100" height="70" controls>
+                                    <source src='{{asset("/videos/".auth()->user()->id.'/'.$video->course_doc)}}' type="video/mp4">
                                 </video>
-                            </form>
-                        </div>
-                    @endforeach
+                            @endforeach
+                        </form>
+                    </div>
+
 
 {{--                    <div class="col-lg-3 col-md-3 col-sm-5 ">--}}
 {{--                        <form action="{{ route('teacher.vids-upload') }}" method="post"--}}
@@ -170,7 +171,7 @@
 
                 <div class="row" style="margin-bottom: 4%;">
                     <div class="col-lg-12">
-                        <h4><strong>Class Name</strong></h4>
+                        <h4><strong>Class Title</strong></h4>
                         <div class="col-lg-4">
                             <select class="form-control" name="class_name" id="class_name" required>
                                 <option value="" selected>Choose your own class</option>
@@ -236,6 +237,9 @@
 @section('JS')
     <script>
         $("#form_sub").click(function(){
+            var classs = $('#class_name').val();
+            $('#class_id').val(classs);
+
             var description = tinymce.get("description_course").getContent();
             $('#description').val(description);
             $('#my_form').submit();
@@ -247,28 +251,27 @@
             $("#file-name").text(this.files[0].name);
         });
 
-        $("#vid_1").change(function(){
-            $("#name_1").text(this.files[0].name);
-        });
-        $("#vid_2").change(function(){
-            $("#name_2").text(this.files[0].name);
-        });
-        $("#vid_3").change(function(){
-            $("#name_3").text(this.files[0].name);
-        });
-        $("#vid_4").change(function(){
-            $("#name_4").text(this.files[0].name);
-        });
+        // $("#vid_1").change(function(){
+        //     $("#name_1").text(this.files[0].name);
+        // });
+        // $("#vid_2").change(function(){
+        //     $("#name_2").text(this.files[0].name);
+        // });
+        // $("#vid_3").change(function(){
+        //     $("#name_3").text(this.files[0].name);
+        // });
+        // $("#vid_4").change(function(){
+        //     $("#name_4").text(this.files[0].name);
+        // });
 
-        $('#class_name').on('change', function (){
-            var classs = $('#class_name').val();
-            $('#class_id').val(classs);
-            console.log(classs);
-        });
+        // $('#class_name').on('change', function (){
+        //
+        //     console.log(classs);
+        // });
 
         var myDropzoneTheFirst = new Dropzone(
             '#vid_1', {
-                maxFilesize:1,
+                maxFilesize:20,
                 // acceptedFiles: ".jpeg,.jpg,.png,.gif",
                 success: function(file, response)
                 {
@@ -281,50 +284,50 @@
             }
         );
 
-        var myDropzoneTheSecond = new Dropzone(
-            '#vid_2', {
-                maxFilesize:1,
-                // acceptedFiles: ".jpeg,.jpg,.png,.gif",
-                success: function(file, response)
-                {
-                    console.log(response);
-                },
-                error: function(file, response)
-                {
-                    return false;
-                }
-            }
-        );
-
-        var myDropzoneTheThird = new Dropzone(
-            '#vid_3', {
-                maxFilesize:1,
-                // acceptedFiles: ".jpeg,.jpg,.png,.gif",
-                success: function(file, response)
-                {
-                    console.log(response);
-                },
-                error: function(file, response)
-                {
-                    return false;
-                }
-            }
-        );
-
-        var myDropzoneTheFour = new Dropzone(
-            '#vid_4', {
-                maxFilesize:1,
-                // acceptedFiles: ".jpeg,.jpg,.png,.gif",
-                success: function(file, response)
-                {
-                    console.log(response);
-                },
-                error: function(file, response)
-                {
-                    return false;
-                }
-            }
-        );
+        // var myDropzoneTheSecond = new Dropzone(
+        //     '#vid_2', {
+        //         maxFilesize:1,
+        //         // acceptedFiles: ".jpeg,.jpg,.png,.gif",
+        //         success: function(file, response)
+        //         {
+        //             console.log(response);
+        //         },
+        //         error: function(file, response)
+        //         {
+        //             return false;
+        //         }
+        //     }
+        // );
+        //
+        // var myDropzoneTheThird = new Dropzone(
+        //     '#vid_3', {
+        //         maxFilesize:1,
+        //         // acceptedFiles: ".jpeg,.jpg,.png,.gif",
+        //         success: function(file, response)
+        //         {
+        //             console.log(response);
+        //         },
+        //         error: function(file, response)
+        //         {
+        //             return false;
+        //         }
+        //     }
+        // );
+        //
+        // var myDropzoneTheFour = new Dropzone(
+        //     '#vid_4', {
+        //         maxFilesize:1,
+        //         // acceptedFiles: ".jpeg,.jpg,.png,.gif",
+        //         success: function(file, response)
+        //         {
+        //             console.log(response);
+        //         },
+        //         error: function(file, response)
+        //         {
+        //             return false;
+        //         }
+        //     }
+        // );
 
 
     </script>

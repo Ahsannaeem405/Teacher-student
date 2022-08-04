@@ -116,7 +116,7 @@
                         </div>
 
                         <div class="text-center forg_m" >
-                            <a href="#" style="color:black;font-size: 27px;">Forget Password?</a><br>
+                            <a href="{{ route('forgot-password') }}" style="color:black;font-size: 27px;">Forget Password?</a><br>
                             <button type="submit" class="btn btn-default sub_btn" >Sign in</button>
                         </div>
                     </form>

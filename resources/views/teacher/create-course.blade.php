@@ -131,24 +131,6 @@
                               enctype="multipart/form-data" class="dropzone" id='vid_1'>
                         </form>
                     </div>
-
-{{--                    <div class="col-lg-3 col-md-3 col-sm-5">--}}
-{{--                        <form action="{{ route('teacher.vids-upload') }}" method="post"--}}
-{{--                              enctype="multipart/form-data" class="dropzone" id='vid_2'>--}}
-{{--                        </form>--}}
-{{--                    </div>--}}
-
-{{--                    <div class="col-lg-3 col-md-3 col-sm-5 ">--}}
-{{--                        <form action="{{ route('teacher.vids-upload') }}" method="post"--}}
-{{--                              enctype="multipart/form-data" class="dropzone" id='vid_3'>--}}
-{{--                        </form>--}}
-{{--                    </div>--}}
-
-{{--                    <div class="col-lg-3 col-md-3 col-sm-5 ">--}}
-{{--                        <form action="{{ route('teacher.vids-upload') }}" method="post"--}}
-{{--                              enctype="multipart/form-data" class="dropzone" id='vid_4'>--}}
-{{--                        </form>--}}
-{{--                    </div>--}}
                 </div>
             </div>
 

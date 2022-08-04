@@ -10,7 +10,13 @@ class CourseLecture extends Model
     use HasFactory;
 
     protected $table = 'course_lectures';
-    
+    protected $fillable = [
+      'course_id',
+      'course_doc',
+      'class_title',
+      'course_type'
+    ];
+
     protected $guarded = [];
 
 
@@ -46,6 +52,7 @@ class CourseLecture extends Model
         foreach ($vid as $video){
             $lec = $this->where('course_id', $course_id)
             ->update([
+                'course_id' => $course_id,
                 'course_doc' => $video
             ]);
         }
